@@ -1,0 +1,10 @@
+# lyasc_model/environment_delta.yml
+# Documents ONLY the additions on top of base_model/environment.yml.
+# The lyasc-experiments conda env is cloned from lyasc-base (which has
+# all base_model deps) with the following package added:
+name: lyasc-experiments
+channels:
+  - defaults
+dependencies:
+  - pip:
+      - mlflow  # experiment tracking -- see Section 6 of LyASC_Architecture_Research_Plan.docx

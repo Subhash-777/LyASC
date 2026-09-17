@@ -1,0 +1,48 @@
+# LyASC Section 7 Ablation 1 — G() = LayerNorm2d
+# Tests whether adding LayerNorm to the LyASC blend output (G(x) = LayerNorm2d(x))
+# closes the accuracy gap to 2rSkip+LN (6.15%) and wSkip+LN (8.16%).
+
+dataset: cifar10
+data_dir: ../../base_model/data/cifar10/cifar-10-batches-py
+model: preact_resnet110
+num_seeds: 1
+seeds: [0]
+
+optimizer:
+  type: sgd
+  momentum: 0.9
+  weight_decay: 0.0002
+  nesterov: false
+
+lr_schedule:
+  initial_lr: 0.1
+  milestones_iters: [32000, 48000]
+  total_iters: 64000
+  gamma: 0.1
+
+batch_size: 128
+augmentation:
+  pad: 4
+  crop_size: 32
+  random_flip: true
+
+# LyASC-specific hyperparameters with LayerNorm enabled (Ablation 1)
+lyasc:
+  k: 1
+  N: 20
+  ema_decay: 0.9
+  lambda0: 0.0
+  cold_start_strategy: none
+  beta_lr_multiplier: 1.0
+  use_layer_norm: true
+  enable_mlflow: true
+
+variants:
+  - name: "LyASC+LN"
+    equation: "LN(alpha_l * x + (1-alpha_l) * F(x))"
+    G: layer_norm
+    lambda: 1
+    paper_error: null
+    note: "LyASC with Section 7 Ablation 1: G() = LayerNorm2d"
+
+acceptance_tolerance_abs_points: 0.4
