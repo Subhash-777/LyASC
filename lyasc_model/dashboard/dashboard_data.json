@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-17T14:52:36.908479+00:00",
+    "generated_at": "2026-09-17T20:49:26.182776+00:00",
     "generator": "export_dashboard_data.py",
     "project": "LyASC \u2014 Lyapunov-Adaptive Skip Connections",
     "note": "Auto-generated. Re-run before presentation for latest data."
@@ -2648,10 +2648,19 @@
             {
               "variant": "LyASC_stress_3.0",
               "seed": 0,
-              "final_test_error": null,
-              "current_iter": 12000,
+              "final_test_error": 27.900000000000002,
               "total_iters": 64000,
-              "status": "in_progress",
+              "wall_clock_hours": 7.32,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.6429793477334358,
+                "alpha_std": 0.25785066826885045,
+                "alpha_min": 0.09293074905872345,
+                "alpha_max": 0.9996044039726257,
+                "beta_mean": -0.8570282115014615,
+                "beta_std": 1.857264499357291,
+                "lambda_mean": -0.1330460061284679,
+                "lambda_std": 1.2413083053673166
+              },
               "training_curve": [
                 {
                   "iter": 1000,
@@ -2684,20 +2693,26 @@
                   "alpha_max": 0.8285
                 },
                 {
-                  "iter": 12000,
-                  "loss": 2.0999,
-                  "train_acc": 19.99,
-                  "grad_norm": 0.499,
-                  "alpha_mean": 0.5066,
-                  "alpha_std": 0.1011,
-                  "alpha_min": 0.1628,
-                  "alpha_max": 0.8035
+                  "iter": 15000,
+                  "loss": 2.0785,
+                  "train_acc": 22.32,
+                  "grad_norm": 0.606,
+                  "alpha_mean": 0.5451,
+                  "alpha_std": 0.1383,
+                  "alpha_min": 0.1994,
+                  "alpha_max": 0.908
                 }
               ]
             }
           ],
-          "aggregate": null,
-          "status": "in_progress"
+          "aggregate": {
+            "mean": 27.9,
+            "std": 0,
+            "n_seeds_complete": 1,
+            "n_seeds_in_progress": 0,
+            "n_seeds_total": 3
+          },
+          "status": "partial"
         }
       }
     }
