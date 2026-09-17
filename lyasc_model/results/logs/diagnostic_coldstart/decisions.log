@@ -1,0 +1,108 @@
+DECISION: train_skip_if_exists
+VALUE:     skip_check_enabled
+RATIONALE: Added directly in train_one_run. Previously, train.py lacked any native check for whether a result JSON already existed, meaning any relaunch blindly overwrote completed results. This skip-logic safely bypasses the run if the JSON artifact is already present.
+------------------------------------------------------------------------
+DECISION: shortcut_policy
+VALUE:     option_A_zero_pad
+RATIONALE: He et al. (2016b) CIFAR experiments use Option A (identity with zero-padding for extra channels, avg-pool for stride). Option B (1x1 projection) adds ~3.3K params per transition block. Option A keeps the network parameter-light and is the published reference. The base paper does not override this.
+------------------------------------------------------------------------
+DECISION: lambda_at_downsampling_blocks
+VALUE:     applied_uniformly
+RATIONALE: Lambda-scaling and G normalisation apply to all blocks including stage-transition (downsampling) blocks. The base paper describes the skip variant as a per-block rule without any exception for downsampling blocks. Treating them differently would require an undocumented special case.
+------------------------------------------------------------------------
+DECISION: weight_decay_scope
+VALUE:     exclude_BN_LN_affine_and_bias
+RATIONALE: BN/LN affine parameters (weight, bias) and all bias terms are excluded from weight decay. This is standard PyTorch practice; neither the base paper nor He et al. (2016b) state the scope explicitly. Excluding is the most common published convention.
+------------------------------------------------------------------------
+DECISION: weight_decay_scope_w_parameter
+VALUE:     excluded
+RATIONALE: LearnableVectorSkip.w (wSkip+LN's per-channel skip gate) has shape (C,1,1) — 3-D — so it was NOT caught by the ndim<=1 exclusion check and was being weight-decayed like a regular conv weight. Discovered after wSkip+LN reproduced at 66-73% test error across all 3 seeds (vs. paper's 8.66%), with erratic non-uniform per-channel w values and grad_norm spiking to >1000 early in training — inconsistent with the paper's reported uniform small-norm collapse (~0.24 avg). w is conceptually a gain parameter (like LN's weight), not a transformation matrix, so it is now excluded from weight decay by name match on '.w'.
+------------------------------------------------------------------------
+DECISION: w_gate_learning_rate
+VALUE:     multiplier=0.1
+RATIONALE: weight_decay_scope_w_parameter (excluding w from weight decay) did NOT resolve wSkip+LN's grad_norm~1100 spike (1132 before -> 1105 after, essentially unchanged), ruling out weight decay as the cause. w's gradient sums (upstream_grad * raw_x) over all spatial positions and batch samples per channel; unlike LN's own affine gradient (summed against a zero-mean normalized value, which cancels), raw x has no such guarantee, plausibly explaining the structurally oversized gradient. A reduced LR for w's optimizer param group is applied as the standard mitigation for gate/mixing parameters with this property, analogous to conservative gate-LR treatment in highway networks. A w-only vs. rest-of-model grad_norm diagnostic split is logged every 1000 iterations to verify this directly.
+------------------------------------------------------------------------
+DECISION: w_value_trajectory
+VALUE:     logged_every_1000_iters
+RATIONALE: Both prior wSkip+LN fixes (weight_decay_scope_w_parameter, w_gate_learning_rate) are ruled out: a diagnostic split showed w_grad_norm=69 vs. other_grad_norm=1103 at iter 1000 (w's own gradient is not the dominant source), and a control run of 1xSkip+LN (structurally identical at init, w=1 uniformly, but with NO learnable w at all) showed the SAME iter-1000 grad_norm spike yet recovered cleanly by iter 2000 and converged normally. This proves the initial spike is a universal, self-healing LayerNorm cold-start transient, not wSkip+LN's terminal problem. The remaining open question is what happens to w's VALUES (not gradients) during/after that window that 1xSkip+LN cannot experience, having no per-channel/per-block learnable asymmetry. w's global mean/std/min/max/mean_abs (see _w_value_stats) is now logged every 1000 iterations to identify the exact point and pattern of any divergence directly from the training log.
+------------------------------------------------------------------------
+DECISION: layernorm_axis
+VALUE:     channel_wise_per_position
+RATIONALE: LN is implemented as LayerNorm2d: normalises across the channel dimension independently at each (H, W) spatial position, matching the Transformer / Ba et al. (2016) convention the base paper cites (each spatial position is a 'token', channels are its 'features'). A prior nn.LayerNorm([C, H, W]) implementation pooled the entire spatial extent into one statistic per sample instead — a much more aggressive, different normalisation than the paper describes, and a plausible cause of mid-training instability observed on 2xSkip+LN (13.31% reproduced vs. paper's 6.29%, with an accuracy dip across iters ~8000-32000 under sustained high initial LR).
+------------------------------------------------------------------------
+DECISION: gradient_clipping
+VALUE:     max_norm=5.0
+RATIONALE: Added post-hoc, not specified by the base paper. LN-augmented and lambda-scaled skip variants (e.g. 2xSkip+LN, 2rSkip+LN) were observed to train cleanly then collapse permanently to loss=ln(num_classes) partway through the unclipped lr=0.1 phase, before the first scheduled LR drop at iter 32000, with no NaNs present — the standard signature of an unclipped gradient spike. Global L2-norm clipping via torch.nn.utils.clip_grad_norm_ is applied every step between loss.backward() and optimizer.step() to guard against this. 1xSkip (no LN, no lambda-scaling) trained correctly even without clipping, consistent with the affected variants having a larger/more sensitive gradient path, not with generic training instability.
+------------------------------------------------------------------------
+DECISION: train_skip_if_exists
+VALUE:     skip_check_enabled
+RATIONALE: Added directly in train_one_run. Previously, train.py lacked any native check for whether a result JSON already existed, meaning any relaunch blindly overwrote completed results. This skip-logic safely bypasses the run if the JSON artifact is already present.
+------------------------------------------------------------------------
+DECISION: shortcut_policy
+VALUE:     option_A_zero_pad
+RATIONALE: He et al. (2016b) CIFAR experiments use Option A (identity with zero-padding for extra channels, avg-pool for stride). Option B (1x1 projection) adds ~3.3K params per transition block. Option A keeps the network parameter-light and is the published reference. The base paper does not override this.
+------------------------------------------------------------------------
+DECISION: lambda_at_downsampling_blocks
+VALUE:     applied_uniformly
+RATIONALE: Lambda-scaling and G normalisation apply to all blocks including stage-transition (downsampling) blocks. The base paper describes the skip variant as a per-block rule without any exception for downsampling blocks. Treating them differently would require an undocumented special case.
+------------------------------------------------------------------------
+DECISION: weight_decay_scope
+VALUE:     exclude_BN_LN_affine_and_bias
+RATIONALE: BN/LN affine parameters (weight, bias) and all bias terms are excluded from weight decay. This is standard PyTorch practice; neither the base paper nor He et al. (2016b) state the scope explicitly. Excluding is the most common published convention.
+------------------------------------------------------------------------
+DECISION: weight_decay_scope_w_parameter
+VALUE:     excluded
+RATIONALE: LearnableVectorSkip.w (wSkip+LN's per-channel skip gate) has shape (C,1,1) — 3-D — so it was NOT caught by the ndim<=1 exclusion check and was being weight-decayed like a regular conv weight. Discovered after wSkip+LN reproduced at 66-73% test error across all 3 seeds (vs. paper's 8.66%), with erratic non-uniform per-channel w values and grad_norm spiking to >1000 early in training — inconsistent with the paper's reported uniform small-norm collapse (~0.24 avg). w is conceptually a gain parameter (like LN's weight), not a transformation matrix, so it is now excluded from weight decay by name match on '.w'.
+------------------------------------------------------------------------
+DECISION: w_gate_learning_rate
+VALUE:     multiplier=0.1
+RATIONALE: weight_decay_scope_w_parameter (excluding w from weight decay) did NOT resolve wSkip+LN's grad_norm~1100 spike (1132 before -> 1105 after, essentially unchanged), ruling out weight decay as the cause. w's gradient sums (upstream_grad * raw_x) over all spatial positions and batch samples per channel; unlike LN's own affine gradient (summed against a zero-mean normalized value, which cancels), raw x has no such guarantee, plausibly explaining the structurally oversized gradient. A reduced LR for w's optimizer param group is applied as the standard mitigation for gate/mixing parameters with this property, analogous to conservative gate-LR treatment in highway networks. A w-only vs. rest-of-model grad_norm diagnostic split is logged every 1000 iterations to verify this directly.
+------------------------------------------------------------------------
+DECISION: w_value_trajectory
+VALUE:     logged_every_1000_iters
+RATIONALE: Both prior wSkip+LN fixes (weight_decay_scope_w_parameter, w_gate_learning_rate) are ruled out: a diagnostic split showed w_grad_norm=69 vs. other_grad_norm=1103 at iter 1000 (w's own gradient is not the dominant source), and a control run of 1xSkip+LN (structurally identical at init, w=1 uniformly, but with NO learnable w at all) showed the SAME iter-1000 grad_norm spike yet recovered cleanly by iter 2000 and converged normally. This proves the initial spike is a universal, self-healing LayerNorm cold-start transient, not wSkip+LN's terminal problem. The remaining open question is what happens to w's VALUES (not gradients) during/after that window that 1xSkip+LN cannot experience, having no per-channel/per-block learnable asymmetry. w's global mean/std/min/max/mean_abs (see _w_value_stats) is now logged every 1000 iterations to identify the exact point and pattern of any divergence directly from the training log.
+------------------------------------------------------------------------
+DECISION: layernorm_axis
+VALUE:     channel_wise_per_position
+RATIONALE: LN is implemented as LayerNorm2d: normalises across the channel dimension independently at each (H, W) spatial position, matching the Transformer / Ba et al. (2016) convention the base paper cites (each spatial position is a 'token', channels are its 'features'). A prior nn.LayerNorm([C, H, W]) implementation pooled the entire spatial extent into one statistic per sample instead — a much more aggressive, different normalisation than the paper describes, and a plausible cause of mid-training instability observed on 2xSkip+LN (13.31% reproduced vs. paper's 6.29%, with an accuracy dip across iters ~8000-32000 under sustained high initial LR).
+------------------------------------------------------------------------
+DECISION: gradient_clipping
+VALUE:     max_norm=5.0
+RATIONALE: Added post-hoc, not specified by the base paper. LN-augmented and lambda-scaled skip variants (e.g. 2xSkip+LN, 2rSkip+LN) were observed to train cleanly then collapse permanently to loss=ln(num_classes) partway through the unclipped lr=0.1 phase, before the first scheduled LR drop at iter 32000, with no NaNs present — the standard signature of an unclipped gradient spike. Global L2-norm clipping via torch.nn.utils.clip_grad_norm_ is applied every step between loss.backward() and optimizer.step() to guard against this. 1xSkip (no LN, no lambda-scaling) trained correctly even without clipping, consistent with the affected variants having a larger/more sensitive gradient path, not with generic training instability.
+------------------------------------------------------------------------
+DECISION: train_skip_if_exists
+VALUE:     skip_check_enabled
+RATIONALE: Added directly in train_one_run. Previously, train.py lacked any native check for whether a result JSON already existed, meaning any relaunch blindly overwrote completed results. This skip-logic safely bypasses the run if the JSON artifact is already present.
+------------------------------------------------------------------------
+DECISION: shortcut_policy
+VALUE:     option_A_zero_pad
+RATIONALE: He et al. (2016b) CIFAR experiments use Option A (identity with zero-padding for extra channels, avg-pool for stride). Option B (1x1 projection) adds ~3.3K params per transition block. Option A keeps the network parameter-light and is the published reference. The base paper does not override this.
+------------------------------------------------------------------------
+DECISION: lambda_at_downsampling_blocks
+VALUE:     applied_uniformly
+RATIONALE: Lambda-scaling and G normalisation apply to all blocks including stage-transition (downsampling) blocks. The base paper describes the skip variant as a per-block rule without any exception for downsampling blocks. Treating them differently would require an undocumented special case.
+------------------------------------------------------------------------
+DECISION: weight_decay_scope
+VALUE:     exclude_BN_LN_affine_and_bias
+RATIONALE: BN/LN affine parameters (weight, bias) and all bias terms are excluded from weight decay. This is standard PyTorch practice; neither the base paper nor He et al. (2016b) state the scope explicitly. Excluding is the most common published convention.
+------------------------------------------------------------------------
+DECISION: weight_decay_scope_w_parameter
+VALUE:     excluded
+RATIONALE: LearnableVectorSkip.w (wSkip+LN's per-channel skip gate) has shape (C,1,1) — 3-D — so it was NOT caught by the ndim<=1 exclusion check and was being weight-decayed like a regular conv weight. Discovered after wSkip+LN reproduced at 66-73% test error across all 3 seeds (vs. paper's 8.66%), with erratic non-uniform per-channel w values and grad_norm spiking to >1000 early in training — inconsistent with the paper's reported uniform small-norm collapse (~0.24 avg). w is conceptually a gain parameter (like LN's weight), not a transformation matrix, so it is now excluded from weight decay by name match on '.w'.
+------------------------------------------------------------------------
+DECISION: w_gate_learning_rate
+VALUE:     multiplier=0.1
+RATIONALE: weight_decay_scope_w_parameter (excluding w from weight decay) did NOT resolve wSkip+LN's grad_norm~1100 spike (1132 before -> 1105 after, essentially unchanged), ruling out weight decay as the cause. w's gradient sums (upstream_grad * raw_x) over all spatial positions and batch samples per channel; unlike LN's own affine gradient (summed against a zero-mean normalized value, which cancels), raw x has no such guarantee, plausibly explaining the structurally oversized gradient. A reduced LR for w's optimizer param group is applied as the standard mitigation for gate/mixing parameters with this property, analogous to conservative gate-LR treatment in highway networks. A w-only vs. rest-of-model grad_norm diagnostic split is logged every 1000 iterations to verify this directly.
+------------------------------------------------------------------------
+DECISION: w_value_trajectory
+VALUE:     logged_every_1000_iters
+RATIONALE: Both prior wSkip+LN fixes (weight_decay_scope_w_parameter, w_gate_learning_rate) are ruled out: a diagnostic split showed w_grad_norm=69 vs. other_grad_norm=1103 at iter 1000 (w's own gradient is not the dominant source), and a control run of 1xSkip+LN (structurally identical at init, w=1 uniformly, but with NO learnable w at all) showed the SAME iter-1000 grad_norm spike yet recovered cleanly by iter 2000 and converged normally. This proves the initial spike is a universal, self-healing LayerNorm cold-start transient, not wSkip+LN's terminal problem. The remaining open question is what happens to w's VALUES (not gradients) during/after that window that 1xSkip+LN cannot experience, having no per-channel/per-block learnable asymmetry. w's global mean/std/min/max/mean_abs (see _w_value_stats) is now logged every 1000 iterations to identify the exact point and pattern of any divergence directly from the training log.
+------------------------------------------------------------------------
+DECISION: layernorm_axis
+VALUE:     channel_wise_per_position
+RATIONALE: LN is implemented as LayerNorm2d: normalises across the channel dimension independently at each (H, W) spatial position, matching the Transformer / Ba et al. (2016) convention the base paper cites (each spatial position is a 'token', channels are its 'features'). A prior nn.LayerNorm([C, H, W]) implementation pooled the entire spatial extent into one statistic per sample instead — a much more aggressive, different normalisation than the paper describes, and a plausible cause of mid-training instability observed on 2xSkip+LN (13.31% reproduced vs. paper's 6.29%, with an accuracy dip across iters ~8000-32000 under sustained high initial LR).
+------------------------------------------------------------------------
+DECISION: gradient_clipping
+VALUE:     max_norm=5.0
+RATIONALE: Added post-hoc, not specified by the base paper. LN-augmented and lambda-scaled skip variants (e.g. 2xSkip+LN, 2rSkip+LN) were observed to train cleanly then collapse permanently to loss=ln(num_classes) partway through the unclipped lr=0.1 phase, before the first scheduled LR drop at iter 32000, with no NaNs present — the standard signature of an unclipped gradient spike. Global L2-norm clipping via torch.nn.utils.clip_grad_norm_ is applied every step between loss.backward() and optimizer.step() to guard against this. 1xSkip (no LN, no lambda-scaling) trained correctly even without clipping, consistent with the affected variants having a larger/more sensitive gradient path, not with generic training instability.
+------------------------------------------------------------------------

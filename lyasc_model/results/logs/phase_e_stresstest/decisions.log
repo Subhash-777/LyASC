@@ -1,0 +1,24 @@
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------

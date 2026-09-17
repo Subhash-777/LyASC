@@ -1,0 +1,10 @@
+{
+  "config_name": "diagnostic_coldstart",
+  "variant_name": "LyASC+LN_warmup",
+  "depth": 110,
+  "seed": 0,
+  "final_test_error": 38.81,
+  "total_iters": 1000,
+  "grad_clip_max_norm": 5.0,
+  "w_norm_info": {}
+}

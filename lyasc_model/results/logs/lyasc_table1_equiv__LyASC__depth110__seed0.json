@@ -1,0 +1,27 @@
+{
+  "config_name": "lyasc_table1_equiv",
+  "variant_name": "LyASC",
+  "depth": 110,
+  "seed": 0,
+  "final_test_error": 10.209999999999997,
+  "total_iters": 64000,
+  "wall_clock_seconds": 16624.60894370079,
+  "grad_clip_max_norm": 5.0,
+  "lyasc_diagnostics": {
+    "alpha_mean": 0.5981728269743379,
+    "alpha_std": 0.2960638383837258,
+    "alpha_min": 0.0003501086903270334,
+    "alpha_max": 1.0,
+    "beta_mean": -0.6836327260222148,
+    "beta_std": 1.2419742946248238,
+    "lambda_mean": -1.287342289445439,
+    "lambda_std": 5.507553194422089
+  },
+  "lyasc_config": {
+    "k": 1,
+    "N": 20,
+    "ema_decay": 0.9,
+    "lambda0": 0.0,
+    "cold_start": "none"
+  }
+}

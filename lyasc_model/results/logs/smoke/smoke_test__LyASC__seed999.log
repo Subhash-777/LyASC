@@ -1,0 +1,14 @@
+2026-08-31 23:47:42,119 INFO === Starting training: config=smoke_test  variant=LyASC  depth=110  seed=999 ===
+2026-08-31 23:47:42,119 INFO Device: cuda
+2026-08-31 23:47:43,101 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-08-31 23:47:43,143 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]
+2026-08-31 23:48:12,236 INFO === Starting training: config=smoke_test  variant=LyASC  depth=110  seed=999 ===
+2026-08-31 23:48:12,338 INFO Device: cuda
+2026-08-31 23:48:13,009 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-08-31 23:48:13,060 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]
+2026-08-31 23:51:29,196 INFO iter=  1000  epoch=2.6  lr=0.01000  loss=2.0604  train_acc=21.12%  grad_norm=3489.841 (clipped 46/1000 steps)  elapsed=196s  [beta_grad_norm=181.329  other_grad_norm=3484.034]
+2026-08-31 23:51:29,199 INFO          alpha: mean=0.5218  std=0.0774  min=0.1606  max=0.6224  |  beta: mean=0.2100  std=0.3720  |  lambda: mean=0.4994  std=0.5062
+2026-08-31 23:51:33,305 INFO >> EVAL  iter=1000  epoch=2.6  test_error=78.25%
+2026-08-31 23:53:16,752 INFO >> EVAL  iter=1500  epoch=3.8  test_error=77.74%
+2026-08-31 23:54:56,936 INFO iter=  2000  epoch=5.1  lr=0.00100  loss=1.6649  train_acc=36.65%  grad_norm=0.776  elapsed=404s  [beta_grad_norm=0.051  other_grad_norm=0.774]
+2026-08-31 23:54:56,939 INFO          alpha: mean=0.5099  std=0.0706  min=0.1608  max=0.6265  |  beta: mean=0.2089  std=0.3739  |  lambda: mean=0.4039  std=0.4990

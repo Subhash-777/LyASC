@@ -1,0 +1,28 @@
+{
+  "config_name": "lyasc_phase_e_stresstest",
+  "variant_name": "LyASC_stress_2.0",
+  "depth": 110,
+  "seed": 99,
+  "final_test_error": 75.82,
+  "total_iters": 2000,
+  "wall_clock_seconds": 995.8052740097046,
+  "grad_clip_max_norm": 5.0,
+  "lyasc_diagnostics": {
+    "alpha_mean": 0.5161501933579091,
+    "alpha_std": 0.11825219819129917,
+    "alpha_min": 0.17135415971279144,
+    "alpha_max": 0.9999741315841675,
+    "beta_mean": -0.0606953882357899,
+    "beta_std": 0.7958742515311108,
+    "lambda_mean": 0.4397651828411553,
+    "lambda_std": 0.8913000633395793
+  },
+  "lyasc_config": {
+    "k": 1,
+    "N": 20,
+    "ema_decay": 0.9,
+    "lambda0": 0.0,
+    "cold_start": "none",
+    "use_layer_norm": true
+  }
+}

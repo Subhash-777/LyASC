@@ -1,0 +1,26 @@
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: ablation_1_g_norm_layernorm2d_check
+VALUE:     LyASC_plus_LN_achieves_7.22_pct_test_error_selected_as_Phase_D_starting_config
+RATIONALE: Section 7 Ablation 1 single-seed evaluation (LyASC+LN, G()=LayerNorm2d, depth 110, seed 0, 64k iters): achieves 7.22% test error (-2.99pp improvement vs un-normalized LyASC Seed 0 at 10.21%, and -2.44pp vs Phase C mean 9.66%). LyASC+LN comfortably beats the learnable gate baseline wSkip+LN (8.16%) by -0.94pp and narrows the gap to 2rSkip+LN (6.15%) to +1.07pp (down from +4.06pp). Diagnostic stats: alpha_mean=0.6810, alpha_std=0.2013 (down from 0.2961), beta_mean=-0.7683, lambda_mean=-1.4582, lambda_std=6.49 (vs 5.51 un-normalized). NOTE ON LAMBDA_STD: The potential explanation that LayerNorm prevents activation saturation and allows local Jacobians to maintain wider dynamic range across non-saturated feature dimensions is strictly an UNTESTED HYPOTHESIS, as no activation distribution or Jacobian conditioning statistics were directly measured. What is empirically established is that adding G()=LayerNorm2d reduces test error from 10.21% to 7.22% and reduces alpha_std from 0.2961 to 0.2013. LyASC+LN (G()=LayerNorm2d) is selected as the starting configuration for Phase D.
+------------------------------------------------------------------------
+DECISION: lyasc_ln_wall_clock_timing_audit
+VALUE:     wall_clock_38315s_measures_iterations_8000_to_64000_post_resume
+RATIONALE: Audit of LyASC+LN Seed 0 wall-clock time: Log review confirmed Task 1580 completed iterations 0 to 8000 (~5473s) before server restart, saving resume__lyasc_ablation_ln__LyASCplusLN__depth110__seed0.pt. Task 1596 resumed at iter 8000 and ran iterations 8000 to 64000 (56,000 iterations), recording wall_clock_seconds = 38315.50s (0.6842 s/iter). True cumulative wall-clock time for LyASC+LN across both sessions (iters 0-64000) is ~43,789s (~12.16 hours). Overhead analysis: per-iter time increases from 0.2598 s/iter (un-normalized LyASC) to 0.6842 s/iter (LyASC+LN) due to 54 LayerNorm2d permute/norm ops in forward and backward passes.
+------------------------------------------------------------------------
+DECISION: phase_d_baseline_provisional_selection
+VALUE:     LyASC_plus_LN_provisionally_adopted_for_Phase_D_pending_3_seed_confirmation
+RATIONALE: Adoption of LyASC+LN (G()=LayerNorm2d) as the starting baseline configuration for Phase D cold-start ablations is PROVISIONAL, based on single-seed evidence (7.22% test error on Seed 0, -2.99pp vs un-normalized LyASC Seed 0 at 10.21%). This baseline choice is subject to explicit confirmation by Phase D's own 3-seed evaluation runs.
+DECISION: phase_d_compute_option_selection
+VALUE:     phased_2_seeds_first_launch_selected_5_runs_60.8h_total
+RATIONALE: User selected Option 2 (Phased 2-Seeds-First Launch) for Section 7 Phase D cold-start strategy ablations. Execution matrix comprises 5 runs of 64,000 iterations each: LyASC+LN_none (Seed 1, control), LyASC+LN_warmup (Seeds 0, 1), and LyASC+LN_damped (Seeds 0, 1). Total estimated compute time is ~60.8 hours. Evaluated against tolerance: a 3rd seed will be launched only if strategy test error differences are <= 0.4pp.
+DECISION: phase_d_coldstart_strategy_ablation_complete
+VALUE:     cold_start_warmup_and_damped_achieve_6.385_pct_mean_test_error_equivalence_confirmed
+RATIONALE: Phase D 2-seed matrix complete across cold-start strategies (G()=LayerNorm2d, depth 110, 64k iters): 'none' mean test error = 6.785% (Seed 0: 7.22%, Seed 1: 6.35%), 'warmup' mean test error = 6.385% (Seed 0: 6.42%, Seed 1: 6.35%), 'damped' mean test error = 6.385% (Seed 0: 6.42%, Seed 1: 6.35%). Strategy differences (|6.785% - 6.385%| = 0.40pp) satisfy the pre-registered tolerance of <= 0.40pp. 'warmup' and 'damped' provide a -0.40pp accuracy boost over un-gated 'none', narrowing the gap to 2rSkip+LN (6.15%) to +0.235pp and outperforming wSkip+LN (8.16%) by -1.775pp. No 3rd seed is required under the pre-registered phased launch protocol.
+------------------------------------------------------------------------

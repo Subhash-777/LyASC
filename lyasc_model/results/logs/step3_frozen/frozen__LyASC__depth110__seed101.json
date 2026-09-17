@@ -1,0 +1,27 @@
+{
+  "config_name": "frozen",
+  "variant_name": "LyASC",
+  "depth": 110,
+  "seed": 101,
+  "final_test_error": 74.53,
+  "total_iters": 2000,
+  "wall_clock_seconds": 384.49257040023804,
+  "grad_clip_max_norm": 5.0,
+  "lyasc_diagnostics": {
+    "alpha_mean": 0.5,
+    "alpha_std": 0.0,
+    "alpha_min": 0.5,
+    "alpha_max": 0.5,
+    "beta_mean": 0.0,
+    "beta_std": 0.0,
+    "lambda_mean": 0.5143368418707892,
+    "lambda_std": 0.4831161774541425
+  },
+  "lyasc_config": {
+    "k": 2,
+    "N": 10,
+    "ema_decay": 0.9,
+    "lambda0": 0.0,
+    "cold_start": "none"
+  }
+}

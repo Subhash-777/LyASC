@@ -1,0 +1,176 @@
+2026-09-08 14:42:43,627 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=0 ===
+2026-09-08 14:42:43,671 INFO Device: cuda
+2026-09-08 14:42:44,366 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-08 14:42:44,429 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]
+2026-09-08 14:46:05,246 INFO iter=  1000  epoch=2.6  lr=0.10000  loss=2.1959  train_acc=16.99%  grad_norm=1958.793 (clipped 51/1000 steps)  elapsed=201s  [beta_grad_norm=109.803  other_grad_norm=1954.571]
+2026-09-08 14:46:05,251 INFO          alpha: mean=0.5261  std=0.1073  min=0.2810  max=0.7261  |  beta: mean=0.2176  std=0.5416  |  lambda: mean=0.7910  std=0.5566
+2026-09-08 14:49:07,707 INFO iter=  2000  epoch=5.1  lr=0.10000  loss=1.8598  train_acc=29.55%  grad_norm=0.603  elapsed=383s  [beta_grad_norm=0.035  other_grad_norm=0.602]
+2026-09-08 14:49:07,710 INFO          alpha: mean=0.5357  std=0.1131  min=0.2261  max=0.7829  |  beta: mean=0.3753  std=0.6604  |  lambda: mean=0.4641  std=0.5044
+2026-09-08 14:52:15,819 INFO iter=  3000  epoch=7.7  lr=0.10000  loss=1.6589  train_acc=37.74%  grad_norm=0.714  elapsed=571s  [beta_grad_norm=0.028  other_grad_norm=0.714]
+2026-09-08 14:52:15,822 INFO          alpha: mean=0.5369  std=0.1222  min=0.1640  max=0.8526  |  beta: mean=0.4310  std=0.7628  |  lambda: mean=0.3195  std=0.5080
+2026-09-08 14:55:25,555 INFO iter=  4000  epoch=10.2  lr=0.10000  loss=1.5030  train_acc=44.12%  grad_norm=0.855  elapsed=761s  [beta_grad_norm=0.032  other_grad_norm=0.854]
+2026-09-08 14:55:25,558 INFO          alpha: mean=0.5409  std=0.1337  min=0.0677  max=0.9027  |  beta: mean=0.4917  std=0.9601  |  lambda: mean=0.2428  std=0.5329
+2026-09-08 14:58:36,113 INFO iter=  5000  epoch=12.8  lr=0.10000  loss=1.2589  train_acc=54.27%  grad_norm=0.980  elapsed=952s  [beta_grad_norm=0.037  other_grad_norm=0.979]
+2026-09-08 14:58:36,117 INFO          alpha: mean=0.5530  std=0.1697  min=0.0381  max=0.9627  |  beta: mean=0.4410  std=1.1373  |  lambda: mean=0.2789  std=0.6875
+2026-09-08 15:01:46,456 INFO iter=  6000  epoch=15.4  lr=0.10000  loss=1.0546  train_acc=62.29%  grad_norm=1.011  elapsed=1142s  [beta_grad_norm=0.047  other_grad_norm=1.010]
+2026-09-08 15:01:46,459 INFO          alpha: mean=0.5508  std=0.1964  min=0.0217  max=0.9658  |  beta: mean=0.3268  std=1.2415  |  lambda: mean=0.2615  std=0.8120
+2026-09-08 15:04:56,366 INFO iter=  7000  epoch=17.9  lr=0.10000  loss=0.9182  train_acc=68.05%  grad_norm=1.006  elapsed=1332s  [beta_grad_norm=0.052  other_grad_norm=1.005]
+2026-09-08 15:04:56,369 INFO          alpha: mean=0.5718  std=0.2135  min=0.0344  max=0.9591  |  beta: mean=0.2626  std=1.3399  |  lambda: mean=0.2651  std=0.8546
+2026-09-08 15:08:52,356 INFO iter=  8000  epoch=20.5  lr=0.10000  loss=0.8199  train_acc=71.51%  grad_norm=1.005  elapsed=1568s  [beta_grad_norm=0.058  other_grad_norm=1.003]
+2026-09-08 15:08:52,363 INFO          alpha: mean=0.5927  std=0.2265  min=0.0171  max=0.9779  |  beta: mean=0.2125  std=1.4270  |  lambda: mean=0.3774  std=0.9413
+2026-09-08 15:13:11,236 INFO iter=  9000  epoch=23.0  lr=0.10000  loss=0.7515  train_acc=74.19%  grad_norm=1.011  elapsed=1827s  [beta_grad_norm=0.064  other_grad_norm=1.009]
+2026-09-08 15:13:11,243 INFO          alpha: mean=0.5854  std=0.2287  min=0.0198  max=0.9831  |  beta: mean=0.1669  std=1.5102  |  lambda: mean=0.3307  std=0.9865
+2026-09-08 15:17:46,327 INFO iter= 10000  epoch=25.6  lr=0.10000  loss=0.6989  train_acc=76.12%  grad_norm=1.013  elapsed=2102s  [beta_grad_norm=0.065  other_grad_norm=1.011]
+2026-09-08 15:17:46,335 INFO          alpha: mean=0.5873  std=0.2433  min=0.0135  max=0.9860  |  beta: mean=0.1251  std=1.5507  |  lambda: mean=0.2402  std=1.0682
+2026-09-08 15:22:49,664 INFO iter= 11000  epoch=28.2  lr=0.10000  loss=0.6564  train_acc=77.63%  grad_norm=1.019  elapsed=2405s  [beta_grad_norm=0.065  other_grad_norm=1.016]
+2026-09-08 15:22:49,676 INFO          alpha: mean=0.5601  std=0.2548  min=0.0137  max=0.9850  |  beta: mean=0.0508  std=1.5817  |  lambda: mean=0.1682  std=1.1064
+2026-09-08 15:29:17,563 INFO iter= 12000  epoch=30.7  lr=0.10000  loss=0.6324  train_acc=78.43%  grad_norm=1.026  elapsed=2793s  [beta_grad_norm=0.065  other_grad_norm=1.023]
+2026-09-08 15:29:17,585 INFO          alpha: mean=0.5934  std=0.2582  min=0.0107  max=0.9979  |  beta: mean=-0.0031  std=1.5769  |  lambda: mean=0.3675  std=1.1082
+2026-09-08 19:32:56,599 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=0 ===
+2026-09-08 19:32:56,644 INFO Device: cuda
+2026-09-08 19:33:22,558 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=0 ===
+2026-09-08 19:33:22,600 INFO Device: cuda
+2026-09-08 19:33:23,281 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-08 19:33:23,328 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]
+2026-09-08 19:37:27,355 INFO iter=  1000  epoch=2.6  lr=0.10000  loss=2.1959  train_acc=16.99%  grad_norm=1958.793 (clipped 51/1000 steps)  elapsed=244s  [beta_grad_norm=109.803  other_grad_norm=1954.571]
+2026-09-08 19:37:27,358 INFO          alpha: mean=0.5261  std=0.1073  min=0.2810  max=0.7261  |  beta: mean=0.2176  std=0.5416  |  lambda: mean=0.7910  std=0.5566
+2026-09-08 19:41:43,852 INFO iter=  2000  epoch=5.1  lr=0.10000  loss=1.8598  train_acc=29.55%  grad_norm=0.603  elapsed=501s  [beta_grad_norm=0.035  other_grad_norm=0.602]
+2026-09-08 19:41:43,855 INFO          alpha: mean=0.5357  std=0.1131  min=0.2261  max=0.7829  |  beta: mean=0.3753  std=0.6604  |  lambda: mean=0.4641  std=0.5044
+2026-09-08 19:46:04,986 INFO iter=  3000  epoch=7.7  lr=0.10000  loss=1.6589  train_acc=37.74%  grad_norm=0.714  elapsed=762s  [beta_grad_norm=0.028  other_grad_norm=0.714]
+2026-09-08 19:46:04,989 INFO          alpha: mean=0.5369  std=0.1222  min=0.1640  max=0.8526  |  beta: mean=0.4310  std=0.7628  |  lambda: mean=0.3195  std=0.5080
+2026-09-08 19:50:25,080 INFO iter=  4000  epoch=10.2  lr=0.10000  loss=1.5030  train_acc=44.12%  grad_norm=0.855  elapsed=1022s  [beta_grad_norm=0.032  other_grad_norm=0.854]
+2026-09-08 19:50:25,083 INFO          alpha: mean=0.5409  std=0.1337  min=0.0677  max=0.9027  |  beta: mean=0.4917  std=0.9601  |  lambda: mean=0.2428  std=0.5329
+2026-09-08 19:54:40,273 INFO iter=  5000  epoch=12.8  lr=0.10000  loss=1.2589  train_acc=54.27%  grad_norm=0.980  elapsed=1277s  [beta_grad_norm=0.037  other_grad_norm=0.979]
+2026-09-08 19:54:40,276 INFO          alpha: mean=0.5530  std=0.1697  min=0.0381  max=0.9627  |  beta: mean=0.4410  std=1.1373  |  lambda: mean=0.2789  std=0.6875
+2026-09-08 19:58:53,798 INFO iter=  6000  epoch=15.4  lr=0.10000  loss=1.0546  train_acc=62.29%  grad_norm=1.011  elapsed=1530s  [beta_grad_norm=0.047  other_grad_norm=1.010]
+2026-09-08 19:58:53,801 INFO          alpha: mean=0.5508  std=0.1964  min=0.0217  max=0.9658  |  beta: mean=0.3268  std=1.2415  |  lambda: mean=0.2615  std=0.8120
+2026-09-08 20:03:06,276 INFO iter=  7000  epoch=17.9  lr=0.10000  loss=0.9182  train_acc=68.05%  grad_norm=1.006  elapsed=1783s  [beta_grad_norm=0.052  other_grad_norm=1.005]
+2026-09-08 20:03:06,279 INFO          alpha: mean=0.5718  std=0.2135  min=0.0344  max=0.9591  |  beta: mean=0.2626  std=1.3399  |  lambda: mean=0.2651  std=0.8546
+2026-09-08 20:07:18,956 INFO iter=  8000  epoch=20.5  lr=0.10000  loss=0.8199  train_acc=71.51%  grad_norm=1.005  elapsed=2036s  [beta_grad_norm=0.058  other_grad_norm=1.003]
+2026-09-08 20:07:18,959 INFO          alpha: mean=0.5927  std=0.2265  min=0.0171  max=0.9779  |  beta: mean=0.2125  std=1.4270  |  lambda: mean=0.3774  std=0.9413
+2026-09-08 20:11:32,049 INFO iter=  9000  epoch=23.0  lr=0.10000  loss=0.7515  train_acc=74.19%  grad_norm=1.011  elapsed=2289s  [beta_grad_norm=0.064  other_grad_norm=1.009]
+2026-09-08 20:11:32,052 INFO          alpha: mean=0.5854  std=0.2287  min=0.0198  max=0.9831  |  beta: mean=0.1669  std=1.5102  |  lambda: mean=0.3307  std=0.9865
+2026-09-08 20:15:45,022 INFO iter= 10000  epoch=25.6  lr=0.10000  loss=0.6989  train_acc=76.12%  grad_norm=1.013  elapsed=2542s  [beta_grad_norm=0.065  other_grad_norm=1.011]
+2026-09-08 20:15:45,025 INFO          alpha: mean=0.5873  std=0.2433  min=0.0135  max=0.9860  |  beta: mean=0.1251  std=1.5507  |  lambda: mean=0.2402  std=1.0682
+2026-09-08 20:19:57,436 INFO iter= 11000  epoch=28.2  lr=0.10000  loss=0.6564  train_acc=77.63%  grad_norm=1.019  elapsed=2794s  [beta_grad_norm=0.065  other_grad_norm=1.016]
+2026-09-08 20:19:57,439 INFO          alpha: mean=0.5601  std=0.2548  min=0.0137  max=0.9850  |  beta: mean=0.0508  std=1.5817  |  lambda: mean=0.1682  std=1.1064
+2026-09-08 20:24:10,206 INFO iter= 12000  epoch=30.7  lr=0.10000  loss=0.6324  train_acc=78.43%  grad_norm=1.026  elapsed=3047s  [beta_grad_norm=0.065  other_grad_norm=1.023]
+2026-09-08 20:24:10,209 INFO          alpha: mean=0.5934  std=0.2582  min=0.0107  max=0.9979  |  beta: mean=-0.0031  std=1.5769  |  lambda: mean=0.3675  std=1.1082
+2026-09-08 20:28:23,512 INFO iter= 13000  epoch=33.3  lr=0.10000  loss=0.5952  train_acc=79.70%  grad_norm=1.014  elapsed=3300s  [beta_grad_norm=0.063  other_grad_norm=1.012]
+2026-09-08 20:28:23,515 INFO          alpha: mean=0.5605  std=0.2730  min=0.0026  max=0.9979  |  beta: mean=-0.0682  std=1.5811  |  lambda: mean=0.2657  std=1.2435
+2026-09-08 20:32:35,042 INFO iter= 14000  epoch=35.8  lr=0.10000  loss=0.5755  train_acc=80.48%  grad_norm=1.027  elapsed=3552s  [beta_grad_norm=0.066  other_grad_norm=1.024]
+2026-09-08 20:32:35,045 INFO          alpha: mean=0.5801  std=0.2713  min=0.0035  max=0.9990  |  beta: mean=-0.1000  std=1.5666  |  lambda: mean=0.2396  std=1.2476
+2026-09-08 20:36:48,715 INFO iter= 15000  epoch=38.4  lr=0.10000  loss=0.5576  train_acc=81.10%  grad_norm=1.022  elapsed=3805s  [beta_grad_norm=0.064  other_grad_norm=1.020]
+2026-09-08 20:36:48,718 INFO          alpha: mean=0.5925  std=0.2678  min=0.0091  max=0.9988  |  beta: mean=-0.1399  std=1.5483  |  lambda: mean=0.2811  std=1.2184
+2026-09-08 20:41:02,896 INFO iter= 16000  epoch=41.0  lr=0.10000  loss=0.5460  train_acc=81.47%  grad_norm=1.032  elapsed=4060s  [beta_grad_norm=0.065  other_grad_norm=1.030]
+2026-09-08 20:41:02,899 INFO          alpha: mean=0.6004  std=0.2701  min=0.0042  max=0.9996  |  beta: mean=-0.1722  std=1.5306  |  lambda: mean=0.3225  std=1.3006
+2026-09-08 20:45:14,382 INFO iter= 17000  epoch=43.5  lr=0.10000  loss=0.5266  train_acc=82.07%  grad_norm=1.026  elapsed=4311s  [beta_grad_norm=0.062  other_grad_norm=1.024]
+2026-09-08 20:45:14,385 INFO          alpha: mean=0.5954  std=0.2681  min=0.0063  max=0.9982  |  beta: mean=-0.1873  std=1.5420  |  lambda: mean=0.2280  std=1.2506
+2026-09-08 20:49:25,564 INFO iter= 18000  epoch=46.1  lr=0.10000  loss=0.5146  train_acc=82.44%  grad_norm=1.028  elapsed=4562s  [beta_grad_norm=0.062  other_grad_norm=1.026]
+2026-09-08 20:49:25,567 INFO          alpha: mean=0.5970  std=0.2769  min=0.0069  max=0.9986  |  beta: mean=-0.2242  std=1.5358  |  lambda: mean=0.1546  std=1.2890
+2026-09-08 20:53:38,280 INFO iter= 19000  epoch=48.6  lr=0.10000  loss=0.5040  train_acc=83.03%  grad_norm=1.029  elapsed=4815s  [beta_grad_norm=0.065  other_grad_norm=1.027]
+2026-09-08 20:53:38,283 INFO          alpha: mean=0.6078  std=0.2688  min=0.0083  max=0.9991  |  beta: mean=-0.2302  std=1.5278  |  lambda: mean=0.2296  std=1.2846
+2026-09-08 20:57:52,124 INFO iter= 20000  epoch=51.2  lr=0.10000  loss=0.4949  train_acc=83.22%  grad_norm=1.039  elapsed=5069s  [beta_grad_norm=0.068  other_grad_norm=1.037]
+2026-09-08 20:57:52,127 INFO          alpha: mean=0.6088  std=0.2697  min=0.0085  max=0.9989  |  beta: mean=-0.2342  std=1.5187  |  lambda: mean=0.2026  std=1.2938
+2026-09-08 21:02:07,002 INFO iter= 21000  epoch=53.8  lr=0.10000  loss=0.4847  train_acc=83.56%  grad_norm=1.039  elapsed=5324s  [beta_grad_norm=0.065  other_grad_norm=1.037]
+2026-09-08 21:02:07,005 INFO          alpha: mean=0.5938  std=0.2850  min=0.0061  max=0.9996  |  beta: mean=-0.2898  std=1.5173  |  lambda: mean=0.0136  std=1.3681
+2026-09-08 21:06:22,307 INFO iter= 22000  epoch=56.3  lr=0.10000  loss=0.4757  train_acc=83.95%  grad_norm=1.036  elapsed=5579s  [beta_grad_norm=0.064  other_grad_norm=1.033]
+2026-09-08 21:06:22,310 INFO          alpha: mean=0.5841  std=0.2822  min=0.0082  max=0.9997  |  beta: mean=-0.3242  std=1.5152  |  lambda: mean=-0.0295  std=1.3686
+2026-09-08 21:10:35,417 INFO iter= 23000  epoch=58.9  lr=0.10000  loss=0.4703  train_acc=84.07%  grad_norm=1.040  elapsed=5832s  [beta_grad_norm=0.065  other_grad_norm=1.038]
+2026-09-08 21:10:35,420 INFO          alpha: mean=0.6105  std=0.2714  min=0.0168  max=0.9996  |  beta: mean=-0.3538  std=1.5560  |  lambda: mean=0.0097  std=1.2551
+2026-09-08 21:14:50,165 INFO iter= 24000  epoch=61.4  lr=0.10000  loss=0.4596  train_acc=84.34%  grad_norm=1.038  elapsed=6087s  [beta_grad_norm=0.063  other_grad_norm=1.036]
+2026-09-08 21:14:50,168 INFO          alpha: mean=0.6153  std=0.2713  min=0.0085  max=0.9998  |  beta: mean=-0.3992  std=1.5759  |  lambda: mean=0.0267  std=1.3255
+2026-09-08 21:18:04,418 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=0 ===
+2026-09-08 21:18:04,443 INFO Device: cuda
+2026-09-08 21:18:06,413 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-08 21:18:07,880 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]
+2026-09-08 21:19:35,930 INFO iter= 25000  epoch=64.0  lr=0.10000  loss=0.4500  train_acc=84.84%  grad_norm=1.036  elapsed=6373s  [beta_grad_norm=0.063  other_grad_norm=1.034]
+2026-09-08 21:19:35,936 INFO          alpha: mean=0.6057  std=0.2856  min=0.0102  max=0.9999  |  beta: mean=-0.4173  std=1.5839  |  lambda: mean=-0.0701  std=1.4206
+2026-09-08 21:20:45,778 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=0 ===
+2026-09-08 21:20:45,881 INFO Device: cuda
+2026-09-08 21:20:48,430 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-08 21:20:49,173 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]
+2026-09-08 21:27:15,662 INFO iter= 26000  epoch=66.6  lr=0.10000  loss=0.4455  train_acc=84.93%  grad_norm=1.041  elapsed=6832s  [beta_grad_norm=0.062  other_grad_norm=1.039]
+2026-09-08 21:27:15,793 INFO          alpha: mean=0.6064  std=0.2921  min=0.0043  max=0.9999  |  beta: mean=-0.4549  std=1.5568  |  lambda: mean=-0.0361  std=1.5368
+2026-09-08 21:32:43,497 INFO iter= 27000  epoch=69.1  lr=0.10000  loss=0.4443  train_acc=84.95%  grad_norm=1.042  elapsed=7160s  [beta_grad_norm=0.065  other_grad_norm=1.040]
+2026-09-08 21:32:43,500 INFO          alpha: mean=0.6079  std=0.2864  min=0.0011  max=1.0000  |  beta: mean=-0.4949  std=1.5478  |  lambda: mean=-0.0792  std=1.5857
+2026-09-08 21:37:05,739 INFO iter= 28000  epoch=71.7  lr=0.10000  loss=0.4392  train_acc=85.12%  grad_norm=1.048  elapsed=7422s  [beta_grad_norm=0.063  other_grad_norm=1.046]
+2026-09-08 21:37:05,742 INFO          alpha: mean=0.6126  std=0.2880  min=0.0018  max=1.0000  |  beta: mean=-0.4766  std=1.5661  |  lambda: mean=-0.1542  std=1.5766
+2026-09-08 21:41:23,937 INFO iter= 29000  epoch=74.2  lr=0.10000  loss=0.4325  train_acc=85.30%  grad_norm=1.053  elapsed=7681s  [beta_grad_norm=0.066  other_grad_norm=1.051]
+2026-09-08 21:41:23,940 INFO          alpha: mean=0.6065  std=0.2945  min=0.0018  max=1.0000  |  beta: mean=-0.5059  std=1.5757  |  lambda: mean=-0.1783  std=1.6282
+2026-09-08 21:45:44,490 INFO iter= 30000  epoch=76.8  lr=0.10000  loss=0.4270  train_acc=85.50%  grad_norm=1.062 (clipped 1/1000 steps)  elapsed=7941s  [beta_grad_norm=0.066  other_grad_norm=1.060]
+2026-09-08 21:45:44,493 INFO          alpha: mean=0.6155  std=0.2956  min=0.0032  max=1.0000  |  beta: mean=-0.6653  std=1.4143  |  lambda: mean=-1.1757  std=5.2320
+2026-09-08 21:50:02,515 INFO iter= 31000  epoch=79.4  lr=0.10000  loss=0.4248  train_acc=85.48%  grad_norm=1.045  elapsed=8199s  [beta_grad_norm=0.066  other_grad_norm=1.043]
+2026-09-08 21:50:02,518 INFO          alpha: mean=0.6146  std=0.3059  min=0.0013  max=1.0000  |  beta: mean=-0.6991  std=1.3794  |  lambda: mean=-1.4232  std=5.4355
+2026-09-08 21:54:19,477 INFO iter= 32000  epoch=81.9  lr=0.01000  loss=0.4232  train_acc=85.65%  grad_norm=1.042  elapsed=8456s  [beta_grad_norm=0.064  other_grad_norm=1.040]
+2026-09-08 21:54:19,479 INFO          alpha: mean=0.6127  std=0.2989  min=0.0027  max=1.0000  |  beta: mean=-0.7193  std=1.3750  |  lambda: mean=-1.3597  std=5.4336
+2026-09-08 21:54:25,378 INFO >> EVAL  iter=32000  epoch=81.9  test_error=19.21%
+2026-09-08 21:58:39,282 INFO iter= 33000  epoch=84.5  lr=0.01000  loss=0.2677  train_acc=90.89%  grad_norm=0.890  elapsed=8716s  [beta_grad_norm=0.053  other_grad_norm=0.888]
+2026-09-08 21:58:39,285 INFO          alpha: mean=0.6134  std=0.2962  min=0.0038  max=1.0000  |  beta: mean=-0.7101  std=1.3727  |  lambda: mean=-1.3942  std=5.4134
+2026-09-08 22:02:54,421 INFO iter= 34000  epoch=87.0  lr=0.01000  loss=0.2248  train_acc=92.36%  grad_norm=0.954  elapsed=8971s  [beta_grad_norm=0.055  other_grad_norm=0.952]
+2026-09-08 22:02:54,424 INFO          alpha: mean=0.6057  std=0.2989  min=0.0018  max=1.0000  |  beta: mean=-0.7037  std=1.3710  |  lambda: mean=-1.3143  std=5.4409
+2026-09-08 22:07:15,146 INFO iter= 35000  epoch=89.6  lr=0.01000  loss=0.2051  train_acc=92.97%  grad_norm=1.117 (clipped 1/1000 steps)  elapsed=9232s  [beta_grad_norm=0.059  other_grad_norm=1.115]
+2026-09-08 22:07:15,149 INFO          alpha: mean=0.6017  std=0.3013  min=0.0004  max=1.0000  |  beta: mean=-0.7098  std=1.3523  |  lambda: mean=-1.2264  std=5.4861
+2026-09-08 22:11:33,155 INFO iter= 36000  epoch=92.2  lr=0.01000  loss=0.1969  train_acc=93.20%  grad_norm=1.728 (clipped 6/1000 steps)  elapsed=9490s  [beta_grad_norm=0.080  other_grad_norm=1.725]
+2026-09-08 22:11:33,158 INFO          alpha: mean=0.6017  std=0.3119  min=0.0000  max=1.0000  |  beta: mean=-0.7280  std=1.2855  |  lambda: mean=-1.1239  std=5.5994
+2026-09-08 22:15:50,814 INFO iter= 37000  epoch=94.7  lr=0.01000  loss=0.1816  train_acc=93.68%  grad_norm=1.153  elapsed=9747s  [beta_grad_norm=0.065  other_grad_norm=1.151]
+2026-09-08 22:15:50,817 INFO          alpha: mean=0.6106  std=0.3071  min=0.0001  max=1.0000  |  beta: mean=-0.7247  std=1.2733  |  lambda: mean=-1.1578  std=5.5460
+2026-09-08 22:20:06,953 INFO iter= 38000  epoch=97.3  lr=0.01000  loss=0.1721  train_acc=94.06%  grad_norm=1.237  elapsed=10004s  [beta_grad_norm=0.067  other_grad_norm=1.235]
+2026-09-08 22:20:06,956 INFO          alpha: mean=0.6056  std=0.3057  min=0.0001  max=1.0000  |  beta: mean=-0.7236  std=1.2596  |  lambda: mean=-1.1280  std=5.5665
+2026-09-08 22:24:24,562 INFO iter= 39000  epoch=99.8  lr=0.01000  loss=0.1663  train_acc=94.25%  grad_norm=1.312 (clipped 1/1000 steps)  elapsed=10261s  [beta_grad_norm=0.070  other_grad_norm=1.310]
+2026-09-08 22:24:24,565 INFO          alpha: mean=0.6091  std=0.3039  min=0.0001  max=1.0000  |  beta: mean=-0.7207  std=1.2577  |  lambda: mean=-1.1994  std=5.5452
+2026-09-08 22:28:45,144 INFO iter= 40000  epoch=102.4  lr=0.01000  loss=0.1581  train_acc=94.57%  grad_norm=1.361  elapsed=10522s  [beta_grad_norm=0.071  other_grad_norm=1.359]
+2026-09-08 22:28:45,147 INFO          alpha: mean=0.6043  std=0.3025  min=0.0002  max=1.0000  |  beta: mean=-0.7187  std=1.2552  |  lambda: mean=-1.1698  std=5.5316
+2026-09-08 22:33:03,703 INFO iter= 41000  epoch=105.0  lr=0.01000  loss=0.1530  train_acc=94.70%  grad_norm=1.425  elapsed=10780s  [beta_grad_norm=0.073  other_grad_norm=1.423]
+2026-09-08 22:33:03,706 INFO          alpha: mean=0.6065  std=0.3006  min=0.0002  max=1.0000  |  beta: mean=-0.7116  std=1.2580  |  lambda: mean=-1.2752  std=5.5195
+2026-09-08 22:37:24,665 INFO iter= 42000  epoch=107.5  lr=0.01000  loss=0.1467  train_acc=94.96%  grad_norm=1.472  elapsed=11041s  [beta_grad_norm=0.075  other_grad_norm=1.469]
+2026-09-08 22:37:24,668 INFO          alpha: mean=0.6063  std=0.3036  min=0.0001  max=1.0000  |  beta: mean=-0.7105  std=1.2505  |  lambda: mean=-1.2191  std=5.5409
+2026-09-08 22:41:49,422 INFO iter= 43000  epoch=110.1  lr=0.01000  loss=0.1465  train_acc=94.90%  grad_norm=1.531  elapsed=11306s  [beta_grad_norm=0.077  other_grad_norm=1.529]
+2026-09-08 22:41:49,425 INFO          alpha: mean=0.6041  std=0.3024  min=0.0003  max=1.0000  |  beta: mean=-0.7081  std=1.2426  |  lambda: mean=-1.1010  std=5.5327
+2026-09-08 22:46:07,535 INFO iter= 44000  epoch=112.6  lr=0.01000  loss=0.1390  train_acc=95.21%  grad_norm=1.563  elapsed=11564s  [beta_grad_norm=0.078  other_grad_norm=1.561]
+2026-09-08 22:46:07,537 INFO          alpha: mean=0.6087  std=0.3029  min=0.0004  max=1.0000  |  beta: mean=-0.7073  std=1.2324  |  lambda: mean=-1.2317  std=5.5195
+2026-09-08 22:50:18,887 INFO iter= 45000  epoch=115.2  lr=0.01000  loss=0.1364  train_acc=95.26%  grad_norm=1.618  elapsed=11816s  [beta_grad_norm=0.080  other_grad_norm=1.616]
+2026-09-08 22:50:18,890 INFO          alpha: mean=0.6052  std=0.2983  min=0.0004  max=1.0000  |  beta: mean=-0.7055  std=1.2265  |  lambda: mean=-1.2282  std=5.5062
+2026-09-08 22:54:31,064 INFO iter= 46000  epoch=117.8  lr=0.01000  loss=0.1319  train_acc=95.30%  grad_norm=1.686  elapsed=12068s  [beta_grad_norm=0.081  other_grad_norm=1.684]
+2026-09-08 22:54:31,067 INFO          alpha: mean=0.6021  std=0.2979  min=0.0007  max=1.0000  |  beta: mean=-0.7024  std=1.2327  |  lambda: mean=-1.2178  std=5.4991
+2026-09-08 22:58:44,814 INFO iter= 47000  epoch=120.3  lr=0.01000  loss=0.1300  train_acc=95.43%  grad_norm=1.743  elapsed=12321s  [beta_grad_norm=0.083  other_grad_norm=1.741]
+2026-09-08 22:58:44,817 INFO          alpha: mean=0.6043  std=0.2966  min=0.0007  max=1.0000  |  beta: mean=-0.6953  std=1.2439  |  lambda: mean=-1.2828  std=5.4894
+2026-09-08 23:02:57,713 INFO iter= 48000  epoch=122.9  lr=0.00100  loss=0.1348  train_acc=95.25%  grad_norm=1.803  elapsed=12574s  [beta_grad_norm=0.082  other_grad_norm=1.801]
+2026-09-08 23:02:57,715 INFO          alpha: mean=0.6066  std=0.2968  min=0.0007  max=1.0000  |  beta: mean=-0.6954  std=1.2540  |  lambda: mean=-1.3321  std=5.4802
+2026-09-08 23:03:03,520 INFO >> EVAL  iter=48000  epoch=122.9  test_error=13.32%
+2026-09-08 23:07:21,057 INFO iter= 49000  epoch=125.4  lr=0.00100  loss=0.0951  train_acc=96.82%  grad_norm=1.505  elapsed=12838s  [beta_grad_norm=0.068  other_grad_norm=1.503]
+2026-09-08 23:07:21,060 INFO          alpha: mean=0.6017  std=0.2992  min=0.0004  max=1.0000  |  beta: mean=-0.6939  std=1.2534  |  lambda: mean=-1.2934  std=5.5010
+2026-09-08 23:11:39,206 INFO iter= 50000  epoch=128.0  lr=0.00100  loss=0.0813  train_acc=97.26%  grad_norm=1.561  elapsed=13096s  [beta_grad_norm=0.067  other_grad_norm=1.559]
+2026-09-08 23:11:39,209 INFO          alpha: mean=0.5968  std=0.2961  min=0.0009  max=1.0000  |  beta: mean=-0.6957  std=1.2530  |  lambda: mean=-1.2258  std=5.4861
+2026-09-08 23:15:55,478 INFO iter= 51000  epoch=130.6  lr=0.00100  loss=0.0743  train_acc=97.51%  grad_norm=1.496  elapsed=13352s  [beta_grad_norm=0.066  other_grad_norm=1.495]
+2026-09-08 23:15:55,481 INFO          alpha: mean=0.5967  std=0.2956  min=0.0008  max=1.0000  |  beta: mean=-0.6933  std=1.2520  |  lambda: mean=-1.2879  std=5.4800
+2026-09-08 23:20:09,344 INFO iter= 52000  epoch=133.1  lr=0.00100  loss=0.0714  train_acc=97.64%  grad_norm=1.514  elapsed=13606s  [beta_grad_norm=0.068  other_grad_norm=1.512]
+2026-09-08 23:20:09,347 INFO          alpha: mean=0.6024  std=0.2959  min=0.0006  max=1.0000  |  beta: mean=-0.6933  std=1.2501  |  lambda: mean=-1.3372  std=5.4800
+2026-09-08 23:24:19,951 INFO iter= 53000  epoch=135.7  lr=0.00100  loss=0.0672  train_acc=97.77%  grad_norm=1.547  elapsed=13857s  [beta_grad_norm=0.069  other_grad_norm=1.546]
+2026-09-08 23:24:19,953 INFO          alpha: mean=0.5993  std=0.3006  min=0.0005  max=1.0000  |  beta: mean=-0.6927  std=1.2495  |  lambda: mean=-1.3293  std=5.5076
+2026-09-08 23:28:29,126 INFO iter= 54000  epoch=138.2  lr=0.00100  loss=0.0642  train_acc=97.86%  grad_norm=1.574  elapsed=14106s  [beta_grad_norm=0.069  other_grad_norm=1.573]
+2026-09-08 23:28:29,129 INFO          alpha: mean=0.5979  std=0.2963  min=0.0007  max=1.0000  |  beta: mean=-0.6918  std=1.2504  |  lambda: mean=-1.2095  std=5.4946
+2026-09-08 23:32:40,123 INFO iter= 55000  epoch=140.8  lr=0.00100  loss=0.0622  train_acc=97.92%  grad_norm=1.614  elapsed=14357s  [beta_grad_norm=0.068  other_grad_norm=1.613]
+2026-09-08 23:32:40,126 INFO          alpha: mean=0.5944  std=0.2997  min=0.0005  max=1.0000  |  beta: mean=-0.6906  std=1.2502  |  lambda: mean=-1.2387  std=5.5095
+2026-09-08 23:36:53,883 INFO iter= 56000  epoch=143.4  lr=0.00100  loss=0.0618  train_acc=97.95%  grad_norm=1.580  elapsed=14611s  [beta_grad_norm=0.070  other_grad_norm=1.579]
+2026-09-08 23:36:53,886 INFO          alpha: mean=0.5976  std=0.2992  min=0.0004  max=1.0000  |  beta: mean=-0.6887  std=1.2482  |  lambda: mean=-1.2515  std=5.5170
+2026-09-08 23:41:08,161 INFO iter= 57000  epoch=145.9  lr=0.00100  loss=0.0582  train_acc=98.10%  grad_norm=1.633  elapsed=14865s  [beta_grad_norm=0.072  other_grad_norm=1.631]
+2026-09-08 23:41:08,164 INFO          alpha: mean=0.5941  std=0.2956  min=0.0010  max=1.0000  |  beta: mean=-0.6900  std=1.2476  |  lambda: mean=-1.2746  std=5.4804
+2026-09-08 23:45:23,255 INFO iter= 58000  epoch=148.5  lr=0.00100  loss=0.0576  train_acc=98.10%  grad_norm=1.661  elapsed=15120s  [beta_grad_norm=0.072  other_grad_norm=1.659]
+2026-09-08 23:45:23,258 INFO          alpha: mean=0.5930  std=0.2988  min=0.0004  max=1.0000  |  beta: mean=-0.6900  std=1.2461  |  lambda: mean=-1.2244  std=5.5156
+2026-09-08 23:49:37,226 INFO iter= 59000  epoch=151.0  lr=0.00100  loss=0.0551  train_acc=98.16%  grad_norm=1.655  elapsed=15374s  [beta_grad_norm=0.072  other_grad_norm=1.653]
+2026-09-08 23:49:37,228 INFO          alpha: mean=0.5944  std=0.2971  min=0.0006  max=1.0000  |  beta: mean=-0.6895  std=1.2454  |  lambda: mean=-1.1920  std=5.5028
+2026-09-08 23:53:44,381 INFO iter= 60000  epoch=153.6  lr=0.00100  loss=0.0537  train_acc=98.21%  grad_norm=1.690  elapsed=15621s  [beta_grad_norm=0.072  other_grad_norm=1.689]
+2026-09-08 23:53:44,384 INFO          alpha: mean=0.5972  std=0.2964  min=0.0006  max=1.0000  |  beta: mean=-0.6885  std=1.2450  |  lambda: mean=-1.3098  std=5.4914
+2026-09-08 23:57:51,065 INFO iter= 61000  epoch=156.2  lr=0.00100  loss=0.0526  train_acc=98.24%  grad_norm=1.673  elapsed=15868s  [beta_grad_norm=0.073  other_grad_norm=1.672]
+2026-09-08 23:57:51,068 INFO          alpha: mean=0.6021  std=0.2987  min=0.0003  max=1.0000  |  beta: mean=-0.6869  std=1.2438  |  lambda: mean=-1.2761  std=5.5110
+2026-09-09 00:01:58,947 INFO iter= 62000  epoch=158.7  lr=0.00100  loss=0.0497  train_acc=98.37%  grad_norm=1.615  elapsed=16116s  [beta_grad_norm=0.069  other_grad_norm=1.613]
+2026-09-09 00:01:58,949 INFO          alpha: mean=0.5987  std=0.2963  min=0.0006  max=1.0000  |  beta: mean=-0.6853  std=1.2438  |  lambda: mean=-1.2790  std=5.4895
+2026-09-09 00:06:07,511 INFO iter= 63000  epoch=161.3  lr=0.00100  loss=0.0501  train_acc=98.33%  grad_norm=1.680  elapsed=16364s  [beta_grad_norm=0.071  other_grad_norm=1.678]
+2026-09-09 00:06:07,513 INFO          alpha: mean=0.5980  std=0.2973  min=0.0004  max=1.0000  |  beta: mean=-0.6846  std=1.2425  |  lambda: mean=-1.2594  std=5.5055
+2026-09-09 00:10:16,646 INFO iter= 64000  epoch=163.8  lr=0.00100  loss=0.0466  train_acc=98.45%  grad_norm=1.670  elapsed=16613s  [beta_grad_norm=0.071  other_grad_norm=1.668]
+2026-09-09 00:10:16,649 INFO          alpha: mean=0.5982  std=0.2961  min=0.0004  max=1.0000  |  beta: mean=-0.6836  std=1.2420  |  lambda: mean=-1.2873  std=5.5076
+2026-09-09 00:10:22,293 INFO >> EVAL  iter=64000  epoch=163.8  test_error=10.21%
+2026-09-09 00:10:27,937 INFO === DONE  config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=0 final_test_error=10.21%  time=16625s ===
+2026-09-09 00:10:27,994 INFO Checkpoint saved: results/checkpoints/lyasc_table1_equiv__LyASC__depth110__seed0.pt
+2026-09-09 00:10:27,998 INFO Result JSON: results/logs/lyasc_table1_equiv__LyASC__depth110__seed0.json

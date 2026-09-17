@@ -1,0 +1,20 @@
+2026-09-01 17:58:37,638 INFO === Starting training: config=frozen  variant=LyASC  depth=110  seed=101 ===
+2026-09-01 17:58:37,681 INFO Device: cuda
+2026-09-01 17:58:38,268 INFO Step 3 mode: beta_l parameters are FROZEN at 0 (requires_grad=False).
+2026-09-01 17:58:38,269 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-01 17:58:38,318 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]
+2026-09-01 17:59:17,904 INFO === Starting training: config=frozen  variant=LyASC  depth=110  seed=101 ===
+2026-09-01 17:59:17,949 INFO Device: cuda
+2026-09-01 17:59:18,608 INFO Step 3 mode: beta_l parameters are FROZEN at 0 (requires_grad=False).
+2026-09-01 17:59:18,609 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-01 17:59:18,657 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]
+2026-09-01 18:02:15,853 INFO iter=  1000  epoch=2.6  lr=0.01000  loss=2.2880  train_acc=13.46%  grad_norm=2157.681 (clipped 50/1000 steps)  elapsed=177s
+2026-09-01 18:02:15,856 INFO          alpha: mean=0.5000  std=0.0000  min=0.5000  max=0.5000  |  beta: mean=0.0000  std=0.0000  |  lambda: mean=0.9737  std=0.5846
+2026-09-01 18:02:19,940 INFO >> EVAL  iter=1000  epoch=2.6  test_error=80.23%
+2026-09-01 18:03:58,610 INFO >> EVAL  iter=1500  epoch=3.8  test_error=74.95%
+2026-09-01 18:05:34,990 INFO iter=  2000  epoch=5.1  lr=0.00100  loss=1.9980  train_acc=24.17%  grad_norm=0.888 (clipped 7/1000 steps)  elapsed=376s
+2026-09-01 18:05:34,993 INFO          alpha: mean=0.5000  std=0.0000  min=0.5000  max=0.5000  |  beta: mean=0.0000  std=0.0000  |  lambda: mean=0.5143  std=0.4831
+2026-09-01 18:05:39,071 INFO >> EVAL  iter=2000  epoch=5.1  test_error=74.53%
+2026-09-01 18:05:43,149 INFO === DONE  config=frozen  variant=LyASC  depth=110  seed=101 final_test_error=74.53%  time=384s ===
+2026-09-01 18:05:43,205 INFO Checkpoint saved: results/checkpoints/step3_frozen/frozen__LyASC__depth110__seed101.pt
+2026-09-01 18:05:43,209 INFO Result JSON: results/logs/step3_frozen/frozen__LyASC__depth110__seed101.json

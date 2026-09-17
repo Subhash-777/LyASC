@@ -1,0 +1,158 @@
+2026-09-08 14:43:02,479 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=1 ===
+2026-09-08 14:43:02,506 INFO Device: cuda
+2026-09-08 14:43:04,262 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-08 14:43:04,344 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]
+2026-09-09 00:10:31,566 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=1 ===
+2026-09-09 00:10:31,634 INFO Device: cuda
+2026-09-09 00:10:32,523 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-09 00:10:32,576 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]
+2026-09-09 00:14:46,261 INFO iter=  1000  epoch=2.6  lr=0.10000  loss=2.2719  train_acc=13.87%  grad_norm=2068.092 (clipped 40/1000 steps)  elapsed=254s  [beta_grad_norm=69.168  other_grad_norm=2066.847]
+2026-09-09 00:14:46,264 INFO          alpha: mean=0.5501  std=0.0996  min=0.3026  max=0.7767  |  beta: mean=0.1475  std=0.3128  |  lambda: mean=1.3570  std=0.5731
+2026-09-09 00:19:00,640 INFO iter=  2000  epoch=5.1  lr=0.10000  loss=2.0072  train_acc=23.40%  grad_norm=0.645 (clipped 2/1000 steps)  elapsed=508s  [beta_grad_norm=0.036  other_grad_norm=0.644]
+2026-09-09 00:19:00,643 INFO          alpha: mean=0.4950  std=0.0410  min=0.2827  max=0.6145  |  beta: mean=0.2603  std=0.4083  |  lambda: mean=0.0967  std=0.3159
+2026-09-09 00:23:15,019 INFO iter=  3000  epoch=7.7  lr=0.10000  loss=1.7644  train_acc=32.93%  grad_norm=0.714  elapsed=762s  [beta_grad_norm=0.037  other_grad_norm=0.713]
+2026-09-09 00:23:15,022 INFO          alpha: mean=0.4889  std=0.0442  min=0.3519  max=0.6552  |  beta: mean=0.2378  std=0.4031  |  lambda: mean=-0.0801  std=0.3583
+2026-09-09 00:27:28,009 INFO iter=  4000  epoch=10.2  lr=0.10000  loss=1.6403  train_acc=38.40%  grad_norm=0.758  elapsed=1015s  [beta_grad_norm=0.035  other_grad_norm=0.758]
+2026-09-09 00:27:28,011 INFO          alpha: mean=0.5086  std=0.0511  min=0.2770  max=0.6334  |  beta: mean=0.1107  std=0.4402  |  lambda: mean=-0.0287  std=0.3943
+2026-09-09 00:27:28,087 INFO Resume checkpoint saved at iter 4000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 00:31:42,819 INFO iter=  5000  epoch=12.8  lr=0.10000  loss=1.5131  train_acc=43.88%  grad_norm=0.889  elapsed=1270s  [beta_grad_norm=0.053  other_grad_norm=0.887]
+2026-09-09 00:31:42,822 INFO          alpha: mean=0.5289  std=0.0717  min=0.1866  max=0.6966  |  beta: mean=-0.0502  std=0.5585  |  lambda: mean=0.0037  std=0.4644
+2026-09-09 00:35:56,226 INFO iter=  6000  epoch=15.4  lr=0.10000  loss=1.2934  train_acc=52.82%  grad_norm=1.014  elapsed=1524s  [beta_grad_norm=0.060  other_grad_norm=1.012]
+2026-09-09 00:35:56,229 INFO          alpha: mean=0.5461  std=0.0946  min=0.1179  max=0.7522  |  beta: mean=-0.2046  std=0.7691  |  lambda: mean=-0.0137  std=0.4979
+2026-09-09 00:40:09,617 INFO iter=  7000  epoch=17.9  lr=0.10000  loss=1.0878  train_acc=60.72%  grad_norm=1.016  elapsed=1777s  [beta_grad_norm=0.063  other_grad_norm=1.014]
+2026-09-09 00:40:09,619 INFO          alpha: mean=0.5783  std=0.1138  min=0.1099  max=0.8098  |  beta: mean=-0.3320  std=0.9670  |  lambda: mean=-0.0301  std=0.5680
+2026-09-09 00:44:22,909 INFO iter=  8000  epoch=20.5  lr=0.10000  loss=0.9383  train_acc=66.75%  grad_norm=1.053  elapsed=2030s  [beta_grad_norm=0.074  other_grad_norm=1.050]
+2026-09-09 00:44:22,912 INFO          alpha: mean=0.5890  std=0.1212  min=0.0732  max=0.7491  |  beta: mean=-0.4477  std=1.1821  |  lambda: mean=0.0838  std=0.6139
+2026-09-09 00:44:23,009 INFO Resume checkpoint saved at iter 8000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 00:48:38,274 INFO iter=  9000  epoch=23.0  lr=0.10000  loss=0.8320  train_acc=70.96%  grad_norm=1.063  elapsed=2286s  [beta_grad_norm=0.075  other_grad_norm=1.060]
+2026-09-09 00:48:38,276 INFO          alpha: mean=0.6045  std=0.1387  min=0.0364  max=0.7940  |  beta: mean=-0.5040  std=1.3931  |  lambda: mean=0.0436  std=0.6402
+2026-09-09 00:52:52,371 INFO iter= 10000  epoch=25.6  lr=0.10000  loss=0.7557  train_acc=73.87%  grad_norm=1.080  elapsed=2540s  [beta_grad_norm=0.081  other_grad_norm=1.076]
+2026-09-09 00:52:52,374 INFO          alpha: mean=0.6155  std=0.1458  min=0.0219  max=0.8731  |  beta: mean=-0.5979  std=1.5573  |  lambda: mean=0.1445  std=0.7164
+2026-09-09 00:57:05,615 INFO iter= 11000  epoch=28.2  lr=0.10000  loss=0.6887  train_acc=76.35%  grad_norm=1.077  elapsed=2793s  [beta_grad_norm=0.080  other_grad_norm=1.074]
+2026-09-09 00:57:05,618 INFO          alpha: mean=0.6258  std=0.1680  min=0.0209  max=0.8832  |  beta: mean=-0.6418  std=1.6960  |  lambda: mean=0.0801  std=0.7497
+2026-09-09 01:01:18,741 INFO iter= 12000  epoch=30.7  lr=0.10000  loss=0.6423  train_acc=78.08%  grad_norm=1.094  elapsed=3046s  [beta_grad_norm=0.081  other_grad_norm=1.091]
+2026-09-09 01:01:18,744 INFO          alpha: mean=0.6097  std=0.1663  min=0.0089  max=0.9065  |  beta: mean=-0.7638  std=1.7783  |  lambda: mean=0.1950  std=0.8171
+2026-09-09 01:01:18,849 INFO Resume checkpoint saved at iter 12000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 01:05:34,147 INFO iter= 13000  epoch=33.3  lr=0.10000  loss=0.6031  train_acc=79.55%  grad_norm=1.085  elapsed=3302s  [beta_grad_norm=0.082  other_grad_norm=1.082]
+2026-09-09 01:05:34,150 INFO          alpha: mean=0.6372  std=0.1714  min=0.0090  max=0.9104  |  beta: mean=-0.7884  std=1.8779  |  lambda: mean=0.0833  std=0.8218
+2026-09-09 01:09:47,424 INFO iter= 14000  epoch=35.8  lr=0.10000  loss=0.5633  train_acc=80.78%  grad_norm=1.099  elapsed=3555s  [beta_grad_norm=0.081  other_grad_norm=1.096]
+2026-09-09 01:09:47,426 INFO          alpha: mean=0.6354  std=0.1778  min=0.0080  max=0.9379  |  beta: mean=-0.8968  std=1.9655  |  lambda: mean=0.1267  std=0.8672
+2026-09-09 01:14:00,313 INFO iter= 15000  epoch=38.4  lr=0.10000  loss=0.5356  train_acc=81.83%  grad_norm=1.108  elapsed=3808s  [beta_grad_norm=0.089  other_grad_norm=1.104]
+2026-09-09 01:14:00,316 INFO          alpha: mean=0.6494  std=0.1820  min=0.0070  max=0.9493  |  beta: mean=-1.0213  std=1.9948  |  lambda: mean=0.0615  std=0.9129
+2026-09-09 01:18:13,575 INFO iter= 16000  epoch=41.0  lr=0.10000  loss=0.5062  train_acc=82.92%  grad_norm=1.099  elapsed=4061s  [beta_grad_norm=0.089  other_grad_norm=1.095]
+2026-09-09 01:18:13,577 INFO          alpha: mean=0.6685  std=0.1885  min=0.0066  max=0.9842  |  beta: mean=-1.0825  std=2.0599  |  lambda: mean=0.0613  std=0.9390
+2026-09-09 01:18:13,673 INFO Resume checkpoint saved at iter 16000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 01:22:28,257 INFO iter= 17000  epoch=43.5  lr=0.10000  loss=0.4795  train_acc=83.76%  grad_norm=1.095  elapsed=4316s  [beta_grad_norm=0.088  other_grad_norm=1.092]
+2026-09-09 01:22:28,259 INFO          alpha: mean=0.6694  std=0.1852  min=0.0034  max=0.9901  |  beta: mean=-1.1949  std=2.0830  |  lambda: mean=0.0785  std=1.0003
+2026-09-09 01:26:41,218 INFO iter= 18000  epoch=46.1  lr=0.10000  loss=0.4619  train_acc=84.33%  grad_norm=1.097  elapsed=4569s  [beta_grad_norm=0.091  other_grad_norm=1.093]
+2026-09-09 01:26:41,221 INFO          alpha: mean=0.6833  std=0.1856  min=0.0031  max=0.9894  |  beta: mean=-1.2476  std=2.1599  |  lambda: mean=0.0520  std=1.0110
+2026-09-09 01:30:53,997 INFO iter= 19000  epoch=48.6  lr=0.10000  loss=0.4430  train_acc=85.04%  grad_norm=1.099  elapsed=4821s  [beta_grad_norm=0.087  other_grad_norm=1.096]
+2026-09-09 01:30:54,000 INFO          alpha: mean=0.6864  std=0.1854  min=0.0030  max=0.9901  |  beta: mean=-1.2346  std=2.2557  |  lambda: mean=0.0490  std=0.9759
+2026-09-09 01:35:06,532 INFO iter= 20000  epoch=51.2  lr=0.10000  loss=0.4351  train_acc=85.26%  grad_norm=1.127  elapsed=5074s  [beta_grad_norm=0.087  other_grad_norm=1.123]
+2026-09-09 01:35:06,535 INFO          alpha: mean=0.6857  std=0.2056  min=0.0034  max=0.9945  |  beta: mean=-1.2838  std=2.2671  |  lambda: mean=-0.0302  std=0.9916
+2026-09-09 01:35:06,638 INFO Resume checkpoint saved at iter 20000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 01:39:21,481 INFO iter= 21000  epoch=53.8  lr=0.10000  loss=0.4211  train_acc=85.86%  grad_norm=1.115  elapsed=5329s  [beta_grad_norm=0.088  other_grad_norm=1.111]
+2026-09-09 01:39:21,484 INFO          alpha: mean=0.6952  std=0.2068  min=0.0021  max=0.9976  |  beta: mean=-1.3808  std=2.2398  |  lambda: mean=0.0148  std=1.0419
+2026-09-09 01:43:34,522 INFO iter= 22000  epoch=56.3  lr=0.10000  loss=0.3982  train_acc=86.53%  grad_norm=1.111  elapsed=5582s  [beta_grad_norm=0.089  other_grad_norm=1.107]
+2026-09-09 01:43:34,525 INFO          alpha: mean=0.6813  std=0.2123  min=0.0019  max=0.9990  |  beta: mean=-1.3752  std=2.2675  |  lambda: mean=-0.0071  std=1.0370
+2026-09-09 01:47:47,207 INFO iter= 23000  epoch=58.9  lr=0.10000  loss=0.3853  train_acc=86.94%  grad_norm=1.109  elapsed=5835s  [beta_grad_norm=0.092  other_grad_norm=1.105]
+2026-09-09 01:47:47,210 INFO          alpha: mean=0.7009  std=0.2133  min=0.0024  max=0.9994  |  beta: mean=-1.4350  std=2.2532  |  lambda: mean=-0.0447  std=1.0965
+2026-09-09 01:51:59,832 INFO iter= 24000  epoch=61.4  lr=0.10000  loss=0.3775  train_acc=87.26%  grad_norm=1.114  elapsed=6087s  [beta_grad_norm=0.096  other_grad_norm=1.109]
+2026-09-09 01:51:59,835 INFO          alpha: mean=0.7041  std=0.2235  min=0.0020  max=0.9995  |  beta: mean=-1.4746  std=2.2286  |  lambda: mean=-0.0707  std=1.1070
+2026-09-09 01:51:59,938 INFO Resume checkpoint saved at iter 24000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 01:56:14,152 INFO iter= 25000  epoch=64.0  lr=0.10000  loss=0.3727  train_acc=87.40%  grad_norm=1.131  elapsed=6342s  [beta_grad_norm=0.101  other_grad_norm=1.126]
+2026-09-09 01:56:14,155 INFO          alpha: mean=0.6996  std=0.2247  min=0.0011  max=0.9998  |  beta: mean=-1.5774  std=2.2208  |  lambda: mean=-0.0476  std=1.1786
+2026-09-09 02:00:27,328 INFO iter= 26000  epoch=66.6  lr=0.10000  loss=0.3568  train_acc=87.92%  grad_norm=1.110  elapsed=6595s  [beta_grad_norm=0.100  other_grad_norm=1.105]
+2026-09-09 02:00:27,331 INFO          alpha: mean=0.7098  std=0.2259  min=0.0013  max=0.9999  |  beta: mean=-1.5649  std=2.2341  |  lambda: mean=-0.0929  std=1.1874
+2026-09-09 02:04:40,417 INFO iter= 27000  epoch=69.1  lr=0.10000  loss=0.3545  train_acc=88.04%  grad_norm=1.120  elapsed=6848s  [beta_grad_norm=0.104  other_grad_norm=1.115]
+2026-09-09 02:04:40,420 INFO          alpha: mean=0.7200  std=0.2287  min=0.0027  max=0.9999  |  beta: mean=-1.6002  std=2.2199  |  lambda: mean=-0.1251  std=1.2064
+2026-09-09 02:08:53,383 INFO iter= 28000  epoch=71.7  lr=0.10000  loss=0.3463  train_acc=88.26%  grad_norm=1.124  elapsed=7101s  [beta_grad_norm=0.107  other_grad_norm=1.118]
+2026-09-09 02:08:53,385 INFO          alpha: mean=0.7255  std=0.2358  min=0.0066  max=1.0000  |  beta: mean=-1.6150  std=2.1981  |  lambda: mean=-0.1871  std=1.2336
+2026-09-09 02:08:53,479 INFO Resume checkpoint saved at iter 28000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 02:13:07,975 INFO iter= 29000  epoch=74.2  lr=0.10000  loss=0.3393  train_acc=88.53%  grad_norm=1.127  elapsed=7355s  [beta_grad_norm=0.108  other_grad_norm=1.122]
+2026-09-09 02:13:07,978 INFO          alpha: mean=0.7145  std=0.2308  min=0.0030  max=1.0000  |  beta: mean=-1.6587  std=2.1791  |  lambda: mean=-0.1603  std=1.2771
+2026-09-09 02:17:21,358 INFO iter= 30000  epoch=76.8  lr=0.10000  loss=0.3410  train_acc=88.57%  grad_norm=1.144  elapsed=7609s  [beta_grad_norm=0.115  other_grad_norm=1.137]
+2026-09-09 02:17:21,361 INFO          alpha: mean=0.7286  std=0.2343  min=0.0040  max=1.0000  |  beta: mean=-1.6778  std=2.1155  |  lambda: mean=-0.2156  std=1.3238
+2026-09-09 02:21:34,738 INFO iter= 31000  epoch=79.4  lr=0.10000  loss=0.3298  train_acc=88.79%  grad_norm=1.143  elapsed=7862s  [beta_grad_norm=0.116  other_grad_norm=1.137]
+2026-09-09 02:21:34,741 INFO          alpha: mean=0.7255  std=0.2433  min=0.0024  max=1.0000  |  beta: mean=-1.7518  std=2.0099  |  lambda: mean=-0.2266  std=1.3583
+2026-09-09 02:25:48,266 INFO iter= 32000  epoch=81.9  lr=0.01000  loss=0.3204  train_acc=89.15%  grad_norm=1.119  elapsed=8116s  [beta_grad_norm=0.111  other_grad_norm=1.113]
+2026-09-09 02:25:48,269 INFO          alpha: mean=0.7264  std=0.2360  min=0.0016  max=1.0000  |  beta: mean=-1.8342  std=1.9773  |  lambda: mean=-0.2243  std=1.4375
+2026-09-09 02:25:48,372 INFO Resume checkpoint saved at iter 32000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 02:25:54,222 INFO >> EVAL  iter=32000  epoch=81.9  test_error=20.14%
+2026-09-09 02:30:09,482 INFO iter= 33000  epoch=84.5  lr=0.01000  loss=0.1801  train_acc=93.93%  grad_norm=0.940  elapsed=8377s  [beta_grad_norm=0.091  other_grad_norm=0.935]
+2026-09-09 02:30:09,484 INFO          alpha: mean=0.7341  std=0.2464  min=0.0020  max=1.0000  |  beta: mean=-1.8247  std=1.9729  |  lambda: mean=-0.2952  std=1.4622
+2026-09-09 02:34:23,384 INFO iter= 34000  epoch=87.0  lr=0.01000  loss=0.1362  train_acc=95.43%  grad_norm=0.983  elapsed=8631s  [beta_grad_norm=0.090  other_grad_norm=0.979]
+2026-09-09 02:34:23,387 INFO          alpha: mean=0.7209  std=0.2421  min=0.0025  max=1.0000  |  beta: mean=-1.8289  std=1.9755  |  lambda: mean=-0.1956  std=1.4325
+2026-09-09 02:38:36,886 INFO iter= 35000  epoch=89.6  lr=0.01000  loss=0.1187  train_acc=95.94%  grad_norm=1.073  elapsed=8884s  [beta_grad_norm=0.097  other_grad_norm=1.068]
+2026-09-09 02:38:36,888 INFO          alpha: mean=0.7138  std=0.2415  min=0.0010  max=1.0000  |  beta: mean=-1.8242  std=1.9781  |  lambda: mean=-0.1594  std=1.4703
+2026-09-09 02:42:50,193 INFO iter= 36000  epoch=92.2  lr=0.01000  loss=0.1039  train_acc=96.47%  grad_norm=1.068  elapsed=9138s  [beta_grad_norm=0.096  other_grad_norm=1.063]
+2026-09-09 02:42:50,196 INFO          alpha: mean=0.7321  std=0.2491  min=0.0057  max=1.0000  |  beta: mean=-1.8225  std=1.9641  |  lambda: mean=-0.2893  std=1.4149
+2026-09-09 02:42:50,300 INFO Resume checkpoint saved at iter 36000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 02:47:05,447 INFO iter= 37000  epoch=94.7  lr=0.01000  loss=0.0901  train_acc=96.98%  grad_norm=1.138  elapsed=9393s  [beta_grad_norm=0.097  other_grad_norm=1.133]
+2026-09-09 02:47:05,450 INFO          alpha: mean=0.7248  std=0.2477  min=0.0059  max=1.0000  |  beta: mean=-1.8158  std=1.9613  |  lambda: mean=-0.2917  std=1.4090
+2026-09-09 02:51:19,308 INFO iter= 38000  epoch=97.3  lr=0.01000  loss=0.0822  train_acc=97.21%  grad_norm=1.190  elapsed=9647s  [beta_grad_norm=0.099  other_grad_norm=1.186]
+2026-09-09 02:51:19,311 INFO          alpha: mean=0.7204  std=0.2482  min=0.0055  max=1.0000  |  beta: mean=-1.8131  std=1.9592  |  lambda: mean=-0.2775  std=1.4021
+2026-09-09 02:55:32,850 INFO iter= 39000  epoch=99.8  lr=0.01000  loss=0.0759  train_acc=97.36%  grad_norm=1.283  elapsed=9900s  [beta_grad_norm=0.100  other_grad_norm=1.279]
+2026-09-09 02:55:32,853 INFO          alpha: mean=0.7170  std=0.2425  min=0.0024  max=1.0000  |  beta: mean=-1.8106  std=1.9608  |  lambda: mean=-0.1929  std=1.4267
+2026-09-09 02:59:45,963 INFO iter= 40000  epoch=102.4  lr=0.01000  loss=0.0685  train_acc=97.67%  grad_norm=1.320  elapsed=10153s  [beta_grad_norm=0.103  other_grad_norm=1.315]
+2026-09-09 02:59:45,966 INFO          alpha: mean=0.7234  std=0.2465  min=0.0048  max=1.0000  |  beta: mean=-1.8139  std=1.9479  |  lambda: mean=-0.2446  std=1.4035
+2026-09-09 02:59:46,061 INFO Resume checkpoint saved at iter 40000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 03:04:01,572 INFO iter= 41000  epoch=105.0  lr=0.01000  loss=0.0647  train_acc=97.80%  grad_norm=1.362  elapsed=10409s  [beta_grad_norm=0.104  other_grad_norm=1.357]
+2026-09-09 03:04:01,575 INFO          alpha: mean=0.7260  std=0.2482  min=0.0038  max=1.0000  |  beta: mean=-1.8058  std=1.9491  |  lambda: mean=-0.2682  std=1.4171
+2026-09-09 03:08:15,836 INFO iter= 42000  epoch=107.5  lr=0.01000  loss=0.0599  train_acc=97.92%  grad_norm=1.393  elapsed=10663s  [beta_grad_norm=0.103  other_grad_norm=1.389]
+2026-09-09 03:08:15,839 INFO          alpha: mean=0.7041  std=0.2447  min=0.0016  max=1.0000  |  beta: mean=-1.7970  std=1.9602  |  lambda: mean=-0.1638  std=1.4649
+2026-09-09 03:12:29,393 INFO iter= 43000  epoch=110.1  lr=0.01000  loss=0.0619  train_acc=97.84%  grad_norm=1.500  elapsed=10917s  [beta_grad_norm=0.110  other_grad_norm=1.496]
+2026-09-09 03:12:29,396 INFO          alpha: mean=0.7115  std=0.2482  min=0.0034  max=1.0000  |  beta: mean=-1.8008  std=1.9580  |  lambda: mean=-0.1817  std=1.4324
+2026-09-09 03:16:43,067 INFO iter= 44000  epoch=112.6  lr=0.01000  loss=0.0543  train_acc=98.15%  grad_norm=1.446  elapsed=11170s  [beta_grad_norm=0.106  other_grad_norm=1.442]
+2026-09-09 03:16:43,070 INFO          alpha: mean=0.7239  std=0.2492  min=0.0044  max=1.0000  |  beta: mean=-1.7946  std=1.9559  |  lambda: mean=-0.2590  std=1.4527
+2026-09-09 03:16:43,172 INFO Resume checkpoint saved at iter 44000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 03:20:58,410 INFO iter= 45000  epoch=115.2  lr=0.01000  loss=0.0539  train_acc=98.16%  grad_norm=1.503  elapsed=11426s  [beta_grad_norm=0.108  other_grad_norm=1.498]
+2026-09-09 03:20:58,413 INFO          alpha: mean=0.7203  std=0.2479  min=0.0033  max=1.0000  |  beta: mean=-1.7963  std=1.9487  |  lambda: mean=-0.2332  std=1.4406
+2026-09-09 03:25:12,624 INFO iter= 46000  epoch=117.8  lr=0.01000  loss=0.0486  train_acc=98.32%  grad_norm=1.518  elapsed=11680s  [beta_grad_norm=0.104  other_grad_norm=1.514]
+2026-09-09 03:25:12,627 INFO          alpha: mean=0.7094  std=0.2452  min=0.0022  max=1.0000  |  beta: mean=-1.7916  std=1.9564  |  lambda: mean=-0.1549  std=1.4375
+2026-09-09 03:29:26,217 INFO iter= 47000  epoch=120.3  lr=0.01000  loss=0.0487  train_acc=98.35%  grad_norm=1.509  elapsed=11934s  [beta_grad_norm=0.106  other_grad_norm=1.505]
+2026-09-09 03:29:26,220 INFO          alpha: mean=0.7329  std=0.2500  min=0.0044  max=1.0000  |  beta: mean=-1.7863  std=1.9513  |  lambda: mean=-0.3201  std=1.4419
+2026-09-09 03:33:39,893 INFO iter= 48000  epoch=122.9  lr=0.00100  loss=0.0524  train_acc=98.17%  grad_norm=1.653  elapsed=12187s  [beta_grad_norm=0.113  other_grad_norm=1.649]
+2026-09-09 03:33:39,896 INFO          alpha: mean=0.7167  std=0.2488  min=0.0028  max=1.0000  |  beta: mean=-1.7863  std=1.9495  |  lambda: mean=-0.2285  std=1.4093
+2026-09-09 03:33:39,995 INFO Resume checkpoint saved at iter 48000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 03:33:45,761 INFO >> EVAL  iter=48000  epoch=122.9  test_error=9.82%
+2026-09-09 03:38:00,703 INFO iter= 49000  epoch=125.4  lr=0.00100  loss=0.0650  train_acc=97.84%  grad_norm=2.294 (clipped 71/1000 steps)  elapsed=12448s  [beta_grad_norm=0.142  other_grad_norm=2.290]
+2026-09-09 03:38:00,705 INFO          alpha: mean=0.6750  std=0.2510  min=0.0000  max=1.0000  |  beta: mean=-1.7885  std=1.9518  |  lambda: mean=-0.0285  std=1.6417
+2026-09-09 03:42:14,709 INFO iter= 50000  epoch=128.0  lr=0.00100  loss=0.0368  train_acc=98.78%  grad_norm=1.394  elapsed=12702s  [beta_grad_norm=0.087  other_grad_norm=1.391]
+2026-09-09 03:42:14,711 INFO          alpha: mean=0.7261  std=0.2518  min=0.0029  max=1.0000  |  beta: mean=-1.7826  std=1.9519  |  lambda: mean=-0.3014  std=1.4276
+2026-09-09 03:46:27,932 INFO iter= 51000  epoch=130.6  lr=0.00100  loss=0.0260  train_acc=99.18%  grad_norm=1.181  elapsed=12955s  [beta_grad_norm=0.080  other_grad_norm=1.178]
+2026-09-09 03:46:27,934 INFO          alpha: mean=0.7273  std=0.2507  min=0.0042  max=1.0000  |  beta: mean=-1.7884  std=1.9458  |  lambda: mean=-0.3231  std=1.4345
+2026-09-09 03:50:41,367 INFO iter= 52000  epoch=133.1  lr=0.00100  loss=0.0219  train_acc=99.30%  grad_norm=1.134  elapsed=13209s  [beta_grad_norm=0.076  other_grad_norm=1.131]
+2026-09-09 03:50:41,369 INFO          alpha: mean=0.7161  std=0.2487  min=0.0037  max=1.0000  |  beta: mean=-1.7906  std=1.9440  |  lambda: mean=-0.2254  std=1.4430
+2026-09-09 03:50:41,472 INFO Resume checkpoint saved at iter 52000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 03:54:56,815 INFO iter= 53000  epoch=135.7  lr=0.00100  loss=0.0190  train_acc=99.39%  grad_norm=1.003  elapsed=13464s  [beta_grad_norm=0.065  other_grad_norm=1.001]
+2026-09-09 03:54:56,818 INFO          alpha: mean=0.7227  std=0.2520  min=0.0035  max=1.0000  |  beta: mean=-1.7858  std=1.9461  |  lambda: mean=-0.3003  std=1.4259
+2026-09-09 03:59:10,846 INFO iter= 54000  epoch=138.2  lr=0.00100  loss=0.0164  train_acc=99.48%  grad_norm=0.988  elapsed=13718s  [beta_grad_norm=0.065  other_grad_norm=0.986]
+2026-09-09 03:59:10,851 INFO          alpha: mean=0.7109  std=0.2534  min=0.0037  max=1.0000  |  beta: mean=-1.7853  std=1.9461  |  lambda: mean=-0.2426  std=1.4350
+2026-09-09 04:03:24,605 INFO iter= 55000  epoch=140.8  lr=0.00100  loss=0.0160  train_acc=99.50%  grad_norm=0.979  elapsed=13972s  [beta_grad_norm=0.066  other_grad_norm=0.977]
+2026-09-09 04:03:24,608 INFO          alpha: mean=0.7206  std=0.2508  min=0.0029  max=1.0000  |  beta: mean=-1.7834  std=1.9469  |  lambda: mean=-0.2784  std=1.4445
+2026-09-09 04:07:38,193 INFO iter= 56000  epoch=143.4  lr=0.00100  loss=0.0166  train_acc=99.47%  grad_norm=1.092  elapsed=14226s  [beta_grad_norm=0.070  other_grad_norm=1.090]
+2026-09-09 04:07:38,196 INFO          alpha: mean=0.7040  std=0.2448  min=0.0007  max=1.0000  |  beta: mean=-1.7854  std=1.9464  |  lambda: mean=-0.1266  std=1.4932
+2026-09-09 04:07:38,296 INFO Resume checkpoint saved at iter 56000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 04:11:53,515 INFO iter= 57000  epoch=145.9  lr=0.00100  loss=0.0147  train_acc=99.51%  grad_norm=0.984  elapsed=14481s  [beta_grad_norm=0.063  other_grad_norm=0.982]
+2026-09-09 04:11:53,518 INFO          alpha: mean=0.7132  std=0.2478  min=0.0028  max=1.0000  |  beta: mean=-1.7855  std=1.9450  |  lambda: mean=-0.2258  std=1.4428
+2026-09-09 04:16:07,271 INFO iter= 58000  epoch=148.5  lr=0.00100  loss=0.0124  train_acc=99.61%  grad_norm=0.939  elapsed=14735s  [beta_grad_norm=0.059  other_grad_norm=0.937]
+2026-09-09 04:16:07,273 INFO          alpha: mean=0.7248  std=0.2476  min=0.0028  max=1.0000  |  beta: mean=-1.7864  std=1.9446  |  lambda: mean=-0.2705  std=1.4466
+2026-09-09 04:20:21,017 INFO iter= 59000  epoch=151.0  lr=0.00100  loss=0.0137  train_acc=99.57%  grad_norm=0.969  elapsed=14988s  [beta_grad_norm=0.062  other_grad_norm=0.966]
+2026-09-09 04:20:21,020 INFO          alpha: mean=0.7242  std=0.2508  min=0.0036  max=1.0000  |  beta: mean=-1.7842  std=1.9442  |  lambda: mean=-0.3124  std=1.4412
+2026-09-09 04:24:33,995 INFO iter= 60000  epoch=153.6  lr=0.00100  loss=0.0106  train_acc=99.68%  grad_norm=0.836  elapsed=15241s  [beta_grad_norm=0.052  other_grad_norm=0.835]
+2026-09-09 04:24:33,998 INFO          alpha: mean=0.7118  std=0.2513  min=0.0031  max=1.0000  |  beta: mean=-1.7845  std=1.9435  |  lambda: mean=-0.2343  std=1.4631
+2026-09-09 04:24:34,104 INFO Resume checkpoint saved at iter 60000: results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 04:28:49,294 INFO iter= 61000  epoch=156.2  lr=0.00100  loss=0.0123  train_acc=99.62%  grad_norm=0.955  elapsed=15497s  [beta_grad_norm=0.062  other_grad_norm=0.953]
+2026-09-09 04:28:49,296 INFO          alpha: mean=0.7162  std=0.2461  min=0.0034  max=1.0000  |  beta: mean=-1.7876  std=1.9412  |  lambda: mean=-0.2174  std=1.4359
+2026-09-09 04:33:02,996 INFO iter= 62000  epoch=158.7  lr=0.00100  loss=0.0123  train_acc=99.61%  grad_norm=0.922  elapsed=15750s  [beta_grad_norm=0.059  other_grad_norm=0.920]
+2026-09-09 04:33:02,998 INFO          alpha: mean=0.7191  std=0.2488  min=0.0034  max=1.0000  |  beta: mean=-1.7845  std=1.9424  |  lambda: mean=-0.2530  std=1.4363
+2026-09-09 04:37:16,392 INFO iter= 63000  epoch=161.3  lr=0.00100  loss=0.0110  train_acc=99.66%  grad_norm=0.933  elapsed=16004s  [beta_grad_norm=0.059  other_grad_norm=0.931]
+2026-09-09 04:37:16,394 INFO          alpha: mean=0.7064  std=0.2526  min=0.0037  max=1.0000  |  beta: mean=-1.7846  std=1.9413  |  lambda: mean=-0.2226  std=1.4424
+2026-09-09 04:41:29,939 INFO iter= 64000  epoch=163.8  lr=0.00100  loss=0.0115  train_acc=99.63%  grad_norm=1.005 (clipped 1/1000 steps)  elapsed=16257s  [beta_grad_norm=0.062  other_grad_norm=1.002]
+2026-09-09 04:41:29,942 INFO          alpha: mean=0.7179  std=0.2504  min=0.0033  max=1.0000  |  beta: mean=-1.7838  std=1.9430  |  lambda: mean=-0.2124  std=1.4383
+2026-09-09 04:41:35,700 INFO >> EVAL  iter=64000  epoch=163.8  test_error=8.82%
+2026-09-09 04:41:41,428 INFO === DONE  config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=1 final_test_error=8.82%  time=16269s ===
+2026-09-09 04:41:41,475 INFO Checkpoint saved: results/checkpoints/lyasc_table1_equiv__LyASC__depth110__seed1.pt
+2026-09-09 04:41:41,478 INFO Result JSON: results/logs/lyasc_table1_equiv__LyASC__depth110__seed1.json
+2026-09-09 04:41:41,479 INFO Resume checkpoint deleted (run complete): results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed1.pt

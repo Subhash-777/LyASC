@@ -1,0 +1,1012 @@
+{
+  "export_timestamp": "2026-09-17T19:41:22.176284",
+  "project_metadata": {
+    "title": "LyASC: Lyapunov-Adaptive Skip Connections",
+    "subtitle": "Online Stability-Driven Skip-Connection Gating for Deep Residual Networks",
+    "backbone": "PreAct-ResNet-110",
+    "dataset": "CIFAR-10",
+    "baseline_pass_target": "6.15% (2rSkip+LN)",
+    "learnable_gate_target": "8.16% (wSkip+LN)"
+  },
+  "phase_timeline": [
+    {
+      "id": "base_model",
+      "name": "Base-Model Reproduction",
+      "status": "complete",
+      "badge": "PASS (14/32)",
+      "note": "Reused verified reference numbers"
+    },
+    {
+      "id": "phase_c",
+      "name": "Phase C: Baseline Comparison",
+      "status": "complete",
+      "badge": "FAIL (9.66%)",
+      "note": "Motivated LayerNorm fix"
+    },
+    {
+      "id": "ablation_1",
+      "name": "Ablation 1: LayerNorm Fix",
+      "status": "complete",
+      "badge": "SUCCESS (7.22%)",
+      "note": "Resolved gating magnitude shift"
+    },
+    {
+      "id": "phase_d",
+      "name": "Phase D: Cold-Start Strategy",
+      "status": "complete",
+      "badge": "SUCCESS (7.17%)",
+      "note": "Selected 'none' baseline"
+    },
+    {
+      "id": "phase_e1",
+      "name": "Phase E1: Stress Tests",
+      "status": "in_progress",
+      "badge": "ACTIVE / PRELIMINARY",
+      "note": "Table 3 catastrophic variants"
+    }
+  ],
+  "base_model_tables": {
+    "table1": [
+      {
+        "variant_name": "1xSkip",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.27,
+        "std_error": 0.04,
+        "paper_error": 6.31,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "2xSkip",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 8.36,
+        "std_error": 0.35,
+        "paper_error": 8.41,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "3xSkip",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 8.89,
+        "std_error": 0.23,
+        "paper_error": 9.23,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "1xSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 7.92,
+        "std_error": 0.42,
+        "paper_error": 7.72,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "2xSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.36,
+        "std_error": 0.31,
+        "paper_error": 6.29,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "3xSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.11,
+        "std_error": 0.22,
+        "paper_error": 6.07,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "1rSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 7.92,
+        "std_error": 0.42,
+        "paper_error": 7.72,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "2rSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.15,
+        "std_error": 0.09,
+        "paper_error": 6.02,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "3rSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.18,
+        "std_error": 0.2,
+        "paper_error": 6.55,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "wSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 8.16,
+        "std_error": 0.13,
+        "paper_error": 8.66,
+        "pass_fail": "FAIL"
+      }
+    ],
+    "table3": [
+      {
+        "variant_name": "baseline",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.36,
+        "std_error": 0.06,
+        "paper_error": 6.31,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "0.5xSkip",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 11.85,
+        "std_error": 0.16,
+        "paper_error": 18.61,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "LN(0.5x+F)",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 37.14,
+        "std_error": 9.94,
+        "paper_error": 29.88,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "LN(x+2F)",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 37.59,
+        "std_error": 22.83,
+        "paper_error": 24.98,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "LN(x+3F)",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 49.27,
+        "std_error": 15.31,
+        "paper_error": 61.02,
+        "pass_fail": "FAIL"
+      }
+    ],
+    "table4": [
+      {
+        "variant_name": "1xSkip",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.36,
+        "std_error": 0.06,
+        "paper_error": 6.31,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "1xSkip+BN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.39,
+        "std_error": 0.05,
+        "paper_error": 8.23,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "2xSkip+BN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 5.98,
+        "std_error": 0.31,
+        "paper_error": 6.43,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "3xSkip+BN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 5.99,
+        "std_error": 0.07,
+        "paper_error": 6.5,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "1rSkip+BN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.39,
+        "std_error": 0.05,
+        "paper_error": 8.23,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "2rSkip+BN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.15,
+        "std_error": 0.21,
+        "paper_error": 6.77,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "3rSkip+BN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 6.12,
+        "std_error": 0.31,
+        "paper_error": 6.68,
+        "pass_fail": "FAIL"
+      }
+    ],
+    "table6": [
+      {
+        "variant_name": "baseline",
+        "depth": 20,
+        "n_seeds_found": 3,
+        "mean_error": 32.53,
+        "std_error": 0.63,
+        "paper_error": 33.38,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "2rSkip+LN",
+        "depth": 20,
+        "n_seeds_found": 3,
+        "mean_error": 32.23,
+        "std_error": 0.05,
+        "paper_error": 32.99,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "baseline",
+        "depth": 32,
+        "n_seeds_found": 3,
+        "mean_error": 31.3,
+        "std_error": 0.2,
+        "paper_error": 32.0,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "2rSkip+LN",
+        "depth": 32,
+        "n_seeds_found": 3,
+        "mean_error": 30.42,
+        "std_error": 0.07,
+        "paper_error": 31.39,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "baseline",
+        "depth": 44,
+        "n_seeds_found": 3,
+        "mean_error": 30.13,
+        "std_error": 0.4,
+        "paper_error": 30.5,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "2rSkip+LN",
+        "depth": 44,
+        "n_seeds_found": 3,
+        "mean_error": 29.29,
+        "std_error": 0.28,
+        "paper_error": 29.85,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "baseline",
+        "depth": 56,
+        "n_seeds_found": 3,
+        "mean_error": 29.48,
+        "std_error": 0.32,
+        "paper_error": 29.81,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "2rSkip+LN",
+        "depth": 56,
+        "n_seeds_found": 3,
+        "mean_error": 28.85,
+        "std_error": 0.23,
+        "paper_error": 28.98,
+        "pass_fail": "PASS"
+      },
+      {
+        "variant_name": "baseline",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 27.38,
+        "std_error": 0.51,
+        "paper_error": 28.71,
+        "pass_fail": "FAIL"
+      },
+      {
+        "variant_name": "2rSkip+LN",
+        "depth": 110,
+        "n_seeds_found": 3,
+        "mean_error": 26.92,
+        "std_error": 0.74,
+        "paper_error": 27.69,
+        "pass_fail": "FAIL"
+      }
+    ]
+  },
+  "phase_summaries": {
+    "phase_c": [
+      {
+        "variant_name": "LyASC",
+        "n_seeds": 3,
+        "seeds_present": [
+          0,
+          1,
+          2
+        ],
+        "mean_error": 9.659999999999998,
+        "std_error": 0.7389857914736951,
+        "individual_errors": [
+          10.209999999999997,
+          8.819999999999995,
+          9.950000000000003
+        ],
+        "status": "complete"
+      }
+    ],
+    "ablation_1": [
+      {
+        "variant_name": "LyASC+LN",
+        "n_seeds": 1,
+        "seeds_present": [
+          0
+        ],
+        "mean_error": 7.220000000000004,
+        "std_error": 0.0,
+        "individual_errors": [
+          7.220000000000004
+        ],
+        "status": "preliminary"
+      }
+    ],
+    "phase_d": [
+      {
+        "variant_name": "LyASC+LN_damped",
+        "n_seeds": 3,
+        "seeds_present": [
+          0,
+          1,
+          2
+        ],
+        "mean_error": 7.460000000000001,
+        "std_error": 0.3051229260478425,
+        "individual_errors": [
+          7.799999999999995,
+          7.210000000000005,
+          7.369999999999999
+        ],
+        "status": "complete"
+      },
+      {
+        "variant_name": "LyASC+LN_none",
+        "n_seeds": 3,
+        "seeds_present": [
+          0,
+          1,
+          2
+        ],
+        "mean_error": 7.170000000000003,
+        "std_error": 0.21166010488516693,
+        "individual_errors": [
+          7.330000000000004,
+          7.250000000000001,
+          6.930000000000003
+        ],
+        "status": "complete"
+      },
+      {
+        "variant_name": "LyASC+LN_warmup",
+        "n_seeds": 2,
+        "seeds_present": [
+          0,
+          1
+        ],
+        "mean_error": 7.949999999999996,
+        "std_error": 0.21213203435596475,
+        "individual_errors": [
+          8.099999999999996,
+          7.799999999999995
+        ],
+        "status": "complete"
+      }
+    ],
+    "phase_e1": [
+      {
+        "variant_name": "LyASC_stress_0.5",
+        "n_seeds": 1,
+        "seeds_present": [
+          0
+        ],
+        "mean_error": 7.979999999999999,
+        "std_error": 0.0,
+        "individual_errors": [
+          7.979999999999999
+        ],
+        "status": "preliminary"
+      },
+      {
+        "variant_name": "LyASC_stress_2.0",
+        "n_seeds": 1,
+        "seeds_present": [
+          0
+        ],
+        "mean_error": 8.130000000000004,
+        "std_error": 0.0,
+        "individual_errors": [
+          8.130000000000004
+        ],
+        "status": "preliminary"
+      }
+    ]
+  },
+  "raw_runs": [
+    {
+      "config_name": "diagnostic_coldstart",
+      "variant_name": "LyASC+LN_damped",
+      "seed": 0,
+      "final_test_error": 38.81,
+      "wall_clock_seconds": null,
+      "lyasc_diagnostics": {},
+      "lyasc_config": {},
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/diagnostic_coldstart/diagnostic_coldstart__LyASCplusLN_damped__depth110__seed0.json"
+    },
+    {
+      "config_name": "diagnostic_coldstart",
+      "variant_name": "LyASC+LN_none",
+      "seed": 0,
+      "final_test_error": 38.81,
+      "wall_clock_seconds": null,
+      "lyasc_diagnostics": {},
+      "lyasc_config": {},
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/diagnostic_coldstart/diagnostic_coldstart__LyASCplusLN_none__depth110__seed0.json"
+    },
+    {
+      "config_name": "diagnostic_coldstart",
+      "variant_name": "LyASC+LN_warmup",
+      "seed": 0,
+      "final_test_error": 38.81,
+      "wall_clock_seconds": null,
+      "lyasc_diagnostics": {},
+      "lyasc_config": {},
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/diagnostic_coldstart/diagnostic_coldstart__LyASCplusLN_warmup__depth110__seed0.json"
+    },
+    {
+      "config_name": "lyasc_ablation_ln",
+      "variant_name": "LyASC+LN",
+      "seed": 0,
+      "final_test_error": 7.220000000000004,
+      "wall_clock_seconds": 38315.503061532974,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6809611040753899,
+        "alpha_std": 0.20125035905703442,
+        "alpha_min": 0.012705804780125618,
+        "alpha_max": 1.0,
+        "beta_mean": -0.7682948052469227,
+        "beta_std": 1.2777493446113213,
+        "lambda_mean": -1.458230324908746,
+        "lambda_std": 6.491358572820819
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/lyasc_ablation_ln__LyASCplusLN__depth110__seed0.json"
+    },
+    {
+      "config_name": "lyasc_table1_equiv",
+      "variant_name": "LyASC",
+      "seed": 0,
+      "final_test_error": 10.209999999999997,
+      "wall_clock_seconds": 16624.60894370079,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.5981728269743379,
+        "alpha_std": 0.2960638383837258,
+        "alpha_min": 0.0003501086903270334,
+        "alpha_max": 1.0,
+        "beta_mean": -0.6836327260222148,
+        "beta_std": 1.2419742946248238,
+        "lambda_mean": -1.287342289445439,
+        "lambda_std": 5.507553194422089
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none"
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/lyasc_table1_equiv__LyASC__depth110__seed0.json"
+    },
+    {
+      "config_name": "lyasc_table1_equiv",
+      "variant_name": "LyASC",
+      "seed": 1,
+      "final_test_error": 8.819999999999995,
+      "wall_clock_seconds": 16268.851841926575,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.717865875525469,
+        "alpha_std": 0.2503772850496064,
+        "alpha_min": 0.0032834839075803757,
+        "alpha_max": 0.9999969005584717,
+        "beta_mean": -1.783830333363127,
+        "beta_std": 1.9430233049638488,
+        "lambda_mean": -0.21236305523887966,
+        "lambda_std": 1.4383106561162358
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none"
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/lyasc_table1_equiv__LyASC__depth110__seed1.json"
+    },
+    {
+      "config_name": "lyasc_table1_equiv",
+      "variant_name": "LyASC",
+      "seed": 2,
+      "final_test_error": 9.950000000000003,
+      "wall_clock_seconds": 7870.110792636871,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6845305613619361,
+        "alpha_std": 0.25301919725613004,
+        "alpha_min": 0.0003757835947908461,
+        "alpha_max": 0.9999778270721436,
+        "beta_mean": -0.9263250605651626,
+        "beta_std": 1.6441965432334544,
+        "lambda_mean": -0.19847936139235067,
+        "lambda_std": 1.720753480254284
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none"
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/lyasc_table1_equiv__LyASC__depth110__seed2.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_damped",
+      "seed": 0,
+      "final_test_error": 7.799999999999995,
+      "wall_clock_seconds": 80239.53019714355,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6831298002766238,
+        "alpha_std": 0.1801168517865125,
+        "alpha_min": 0.038014136254787445,
+        "alpha_max": 1.0,
+        "beta_mean": -0.3673832980846917,
+        "beta_std": 1.331468223865048,
+        "lambda_mean": -1.4016341680695337,
+        "lambda_std": 6.509888485580295
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "damped",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_damped__depth110__seed0.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_damped",
+      "seed": 1,
+      "final_test_error": 7.210000000000005,
+      "wall_clock_seconds": 14121.263764381409,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.7101373515195317,
+        "alpha_std": 0.1733889041625261,
+        "alpha_min": 0.16108499467372894,
+        "alpha_max": 1.0,
+        "beta_mean": -0.5765251827046827,
+        "beta_std": 1.1234583093979358,
+        "lambda_mean": -1.0791126213691853,
+        "lambda_std": 5.578265527257521
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "damped",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_damped__depth110__seed1.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_damped",
+      "seed": 2,
+      "final_test_error": 7.369999999999999,
+      "wall_clock_seconds": 23096.70611667633,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6834303947269089,
+        "alpha_std": 0.18706096037924028,
+        "alpha_min": 0.008121331222355366,
+        "alpha_max": 0.9988675117492676,
+        "beta_mean": -0.691158537649446,
+        "beta_std": 1.6028599118263094,
+        "lambda_mean": -0.3931193142025559,
+        "lambda_std": 3.9803612361093696
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "damped",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_damped__depth110__seed2.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_none",
+      "seed": 0,
+      "final_test_error": 7.330000000000004,
+      "wall_clock_seconds": 26339.824298143387,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6878206955820874,
+        "alpha_std": 0.2003744478354019,
+        "alpha_min": 0.010399594902992249,
+        "alpha_max": 0.9994927644729614,
+        "beta_mean": -0.6273400673159847,
+        "beta_std": 1.4430956435436866,
+        "lambda_mean": -0.3516401985177287,
+        "lambda_std": 4.003885395202807
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_none__depth110__seed0.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_none",
+      "seed": 1,
+      "final_test_error": 7.250000000000001,
+      "wall_clock_seconds": 23485.305322170258,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6810197169306101,
+        "alpha_std": 0.1860596653714684,
+        "alpha_min": 0.08539459854364395,
+        "alpha_max": 1.0,
+        "beta_mean": -0.48032605730825,
+        "beta_std": 1.2253629885779798,
+        "lambda_mean": -3.115024443163916,
+        "lambda_std": 8.734893460805798
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_none__depth110__seed1.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_none",
+      "seed": 2,
+      "final_test_error": 6.930000000000003,
+      "wall_clock_seconds": 11016.250037193298,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.7353879812139051,
+        "alpha_std": 0.16003430110858538,
+        "alpha_min": 0.15049554407596588,
+        "alpha_max": 1.0,
+        "beta_mean": -0.5848919616805183,
+        "beta_std": 1.3396571168808273,
+        "lambda_mean": -0.06675678481244379,
+        "lambda_std": 4.120785932583275
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_none__depth110__seed2.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_warmup",
+      "seed": 0,
+      "final_test_error": 8.099999999999996,
+      "wall_clock_seconds": 23121.470831632614,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6371688269384861,
+        "alpha_std": 0.20532462831017295,
+        "alpha_min": 0.0012410016497597098,
+        "alpha_max": 1.0,
+        "beta_mean": -0.8775742539998006,
+        "beta_std": 1.2150733284412176,
+        "lambda_mean": -0.7326484913075412,
+        "lambda_std": 4.00575746023431
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "warmup",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_warmup__depth110__seed0.json"
+    },
+    {
+      "config_name": "lyasc_phase_d_coldstart",
+      "variant_name": "LyASC+LN_warmup",
+      "seed": 1,
+      "final_test_error": 7.799999999999995,
+      "wall_clock_seconds": 14920.96178150177,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.6621648651306276,
+        "alpha_std": 0.20162654232001828,
+        "alpha_min": 0.07820554822683334,
+        "alpha_max": 0.9701078534126282,
+        "beta_mean": -0.48977324297582664,
+        "beta_std": 1.3382027056563441,
+        "lambda_mean": -0.40134225847820443,
+        "lambda_std": 4.004920768570096
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "warmup",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_warmup__depth110__seed1.json"
+    },
+    {
+      "config_name": "lyasc_phase_e_stresstest",
+      "variant_name": "LyASC_stress_0.5",
+      "seed": 0,
+      "final_test_error": 7.979999999999999,
+      "wall_clock_seconds": 23967.957359075546,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.807365565388291,
+        "alpha_std": 0.15396869734763782,
+        "alpha_min": 0.133475661277771,
+        "alpha_max": 0.9972596168518066,
+        "beta_mean": -1.8117774173065468,
+        "beta_std": 1.8593526719355933,
+        "lambda_mean": -0.18216320203134306,
+        "lambda_std": 1.144937747875417
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_0.5__depth110__seed0.json"
+    },
+    {
+      "config_name": "lyasc_phase_e_stresstest",
+      "variant_name": "LyASC_stress_2.0",
+      "seed": 0,
+      "final_test_error": 8.130000000000004,
+      "wall_clock_seconds": 1526.106406211853,
+      "lyasc_diagnostics": {
+        "alpha_mean": 0.7793914937862644,
+        "alpha_std": 0.20805292719380472,
+        "alpha_min": 0.0859006941318512,
+        "alpha_max": 1.0,
+        "beta_mean": -1.7606994128889508,
+        "beta_std": 2.033478737108391,
+        "lambda_mean": -1.0258297201815165,
+        "lambda_std": 5.369035218008549
+      },
+      "lyasc_config": {
+        "k": 1,
+        "N": 20,
+        "ema_decay": 0.9,
+        "lambda0": 0.0,
+        "cold_start": "none",
+        "use_layer_norm": true
+      },
+      "file_path": "/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed0.json"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "import_precedence_bug_fix",
+      "phase": "Phase D",
+      "title": "Import-Precedence Loop & Bit-Identical Duplicate Run Fix",
+      "date": "2026-09-14",
+      "trigger": "Identical 6.42% / 6.35% test error across warmup and damped strategies on 2 seeds.",
+      "root_cause": "Import loop in runner script loaded static ExpandedSkipLN baseline instead of LyASCSkip.",
+      "resolution": "Prepended _LYASC_ROOT to sys.path & src.__path__. Probed telemetry at step 1000 confirmed distinct dynamics (beta_warmup=0, beta_damped=3.10, beta_none=4.23).",
+      "key": "phase_d_import_precedence_fix",
+      "status": "FIXED & VERIFIED"
+    },
+    {
+      "id": "theoretical_overclaim_retraction",
+      "phase": "Ablation 1",
+      "title": "0.5^54 Gradient Magnitude Theoretical Claim Retraction",
+      "date": "2026-09-10",
+      "trigger": "Overclaiming theoretical gradient suppression in multi-layer skip networks.",
+      "root_cause": "Conflating empirical LayerNorm error reduction (10.21% -> 7.22%) with untested activation saturation hypotheses.",
+      "resolution": "Retracted saturation claims; documented LayerNorm benefit as established empirically while marking dynamic range mechanisms as untested hypotheses.",
+      "key": "ablation_1_g_norm_layernorm2d_check",
+      "status": "CORRECTED"
+    },
+    {
+      "id": "ground_rule_2_base_model_revert",
+      "phase": "Phase D",
+      "title": "Ground Rule #2 Base Model Read-Only Revert",
+      "date": "2026-09-15",
+      "trigger": "Modification to base_model/src/training/config.py to preserve custom YAML fields.",
+      "root_cause": "Config loader in base_model modified directly, violating Ground Rule #2 (base_model read-only).",
+      "resolution": "Executed git checkout on base_model (0 diffs). Verified 14/32 PASS baseline intact. Reimplemented field preservation in lyasc_model via load_lyasc_variant_raw_dicts().",
+      "key": "ground_rule_2_revert",
+      "status": "REVERTED & RE-VERIFIED"
+    },
+    {
+      "id": "statistical_equivalence_baseline_selection",
+      "phase": "Phase D",
+      "title": "Statistical Equivalence & Pragmatic Baseline Selection",
+      "date": "2026-09-16",
+      "trigger": "Claiming none (7.170%) directionally beat damped (7.460%) at 3 seeds.",
+      "root_cause": "0.290pp gap remained inside <=0.40pp tolerance band and smaller than damped's std (0.305pp).",
+      "resolution": "Refined language to state none and damped are statistically indistinguishable at n=3. Selected none on pragmatic grounds (no extra hyperparameter to tune or justify).",
+      "key": "phase_d_cold_start_strategy_selection",
+      "status": "REFINED & LOCKED"
+    }
+  ],
+  "mlflow_experiments": [
+    {
+      "experiment_id": 0,
+      "name": "Default",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "diagnostic",
+        "phase_label": "Diagnostic (Default)",
+        "mlflow.note.content": "Diagnostic/benchmarking experiment: Default"
+      }
+    },
+    {
+      "experiment_id": 1,
+      "name": "smoke_test",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "diagnostic",
+        "phase_label": "Diagnostic (smoke_test)",
+        "mlflow.note.content": "Diagnostic/benchmarking experiment: smoke_test"
+      }
+    },
+    {
+      "experiment_id": 2,
+      "name": "bench",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "diagnostic",
+        "phase_label": "Diagnostic (bench)",
+        "mlflow.note.content": "Diagnostic/benchmarking experiment: bench"
+      }
+    },
+    {
+      "experiment_id": 3,
+      "name": "frozen",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "diagnostic",
+        "phase_label": "Diagnostic (frozen)",
+        "mlflow.note.content": "Diagnostic/benchmarking experiment: frozen"
+      }
+    },
+    {
+      "experiment_id": 4,
+      "name": "k1n20",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "diagnostic",
+        "phase_label": "Diagnostic (k1n20)",
+        "mlflow.note.content": "Diagnostic/benchmarking experiment: k1n20"
+      }
+    },
+    {
+      "experiment_id": 5,
+      "name": "k1n20_bench",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "diagnostic",
+        "phase_label": "Diagnostic (k1n20_bench)",
+        "mlflow.note.content": "Diagnostic/benchmarking experiment: k1n20_bench"
+      }
+    },
+    {
+      "experiment_id": 6,
+      "name": "k1n20_bench2",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "diagnostic",
+        "phase_label": "Diagnostic (k1n20_bench2)",
+        "mlflow.note.content": "Diagnostic/benchmarking experiment: k1n20_bench2"
+      }
+    },
+    {
+      "experiment_id": 7,
+      "name": "lyasc_table1_equiv",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "core",
+        "phase_label": "Phase C: Table 1 Comparison",
+        "mlflow.note.content": "Full 3-seed comparison of LyASC against verified baselines \u2014 result: 9.66% vs 6.15-8.16% targets, FAIL, motivated the LayerNorm fix."
+      }
+    },
+    {
+      "experiment_id": 8,
+      "name": "lyasc_ablation_ln",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "core",
+        "phase_label": "Ablation 1: LayerNorm Fix",
+        "mlflow.note.content": "Single-seed proof-of-concept testing LayerNorm post-gate normalization \u2014 result: 7.22% test error, resolved gating magnitude shift."
+      }
+    },
+    {
+      "experiment_id": 9,
+      "name": "lyasc_phase_d_coldstart",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "core",
+        "phase_label": "Phase D: Cold-Start Strategy",
+        "mlflow.note.content": "3-seed cold-start strategy ablation (none vs damped vs warmup) \u2014 result: none (7.17%) selected as pragmatic baseline."
+      }
+    },
+    {
+      "experiment_id": 10,
+      "name": "lyasc_phase_e_stresstest",
+      "stage": "active",
+      "tags": {
+        "showcase_tier": "core",
+        "phase_label": "Phase E1: Stress Tests",
+        "mlflow.note.content": "Catastrophic stress test ablation (Table 3 equivalents) \u2014 result: stabilized 0.5x (7.98%) and 2.0x (8.13%) vs 37.14-37.59% baselines."
+      }
+    }
+  ]
+}

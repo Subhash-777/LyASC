@@ -1,0 +1,14 @@
+2026-09-01 18:10:54,423 INFO === Starting training: config=k1n20_bench  variant=LyASC  depth=110  seed=101 ===
+2026-09-01 18:10:54,498 INFO Device: cuda
+2026-09-01 18:10:55,247 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-01 18:10:55,305 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]
+2026-09-01 18:15:21,186 INFO iter=  1000  epoch=2.6  lr=0.01000  loss=2.2592  train_acc=13.83%  grad_norm=1420.260 (clipped 45/1000 steps)  elapsed=266s  [beta_grad_norm=57.169  other_grad_norm=1418.903]
+2026-09-01 18:15:21,189 INFO          alpha: mean=0.5555  std=0.1190  min=0.2485  max=0.8678  |  beta: mean=0.2686  std=0.4655  |  lambda: mean=0.9635  std=0.4240
+2026-09-01 18:15:27,329 INFO >> EVAL  iter=1000  epoch=2.6  test_error=77.78%
+2026-09-01 18:17:43,272 INFO >> EVAL  iter=1500  epoch=3.8  test_error=72.09%
+2026-09-01 18:20:09,421 INFO iter=  2000  epoch=5.1  lr=0.00100  loss=1.9476  train_acc=26.98%  grad_norm=0.831 (clipped 1/1000 steps)  elapsed=554s  [beta_grad_norm=0.045  other_grad_norm=0.830]
+2026-09-01 18:20:09,471 INFO          alpha: mean=0.5126  std=0.0854  min=0.2366  max=0.7869  |  beta: mean=0.2742  std=0.4731  |  lambda: mean=0.5352  std=0.4937
+2026-09-01 18:20:21,081 INFO >> EVAL  iter=2000  epoch=5.1  test_error=70.82%
+2026-09-01 18:20:32,859 INFO === DONE  config=k1n20_bench  variant=LyASC  depth=110  seed=101 final_test_error=70.82%  time=578s ===
+2026-09-01 18:20:33,043 INFO Checkpoint saved: results/checkpoints/step3_k1n20/k1n20_bench__LyASC__depth110__seed101.pt
+2026-09-01 18:20:33,173 INFO Result JSON: results/logs/step3_k1n20/k1n20_bench__LyASC__depth110__seed101.json

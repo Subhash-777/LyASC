@@ -1,0 +1,75 @@
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: phase_d_cold_start_strategy_selection
+VALUE:     cold_start_strategy = "none"
+RATIONALE: Completed 3-seed evaluation per pre-registered tolerance protocol. Strategy test errors:
+           - LyASC+LN_none (3 seeds): 7.170% ± 0.212% (Seed 0: 7.33%, Seed 1: 7.25%, Seed 2: 6.93%)
+           - LyASC+LN_damped (3 seeds): 7.460% ± 0.305% (Seed 0: 7.80%, Seed 1: 7.21%, Seed 2: 7.37%)
+           - LyASC+LN_warmup (2 seeds): 7.950% ± 0.212% (Seed 0: 8.10%, Seed 1: 7.80%)
+           1. warmup is confidently ruled out (+0.780pp gap vs none, no seed overlap).
+           2. none and damped are statistically indistinguishable at n=3 (0.290pp gap vs 0.305pp within-group std for damped, remaining within the <=0.40pp tolerance band).
+           3. none is selected as the Phase E–G baseline on pragmatic grounds: it has no extra cold-start hyperparameter to tune or justify, and the data provides no evidence that damped's added complexity yields any performance benefit.
+------------------------------------------------------------------------
+
+DECISION: phase_e_skip_and_residual_scaling_formula
+VALUE:     y_l = G(alpha_l * (skip_scale * x_l) + (1 - alpha_l) * (residual_scale * F_l(x_l)))
+RATIONALE: Pre-scales shortcut path (skip_scale=0.5 for contracted skip) or residual branch (residual_scale=2.0, 3.0 for expanded residual) before applying the dynamic gate alpha_l(lambda_l). Preserves base_model Table 3 power ratios while enabling adaptive LyASC gating.
+------------------------------------------------------------------------
+DECISION: phase_e_stress_variants_g_norm_setting
+VALUE:     G() = LayerNorm2d for all Table 3 stress variants (stress_0.5, stress_2.0, stress_3.0)
+RATIONALE: Matches the exact normalization configuration where base_model experienced catastrophic failure (LN(0.5x+F)=37.14%, LN(x+2F)=37.59% bimodal, LN(x+3F)=49.27%), ensuring an apples-to-apples evaluation of whether LyASC gating rescues these unstable cases.
+------------------------------------------------------------------------
+DECISION: phase_e_compute_plan_unit_error_correction
+VALUE:     Corrected per-run wall-clock calculation formula: 64000 * (s/iter) / 3600
+RATIONALE: Noted unit error in draft Phase E plan executive summary (~3.8h stated vs 12.16h actual for 64k iters at 0.6842 s/iter). The 64,000-iter run time equals 64000 * (s/iter) / 3600. Corrected audit trail and updated budget estimates with steady-state benchmark measurements.
+------------------------------------------------------------------------

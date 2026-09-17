@@ -1,0 +1,10 @@
+{
+  "config_name": "bench",
+  "variant_name": "1xSkip",
+  "depth": 110,
+  "seed": 1234,
+  "final_test_error": 29.179999999999996,
+  "total_iters": 1000,
+  "wall_clock_seconds": 166.25643801689148,
+  "grad_clip_max_norm": 5.0
+}

@@ -1,0 +1,12 @@
+2026-09-16 21:36:05,513 INFO === Starting training: config=lyasc_phase_e_stresstest  variant=LyASC_noG  depth=110  seed=99 ===
+2026-09-16 21:36:05,551 INFO Device: cuda
+2026-09-16 21:36:07,609 INFO Model: PreAct-ResNet-110  variant=LyASC_noG  params=1,728,016  blocks=54
+2026-09-16 21:36:07,670 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [32000, 48000]
+2026-09-16 21:39:40,224 INFO iter=  1000  epoch=2.6  lr=0.10000  loss=2.2940  train_acc=12.42%  grad_norm=1711.464 (clipped 45/1000 steps)  elapsed=213s  [beta_grad_norm=93.822  other_grad_norm=1708.464]
+2026-09-16 21:39:40,234 INFO          alpha: mean=0.5288  std=0.1134  min=0.2684  max=0.8656  |  beta: mean=0.0810  std=0.3254  |  lambda: mean=1.4424  std=0.6263
+2026-09-16 21:44:34,704 INFO iter=  2000  epoch=5.1  lr=0.10000  loss=2.1088  train_acc=20.72%  grad_norm=0.569 (clipped 5/1000 steps)  elapsed=507s  [beta_grad_norm=0.044  other_grad_norm=0.567]
+2026-09-16 21:44:34,714 INFO          alpha: mean=0.5590  std=0.0925  min=0.3248  max=0.7535  |  beta: mean=0.3378  std=0.4565  |  lambda: mean=0.6733  std=0.4385
+2026-09-16 21:44:42,646 INFO >> EVAL  iter=2000  epoch=5.1  test_error=82.82%
+2026-09-16 21:44:50,372 INFO === DONE  config=lyasc_phase_e_stresstest  variant=LyASC_noG  depth=110  seed=99 final_test_error=82.82%  time=523s ===
+2026-09-16 21:44:50,437 INFO Checkpoint saved: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_noG__depth110__seed99.pt
+2026-09-16 21:44:50,441 INFO Result JSON: /home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_noG__depth110__seed99.json

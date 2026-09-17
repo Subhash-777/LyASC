@@ -1,0 +1,28 @@
+{
+  "config_name": "lyasc_phase_d_coldstart",
+  "variant_name": "LyASC+LN_damped",
+  "depth": 110,
+  "seed": 0,
+  "final_test_error": 7.799999999999995,
+  "total_iters": 64000,
+  "wall_clock_seconds": 80239.53019714355,
+  "grad_clip_max_norm": 5.0,
+  "lyasc_diagnostics": {
+    "alpha_mean": 0.6831298002766238,
+    "alpha_std": 0.1801168517865125,
+    "alpha_min": 0.038014136254787445,
+    "alpha_max": 1.0,
+    "beta_mean": -0.3673832980846917,
+    "beta_std": 1.331468223865048,
+    "lambda_mean": -1.4016341680695337,
+    "lambda_std": 6.509888485580295
+  },
+  "lyasc_config": {
+    "k": 1,
+    "N": 20,
+    "ema_decay": 0.9,
+    "lambda0": 0.0,
+    "cold_start": "damped",
+    "use_layer_norm": true
+  }
+}

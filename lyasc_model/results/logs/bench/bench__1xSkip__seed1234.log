@@ -1,0 +1,10 @@
+2026-08-31 23:55:05,470 INFO === Starting training: config=bench  variant=1xSkip  depth=110  seed=1234 ===
+2026-08-31 23:55:05,572 INFO Device: cuda
+2026-08-31 23:55:06,480 INFO Model: PreAct-ResNet-110  variant=1xSkip  params=1,727,962  blocks=54
+2026-08-31 23:55:06,531 INFO Training schedule: 1000 total iterations (~2.6 epochs), LR milestones at iters [800]
+2026-08-31 23:57:14,515 INFO >> EVAL  iter=800  epoch=2.0  test_error=39.33%
+2026-08-31 23:57:45,704 INFO iter=  1000  epoch=2.6  lr=0.01000  loss=1.3110  train_acc=51.92%  grad_norm=1.112 (clipped 8/1000 steps)  elapsed=159s
+2026-08-31 23:57:49,226 INFO >> EVAL  iter=1000  epoch=2.6  test_error=29.18%
+2026-08-31 23:57:52,788 INFO === DONE  config=bench  variant=1xSkip  depth=110  seed=1234 final_test_error=29.18%  time=166s ===
+2026-08-31 23:57:52,839 INFO Checkpoint saved: results/checkpoints/bench/bench__1xSkip__depth110__seed1234.pt
+2026-08-31 23:57:52,839 INFO Result JSON: results/logs/bench/bench__1xSkip__depth110__seed1234.json

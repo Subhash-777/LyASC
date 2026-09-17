@@ -1,0 +1,7 @@
+2026-09-01 18:05:43,309 INFO === Starting training: config=k1n20  variant=LyASC  depth=110  seed=101 ===
+2026-09-01 18:05:43,310 INFO Device: cuda
+2026-09-01 18:05:43,977 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-01 18:05:44,022 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]
+2026-09-01 18:08:58,033 INFO iter=  1000  epoch=2.6  lr=0.01000  loss=2.2592  train_acc=13.83%  grad_norm=1420.260 (clipped 45/1000 steps)  elapsed=194s  [beta_grad_norm=57.169  other_grad_norm=1418.903]
+2026-09-01 18:08:58,036 INFO          alpha: mean=0.5555  std=0.1190  min=0.2485  max=0.8678  |  beta: mean=0.2686  std=0.4655  |  lambda: mean=0.9635  std=0.4240
+2026-09-01 18:09:02,356 INFO >> EVAL  iter=1000  epoch=2.6  test_error=77.78%

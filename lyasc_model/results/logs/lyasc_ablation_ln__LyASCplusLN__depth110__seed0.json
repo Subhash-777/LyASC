@@ -1,0 +1,28 @@
+{
+  "config_name": "lyasc_ablation_ln",
+  "variant_name": "LyASC+LN",
+  "depth": 110,
+  "seed": 0,
+  "final_test_error": 7.220000000000004,
+  "total_iters": 64000,
+  "wall_clock_seconds": 38315.503061532974,
+  "grad_clip_max_norm": 5.0,
+  "lyasc_diagnostics": {
+    "alpha_mean": 0.6809611040753899,
+    "alpha_std": 0.20125035905703442,
+    "alpha_min": 0.012705804780125618,
+    "alpha_max": 1.0,
+    "beta_mean": -0.7682948052469227,
+    "beta_std": 1.2777493446113213,
+    "lambda_mean": -1.458230324908746,
+    "lambda_std": 6.491358572820819
+  },
+  "lyasc_config": {
+    "k": 1,
+    "N": 20,
+    "ema_decay": 0.9,
+    "lambda0": 0.0,
+    "cold_start": "none",
+    "use_layer_norm": true
+  }
+}

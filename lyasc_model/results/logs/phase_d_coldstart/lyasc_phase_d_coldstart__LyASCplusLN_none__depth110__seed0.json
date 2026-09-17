@@ -1,0 +1,28 @@
+{
+  "config_name": "lyasc_phase_d_coldstart",
+  "variant_name": "LyASC+LN_none",
+  "depth": 110,
+  "seed": 0,
+  "final_test_error": 7.330000000000004,
+  "total_iters": 64000,
+  "wall_clock_seconds": 26339.824298143387,
+  "grad_clip_max_norm": 5.0,
+  "lyasc_diagnostics": {
+    "alpha_mean": 0.6878206955820874,
+    "alpha_std": 0.2003744478354019,
+    "alpha_min": 0.010399594902992249,
+    "alpha_max": 0.9994927644729614,
+    "beta_mean": -0.6273400673159847,
+    "beta_std": 1.4430956435436866,
+    "lambda_mean": -0.3516401985177287,
+    "lambda_std": 4.003885395202807
+  },
+  "lyasc_config": {
+    "k": 1,
+    "N": 20,
+    "ema_decay": 0.9,
+    "lambda0": 0.0,
+    "cold_start": "none",
+    "use_layer_norm": true
+  }
+}

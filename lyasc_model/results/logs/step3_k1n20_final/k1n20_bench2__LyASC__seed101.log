@@ -1,0 +1,4 @@
+2026-09-01 18:19:33,579 INFO === Starting training: config=k1n20_bench2  variant=LyASC  depth=110  seed=101 ===
+2026-09-01 18:19:33,601 INFO Device: cuda
+2026-09-01 18:19:35,632 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-01 18:19:35,687 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]

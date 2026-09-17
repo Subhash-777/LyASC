@@ -1,0 +1,10 @@
+{
+  "config_name": "smoke_test",
+  "variant_name": "1xSkip",
+  "depth": 110,
+  "seed": 999,
+  "final_test_error": 23.57,
+  "total_iters": 2000,
+  "wall_clock_seconds": 311.88713240623474,
+  "grad_clip_max_norm": 5.0
+}

@@ -1,0 +1,12 @@
+2026-08-31 23:42:28,672 INFO === Starting training: config=smoke_test  variant=1xSkip  depth=110  seed=999 ===
+2026-08-31 23:42:28,774 INFO Device: cuda
+2026-08-31 23:42:29,894 INFO Model: PreAct-ResNet-110  variant=1xSkip  params=1,727,962  blocks=54
+2026-08-31 23:42:29,958 INFO Training schedule: 2000 total iterations (~5.1 epochs), LR milestones at iters [1000, 1500]
+2026-08-31 23:44:57,444 INFO iter=  1000  epoch=2.6  lr=0.01000  loss=1.3650  train_acc=49.99%  grad_norm=1.066 (clipped 5/1000 steps)  elapsed=147s
+2026-08-31 23:45:00,806 INFO >> EVAL  iter=1000  epoch=2.6  test_error=36.27%
+2026-08-31 23:46:18,809 INFO >> EVAL  iter=1500  epoch=3.8  test_error=24.42%
+2026-08-31 23:47:34,936 INFO iter=  2000  epoch=5.1  lr=0.00100  loss=0.7047  train_acc=75.23%  grad_norm=1.021  elapsed=305s
+2026-08-31 23:47:38,391 INFO >> EVAL  iter=2000  epoch=5.1  test_error=23.57%
+2026-08-31 23:47:41,845 INFO === DONE  config=smoke_test  variant=1xSkip  depth=110  seed=999 final_test_error=23.57%  time=312s ===
+2026-08-31 23:47:42,021 INFO Checkpoint saved: results/checkpoints/smoke/smoke_test__1xSkip__depth110__seed999.pt
+2026-08-31 23:47:42,021 INFO Result JSON: results/logs/smoke/smoke_test__1xSkip__depth110__seed999.json

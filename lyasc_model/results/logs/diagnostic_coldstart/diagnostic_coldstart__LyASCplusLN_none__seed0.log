@@ -1,0 +1,14 @@
+2026-09-10 11:38:08  INFO      Run logger initialised: config=diagnostic_coldstart  variant=LyASC+LN_none  seed=0
+2026-09-10 11:38:08  INFO      Log file: /home/subhash/projects/LyASC/lyasc_model/results/logs/diagnostic_coldstart/diagnostic_coldstart__LyASCplusLN_none__seed0.log
+2026-09-10 11:38:08  INFO      === Starting training: config=diagnostic_coldstart  variant=LyASC+LN_none  depth=110  seed=0 ===
+2026-09-10 11:38:08  INFO      Gradient clipping enabled: max_norm=5.00 (added post-hoc — base paper does not specify clipping; added after observing hard collapse to ln(num_classes) on LN-augmented variants under the unclipped lr=0.1 phase).
+2026-09-10 11:38:08  INFO      Device: cuda
+2026-09-10 11:38:08  INFO      Model: PreAct-ResNet-110  variant=LyASC+LN_none  params=1,727,962  blocks=54
+2026-09-10 11:38:08  INFO      Training schedule: 1000 total iterations (~2.6 epochs), LR milestones at iters [500, 800] (~epochs ['1.3', '2.0'])
+2026-09-10 11:39:23  INFO      >> EVAL  iter=500  epoch=1.3  test_error=54.56%
+2026-09-10 11:40:09  INFO      >> EVAL  iter=800  epoch=2.0  test_error=40.42%
+2026-09-10 11:40:38  INFO      iter=  1000  epoch=2.6  lr=0.00100  loss=1.4297  train_acc=47.52%  grad_norm=1.054 (clipped 6/1000 steps)  elapsed=149s
+2026-09-10 11:40:41  INFO      >> EVAL  iter=1000  epoch=2.6  test_error=38.81%
+2026-09-10 11:40:44  INFO      === DONE  config=diagnostic_coldstart  variant=LyASC+LN_none  depth=110  seed=0 final_test_error=38.81%  time=156s ===
+2026-09-10 11:40:44  INFO      Checkpoint saved: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/diagnostic_coldstart/diagnostic_coldstart__LyASCplusLN_none__depth110__seed0.pt
+2026-09-10 11:40:44  INFO      Result JSON: /home/subhash/projects/LyASC/lyasc_model/results/logs/diagnostic_coldstart/diagnostic_coldstart__LyASCplusLN_none__depth110__seed0.json
