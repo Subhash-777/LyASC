@@ -1,0 +1,143 @@
+2026-08-04 01:01:26  INFO      Run logger initialised: config=cifar10_table1  variant=wSkip+LN  seed=2
+2026-08-04 01:01:26  INFO      Log file: results/logs/cifar10_table1__wSkipplusLN__seed2.log
+2026-08-04 01:01:26  INFO      === Starting training: config=cifar10_table1  variant=wSkip+LN  depth=110  seed=2 ===
+2026-08-04 01:01:26  INFO      Gradient clipping enabled: max_norm=5.00 (added post-hoc — base paper does not specify clipping; added after observing hard collapse to ln(num_classes) on LN-augmented variants under the unclipped lr=0.1 phase).
+2026-08-04 01:01:26  INFO      w-gate LR multiplier: 0.100 (LearnableVectorSkip.w trains at 0.100x the base LR — added post-hoc after weight-decay exclusion alone failed to resolve wSkip+LN's grad_norm~1100 instability).
+2026-08-04 01:01:26  INFO      Device: cuda
+2026-08-04 01:01:29  INFO      Model: PreAct-ResNet-110  variant=wSkip+LN  params=1,734,010  blocks=54
+2026-08-04 01:01:29  INFO      Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000] (~epochs ['81.9', '122.9'])
+2026-08-04 01:14:16  INFO      iter=  1000  epoch=2.6  lr=0.10000  loss=2.1635  train_acc=20.20%  grad_norm=1099.099 (clipped 113/1000 steps)  elapsed=767s  [w_grad_norm=72.353  other_grad_norm=1096.556]
+2026-08-04 01:14:18  INFO               w_values: mean=1.0003  std=0.0101  min=0.8199  max=1.0960  mean_abs=1.0003
+2026-08-04 01:27:06  INFO      iter=  2000  epoch=5.1  lr=0.10000  loss=2.0277  train_acc=24.63%  grad_norm=0.584 (clipped 3/1000 steps)  elapsed=1537s  [w_grad_norm=0.046  other_grad_norm=0.581]
+2026-08-04 01:27:06  INFO               w_values: mean=1.0009  std=0.0114  min=0.8069  max=1.1877  mean_abs=1.0009
+2026-08-04 01:39:48  INFO      iter=  3000  epoch=7.7  lr=0.10000  loss=1.9669  train_acc=26.95%  grad_norm=0.612 (clipped 3/1000 steps)  elapsed=2299s  [w_grad_norm=0.053  other_grad_norm=0.609]
+2026-08-04 01:39:48  INFO               w_values: mean=1.0015  std=0.0132  min=0.7495  max=1.2352  mean_abs=1.0015
+2026-08-04 01:48:49  INFO      iter=  4000  epoch=10.2  lr=0.10000  loss=1.9545  train_acc=27.53%  grad_norm=0.552 (clipped 1/1000 steps)  elapsed=2839s  [w_grad_norm=0.038  other_grad_norm=0.551]
+2026-08-04 01:48:49  INFO               w_values: mean=1.0023  std=0.0156  min=0.7741  max=1.3423  mean_abs=1.0023
+2026-08-04 01:54:52  INFO      iter=  5000  epoch=12.8  lr=0.10000  loss=1.9405  train_acc=28.23%  grad_norm=0.686 (clipped 10/1000 steps)  elapsed=3203s  [w_grad_norm=0.072  other_grad_norm=0.681]
+2026-08-04 01:54:52  INFO               w_values: mean=1.0033  std=0.0233  min=0.6613  max=1.5408  mean_abs=1.0033
+2026-08-04 02:00:55  INFO      iter=  6000  epoch=15.4  lr=0.10000  loss=2.0182  train_acc=26.59%  grad_norm=0.782 (clipped 9/1000 steps)  elapsed=3566s  [w_grad_norm=0.062  other_grad_norm=0.779]
+2026-08-04 02:00:55  INFO               w_values: mean=1.0048  std=0.0269  min=0.6618  max=1.7417  mean_abs=1.0048
+2026-08-04 02:06:59  INFO      iter=  7000  epoch=17.9  lr=0.10000  loss=1.8873  train_acc=31.19%  grad_norm=0.754 (clipped 1/1000 steps)  elapsed=3929s  [w_grad_norm=0.070  other_grad_norm=0.749]
+2026-08-04 02:06:59  INFO               w_values: mean=1.0067  std=0.0297  min=0.5986  max=1.9164  mean_abs=1.0067
+2026-08-04 02:13:01  INFO      iter=  8000  epoch=20.5  lr=0.10000  loss=1.8153  train_acc=33.81%  grad_norm=0.829 (clipped 5/1000 steps)  elapsed=4292s  [w_grad_norm=0.078  other_grad_norm=0.825]
+2026-08-04 02:13:01  INFO               w_values: mean=1.0087  std=0.0295  min=0.5800  max=1.8955  mean_abs=1.0087
+2026-08-04 02:19:05  INFO      iter=  9000  epoch=23.0  lr=0.10000  loss=1.7594  train_acc=35.88%  grad_norm=1.050 (clipped 4/1000 steps)  elapsed=4656s  [w_grad_norm=0.129  other_grad_norm=1.041]
+2026-08-04 02:19:05  INFO               w_values: mean=1.0119  std=0.0355  min=0.6635  max=2.0784  mean_abs=1.0119
+2026-08-04 02:25:08  INFO      iter= 10000  epoch=25.6  lr=0.10000  loss=1.5645  train_acc=43.14%  grad_norm=1.091 (clipped 4/1000 steps)  elapsed=5019s  [w_grad_norm=0.126  other_grad_norm=1.083]
+2026-08-04 02:25:08  INFO               w_values: mean=1.0159  std=0.0342  min=0.6457  max=1.9786  mean_abs=1.0159
+2026-08-04 02:31:12  INFO      iter= 11000  epoch=28.2  lr=0.10000  loss=1.1147  train_acc=60.67%  grad_norm=1.153  elapsed=5382s  [w_grad_norm=0.145  other_grad_norm=1.144]
+2026-08-04 02:31:12  INFO               w_values: mean=1.0208  std=0.0371  min=0.6489  max=1.9907  mean_abs=1.0208
+2026-08-04 02:37:15  INFO      iter= 12000  epoch=30.7  lr=0.10000  loss=0.8437  train_acc=70.64%  grad_norm=1.150  elapsed=5746s  [w_grad_norm=0.160  other_grad_norm=1.139]
+2026-08-04 02:37:15  INFO               w_values: mean=1.0245  std=0.0403  min=0.6420  max=2.0245  mean_abs=1.0245
+2026-08-04 02:43:18  INFO      iter= 13000  epoch=33.3  lr=0.10000  loss=0.6742  train_acc=76.53%  grad_norm=1.157  elapsed=6109s  [w_grad_norm=0.173  other_grad_norm=1.144]
+2026-08-04 02:43:18  INFO               w_values: mean=1.0269  std=0.0427  min=0.6168  max=2.0184  mean_abs=1.0269
+2026-08-04 02:49:22  INFO      iter= 14000  epoch=35.8  lr=0.10000  loss=0.5678  train_acc=80.31%  grad_norm=1.154  elapsed=6473s  [w_grad_norm=0.177  other_grad_norm=1.140]
+2026-08-04 02:49:22  INFO               w_values: mean=1.0288  std=0.0451  min=0.6093  max=2.0304  mean_abs=1.0288
+2026-08-04 02:55:26  INFO      iter= 15000  epoch=38.4  lr=0.10000  loss=0.4922  train_acc=83.07%  grad_norm=1.170  elapsed=6837s  [w_grad_norm=0.182  other_grad_norm=1.156]
+2026-08-04 02:55:26  INFO               w_values: mean=1.0301  std=0.0476  min=0.5976  max=2.0426  mean_abs=1.0301
+2026-08-04 03:01:29  INFO      iter= 16000  epoch=41.0  lr=0.10000  loss=0.4416  train_acc=84.64%  grad_norm=1.178  elapsed=7200s  [w_grad_norm=0.187  other_grad_norm=1.163]
+2026-08-04 03:01:29  INFO               w_values: mean=1.0313  std=0.0496  min=0.5794  max=2.0502  mean_abs=1.0313
+2026-08-04 03:07:32  INFO      iter= 17000  epoch=43.5  lr=0.10000  loss=0.4034  train_acc=86.05%  grad_norm=1.187  elapsed=7563s  [w_grad_norm=0.186  other_grad_norm=1.172]
+2026-08-04 03:07:32  INFO               w_values: mean=1.0324  std=0.0515  min=0.5726  max=2.0542  mean_abs=1.0324
+2026-08-04 03:13:35  INFO      iter= 18000  epoch=46.1  lr=0.10000  loss=0.3752  train_acc=86.96%  grad_norm=1.202  elapsed=7926s  [w_grad_norm=0.188  other_grad_norm=1.187]
+2026-08-04 03:13:35  INFO               w_values: mean=1.0334  std=0.0535  min=0.5536  max=2.0562  mean_abs=1.0334
+2026-08-04 03:19:39  INFO      iter= 19000  epoch=48.6  lr=0.10000  loss=0.3510  train_acc=87.90%  grad_norm=1.214  elapsed=8290s  [w_grad_norm=0.193  other_grad_norm=1.199]
+2026-08-04 03:19:39  INFO               w_values: mean=1.0343  std=0.0554  min=0.5430  max=2.0720  mean_abs=1.0343
+2026-08-04 03:25:42  INFO      iter= 20000  epoch=51.2  lr=0.10000  loss=0.3386  train_acc=88.37%  grad_norm=1.213  elapsed=8653s  [w_grad_norm=0.192  other_grad_norm=1.197]
+2026-08-04 03:25:42  INFO               w_values: mean=1.0352  std=0.0572  min=0.5355  max=2.0731  mean_abs=1.0352
+2026-08-04 03:31:46  INFO      iter= 21000  epoch=53.8  lr=0.10000  loss=0.3223  train_acc=88.88%  grad_norm=1.224  elapsed=9016s  [w_grad_norm=0.192  other_grad_norm=1.209]
+2026-08-04 03:31:46  INFO               w_values: mean=1.0361  std=0.0589  min=0.5217  max=2.0820  mean_abs=1.0361
+2026-08-04 03:37:49  INFO      iter= 22000  epoch=56.3  lr=0.10000  loss=0.3066  train_acc=89.46%  grad_norm=1.220  elapsed=9380s  [w_grad_norm=0.192  other_grad_norm=1.205]
+2026-08-04 03:37:49  INFO               w_values: mean=1.0370  std=0.0607  min=0.5098  max=2.0988  mean_abs=1.0370
+2026-08-04 03:43:52  INFO      iter= 23000  epoch=58.9  lr=0.10000  loss=0.3026  train_acc=89.53%  grad_norm=1.232  elapsed=9743s  [w_grad_norm=0.196  other_grad_norm=1.216]
+2026-08-04 03:43:52  INFO               w_values: mean=1.0380  std=0.0625  min=0.5112  max=2.1102  mean_abs=1.0380
+2026-08-04 03:49:55  INFO      iter= 24000  epoch=61.4  lr=0.10000  loss=0.2893  train_acc=90.01%  grad_norm=1.231  elapsed=10106s  [w_grad_norm=0.194  other_grad_norm=1.215]
+2026-08-04 03:49:55  INFO               w_values: mean=1.0389  std=0.0643  min=0.4995  max=2.1351  mean_abs=1.0389
+2026-08-04 03:55:59  INFO      iter= 25000  epoch=64.0  lr=0.10000  loss=0.2847  train_acc=90.13%  grad_norm=1.251  elapsed=10469s  [w_grad_norm=0.197  other_grad_norm=1.235]
+2026-08-04 03:55:59  INFO               w_values: mean=1.0397  std=0.0660  min=0.4998  max=2.1448  mean_abs=1.0397
+2026-08-04 04:02:02  INFO      iter= 26000  epoch=66.6  lr=0.10000  loss=0.2738  train_acc=90.61%  grad_norm=1.237  elapsed=10833s  [w_grad_norm=0.198  other_grad_norm=1.221]
+2026-08-04 04:02:02  INFO               w_values: mean=1.0406  std=0.0677  min=0.4944  max=2.1541  mean_abs=1.0406
+2026-08-04 04:08:06  INFO      iter= 27000  epoch=69.1  lr=0.10000  loss=0.2723  train_acc=90.52%  grad_norm=1.247  elapsed=11197s  [w_grad_norm=0.198  other_grad_norm=1.231]
+2026-08-04 04:08:06  INFO               w_values: mean=1.0414  std=0.0694  min=0.4897  max=2.1692  mean_abs=1.0414
+2026-08-04 04:14:09  INFO      iter= 28000  epoch=71.7  lr=0.10000  loss=0.2660  train_acc=90.80%  grad_norm=1.251  elapsed=11559s  [w_grad_norm=0.200  other_grad_norm=1.235]
+2026-08-04 04:14:09  INFO               w_values: mean=1.0423  std=0.0708  min=0.4982  max=2.1774  mean_abs=1.0423
+2026-08-04 04:20:11  INFO      iter= 29000  epoch=74.2  lr=0.10000  loss=0.2584  train_acc=91.06%  grad_norm=1.247  elapsed=11922s  [w_grad_norm=0.198  other_grad_norm=1.231]
+2026-08-04 04:20:11  INFO               w_values: mean=1.0430  std=0.0723  min=0.4950  max=2.1819  mean_abs=1.0430
+2026-08-04 04:26:14  INFO      iter= 30000  epoch=76.8  lr=0.10000  loss=0.2569  train_acc=91.09%  grad_norm=1.266  elapsed=12285s  [w_grad_norm=0.201  other_grad_norm=1.249]
+2026-08-04 04:26:14  INFO               w_values: mean=1.0439  std=0.0739  min=0.4887  max=2.1913  mean_abs=1.0439
+2026-08-04 04:32:17  INFO      iter= 31000  epoch=79.4  lr=0.10000  loss=0.2508  train_acc=91.31%  grad_norm=1.255  elapsed=12648s  [w_grad_norm=0.200  other_grad_norm=1.238]
+2026-08-04 04:32:17  INFO               w_values: mean=1.0448  std=0.0756  min=0.4991  max=2.2057  mean_abs=1.0448
+2026-08-04 04:38:20  INFO      iter= 32000  epoch=81.9  lr=0.01000  loss=0.2478  train_acc=91.39%  grad_norm=1.251  elapsed=13011s  [w_grad_norm=0.201  other_grad_norm=1.235]
+2026-08-04 04:38:20  INFO               w_values: mean=1.0456  std=0.0771  min=0.5018  max=2.2114  mean_abs=1.0456
+2026-08-04 04:38:30  INFO      >> EVAL  iter=32000  epoch=81.9  test_error=14.77%
+2026-08-04 04:44:33  INFO      iter= 33000  epoch=84.5  lr=0.01000  loss=0.1135  train_acc=96.26%  grad_norm=0.869  elapsed=13384s  [w_grad_norm=0.134  other_grad_norm=0.858]
+2026-08-04 04:44:33  INFO               w_values: mean=1.0454  std=0.0771  min=0.5018  max=2.2136  mean_abs=1.0454
+2026-08-04 04:50:36  INFO      iter= 34000  epoch=87.0  lr=0.01000  loss=0.0720  train_acc=97.64%  grad_norm=0.832  elapsed=13747s  [w_grad_norm=0.123  other_grad_norm=0.822]
+2026-08-04 04:50:36  INFO               w_values: mean=1.0454  std=0.0771  min=0.5016  max=2.2134  mean_abs=1.0454
+2026-08-04 04:56:39  INFO      iter= 35000  epoch=89.6  lr=0.01000  loss=0.0546  train_acc=98.23%  grad_norm=0.824  elapsed=14110s  [w_grad_norm=0.119  other_grad_norm=0.815]
+2026-08-04 04:56:39  INFO               w_values: mean=1.0453  std=0.0771  min=0.5022  max=2.2127  mean_abs=1.0453
+2026-08-04 05:02:42  INFO      iter= 36000  epoch=92.2  lr=0.01000  loss=0.0433  train_acc=98.59%  grad_norm=0.821  elapsed=14473s  [w_grad_norm=0.114  other_grad_norm=0.813]
+2026-08-04 05:02:42  INFO               w_values: mean=1.0452  std=0.0771  min=0.5026  max=2.2135  mean_abs=1.0452
+2026-08-04 05:08:45  INFO      iter= 37000  epoch=94.7  lr=0.01000  loss=0.0338  train_acc=98.94%  grad_norm=0.789  elapsed=14836s  [w_grad_norm=0.108  other_grad_norm=0.781]
+2026-08-04 05:08:45  INFO               w_values: mean=1.0452  std=0.0771  min=0.5027  max=2.2135  mean_abs=1.0452
+2026-08-04 05:14:48  INFO      iter= 38000  epoch=97.3  lr=0.01000  loss=0.0285  train_acc=99.14%  grad_norm=0.786  elapsed=15199s  [w_grad_norm=0.105  other_grad_norm=0.779]
+2026-08-04 05:14:48  INFO               w_values: mean=1.0451  std=0.0772  min=0.5024  max=2.2139  mean_abs=1.0451
+2026-08-04 05:20:51  INFO      iter= 39000  epoch=99.8  lr=0.01000  loss=0.0238  train_acc=99.26%  grad_norm=0.775  elapsed=15562s  [w_grad_norm=0.101  other_grad_norm=0.768]
+2026-08-04 05:20:51  INFO               w_values: mean=1.0451  std=0.0772  min=0.5027  max=2.2138  mean_abs=1.0451
+2026-08-04 05:26:54  INFO      iter= 40000  epoch=102.4  lr=0.01000  loss=0.0211  train_acc=99.36%  grad_norm=0.774  elapsed=15925s  [w_grad_norm=0.099  other_grad_norm=0.767]
+2026-08-04 05:26:54  INFO               w_values: mean=1.0450  std=0.0772  min=0.5028  max=2.2141  mean_abs=1.0450
+2026-08-04 05:32:58  INFO      iter= 41000  epoch=105.0  lr=0.01000  loss=0.0189  train_acc=99.41%  grad_norm=0.788  elapsed=16288s  [w_grad_norm=0.099  other_grad_norm=0.781]
+2026-08-04 05:32:58  INFO               w_values: mean=1.0450  std=0.0772  min=0.5035  max=2.2143  mean_abs=1.0450
+2026-08-04 05:39:01  INFO      iter= 42000  epoch=107.5  lr=0.01000  loss=0.0168  train_acc=99.50%  grad_norm=0.765  elapsed=16652s  [w_grad_norm=0.094  other_grad_norm=0.759]
+2026-08-04 05:39:01  INFO               w_values: mean=1.0449  std=0.0772  min=0.5033  max=2.2142  mean_abs=1.0449
+2026-08-04 05:45:05  INFO      iter= 43000  epoch=110.1  lr=0.01000  loss=0.0160  train_acc=99.52%  grad_norm=0.769  elapsed=17015s  [w_grad_norm=0.093  other_grad_norm=0.764]
+2026-08-04 05:45:05  INFO               w_values: mean=1.0449  std=0.0772  min=0.5039  max=2.2144  mean_abs=1.0449
+2026-08-04 05:51:07  INFO      iter= 44000  epoch=112.6  lr=0.01000  loss=0.0144  train_acc=99.56%  grad_norm=0.751  elapsed=17378s  [w_grad_norm=0.089  other_grad_norm=0.746]
+2026-08-04 05:51:07  INFO               w_values: mean=1.0448  std=0.0772  min=0.5042  max=2.2144  mean_abs=1.0448
+2026-08-04 05:57:10  INFO      iter= 45000  epoch=115.2  lr=0.01000  loss=0.0129  train_acc=99.62%  grad_norm=0.716  elapsed=17741s  [w_grad_norm=0.084  other_grad_norm=0.711]
+2026-08-04 05:57:10  INFO               w_values: mean=1.0448  std=0.0772  min=0.5038  max=2.2140  mean_abs=1.0448
+2026-08-04 06:03:13  INFO      iter= 46000  epoch=117.8  lr=0.01000  loss=0.0130  train_acc=99.59%  grad_norm=0.750  elapsed=18104s  [w_grad_norm=0.086  other_grad_norm=0.745]
+2026-08-04 06:03:13  INFO               w_values: mean=1.0448  std=0.0771  min=0.5036  max=2.2144  mean_abs=1.0448
+2026-08-04 06:09:16  INFO      iter= 47000  epoch=120.3  lr=0.01000  loss=0.0128  train_acc=99.62%  grad_norm=0.760  elapsed=18467s  [w_grad_norm=0.086  other_grad_norm=0.755]
+2026-08-04 06:09:16  INFO               w_values: mean=1.0447  std=0.0771  min=0.5035  max=2.2142  mean_abs=1.0447
+2026-08-04 06:15:19  INFO      iter= 48000  epoch=122.9  lr=0.00100  loss=0.0121  train_acc=99.64%  grad_norm=0.759  elapsed=18830s  [w_grad_norm=0.084  other_grad_norm=0.754]
+2026-08-04 06:15:19  INFO               w_values: mean=1.0447  std=0.0772  min=0.5036  max=2.2146  mean_abs=1.0447
+2026-08-04 06:15:29  INFO      >> EVAL  iter=48000  epoch=122.9  test_error=8.42%
+2026-08-04 06:21:32  INFO      iter= 49000  epoch=125.4  lr=0.00100  loss=0.0091  train_acc=99.72%  grad_norm=0.632  elapsed=19203s  [w_grad_norm=0.069  other_grad_norm=0.628]
+2026-08-04 06:21:32  INFO               w_values: mean=1.0447  std=0.0772  min=0.5037  max=2.2146  mean_abs=1.0447
+2026-08-04 06:27:35  INFO      iter= 50000  epoch=128.0  lr=0.00100  loss=0.0068  train_acc=99.82%  grad_norm=0.514  elapsed=19566s  [w_grad_norm=0.056  other_grad_norm=0.511]
+2026-08-04 06:27:35  INFO               w_values: mean=1.0447  std=0.0772  min=0.5037  max=2.2145  mean_abs=1.0447
+2026-08-04 06:33:38  INFO      iter= 51000  epoch=130.6  lr=0.00100  loss=0.0062  train_acc=99.83%  grad_norm=0.472  elapsed=19929s  [w_grad_norm=0.051  other_grad_norm=0.469]
+2026-08-04 06:33:38  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2145  mean_abs=1.0447
+2026-08-04 06:39:41  INFO      iter= 52000  epoch=133.1  lr=0.00100  loss=0.0059  train_acc=99.86%  grad_norm=0.451  elapsed=20292s  [w_grad_norm=0.049  other_grad_norm=0.448]
+2026-08-04 06:39:41  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2144  mean_abs=1.0447
+2026-08-04 06:45:45  INFO      iter= 53000  epoch=135.7  lr=0.00100  loss=0.0053  train_acc=99.88%  grad_norm=0.413  elapsed=20656s  [w_grad_norm=0.045  other_grad_norm=0.411]
+2026-08-04 06:45:45  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2144  mean_abs=1.0447
+2026-08-04 06:51:48  INFO      iter= 54000  epoch=138.2  lr=0.00100  loss=0.0055  train_acc=99.86%  grad_norm=0.438  elapsed=21019s  [w_grad_norm=0.047  other_grad_norm=0.435]
+2026-08-04 06:51:48  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2144  mean_abs=1.0447
+2026-08-04 06:57:51  INFO      iter= 55000  epoch=140.8  lr=0.00100  loss=0.0048  train_acc=99.88%  grad_norm=0.392  elapsed=21382s  [w_grad_norm=0.042  other_grad_norm=0.389]
+2026-08-04 06:57:51  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2144  mean_abs=1.0447
+2026-08-04 07:03:54  INFO      iter= 56000  epoch=143.4  lr=0.00100  loss=0.0045  train_acc=99.89%  grad_norm=0.380  elapsed=21745s  [w_grad_norm=0.041  other_grad_norm=0.377]
+2026-08-04 07:03:54  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2144  mean_abs=1.0447
+2026-08-04 07:09:58  INFO      iter= 57000  epoch=145.9  lr=0.00100  loss=0.0045  train_acc=99.90%  grad_norm=0.377  elapsed=22109s  [w_grad_norm=0.041  other_grad_norm=0.375]
+2026-08-04 07:09:58  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2144  mean_abs=1.0447
+2026-08-04 07:16:01  INFO      iter= 58000  epoch=148.5  lr=0.00100  loss=0.0047  train_acc=99.88%  grad_norm=0.404  elapsed=22472s  [w_grad_norm=0.043  other_grad_norm=0.402]
+2026-08-04 07:16:01  INFO               w_values: mean=1.0447  std=0.0772  min=0.5039  max=2.2144  mean_abs=1.0447
+2026-08-04 07:22:04  INFO      iter= 59000  epoch=151.0  lr=0.00100  loss=0.0043  train_acc=99.90%  grad_norm=0.364  elapsed=22835s  [w_grad_norm=0.039  other_grad_norm=0.362]
+2026-08-04 07:22:04  INFO               w_values: mean=1.0447  std=0.0772  min=0.5039  max=2.2144  mean_abs=1.0447
+2026-08-04 07:28:06  INFO      iter= 60000  epoch=153.6  lr=0.00100  loss=0.0038  train_acc=99.92%  grad_norm=0.347  elapsed=23197s  [w_grad_norm=0.037  other_grad_norm=0.345]
+2026-08-04 07:28:06  INFO               w_values: mean=1.0447  std=0.0772  min=0.5039  max=2.2143  mean_abs=1.0447
+2026-08-04 07:34:09  INFO      iter= 61000  epoch=156.2  lr=0.00100  loss=0.0039  train_acc=99.92%  grad_norm=0.354  elapsed=23560s  [w_grad_norm=0.038  other_grad_norm=0.352]
+2026-08-04 07:34:09  INFO               w_values: mean=1.0447  std=0.0772  min=0.5039  max=2.2143  mean_abs=1.0447
+2026-08-04 07:40:12  INFO      iter= 62000  epoch=158.7  lr=0.00100  loss=0.0038  train_acc=99.93%  grad_norm=0.337  elapsed=23923s  [w_grad_norm=0.036  other_grad_norm=0.335]
+2026-08-04 07:40:12  INFO               w_values: mean=1.0447  std=0.0772  min=0.5039  max=2.2143  mean_abs=1.0447
+2026-08-04 07:46:15  INFO      iter= 63000  epoch=161.3  lr=0.00100  loss=0.0035  train_acc=99.93%  grad_norm=0.323  elapsed=24286s  [w_grad_norm=0.035  other_grad_norm=0.321]
+2026-08-04 07:46:15  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2143  mean_abs=1.0447
+2026-08-04 07:52:17  INFO      iter= 64000  epoch=163.8  lr=0.00100  loss=0.0038  train_acc=99.92%  grad_norm=0.345  elapsed=24648s  [w_grad_norm=0.037  other_grad_norm=0.343]
+2026-08-04 07:52:17  INFO               w_values: mean=1.0447  std=0.0772  min=0.5038  max=2.2143  mean_abs=1.0447
+2026-08-04 07:52:28  INFO      >> EVAL  iter=64000  epoch=163.8  test_error=8.19%
+2026-08-04 07:52:38  INFO      === DONE  config=cifar10_table1  variant=wSkip+LN  depth=110  seed=2 final_test_error=8.19%  time=24669s ===
+2026-08-04 07:52:38  INFO      wSkip+LN weight norms: 54 blocks, mean_abs values: {'stages.0.0.skip_variant.w': '1.2224', 'stages.0.1.skip_variant.w': '1.0404', 'stages.0.2.skip_variant.w': '1.1054', 'stages.0.3.skip_variant.w': '1.1037', 'stages.0.4.skip_variant.w': '1.0907'}
+2026-08-04 07:52:38  INFO      Checkpoint saved: results/checkpoints/cifar10_table1__wSkipplusLN__depth110__seed2.pt
+2026-08-04 07:52:38  INFO      Result JSON: results/logs/cifar10_table1__wSkipplusLN__depth110__seed2.json

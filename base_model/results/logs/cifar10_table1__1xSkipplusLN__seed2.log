@@ -1,0 +1,77 @@
+2026-07-27 03:13:10  INFO      Run logger initialised: config=cifar10_table1  variant=1xSkip+LN  seed=2
+2026-07-27 03:13:10  INFO      Log file: results/logs/cifar10_table1__1xSkipplusLN__seed2.log
+2026-07-27 03:13:10  INFO      === Starting training: config=cifar10_table1  variant=1xSkip+LN  depth=110  seed=2 ===
+2026-07-27 03:13:10  INFO      Gradient clipping enabled: max_norm=5.00 (added post-hoc — base paper does not specify clipping; added after observing hard collapse to ln(num_classes) on LN-augmented variants under the unclipped lr=0.1 phase).
+2026-07-27 03:13:10  INFO      Device: cuda
+2026-07-27 03:13:11  INFO      Model: PreAct-ResNet-110  variant=1xSkip+LN  params=1,731,994  blocks=54
+2026-07-27 03:13:11  INFO      Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000] (~epochs ['81.9', '122.9'])
+2026-07-27 03:19:59  INFO      iter=  1000  epoch=2.6  lr=0.10000  loss=2.3017  train_acc=13.84%  grad_norm=1068.808 (clipped 112/1000 steps)  elapsed=408s
+2026-07-27 03:26:46  INFO      iter=  2000  epoch=5.1  lr=0.10000  loss=2.1221  train_acc=22.27%  grad_norm=0.611 (clipped 4/1000 steps)  elapsed=815s
+2026-07-27 03:33:33  INFO      iter=  3000  epoch=7.7  lr=0.10000  loss=2.0789  train_acc=23.38%  grad_norm=0.731 (clipped 2/1000 steps)  elapsed=1222s
+2026-07-27 03:40:20  INFO      iter=  4000  epoch=10.2  lr=0.10000  loss=2.0100  train_acc=26.07%  grad_norm=0.608 (clipped 2/1000 steps)  elapsed=1629s
+2026-07-27 03:47:07  INFO      iter=  5000  epoch=12.8  lr=0.10000  loss=1.9360  train_acc=28.69%  grad_norm=0.571 (clipped 1/1000 steps)  elapsed=2036s
+2026-07-27 03:53:54  INFO      iter=  6000  epoch=15.4  lr=0.10000  loss=1.9422  train_acc=28.69%  grad_norm=0.870 (clipped 16/1000 steps)  elapsed=2443s
+2026-07-27 04:00:41  INFO      iter=  7000  epoch=17.9  lr=0.10000  loss=1.9759  train_acc=27.02%  grad_norm=0.659 (clipped 4/1000 steps)  elapsed=2850s
+2026-07-27 04:07:28  INFO      iter=  8000  epoch=20.5  lr=0.10000  loss=1.8670  train_acc=31.39%  grad_norm=0.634 (clipped 2/1000 steps)  elapsed=3257s
+2026-07-27 04:14:16  INFO      iter=  9000  epoch=23.0  lr=0.10000  loss=1.8397  train_acc=32.46%  grad_norm=0.791 (clipped 2/1000 steps)  elapsed=3665s
+2026-07-27 04:21:04  INFO      iter= 10000  epoch=25.6  lr=0.10000  loss=1.5985  train_acc=41.86%  grad_norm=1.067 (clipped 1/1000 steps)  elapsed=4072s
+2026-07-27 04:27:51  INFO      iter= 11000  epoch=28.2  lr=0.10000  loss=1.2588  train_acc=55.13%  grad_norm=1.177  elapsed=4479s
+2026-07-27 04:34:38  INFO      iter= 12000  epoch=30.7  lr=0.10000  loss=0.9719  train_acc=65.92%  grad_norm=1.169  elapsed=4886s
+2026-07-27 04:41:25  INFO      iter= 13000  epoch=33.3  lr=0.10000  loss=0.7697  train_acc=73.07%  grad_norm=1.182  elapsed=5294s
+2026-07-27 04:48:12  INFO      iter= 14000  epoch=35.8  lr=0.10000  loss=0.6333  train_acc=78.02%  grad_norm=1.157  elapsed=5700s
+2026-07-27 04:54:59  INFO      iter= 15000  epoch=38.4  lr=0.10000  loss=0.5447  train_acc=81.11%  grad_norm=1.178  elapsed=6107s
+2026-07-27 05:01:45  INFO      iter= 16000  epoch=41.0  lr=0.10000  loss=0.4937  train_acc=82.91%  grad_norm=1.181  elapsed=6514s
+2026-07-27 05:08:31  INFO      iter= 17000  epoch=43.5  lr=0.10000  loss=0.4425  train_acc=84.64%  grad_norm=1.197  elapsed=6920s
+2026-07-27 05:15:18  INFO      iter= 18000  epoch=46.1  lr=0.10000  loss=0.4122  train_acc=85.76%  grad_norm=1.210  elapsed=7327s
+2026-07-27 05:22:05  INFO      iter= 19000  epoch=48.6  lr=0.10000  loss=0.3830  train_acc=86.78%  grad_norm=1.217  elapsed=7733s
+2026-07-27 05:28:51  INFO      iter= 20000  epoch=51.2  lr=0.10000  loss=0.3633  train_acc=87.48%  grad_norm=1.220  elapsed=8140s
+2026-07-27 05:35:37  INFO      iter= 21000  epoch=53.8  lr=0.10000  loss=0.3463  train_acc=87.95%  grad_norm=1.234  elapsed=8546s
+2026-07-27 05:42:23  INFO      iter= 22000  epoch=56.3  lr=0.10000  loss=0.3279  train_acc=88.69%  grad_norm=1.225  elapsed=8952s
+2026-07-27 05:49:09  INFO      iter= 23000  epoch=58.9  lr=0.10000  loss=0.3178  train_acc=88.97%  grad_norm=1.235  elapsed=9358s
+2026-07-27 05:55:55  INFO      iter= 24000  epoch=61.4  lr=0.10000  loss=0.3093  train_acc=89.33%  grad_norm=1.248  elapsed=9764s
+2026-07-27 06:02:40  INFO      iter= 25000  epoch=64.0  lr=0.10000  loss=0.3020  train_acc=89.45%  grad_norm=1.247  elapsed=10169s
+2026-07-27 06:09:25  INFO      iter= 26000  epoch=66.6  lr=0.10000  loss=0.2862  train_acc=90.09%  grad_norm=1.237  elapsed=10574s
+2026-07-27 06:16:12  INFO      iter= 27000  epoch=69.1  lr=0.10000  loss=0.2814  train_acc=90.29%  grad_norm=1.245  elapsed=10981s
+2026-07-27 06:22:59  INFO      iter= 28000  epoch=71.7  lr=0.10000  loss=0.2745  train_acc=90.54%  grad_norm=1.256  elapsed=11388s
+2026-07-27 06:29:45  INFO      iter= 29000  epoch=74.2  lr=0.10000  loss=0.2721  train_acc=90.65%  grad_norm=1.253  elapsed=11794s
+2026-07-27 06:36:31  INFO      iter= 30000  epoch=76.8  lr=0.10000  loss=0.2663  train_acc=90.78%  grad_norm=1.259  elapsed=12200s
+2026-07-27 06:43:17  INFO      iter= 31000  epoch=79.4  lr=0.10000  loss=0.2577  train_acc=91.06%  grad_norm=1.247  elapsed=12605s
+2026-07-27 06:50:01  INFO      iter= 32000  epoch=81.9  lr=0.01000  loss=0.2581  train_acc=91.06%  grad_norm=1.278  elapsed=13010s
+2026-07-27 06:50:13  INFO      >> EVAL  iter=32000  epoch=81.9  test_error=16.45%
+2026-07-27 06:57:12  INFO      iter= 33000  epoch=84.5  lr=0.01000  loss=0.1247  train_acc=95.84%  grad_norm=0.890  elapsed=13440s
+2026-07-27 07:04:25  INFO      iter= 34000  epoch=87.0  lr=0.01000  loss=0.0802  train_acc=97.35%  grad_norm=0.861  elapsed=13874s
+2026-07-27 08:42:46  INFO      iter= 35000  epoch=89.6  lr=0.01000  loss=0.0612  train_acc=97.97%  grad_norm=0.851  elapsed=19774s
+2026-07-27 08:49:25  INFO      iter= 36000  epoch=92.2  lr=0.01000  loss=0.0486  train_acc=98.46%  grad_norm=0.842  elapsed=20173s
+2026-07-27 08:56:09  INFO      iter= 37000  epoch=94.7  lr=0.01000  loss=0.0386  train_acc=98.77%  grad_norm=0.826  elapsed=20578s
+2026-07-27 09:02:12  INFO      iter= 38000  epoch=97.3  lr=0.01000  loss=0.0333  train_acc=98.95%  grad_norm=0.831  elapsed=20941s
+2026-07-27 09:06:49  INFO      iter= 39000  epoch=99.8  lr=0.01000  loss=0.0274  train_acc=99.15%  grad_norm=0.791  elapsed=21218s
+2026-07-27 09:11:29  INFO      iter= 40000  epoch=102.4  lr=0.01000  loss=0.0248  train_acc=99.24%  grad_norm=0.810  elapsed=21498s
+2026-07-27 09:16:09  INFO      iter= 41000  epoch=105.0  lr=0.01000  loss=0.0212  train_acc=99.37%  grad_norm=0.782  elapsed=21778s
+2026-07-27 09:20:50  INFO      iter= 42000  epoch=107.5  lr=0.01000  loss=0.0178  train_acc=99.48%  grad_norm=0.746  elapsed=22059s
+2026-07-27 09:26:08  INFO      iter= 43000  epoch=110.1  lr=0.01000  loss=0.0172  train_acc=99.46%  grad_norm=0.774  elapsed=22376s
+2026-07-27 09:32:21  INFO      iter= 44000  epoch=112.6  lr=0.01000  loss=0.0150  train_acc=99.56%  grad_norm=0.731  elapsed=22750s
+2026-07-27 09:38:53  INFO      iter= 45000  epoch=115.2  lr=0.01000  loss=0.0141  train_acc=99.57%  grad_norm=0.739  elapsed=23141s
+2026-07-27 09:44:48  INFO      iter= 46000  epoch=117.8  lr=0.01000  loss=0.0142  train_acc=99.56%  grad_norm=0.786  elapsed=23497s
+2026-07-27 09:49:27  INFO      iter= 47000  epoch=120.3  lr=0.01000  loss=0.0135  train_acc=99.61%  grad_norm=0.767  elapsed=23776s
+2026-07-27 09:53:55  INFO      iter= 48000  epoch=122.9  lr=0.00100  loss=0.0133  train_acc=99.60%  grad_norm=0.792  elapsed=24044s
+2026-07-27 09:54:04  INFO      >> EVAL  iter=48000  epoch=122.9  test_error=8.46%
+2026-07-27 09:58:35  INFO      iter= 49000  epoch=125.4  lr=0.00100  loss=0.0102  train_acc=99.71%  grad_norm=0.653  elapsed=24324s
+2026-07-27 10:03:14  INFO      iter= 50000  epoch=128.0  lr=0.00100  loss=0.0076  train_acc=99.80%  grad_norm=0.526  elapsed=24603s
+2026-07-27 10:09:57  INFO      iter= 51000  epoch=130.6  lr=0.00100  loss=0.0072  train_acc=99.83%  grad_norm=0.498  elapsed=25006s
+2026-07-27 10:16:37  INFO      iter= 52000  epoch=133.1  lr=0.00100  loss=0.0064  train_acc=99.85%  grad_norm=0.463  elapsed=25406s
+2026-07-27 10:23:17  INFO      iter= 53000  epoch=135.7  lr=0.00100  loss=0.0066  train_acc=99.84%  grad_norm=0.472  elapsed=25805s
+2026-07-27 10:29:56  INFO      iter= 54000  epoch=138.2  lr=0.00100  loss=0.0058  train_acc=99.86%  grad_norm=0.433  elapsed=26205s
+2026-07-27 10:36:37  INFO      iter= 55000  epoch=140.8  lr=0.00100  loss=0.0055  train_acc=99.88%  grad_norm=0.417  elapsed=26606s
+2026-07-27 10:43:18  INFO      iter= 56000  epoch=143.4  lr=0.00100  loss=0.0051  train_acc=99.90%  grad_norm=0.398  elapsed=27006s
+2026-07-27 10:50:00  INFO      iter= 57000  epoch=145.9  lr=0.00100  loss=0.0054  train_acc=99.87%  grad_norm=0.411  elapsed=27409s
+2026-07-27 10:56:41  INFO      iter= 58000  epoch=148.5  lr=0.00100  loss=0.0049  train_acc=99.89%  grad_norm=0.395  elapsed=27810s
+2026-07-27 11:03:22  INFO      iter= 59000  epoch=151.0  lr=0.00100  loss=0.0049  train_acc=99.89%  grad_norm=0.397  elapsed=28211s
+2026-07-27 11:10:04  INFO      iter= 60000  epoch=153.6  lr=0.00100  loss=0.0046  train_acc=99.91%  grad_norm=0.373  elapsed=28613s
+2026-07-27 11:16:45  INFO      iter= 61000  epoch=156.2  lr=0.00100  loss=0.0045  train_acc=99.91%  grad_norm=0.362  elapsed=29014s
+2026-07-27 11:23:25  INFO      iter= 62000  epoch=158.7  lr=0.00100  loss=0.0044  train_acc=99.91%  grad_norm=0.358  elapsed=29414s
+2026-07-27 11:30:06  INFO      iter= 63000  epoch=161.3  lr=0.00100  loss=0.0045  train_acc=99.91%  grad_norm=0.367  elapsed=29815s
+2026-07-27 11:36:48  INFO      iter= 64000  epoch=163.8  lr=0.00100  loss=0.0041  train_acc=99.92%  grad_norm=0.331  elapsed=30216s
+2026-07-27 11:36:59  INFO      >> EVAL  iter=64000  epoch=163.8  test_error=8.35%
+2026-07-27 11:37:11  INFO      === DONE  config=cifar10_table1  variant=1xSkip+LN  depth=110  seed=2 final_test_error=8.35%  time=30240s ===
+2026-07-27 11:37:11  INFO      Checkpoint saved: results/checkpoints/cifar10_table1__1xSkipplusLN__depth110__seed2.pt
+2026-07-27 11:37:11  INFO      Result JSON: results/logs/cifar10_table1__1xSkipplusLN__depth110__seed2.json

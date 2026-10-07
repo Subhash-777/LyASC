@@ -1,0 +1,10 @@
+{
+  "config_name": "cifar100_table6",
+  "variant_name": "baseline",
+  "depth": 110,
+  "seed": 2,
+  "final_test_error": 27.880000000000006,
+  "total_iters": 64000,
+  "grad_clip_max_norm": 5.0,
+  "w_norm_info": {}
+}

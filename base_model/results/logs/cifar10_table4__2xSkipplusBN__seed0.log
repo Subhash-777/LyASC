@@ -1,0 +1,7 @@
+2026-08-09 16:20:05  INFO      Run logger initialised: config=cifar10_table4  variant=2xSkip+BN  seed=0
+2026-08-09 16:20:05  INFO      Log file: results/logs/cifar10_table4__2xSkipplusBN__seed0.log
+2026-08-09 16:20:05  INFO      === Starting training: config=cifar10_table4  variant=2xSkip+BN  depth=110  seed=0 ===
+2026-08-09 16:20:05  INFO      Gradient clipping enabled: max_norm=5.00 (added post-hoc — base paper does not specify clipping; added after observing hard collapse to ln(num_classes) on LN-augmented variants under the unclipped lr=0.1 phase).
+2026-08-09 16:20:05  INFO      Device: cuda
+2026-08-09 16:20:06  INFO      Model: PreAct-ResNet-110  variant=2xSkip+BN  params=1,731,994  blocks=54
+2026-08-09 16:20:06  INFO      Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000] (~epochs ['81.9', '122.9'])

@@ -1,0 +1,10 @@
+2026-07-25 18:19:20  INFO      Run logger initialised: config=cifar10_table1  variant=wSkip+LN  seed=0
+2026-07-25 18:19:20  INFO      Log file: results/logs/cifar10_table1__wSkipplusLN__seed0.log
+2026-07-25 18:19:20  INFO      === Starting training: config=cifar10_table1  variant=wSkip+LN  depth=110  seed=0 ===
+2026-07-25 18:19:20  INFO      Gradient clipping enabled: max_norm=5.00 (added post-hoc — base paper does not specify clipping; added after observing hard collapse to ln(num_classes) on LN-augmented variants under the unclipped lr=0.1 phase).
+2026-07-25 18:19:20  INFO      w-gate LR multiplier: 0.100 (LearnableVectorSkip.w trains at 0.100x the base LR — added post-hoc after weight-decay exclusion alone failed to resolve wSkip+LN's grad_norm~1100 instability).
+2026-07-25 18:19:20  INFO      Device: cuda
+2026-07-25 18:19:21  INFO      Model: PreAct-ResNet-110  variant=wSkip+LN  params=1,734,010  blocks=54
+2026-07-25 18:19:21  INFO      Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000] (~epochs ['81.9', '122.9'])
+2026-07-25 18:26:28  INFO      iter=  1000  epoch=2.6  lr=0.10000  loss=2.1402  train_acc=21.93%  grad_norm=1050.808 (clipped 102/1000 steps)  elapsed=427s  [w_grad_norm=62.141  other_grad_norm=1048.704]
+2026-07-25 18:33:09  INFO      iter=  2000  epoch=5.1  lr=0.10000  loss=1.9566  train_acc=27.07%  grad_norm=0.679 (clipped 4/1000 steps)  elapsed=828s  [w_grad_norm=0.056  other_grad_norm=0.676]

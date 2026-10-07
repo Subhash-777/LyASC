@@ -1,0 +1,48 @@
+=== Gradient norm analysis (Figure 3 reproduction) ===
+Checkpoint dir: /home/subhash/projects/LyASC/base_model/results/checkpoints
+Output dir:     /home/subhash/projects/LyASC/base_model/results/figures
+Data dir:       /home/subhash/projects/LyASC/base_model/data/cifar10/cifar-10-batches-py
+n_samples:      10000
+INFO: Decision logged: figure3_block_range = stage2_all18blocks
+INFO: Device: cuda
+INFO: Recomputed cifar10 normalisation stats from training set: mean=['0.4914', '0.4822', '0.4465']  std=['0.2470', '0.2435', '0.2616']
+INFO: Loading checkpoint for '1xSkip': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table1__1xSkip__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for '1xSkip' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_1xSkip.png
+INFO: Loading checkpoint for '2xSkip': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table1__2xSkip__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for '2xSkip' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_2xSkip.png
+INFO: Loading checkpoint for '2xSkip+BN': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table4__2xSkipplusBN__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for '2xSkip+BN' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_2xSkipplusBN.png
+INFO: Loading checkpoint for '0.5xSkip': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table3__0.5xSkip__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for '0.5xSkip' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_0.5xSkip.png
+INFO: Loading checkpoint for '1xSkip+LN': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table1__1xSkipplusLN__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for '1xSkip+LN' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_1xSkipplusLN.png
+INFO: Loading checkpoint for '2xSkip+LN': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table1__2xSkipplusLN__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for '2xSkip+LN' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_2xSkipplusLN.png
+INFO: Loading checkpoint for '2rSkip+LN': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table1__2rSkipplusLN__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for '2rSkip+LN' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_2rSkipplusLN.png
+INFO: Loading checkpoint for 'LN(0.5x+F)': /home/subhash/projects/LyASC/base_model/results/checkpoints/cifar10_table3__LN(0.5xplusF)__depth110__seed0.pt
+INFO: LR schedule (dataset=cifar10, batch=128): 390.6 iters/epoch | milestones at iters [32000, 48000] ≈ epochs ['81.9', '122.9'] | total 64000 iters ≈ 163.8 epochs
+INFO: Computing gradient norms for 'LN(0.5x+F)' over 10000 samples...
+INFO: Figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_LN(0.5xplusF).png
+INFO: Grid figure saved: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_grid.png
+INFO: Numerical gradient norm data saved: /home/subhash/projects/LyASC/base_model/results/figures/figure3_gradient_norms.json
+
+Figure 3 reproduction complete.
+  Individual plots: /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_<variant>.png
+  Grid figure:      /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_grid.png
+  Data JSON:        /home/subhash/projects/LyASC/base_model/results/figures/figure3_gradient_norms.json
+=== Figure 3 analysis complete. See /home/subhash/projects/LyASC/base_model/results/figures/reproduced_figure3_grid.png ===

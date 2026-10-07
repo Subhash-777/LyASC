@@ -1,0 +1,8 @@
+Skipping already completed 2xSkip+BN seed 0 (found results/logs/cifar10_table4__2xSkipplusBN__depth110__seed0.json)
+Skipping already completed 2xSkip+BN seed 1 (found results/logs/cifar10_table4__2xSkipplusBN__depth110__seed1.json)
+Starting 2xSkip+BN seed 2
+2026-08-09 16:22:06  INFO      Run logger initialised: config=cifar10_table4  variant=2xSkip+BN  seed=2
+2026-08-09 16:22:06  INFO      Log file: results/logs/cifar10_table4__2xSkipplusBN__seed2.log
+2026-08-09 16:22:06  INFO      === Starting training: config=cifar10_table4  variant=2xSkip+BN  depth=110  seed=2 ===
+2026-08-09 16:22:06  INFO      Gradient clipping enabled: max_norm=5.00 (added post-hoc — base paper does not specify clipping; added after observing hard collapse to ln(num_classes) on LN-augmented variants under the unclipped lr=0.1 phase).
+2026-08-09 16:22:06  INFO      Device: cuda

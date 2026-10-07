@@ -1,0 +1,6 @@
+variant_name,depth,n_seeds_found,mean_error,std_error,paper_error,abs_diff,pass_fail
+baseline,110,3,6.36,0.06,6.31,0.05,PASS
+0.5xSkip,110,3,11.85,0.16,18.61,6.76,FAIL
+LN(0.5x+F),110,3,37.14,9.94,29.88,7.26,FAIL
+LN(x+2F),110,3,37.59,22.83,24.98,12.61,FAIL
+LN(x+3F),110,3,49.27,15.31,61.02,11.75,FAIL

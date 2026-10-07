@@ -1,0 +1,9 @@
+{
+  "config_name": "cifar10_table1",
+  "variant_name": "1xSkip",
+  "depth": 110,
+  "seed": 1,
+  "final_test_error": 6.279999999999997,
+  "total_iters": 64000,
+  "w_norm_info": {}
+}

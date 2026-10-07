@@ -18,6 +18,7 @@ ENV/
 *.pth
 *.ckpt
 *.bin
+*.db
 mlruns/
 lyasc_model/mlruns/
 lyasc_model/results/mlflow.db
@@ -25,6 +26,13 @@ lyasc_model/results/checkpoints/
 
 # Temporary configs
 lyasc_model/tmp_configs/
+
+# Archives & Large Datasets
+*.zip
+*.tar.gz
+*.tgz
+data/
+base_model/data/
 
 # OS / Editor junk
 .DS_Store

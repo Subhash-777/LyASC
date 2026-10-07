@@ -1,0 +1,10 @@
+{
+  "config_name": "cifar10_table1",
+  "variant_name": "2rSkip+LN",
+  "depth": 110,
+  "seed": 1,
+  "final_test_error": 6.259999999999999,
+  "total_iters": 64000,
+  "grad_clip_max_norm": 5.0,
+  "w_norm_info": {}
+}

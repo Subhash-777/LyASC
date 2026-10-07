@@ -1,0 +1,25 @@
+name: lyasc-base
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - torch==2.3.1
+      - torchvision==0.18.1
+      - numpy==1.26.4
+      - pandas==2.2.2
+      - matplotlib==3.9.0
+      - pyyaml==6.0.1
+      - tqdm==4.66.4
+      - tensorboard==2.17.0
+      - scipy==1.13.1
+      - pytest==8.2.2
+# NOTE: the torch/torchvision pip wheels above default to a CPU build unless you
+# install from the CUDA-specific index, e.g.:
+#   pip install torch==2.3.1 torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cu118
+# Pick the cuXXX tag matching your installed NVIDIA driver, or drop the index-url
+# entirely for CPU-only (training will be very slow for ResNet-110 x 5 seeds).

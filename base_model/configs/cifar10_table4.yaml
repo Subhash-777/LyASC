@@ -1,0 +1,66 @@
+# Reproduces Table 4 of the base paper (CIFAR-10, PreAct-ResNet-110, batch-norm variants).
+dataset: cifar10
+data_dir: ../data/cifar10/cifar-10-batches-py
+model: preact_resnet110
+num_seeds: 5
+seeds: [0, 1, 2, 3, 4]
+
+optimizer:
+  type: sgd
+  momentum: 0.9
+  weight_decay: 0.0002
+  nesterov: false
+
+lr_schedule:
+  initial_lr: 0.1
+  milestones_iters: [32000, 48000]
+  total_iters: 64000
+  gamma: 0.1
+
+batch_size: 128
+augmentation:
+  pad: 4
+  crop_size: 32
+  random_flip: true
+
+variants:
+  - name: "1xSkip"
+    equation: "x + F(x, W)"
+    G: null
+    lambda: 1
+    paper_error: 6.31
+  - name: "1xSkip+BN"
+    equation: "BN(x + F(x, W))"
+    G: batch_norm
+    lambda: 1
+    paper_error: 8.23
+  - name: "2xSkip+BN"
+    equation: "BN(2x + F(x, W))"
+    G: batch_norm
+    lambda: 2
+    paper_error: 6.43
+  - name: "3xSkip+BN"
+    equation: "BN(3x + F(x, W))"
+    G: batch_norm
+    lambda: 3
+    paper_error: 6.50
+  - name: "1rSkip+BN"
+    equation: "BN(x + F(x, W))"
+    G: batch_norm
+    recursive: true
+    lambda: 1
+    paper_error: 8.23
+  - name: "2rSkip+BN"
+    equation: "BN(x + BN(x + F(x, W)))"
+    G: batch_norm
+    recursive: true
+    lambda: 2
+    paper_error: 6.77
+  - name: "3rSkip+BN"
+    equation: "BN(x + BN(x + BN(x + F(x, W))))"
+    G: batch_norm
+    recursive: true
+    lambda: 3
+    paper_error: 6.68
+
+acceptance_tolerance_abs_points: 0.4

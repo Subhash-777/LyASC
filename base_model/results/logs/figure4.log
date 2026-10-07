@@ -1,0 +1,8 @@
+WARNING: No log files found for '2rSkip+LN'
+WARNING: No log files found for 'wSkip+LN'
+/home/subhash/projects/LyASC/base_model/src/evaluation/figure4_analysis.py:154: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+  axes[0].legend(fontsize=9)
+/home/subhash/projects/LyASC/base_model/src/evaluation/figure4_analysis.py:160: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+  axes[1].legend(fontsize=9)
+INFO: Figure 4 saved: results/figures/reproduced_figure4.png
+Figure 4 reproduction saved to: results/figures/reproduced_figure4.png

@@ -1,0 +1,11 @@
+variant_name,depth,n_seeds_found,mean_error,std_error,paper_error,abs_diff,pass_fail
+baseline,20,3,32.53,0.63,33.38,0.85,FAIL
+2rSkip+LN,20,3,32.23,0.05,32.99,0.76,FAIL
+baseline,32,3,31.30,0.20,32.00,0.70,FAIL
+2rSkip+LN,32,3,30.42,0.07,31.39,0.97,FAIL
+baseline,44,3,30.13,0.40,30.50,0.37,PASS
+2rSkip+LN,44,3,29.29,0.28,29.85,0.56,FAIL
+baseline,56,3,29.48,0.32,29.81,0.33,PASS
+2rSkip+LN,56,3,28.85,0.23,28.98,0.13,PASS
+baseline,110,3,27.38,0.51,28.71,1.33,FAIL
+2rSkip+LN,110,3,26.92,0.74,27.69,0.77,FAIL
