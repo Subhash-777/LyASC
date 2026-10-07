@@ -1,0 +1,154 @@
+2026-09-20 15:37:01,248 INFO === Starting training: config=lyasc_phase_e_stresstest  variant=LyASC_stress_3.0  depth=110  seed=3 ===
+2026-09-20 15:37:01,252 INFO Device: cuda
+2026-09-20 15:37:03,087 INFO Model: PreAct-ResNet-110  variant=LyASC_stress_3.0  params=1,732,048  blocks=54
+2026-09-20 15:37:03,161 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]
+2026-09-20 15:41:45,024 INFO iter=  1000  epoch=2.6  lr=0.10000  loss=2.4471  train_acc=13.41%  grad_norm=1435750.411 (clipped 175/1000 steps)  elapsed=282s  [beta_grad_norm=43718.723  other_grad_norm=1434551.985]
+2026-09-20 15:41:45,036 INFO          alpha: mean=0.4815  std=0.0880  min=0.0033  max=0.6592  |  beta: mean=0.0938  std=0.7671  |  lambda: mean=0.6452  std=0.8349
+2026-09-20 15:47:40,515 INFO iter=  2000  epoch=5.1  lr=0.10000  loss=2.2193  train_acc=15.86%  grad_norm=0.698 (clipped 11/1000 steps)  elapsed=637s  [beta_grad_norm=0.017  other_grad_norm=0.697]
+2026-09-20 15:47:40,518 INFO          alpha: mean=0.4713  std=0.0965  min=0.0416  max=0.7062  |  beta: mean=0.0604  std=0.7900  |  lambda: mean=0.6661  std=0.9020
+2026-09-20 15:54:08,123 INFO iter=  3000  epoch=7.7  lr=0.10000  loss=2.1300  train_acc=18.43%  grad_norm=0.718 (clipped 12/1000 steps)  elapsed=1025s  [beta_grad_norm=0.019  other_grad_norm=0.718]
+2026-09-20 15:54:08,127 INFO          alpha: mean=0.4635  std=0.1211  min=0.0071  max=0.7999  |  beta: mean=0.0430  std=0.8141  |  lambda: mean=0.6307  std=0.9686
+2026-09-20 16:00:29,853 INFO iter=  4000  epoch=10.2  lr=0.10000  loss=2.1502  train_acc=17.80%  grad_norm=2.139 (clipped 26/1000 steps)  elapsed=1407s  [beta_grad_norm=0.099  other_grad_norm=2.135]
+2026-09-20 16:00:29,857 INFO          alpha: mean=0.4570  std=0.1225  min=0.0043  max=0.6738  |  beta: mean=-0.0034  std=0.8175  |  lambda: mean=0.4561  std=1.0298
+2026-09-20 16:00:29,949 INFO Resume checkpoint saved at iter 4000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 16:06:54,256 INFO iter=  5000  epoch=12.8  lr=0.10000  loss=2.1749  train_acc=17.19%  grad_norm=0.937 (clipped 23/1000 steps)  elapsed=1791s  [beta_grad_norm=0.027  other_grad_norm=0.936]
+2026-09-20 16:06:54,259 INFO          alpha: mean=0.4380  std=0.1484  min=0.0477  max=0.7234  |  beta: mean=-0.0225  std=0.8208  |  lambda: mean=1.2724  std=1.3986
+2026-09-20 16:13:18,083 INFO iter=  6000  epoch=15.4  lr=0.10000  loss=2.0958  train_acc=21.83%  grad_norm=0.660 (clipped 8/1000 steps)  elapsed=2175s  [beta_grad_norm=0.013  other_grad_norm=0.660]
+2026-09-20 16:13:18,087 INFO          alpha: mean=0.4413  std=0.1277  min=0.0804  max=0.6265  |  beta: mean=-0.0387  std=0.8039  |  lambda: mean=1.1829  std=1.2377
+2026-09-20 16:19:45,863 INFO iter=  7000  epoch=17.9  lr=0.10000  loss=2.0939  train_acc=21.79%  grad_norm=0.419 (clipped 2/1000 steps)  elapsed=2563s  [beta_grad_norm=0.016  other_grad_norm=0.418]
+2026-09-20 16:19:45,867 INFO          alpha: mean=0.4636  std=0.0970  min=0.1542  max=0.6283  |  beta: mean=-0.0614  std=0.6113  |  lambda: mean=0.6839  std=0.8911
+2026-09-20 16:26:11,740 INFO iter=  8000  epoch=20.5  lr=0.10000  loss=2.1174  train_acc=19.63%  grad_norm=0.581 (clipped 11/1000 steps)  elapsed=2949s  [beta_grad_norm=0.009  other_grad_norm=0.581]
+2026-09-20 16:26:11,744 INFO          alpha: mean=0.4609  std=0.1083  min=0.1074  max=0.6391  |  beta: mean=-0.0587  std=0.6142  |  lambda: mean=0.5533  std=0.9472
+2026-09-20 16:26:11,854 INFO Resume checkpoint saved at iter 8000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 16:32:41,020 INFO iter=  9000  epoch=23.0  lr=0.10000  loss=2.1258  train_acc=19.97%  grad_norm=0.634 (clipped 14/1000 steps)  elapsed=3338s  [beta_grad_norm=0.017  other_grad_norm=0.634]
+2026-09-20 16:32:41,023 INFO          alpha: mean=0.4751  std=0.1549  min=0.0453  max=0.9969  |  beta: mean=-0.0442  std=0.7297  |  lambda: mean=0.6568  std=1.3819
+2026-09-20 16:39:05,309 INFO iter= 10000  epoch=25.6  lr=0.10000  loss=2.1433  train_acc=18.69%  grad_norm=0.685 (clipped 12/1000 steps)  elapsed=3722s  [beta_grad_norm=0.019  other_grad_norm=0.684]
+2026-09-20 16:39:05,312 INFO          alpha: mean=0.4739  std=0.1448  min=0.0966  max=0.9998  |  beta: mean=-0.0931  std=0.6463  |  lambda: mean=0.5402  std=1.1498
+2026-09-20 16:45:27,914 INFO iter= 11000  epoch=28.2  lr=0.10000  loss=2.0789  train_acc=20.33%  grad_norm=0.505 (clipped 3/1000 steps)  elapsed=4105s  [beta_grad_norm=0.016  other_grad_norm=0.504]
+2026-09-20 16:45:27,917 INFO          alpha: mean=0.4862  std=0.1412  min=0.1573  max=0.9995  |  beta: mean=-0.1119  std=0.6378  |  lambda: mean=0.4307  std=1.0566
+2026-09-20 16:52:00,147 INFO iter= 12000  epoch=30.7  lr=0.10000  loss=2.0365  train_acc=21.88%  grad_norm=0.473 (clipped 2/1000 steps)  elapsed=4497s  [beta_grad_norm=0.014  other_grad_norm=0.472]
+2026-09-20 16:52:00,153 INFO          alpha: mean=0.4967  std=0.1386  min=0.1741  max=0.9993  |  beta: mean=-0.1318  std=0.6386  |  lambda: mean=0.3021  std=1.0090
+2026-09-20 16:52:00,469 INFO Resume checkpoint saved at iter 12000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 16:59:53,815 INFO iter= 13000  epoch=33.3  lr=0.10000  loss=2.0256  train_acc=20.64%  grad_norm=0.397  elapsed=4971s  [beta_grad_norm=0.007  other_grad_norm=0.397]
+2026-09-20 16:59:53,826 INFO          alpha: mean=0.5080  std=0.1196  min=0.2535  max=0.9988  |  beta: mean=-0.1405  std=0.6468  |  lambda: mean=0.1137  std=0.8543
+2026-09-20 17:07:53,405 INFO iter= 14000  epoch=35.8  lr=0.10000  loss=1.9995  train_acc=22.67%  grad_norm=0.461 (clipped 3/1000 steps)  elapsed=5450s  [beta_grad_norm=0.007  other_grad_norm=0.461]
+2026-09-20 17:07:53,409 INFO          alpha: mean=0.5215  std=0.1291  min=0.2206  max=0.9915  |  beta: mean=-0.1509  std=0.6571  |  lambda: mean=-0.0718  std=0.8815
+2026-09-20 17:15:40,831 INFO iter= 15000  epoch=38.4  lr=0.10000  loss=2.0107  train_acc=21.68%  grad_norm=0.475 (clipped 4/1000 steps)  elapsed=5918s  [beta_grad_norm=0.009  other_grad_norm=0.475]
+2026-09-20 17:15:40,835 INFO          alpha: mean=0.5181  std=0.1389  min=0.1744  max=0.9777  |  beta: mean=-0.1708  std=0.6680  |  lambda: mean=-0.0372  std=0.9227
+2026-09-20 17:23:45,451 INFO iter= 16000  epoch=41.0  lr=0.10000  loss=1.9754  train_acc=23.33%  grad_norm=0.486 (clipped 4/1000 steps)  elapsed=6402s  [beta_grad_norm=0.011  other_grad_norm=0.486]
+2026-09-20 17:23:45,454 INFO          alpha: mean=0.5300  std=0.1409  min=0.1623  max=0.9996  |  beta: mean=-0.1838  std=0.7290  |  lambda: mean=-0.1568  std=0.9180
+2026-09-20 17:23:45,563 INFO Resume checkpoint saved at iter 16000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 17:31:41,409 INFO iter= 17000  epoch=43.5  lr=0.10000  loss=2.0150  train_acc=22.82%  grad_norm=0.517 (clipped 3/1000 steps)  elapsed=6878s  [beta_grad_norm=0.011  other_grad_norm=0.517]
+2026-09-20 17:31:41,413 INFO          alpha: mean=0.5267  std=0.1404  min=0.2484  max=1.0000  |  beta: mean=-0.2075  std=0.7404  |  lambda: mean=-0.0051  std=0.9529
+2026-09-20 17:39:37,386 INFO iter= 18000  epoch=46.1  lr=0.10000  loss=1.9622  train_acc=23.41%  grad_norm=0.528 (clipped 2/1000 steps)  elapsed=7354s  [beta_grad_norm=0.010  other_grad_norm=0.528]
+2026-09-20 17:39:37,389 INFO          alpha: mean=0.5491  std=0.1530  min=0.2689  max=0.9998  |  beta: mean=-0.2295  std=0.7510  |  lambda: mean=-0.2114  std=0.9781
+2026-09-20 17:48:01,499 INFO iter= 19000  epoch=48.6  lr=0.10000  loss=1.9944  train_acc=22.13%  grad_norm=0.520 (clipped 3/1000 steps)  elapsed=7858s  [beta_grad_norm=0.006  other_grad_norm=0.520]
+2026-09-20 17:48:01,510 INFO          alpha: mean=0.5505  std=0.1662  min=0.2173  max=0.9998  |  beta: mean=-0.2331  std=0.7525  |  lambda: mean=-0.2155  std=1.0440
+2026-09-20 17:56:32,690 INFO iter= 20000  epoch=51.2  lr=0.10000  loss=2.0733  train_acc=19.91%  grad_norm=0.621 (clipped 8/1000 steps)  elapsed=8370s  [beta_grad_norm=0.017  other_grad_norm=0.620]
+2026-09-20 17:56:32,693 INFO          alpha: mean=0.5223  std=0.1729  min=0.1414  max=0.9972  |  beta: mean=-0.2872  std=0.7992  |  lambda: mean=0.0565  std=1.0299
+2026-09-20 17:56:32,819 INFO Resume checkpoint saved at iter 20000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 18:04:19,796 INFO iter= 21000  epoch=53.8  lr=0.10000  loss=1.9705  train_acc=23.61%  grad_norm=0.438 (clipped 2/1000 steps)  elapsed=8837s  [beta_grad_norm=0.008  other_grad_norm=0.438]
+2026-09-20 18:04:19,800 INFO          alpha: mean=0.5482  std=0.1864  min=0.1426  max=0.9429  |  beta: mean=-0.3161  std=0.8015  |  lambda: mean=-0.1529  std=1.0491
+2026-09-20 18:12:01,813 INFO iter= 22000  epoch=56.3  lr=0.10000  loss=1.9172  train_acc=25.61%  grad_norm=0.479 (clipped 1/1000 steps)  elapsed=9299s  [beta_grad_norm=0.010  other_grad_norm=0.479]
+2026-09-20 18:12:01,819 INFO          alpha: mean=0.5576  std=0.1868  min=0.1758  max=0.9490  |  beta: mean=-0.3493  std=0.8032  |  lambda: mean=-0.2410  std=0.9949
+2026-09-20 18:19:40,021 INFO iter= 23000  epoch=58.9  lr=0.10000  loss=1.9174  train_acc=26.85%  grad_norm=0.565 (clipped 3/1000 steps)  elapsed=9757s  [beta_grad_norm=0.014  other_grad_norm=0.565]
+2026-09-20 18:19:40,024 INFO          alpha: mean=0.5597  std=0.1829  min=0.2094  max=0.9589  |  beta: mean=-0.3700  std=0.8401  |  lambda: mean=-0.3019  std=0.9607
+2026-09-20 18:27:12,630 INFO iter= 24000  epoch=61.4  lr=0.10000  loss=1.9073  train_acc=27.68%  grad_norm=0.643 (clipped 4/1000 steps)  elapsed=10209s  [beta_grad_norm=0.028  other_grad_norm=0.642]
+2026-09-20 18:27:12,634 INFO          alpha: mean=0.5655  std=0.2045  min=0.1538  max=0.9717  |  beta: mean=-0.4265  std=0.8238  |  lambda: mean=-0.3406  std=1.0435
+2026-09-20 18:27:12,753 INFO Resume checkpoint saved at iter 24000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 18:35:08,103 INFO iter= 25000  epoch=64.0  lr=0.10000  loss=1.8798  train_acc=29.02%  grad_norm=0.669 (clipped 4/1000 steps)  elapsed=10685s  [beta_grad_norm=0.016  other_grad_norm=0.668]
+2026-09-20 18:35:08,108 INFO          alpha: mean=0.5757  std=0.2157  min=0.1326  max=0.9792  |  beta: mean=-0.4616  std=0.8321  |  lambda: mean=-0.4078  std=1.0840
+2026-09-20 18:42:58,910 INFO iter= 26000  epoch=66.6  lr=0.10000  loss=1.9198  train_acc=27.86%  grad_norm=0.664 (clipped 3/1000 steps)  elapsed=11156s  [beta_grad_norm=0.016  other_grad_norm=0.663]
+2026-09-20 18:42:58,914 INFO          alpha: mean=0.5939  std=0.2131  min=0.1500  max=0.9833  |  beta: mean=-0.5067  std=0.8405  |  lambda: mean=-0.5149  std=1.0495
+2026-09-20 18:50:51,146 INFO iter= 27000  epoch=69.1  lr=0.10000  loss=1.8428  train_acc=31.10%  grad_norm=0.631  elapsed=11628s  [beta_grad_norm=0.012  other_grad_norm=0.631]
+2026-09-20 18:50:51,150 INFO          alpha: mean=0.6074  std=0.2143  min=0.1393  max=0.9842  |  beta: mean=-0.5406  std=0.8567  |  lambda: mean=-0.4627  std=1.1163
+2026-09-20 18:59:02,453 INFO iter= 28000  epoch=71.7  lr=0.10000  loss=1.7465  train_acc=35.52%  grad_norm=0.713 (clipped 1/1000 steps)  elapsed=12119s  [beta_grad_norm=0.013  other_grad_norm=0.713]
+2026-09-20 18:59:02,460 INFO          alpha: mean=0.6208  std=0.2155  min=0.1654  max=0.9891  |  beta: mean=-0.5752  std=0.8770  |  lambda: mean=-0.4846  std=1.1056
+2026-09-20 18:59:02,586 INFO Resume checkpoint saved at iter 28000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 19:07:08,807 INFO iter= 29000  epoch=74.2  lr=0.10000  loss=1.6687  train_acc=38.55%  grad_norm=0.837  elapsed=12606s  [beta_grad_norm=0.018  other_grad_norm=0.836]
+2026-09-20 19:07:08,811 INFO          alpha: mean=0.6238  std=0.2188  min=0.1886  max=0.9869  |  beta: mean=-0.6314  std=0.9248  |  lambda: mean=-0.3989  std=1.0677
+2026-09-20 19:15:49,808 INFO iter= 30000  epoch=76.8  lr=0.10000  loss=1.5470  train_acc=43.38%  grad_norm=0.885  elapsed=13127s  [beta_grad_norm=0.025  other_grad_norm=0.885]
+2026-09-20 19:15:49,814 INFO          alpha: mean=0.6271  std=0.2286  min=0.1596  max=0.9842  |  beta: mean=-0.6921  std=0.9846  |  lambda: mean=-0.2890  std=1.1049
+2026-09-20 19:24:14,326 INFO iter= 31000  epoch=79.4  lr=0.10000  loss=1.4010  train_acc=49.23%  grad_norm=0.944  elapsed=13631s  [beta_grad_norm=0.034  other_grad_norm=0.943]
+2026-09-20 19:24:14,329 INFO          alpha: mean=0.6361  std=0.2341  min=0.1088  max=0.9878  |  beta: mean=-0.7196  std=1.0573  |  lambda: mean=-0.2071  std=1.1736
+2026-09-20 19:32:08,868 INFO iter= 32000  epoch=81.9  lr=0.01000  loss=1.2772  train_acc=53.82%  grad_norm=0.975  elapsed=14106s  [beta_grad_norm=0.038  other_grad_norm=0.974]
+2026-09-20 19:32:08,871 INFO          alpha: mean=0.6508  std=0.2324  min=0.0995  max=0.9852  |  beta: mean=-0.7246  std=1.1448  |  lambda: mean=-0.1665  std=1.1571
+2026-09-20 19:32:08,984 INFO Resume checkpoint saved at iter 32000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 19:32:23,033 INFO >> EVAL  iter=32000  epoch=81.9  test_error=51.49%
+2026-09-20 19:40:21,122 INFO iter= 33000  epoch=84.5  lr=0.01000  loss=1.0371  train_acc=62.68%  grad_norm=0.976  elapsed=14598s  [beta_grad_norm=0.047  other_grad_norm=0.975]
+2026-09-20 19:40:21,125 INFO          alpha: mean=0.6435  std=0.2240  min=0.1066  max=0.9823  |  beta: mean=-0.7280  std=1.1457  |  lambda: mean=-0.0709  std=1.1404
+2026-09-20 19:48:25,969 INFO iter= 34000  epoch=87.0  lr=0.01000  loss=0.9829  train_acc=64.70%  grad_norm=1.114  elapsed=15083s  [beta_grad_norm=0.058  other_grad_norm=1.112]
+2026-09-20 19:48:25,980 INFO          alpha: mean=0.6444  std=0.2231  min=0.1069  max=0.9825  |  beta: mean=-0.7280  std=1.1478  |  lambda: mean=-0.0789  std=1.1350
+2026-09-20 19:56:23,805 INFO iter= 35000  epoch=89.6  lr=0.01000  loss=0.9456  train_acc=66.10%  grad_norm=1.219  elapsed=15561s  [beta_grad_norm=0.063  other_grad_norm=1.217]
+2026-09-20 19:56:23,811 INFO          alpha: mean=0.6380  std=0.2206  min=0.1143  max=0.9768  |  beta: mean=-0.7266  std=1.1500  |  lambda: mean=-0.0269  std=1.1107
+2026-09-20 20:04:30,748 INFO iter= 36000  epoch=92.2  lr=0.01000  loss=0.9107  train_acc=67.71%  grad_norm=1.326  elapsed=16048s  [beta_grad_norm=0.072  other_grad_norm=1.324]
+2026-09-20 20:04:30,758 INFO          alpha: mean=0.6431  std=0.2229  min=0.1137  max=0.9811  |  beta: mean=-0.7264  std=1.1533  |  lambda: mean=-0.0399  std=1.1415
+2026-09-20 20:04:30,885 INFO Resume checkpoint saved at iter 36000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 20:12:46,048 INFO iter= 37000  epoch=94.7  lr=0.01000  loss=0.8818  train_acc=68.61%  grad_norm=1.433  elapsed=16543s  [beta_grad_norm=0.073  other_grad_norm=1.431]
+2026-09-20 20:12:46,052 INFO          alpha: mean=0.6365  std=0.2161  min=0.1309  max=0.9762  |  beta: mean=-0.7249  std=1.1571  |  lambda: mean=-0.0238  std=1.0701
+2026-09-20 20:21:02,336 INFO iter= 38000  epoch=97.3  lr=0.01000  loss=0.8525  train_acc=69.60%  grad_norm=1.532  elapsed=17039s  [beta_grad_norm=0.074  other_grad_norm=1.530]
+2026-09-20 20:21:02,356 INFO          alpha: mean=0.6368  std=0.2202  min=0.1218  max=0.9762  |  beta: mean=-0.7247  std=1.1578  |  lambda: mean=-0.0344  std=1.0916
+2026-09-20 20:28:13,346 INFO iter= 39000  epoch=99.8  lr=0.01000  loss=0.8339  train_acc=70.46%  grad_norm=1.618  elapsed=17470s  [beta_grad_norm=0.077  other_grad_norm=1.616]
+2026-09-20 20:28:13,352 INFO          alpha: mean=0.6395  std=0.2227  min=0.1128  max=0.9770  |  beta: mean=-0.7247  std=1.1619  |  lambda: mean=-0.0402  std=1.1132
+2026-09-20 20:34:30,142 INFO iter= 40000  epoch=102.4  lr=0.01000  loss=0.8084  train_acc=71.47%  grad_norm=1.695  elapsed=17847s  [beta_grad_norm=0.082  other_grad_norm=1.693]
+2026-09-20 20:34:30,145 INFO          alpha: mean=0.6404  std=0.2234  min=0.1155  max=0.9745  |  beta: mean=-0.7224  std=1.1649  |  lambda: mean=-0.0533  std=1.0937
+2026-09-20 20:34:30,250 INFO Resume checkpoint saved at iter 40000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 20:41:41,167 INFO iter= 41000  epoch=105.0  lr=0.01000  loss=0.7856  train_acc=72.39%  grad_norm=1.762  elapsed=18278s  [beta_grad_norm=0.083  other_grad_norm=1.760]
+2026-09-20 20:41:41,173 INFO          alpha: mean=0.6386  std=0.2232  min=0.1059  max=0.9710  |  beta: mean=-0.7225  std=1.1684  |  lambda: mean=-0.0299  std=1.0980
+2026-09-20 20:49:38,952 INFO iter= 42000  epoch=107.5  lr=0.01000  loss=0.7655  train_acc=73.08%  grad_norm=1.817  elapsed=18756s  [beta_grad_norm=0.083  other_grad_norm=1.814]
+2026-09-20 20:49:38,956 INFO          alpha: mean=0.6404  std=0.2262  min=0.1112  max=0.9751  |  beta: mean=-0.7195  std=1.1718  |  lambda: mean=-0.0476  std=1.1098
+2026-09-20 20:57:47,258 INFO iter= 43000  epoch=110.1  lr=0.01000  loss=0.7451  train_acc=73.79%  grad_norm=1.879  elapsed=19244s  [beta_grad_norm=0.088  other_grad_norm=1.877]
+2026-09-20 20:57:47,262 INFO          alpha: mean=0.6442  std=0.2235  min=0.1115  max=0.9732  |  beta: mean=-0.7159  std=1.1749  |  lambda: mean=-0.0582  std=1.1027
+2026-09-20 21:05:47,669 INFO iter= 44000  epoch=112.6  lr=0.01000  loss=0.7220  train_acc=74.69%  grad_norm=1.927  elapsed=19725s  [beta_grad_norm=0.085  other_grad_norm=1.925]
+2026-09-20 21:05:47,677 INFO          alpha: mean=0.6482  std=0.2270  min=0.1090  max=0.9741  |  beta: mean=-0.7145  std=1.1790  |  lambda: mean=-0.0674  std=1.1167
+2026-09-20 21:05:47,800 INFO Resume checkpoint saved at iter 44000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 21:13:56,323 INFO iter= 45000  epoch=115.2  lr=0.01000  loss=0.7065  train_acc=75.35%  grad_norm=1.982  elapsed=20213s  [beta_grad_norm=0.092  other_grad_norm=1.980]
+2026-09-20 21:13:56,336 INFO          alpha: mean=0.6387  std=0.2237  min=0.1117  max=0.9697  |  beta: mean=-0.7173  std=1.1821  |  lambda: mean=0.0068  std=1.0931
+2026-09-20 21:22:14,815 INFO iter= 46000  epoch=117.8  lr=0.01000  loss=0.6863  train_acc=76.02%  grad_norm=2.011  elapsed=20712s  [beta_grad_norm=0.088  other_grad_norm=2.009]
+2026-09-20 21:22:14,821 INFO          alpha: mean=0.6460  std=0.2291  min=0.1111  max=0.9723  |  beta: mean=-0.7129  std=1.1882  |  lambda: mean=-0.0544  std=1.1144
+2026-09-20 21:29:43,532 INFO iter= 47000  epoch=120.3  lr=0.01000  loss=0.6721  train_acc=76.58%  grad_norm=2.054  elapsed=21160s  [beta_grad_norm=0.090  other_grad_norm=2.052]
+2026-09-20 21:29:43,536 INFO          alpha: mean=0.6463  std=0.2308  min=0.0917  max=0.9783  |  beta: mean=-0.7119  std=1.1881  |  lambda: mean=-0.0426  std=1.1428
+2026-09-20 21:37:27,987 INFO iter= 48000  epoch=122.9  lr=0.00100  loss=0.6517  train_acc=77.37%  grad_norm=2.074  elapsed=21625s  [beta_grad_norm=0.092  other_grad_norm=2.071]
+2026-09-20 21:37:27,991 INFO          alpha: mean=0.6504  std=0.2326  min=0.0856  max=0.9762  |  beta: mean=-0.7069  std=1.1943  |  lambda: mean=-0.0585  std=1.1581
+2026-09-20 21:37:28,102 INFO Resume checkpoint saved at iter 48000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 21:37:40,185 INFO >> EVAL  iter=48000  epoch=122.9  test_error=24.71%
+2026-09-20 21:45:03,005 INFO iter= 49000  epoch=125.4  lr=0.00100  loss=0.5707  train_acc=80.17%  grad_norm=2.002  elapsed=22080s  [beta_grad_norm=0.086  other_grad_norm=1.999]
+2026-09-20 21:45:03,009 INFO          alpha: mean=0.6454  std=0.2314  min=0.0931  max=0.9733  |  beta: mean=-0.7083  std=1.1926  |  lambda: mean=0.0011  std=1.1659
+2026-09-20 21:51:42,144 INFO iter= 50000  epoch=128.0  lr=0.00100  loss=0.5535  train_acc=80.74%  grad_norm=2.106  elapsed=22479s  [beta_grad_norm=0.087  other_grad_norm=2.104]
+2026-09-20 21:51:42,148 INFO          alpha: mean=0.6422  std=0.2284  min=0.0918  max=0.9711  |  beta: mean=-0.7085  std=1.1926  |  lambda: mean=-0.0020  std=1.1319
+2026-09-20 21:58:26,560 INFO iter= 51000  epoch=130.6  lr=0.00100  loss=0.5446  train_acc=81.08%  grad_norm=2.164  elapsed=22883s  [beta_grad_norm=0.089  other_grad_norm=2.162]
+2026-09-20 21:58:26,564 INFO          alpha: mean=0.6429  std=0.2295  min=0.0935  max=0.9730  |  beta: mean=-0.7082  std=1.1921  |  lambda: mean=-0.0165  std=1.1420
+2026-09-20 22:05:12,216 INFO iter= 52000  epoch=133.1  lr=0.00100  loss=0.5405  train_acc=81.20%  grad_norm=2.217  elapsed=23289s  [beta_grad_norm=0.089  other_grad_norm=2.215]
+2026-09-20 22:05:12,220 INFO          alpha: mean=0.6430  std=0.2285  min=0.0819  max=0.9710  |  beta: mean=-0.7080  std=1.1926  |  lambda: mean=-0.0043  std=1.1398
+2026-09-20 22:05:25,455 INFO Resume checkpoint saved at iter 52000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 22:12:05,351 INFO iter= 53000  epoch=135.7  lr=0.00100  loss=0.5368  train_acc=81.30%  grad_norm=2.261  elapsed=23702s  [beta_grad_norm=0.094  other_grad_norm=2.259]
+2026-09-20 22:12:05,355 INFO          alpha: mean=0.6400  std=0.2310  min=0.0949  max=0.9700  |  beta: mean=-0.7088  std=1.1917  |  lambda: mean=-0.0008  std=1.1328
+2026-09-20 22:19:19,943 INFO iter= 54000  epoch=138.2  lr=0.00100  loss=0.5291  train_acc=81.72%  grad_norm=2.270  elapsed=24137s  [beta_grad_norm=0.093  other_grad_norm=2.267]
+2026-09-20 22:19:19,949 INFO          alpha: mean=0.6447  std=0.2301  min=0.0947  max=0.9727  |  beta: mean=-0.7089  std=1.1909  |  lambda: mean=-0.0020  std=1.1556
+2026-09-20 22:27:28,922 INFO iter= 55000  epoch=140.8  lr=0.00100  loss=0.5260  train_acc=81.65%  grad_norm=2.324  elapsed=24626s  [beta_grad_norm=0.094  other_grad_norm=2.322]
+2026-09-20 22:27:28,932 INFO          alpha: mean=0.6440  std=0.2309  min=0.0915  max=0.9706  |  beta: mean=-0.7090  std=1.1903  |  lambda: mean=-0.0065  std=1.1544
+2026-09-20 22:35:57,948 INFO iter= 56000  epoch=143.4  lr=0.00100  loss=0.5214  train_acc=81.83%  grad_norm=2.360  elapsed=25135s  [beta_grad_norm=0.098  other_grad_norm=2.357]
+2026-09-20 22:35:57,952 INFO          alpha: mean=0.6461  std=0.2300  min=0.0912  max=0.9746  |  beta: mean=-0.7089  std=1.1904  |  lambda: mean=-0.0199  std=1.1493
+2026-09-20 22:35:58,094 INFO Resume checkpoint saved at iter 56000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 22:44:21,098 INFO iter= 57000  epoch=145.9  lr=0.00100  loss=0.5170  train_acc=81.95%  grad_norm=2.395  elapsed=25638s  [beta_grad_norm=0.099  other_grad_norm=2.393]
+2026-09-20 22:44:21,108 INFO          alpha: mean=0.6450  std=0.2299  min=0.0853  max=0.9706  |  beta: mean=-0.7100  std=1.1892  |  lambda: mean=-0.0091  std=1.1543
+2026-09-20 22:52:35,498 INFO iter= 58000  epoch=148.5  lr=0.00100  loss=0.5150  train_acc=82.13%  grad_norm=2.431  elapsed=26132s  [beta_grad_norm=0.098  other_grad_norm=2.429]
+2026-09-20 22:52:35,502 INFO          alpha: mean=0.6418  std=0.2297  min=0.0893  max=0.9744  |  beta: mean=-0.7090  std=1.1894  |  lambda: mean=0.0107  std=1.1485
+2026-09-20 23:00:41,146 INFO iter= 59000  epoch=151.0  lr=0.00100  loss=0.5095  train_acc=82.37%  grad_norm=2.455  elapsed=26618s  [beta_grad_norm=0.100  other_grad_norm=2.453]
+2026-09-20 23:00:41,150 INFO          alpha: mean=0.6454  std=0.2320  min=0.0871  max=0.9718  |  beta: mean=-0.7093  std=1.1889  |  lambda: mean=-0.0058  std=1.1687
+2026-09-20 23:08:44,180 INFO iter= 60000  epoch=153.6  lr=0.00100  loss=0.5028  train_acc=82.59%  grad_norm=2.487  elapsed=27101s  [beta_grad_norm=0.100  other_grad_norm=2.485]
+2026-09-20 23:08:44,191 INFO          alpha: mean=0.6425  std=0.2313  min=0.0999  max=0.9714  |  beta: mean=-0.7097  std=1.1881  |  lambda: mean=0.0108  std=1.1635
+2026-09-20 23:08:44,311 INFO Resume checkpoint saved at iter 60000: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 23:16:56,448 INFO iter= 61000  epoch=156.2  lr=0.00100  loss=0.5024  train_acc=82.57%  grad_norm=2.544  elapsed=27593s  [beta_grad_norm=0.102  other_grad_norm=2.542]
+2026-09-20 23:16:56,451 INFO          alpha: mean=0.6394  std=0.2258  min=0.0917  max=0.9692  |  beta: mean=-0.7099  std=1.1877  |  lambda: mean=0.0322  std=1.1390
+2026-09-20 23:25:02,180 INFO iter= 62000  epoch=158.7  lr=0.00100  loss=0.4978  train_acc=82.59%  grad_norm=2.572  elapsed=28079s  [beta_grad_norm=0.101  other_grad_norm=2.570]
+2026-09-20 23:25:02,183 INFO          alpha: mean=0.6391  std=0.2264  min=0.1032  max=0.9704  |  beta: mean=-0.7100  std=1.1873  |  lambda: mean=0.0137  std=1.1292
+2026-09-20 23:32:30,131 INFO iter= 63000  epoch=161.3  lr=0.00100  loss=0.4954  train_acc=82.75%  grad_norm=2.598  elapsed=28527s  [beta_grad_norm=0.100  other_grad_norm=2.596]
+2026-09-20 23:32:30,135 INFO          alpha: mean=0.6432  std=0.2301  min=0.0893  max=0.9718  |  beta: mean=-0.7093  std=1.1877  |  lambda: mean=-0.0022  std=1.1581
+2026-09-20 23:40:10,833 INFO iter= 64000  epoch=163.8  lr=0.00100  loss=0.4916  train_acc=82.76%  grad_norm=2.631  elapsed=28988s  [beta_grad_norm=0.100  other_grad_norm=2.629]
+2026-09-20 23:40:10,836 INFO          alpha: mean=0.6426  std=0.2308  min=0.0957  max=0.9712  |  beta: mean=-0.7094  std=1.1872  |  lambda: mean=0.0006  std=1.1575
+2026-09-20 23:40:23,941 INFO >> EVAL  iter=64000  epoch=163.8  test_error=20.88%
+2026-09-20 23:40:36,746 INFO === DONE  config=lyasc_phase_e_stresstest  variant=LyASC_stress_3.0  depth=110  seed=3 final_test_error=20.88%  time=29014s ===
+2026-09-20 23:40:36,812 INFO Checkpoint saved: /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt
+2026-09-20 23:40:36,817 INFO Result JSON: /home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.json
+2026-09-20 23:40:36,818 INFO Resume checkpoint deleted (run complete): /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.pt

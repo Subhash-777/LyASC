@@ -763,11 +763,22 @@ def train_one_run(
         log_final_result(mlf_run, result)
         log_artifacts(mlf_run, [result_json_path, os.path.join(log_dir, "decisions.log"), config_path])
 
-    # Cleanup hooks
+    # Cleanup hooks and GPU memory
     for h in hook_handles:
         h.remove()
 
+    try:
+        del model, optimizer, scheduler, train_loader, test_loader, train_iter
+    except NameError:
+        pass
+
+    import gc
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
     return result
+
 
 
 def _evaluate(model: nn.Module, loader, device: torch.device) -> float:

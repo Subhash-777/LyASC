@@ -1,0 +1,4 @@
+2026-10-05 17:31:14,480 INFO === Starting training: config=lyasc_phase_e_stresstest  variant=LyASC+BN  depth=110  seed=99 ===
+2026-10-05 17:31:14,480 INFO Device: cuda
+2026-10-05 17:31:15,107 INFO Model: PreAct-ResNet-110  variant=LyASC+BN  params=1,732,048  blocks=54
+2026-10-05 17:31:15,149 INFO Training schedule: 1000 total iterations (~2.6 epochs), LR milestones at iters [32000, 48000]

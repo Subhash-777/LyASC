@@ -1,0 +1,28 @@
+{
+  "config_name": "lyasc_phase_e_stresstest",
+  "variant_name": "LyASC_noG",
+  "depth": 110,
+  "seed": 1,
+  "final_test_error": 8.819999999999995,
+  "total_iters": 64000,
+  "wall_clock_seconds": 17154.030698299408,
+  "grad_clip_max_norm": 5.0,
+  "lyasc_diagnostics": {
+    "alpha_mean": 0.717865875525469,
+    "alpha_std": 0.2503772850496064,
+    "alpha_min": 0.0032834839075803757,
+    "alpha_max": 0.9999969005584717,
+    "beta_mean": -1.783830333363127,
+    "beta_std": 1.9430233049638488,
+    "lambda_mean": -0.21236305523887966,
+    "lambda_std": 1.4383106561162358
+  },
+  "lyasc_config": {
+    "k": 1,
+    "N": 20,
+    "ema_decay": 0.9,
+    "lambda0": 0.0,
+    "cold_start": "none",
+    "use_layer_norm": false
+  }
+}

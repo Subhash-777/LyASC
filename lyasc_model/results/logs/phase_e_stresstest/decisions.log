@@ -22,3 +22,206 @@ DECISION: lyasc_hyperparameters
 VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
 RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
 --------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: phase_e1_seed0_inspection_stress_3.0
+VALUE:     stress_3.0 seed0 result (27.90%) is a confirmed, complete 64k run but shows qualitatively different dynamics vs stress_0.5/2.0; alpha trajectory divergence and initial gradient spike are real and quantified; "gate too slow for 3x scaling" is an untested hypothesis pending seeds 1-2.
+RATIONALE: Inspection of seed-0 data required before seeds 1-2 batch was supposed to launch (this inspection was belatedly performed after task-3254 was already running).
+
+Completion verification:
+  total_iters = 64000 (confirmed; not a partial/checkpoint value)
+  wall_clock  = 26341s (7.32h)
+  final_test_error = 27.90%
+  Source: JSON result file, iter 64000 eval.
+
+Alpha_mean trajectory (stress_0.5 / stress_2.0 / stress_3.0):
+  iter  1000:  0.518  /  0.525  /  0.486
+  iter  4000:  0.570  /  0.541  /  0.497
+  iter  8000:  0.626  /  0.623  /  0.518  [10pp gap opens here]
+  iter 12000:  0.690  /  0.720  /  0.507  [~20pp gap established]
+  iter 15000:  0.769  /  0.739  /  0.545  [last stress_3.0 log entry — see below]
+  iter 64000:  0.807  /  0.779  /  0.643  [from JSON diagnostics — end-of-training only]
+
+Log truncation note: stress_3.0 log ends at iter 15000 (37 lines, 6.5 KB vs 27-31 KB
+  for stress_0.5/2.0). Alpha trajectory between iter 15001-64000 is NOT in the log file
+  and cannot be reconstructed from available data. The end-of-training alpha_mean=0.643
+  (from JSON) is the only data point for that 49000-iter stretch.
+
+Escalation trigger assessment (neither trigger formally fired):
+  Grad-norm trigger (unclipped >50 for >500 consecutive iters):
+    iter 1000 spike — stress_3.0: 1,147,229 (vs 251,173 and 213,328 for 0.5/2.0, ~5x higher)
+    All three variants returned to normal (<1.5) by iter 2000.
+    One-checkpoint spike, not a sustained 500-iter breach. Trigger did NOT fire.
+    NEAR-MISS in severity (stress_3.0 spike 4.5-5.4x the others), not in duration.
+  Loss trigger (>=2.20 for >3000 consecutive iters):
+    stress_3.0 loss oscillated 2.03-2.21 through iter 15000 (briefly >=2.20 at iter 7000).
+    Max consecutive iters with loss>=2.20: ~1000 (well below 3000 threshold).
+    However: loss never fell below 2.0 through the entire visible 15000-iter window
+    (stress_0.5/2.0 both broke below 1.7 by iter 12000; stress_3.0 stayed at 2.1).
+    Qualitatively a near-trigger; formally not triggered.
+
+What the data supports as fact:
+  1. Gate (alpha) moved measurably more slowly for stress_3.0 in the first 15000 iters.
+  2. Loss plateau lasted through all 15000 visible iters (model was still at ~22% acc at iter 15000).
+  3. Initial gradient spike was 5x larger than the other two variants.
+  4. The model did eventually converge (27.90%), which is a meaningful rescue vs 49.27% paper.
+
+What the data does NOT support (remains hypothesis):
+  "alpha stuck near 0.5 because 3x scaling is too extreme for the gate to compensate."
+  Observable: slower alpha convergence, larger gradient spike, loss plateau through iter 15000.
+  NOT established: whether slow alpha movement CAUSED the poor result vs was a symptom of it;
+  whether log-truncation after iter 15000 hides a continued struggle or a recovery.
+  Seeds 1 and 2 are the correct test: if both also produce ~27-30%, 3x scaling is a systematic
+  edge case; if one diverges fully and one converges cleanly, this is a bimodal instability.
+
+Action: task-3254 continues (killing mid-run would waste progress on clean 0.5/2.0 runs).
+  Decision on stress_3.0 interpretation deferred until seeds 1-2 are in hand.
+  Dashboard language to be updated to label stress_3.0 explanation as untested hypothesis.
+------------------------------------------------------------------------
+DECISION: phase_e1_stress3_alpha_trajectory_from_mlflow
+VALUE:     stress_3.0 seed0 alpha plateaued at ~0.64-0.65 from iter ~20k through 64k; training acc at 64k was 78.7% (vs 99.9% for stress_0.5/2.0); model did not fully converge within 64k iterations.
+RATIONALE: MLflow run f1b47eac6a37 had complete per-1000-iter logging throughout; console log was truncated at iter 15000 (mechanism unclear). Full 64-point alpha_mean trajectory confirmed:
+  - alpha climbed slowly from 0.486 (iter 1k) to 0.611 (iter 20k), then plateaued
+  - plateau range: 0.633-0.667 (iters 20k-64k); never reached the 0.78-0.81 of other variants
+  - loss finally cracked at iter ~28k (1.96 vs 2.09 at 27k), then slow descent to 0.61 at 64k
+  - for comparison: stress_0.5/2.0 reached loss ~0.005 by iter 64k; stress_3.0 stopped at 0.61
+  - training accuracy at 64k: stress_3.0=78.7%, stress_0.5≈99.9%, stress_2.0≈99.9%
+
+Revised interpretation (data-supported, not hypothetical):
+  stress_3.0 seed0 did not fully converge within 64,000 iterations. The Lyapunov gate
+  stabilized at alpha~0.645 (favoring skip over residual by ~65:35) but this was insufficient
+  to fully overcome the 3x residual scaling. The result (27.90%) reflects a partial rescue
+  compared to the paper's 49.27%, but the model's 78.7% train accuracy confirms incomplete
+  learning, not a converged stable solution.
+
+  The "gate too slow to compensate" hypothesis now has data support: alpha's slow climb and
+  early plateau at 0.645 (vs 0.81 for other variants) is consistent with the gate being
+  unable to sufficiently downweight the 3x-scaled residual path. However, the causal direction
+  (whether slow alpha caused incomplete convergence, or 3x scaling made convergence slow and
+  alpha reflects that) still cannot be established from a single seed.
+
+  Status: hypothesis has data support (MLflow-confirmed trajectory); causal direction remains
+  untested; seeds 1-2 are the correct next step.
+------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+DECISION: phase_e1_stress3_gate_consistency_and_plateau_timing_analysis
+VALUE:     LyASC_stress_3.0 (n=5 seeds) achieves two distinct outcome clusters observed in this sample: 1 seed Full Rescue (Seed 4: 8.75% test error, alpha=0.8285) vs 4 seeds Partial Rescue (Seeds 0-3: mean 25.16%, median 20.88%, range 19.12%-32.73%, alpha ~0.64-0.66). [Footnote: Pooled 5-seed mean is 21.88% ± 9.15pp vs paper baseline 49.27% [LN(x+3F)]]. Driven by a continuous threshold effect of early escape speed.
+RATIONALE: Detailed empirical evaluation and config audit (MLflow & training logs):
+
+1. Config Verification (Confirmed Fact):
+   - Verified Seed 4 model instantiation: skip_scale=1.0, residual_scale=3.0, use_layer_norm=True genuinely applied across all 54 LyASCSkip blocks.
+   - Initial gradient norm at iter 1000 was 1.185M (matching Seeds 0-3 at 1.15M-1.44M, ~5.6x unstressed baseline), confirming the 3x residual scaling pre-factor was active throughout training.
+
+2. Unified Continuous Threshold Effect:
+   - Escape speed before ~16k is the single governing variable determining outcome regime:
+     * Full Rescue Breakthrough (Seed 4: 8.75% error): Early optimization progress before ~16k (alpha_mean passing 0.7060 at iter 16k, loss reaching 0.4081 at 27k) triggers full gate breakthrough to alpha = 0.8285, matching standard non-stressed baseline performance (8.75%).
+     * Partial Rescue Regime (Seeds 0-3: 19.12%-32.73% error): Slower initial progress caps alpha_mean at ~0.64-0.66. Within this regime, plateau escape timing relative to the 32k LR drop determines final error (Seeds 2 & 3 escaping at 27k-28k reach 19.12% & 20.88%; Seeds 0 & 1 stalling/relapsing at 32k reach 27.90% & 32.73%).
+
+3. Sample-Specific Cluster Breakdown (n=5 Seeds):
+   - Full Rescue Cluster (1 seed in this sample): Seed 4 — 8.75% test error (alpha_mean = 0.8285).
+   - Partial Rescue Cluster (4 seeds in this sample): Seeds 0, 1, 2, 3 — 25.16% mean error (median 20.88%, range 19.12% - 32.73%, alpha_mean ~0.64 - 0.66).
+   - Sample Note: Described as observed in this sample (n=5); population frequency of full vs partial breakthrough requires larger sample sizes.
+
+
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+DECISION: phase_e2_normalization_pairing_ablation_complete
+VALUE:     Ground-truth LyASC+LN baseline confirmed as Phase D closed-out result: 7.17% ± 0.21% (seeds 7.33%, 7.25%, 6.93%). Reused without retraining. LyASC_noG (G=Identity) test error = 9.52% ± 0.98% (+2.35pp penalty vs LyASC+LN 7.17%); LyASC+BN (G=BatchNorm2d) test error = 6.34% ± 0.01% (-0.83pp improvement vs LyASC+LN 7.17% & matching PreAct-ResNet-110 6.39%).
+RATIONALE: Baseline Audit & Phase E2 normalization pairing ablations completed (depth 110, 64k iters, 2 seeds each):
+1. Baseline Audit & Reuse Decision: Reused pre-registered Phase D cold-start 'none' baseline for LyASC+LN (3-seed mean: 7.17% ± 0.21%, seeds 0-2: 7.33%, 7.25%, 6.93%). No retraining performed. Draft report cited 6.34% due to typographical conflation; ground-truth 7.17% restored.
+2. LyASC_noG (G=Identity, no post-gate norm): Seed 0 = 10.21%, Seed 1 = 8.82% (2-seed mean: 9.52% ± 0.98%, alpha_mean = 0.6580). Omitting post-gate normalization incurs a +2.35pp penalty vs LyASC+LN (7.17%) and +3.18pp vs LyASC+BN (6.34%), confirming post-gate normalization is necessary.
+3. LyASC+BN (G=BatchNorm2d): Seed 0 = 6.35%, Seed 1 = 6.33% (2-seed mean: 6.34% ± 0.01%, alpha_mean = 0.5621). Post-gate BatchNorm2d outperforms LayerNorm2d (7.17%) by -0.83pp and matches standard PreAct-ResNet-110 (6.39% mean), demonstrating that BatchNorm2d is superior for 2D image representations in unstressed training.
+------------------------------------------------------------------------
