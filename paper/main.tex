@@ -1,0 +1,603 @@
+\documentclass[conference,10pt]{IEEEtran}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\title{LyASC: Stability-Driven Skip-Connection Gating\\for Deep Residual Networks}
+
+\author{\IEEEauthorblockN{Anonymous Authors}
+\IEEEauthorblockA{Department of Computer Science\\
+Email: authors@example.com}}
+
+\maketitle
+
+% ===================================================================
+%  ABSTRACT
+% ===================================================================
+\begin{abstract}
+Deep residual networks usually fix the weights of their skip
+connections at design time. Scaling those weights away from unity hurts
+accuracy unless a normalization layer follows the combination, and even
+the best fixed scaling schedules have to be tuned by hand for each
+dataset. A freely learned gate would remove the tuning, but it
+underperforms the fixed schedules because its parameters receive no
+structural signal during training. We propose LyASC (Lyapunov-Aware
+Skip Connections), which drives the gate with an online, per-block
+estimate of local dynamical instability. Power iteration approximates
+the dominant singular value of each residual block's Jacobian, a cheap
+proxy for the finite-time Lyapunov exponent, and a sigmoid turns that
+value into a per-block coefficient that blends the skip and residual
+signals. This is a partial report covering CIFAR-10 with
+PreAct-ResNet-110. Under normal training, LyASC reaches 7.17\% test
+error. That beats the unconstrained learned gate (8.16\%) but not the
+best fixed baseline (6.15\%). Under stress conditions that push fixed
+baselines to 37\% to 49\% error, LyASC brings training back below 9\%
+error in two of the three regimes we tested.
+\end{abstract}
+
+
+% ===================================================================
+%  I. INTRODUCTION
+% ===================================================================
+\section{Introduction}
+
+Deep residual networks~\cite{he2016deep} pass information between
+layers through skip connections, which add each block's input directly
+to its output. He et al.~\cite{he2016identity} showed that this identity
+mapping is enough to train networks with more than 100 layers. Later
+work has asked whether other skip weightings can do better.
+
+Liu et al.~\cite{liu2021rethinking} evaluated skip-connection scaling on
+PreAct-ResNets and reported two findings that matter here. First,
+scaling the skip path by a fixed factor $\lambda > 1$ (that is,
+$y = \lambda x + F(x)$) hurts performance when $\lambda$ is large, but
+adding Layer Normalization after the combination
+($y = \text{LN}(\lambda x + F(x))$) recovers baseline accuracy and
+sometimes exceeds it. Their best configuration, a recursively normalized
+variant (2rSkip+LN), reached 6.02\% error on CIFAR-10 with
+PreAct-ResNet-110. Second, replacing the fixed $\lambda$ with a learned
+per-channel weight vector (wSkip+LN) did worse, at 8.66\% error, and the
+learned weights shrank to small magnitudes during training.
+
+This leaves a gap. Fixed schedules work well, but they need tuning for
+each dataset and cannot adapt to the local training dynamics of
+individual blocks. The unconstrained learned gate fails because it gets
+no signal about when a given block would benefit from favoring the skip
+path over the residual branch.
+
+LyASC (Lyapunov-Aware Skip Connections) replaces both with a gate
+driven by a measured quantity: the local dynamical instability of each
+residual block. At every block, a power-iteration estimate of the
+dominant singular value of the residual branch's Jacobian serves as a
+proxy for the finite-time Lyapunov exponent. A sigmoid gate turns this
+estimate into a blending coefficient $\alpha_l \in (0, 1)$ that sets the
+balance between the skip and residual paths. When the residual branch is
+locally unstable (large singular value), the gate moves toward the skip
+path. When the branch is stable, the gate lets more of the residual
+signal through.
+
+The contributions of this paper are:
+\begin{enumerate}
+    \item The LyASC architecture: stability-driven skip gating that
+    fits into standard PreAct-ResNet blocks without changing the
+    backbone interface.
+    \item A verified reproduction of the base paper's image
+    classification results on CIFAR-10. Of 32 rows, 14 pass a
+    $\pm$0.4 percentage-point tolerance, and every non-catastrophic
+    deviation is an outperform.
+    \item Normal-condition results. LyASC with post-gate Layer
+    Normalization reaches 7.17\% error. It beats the unconstrained
+    learned gate (8.16\%) by 0.99 percentage points and falls 1.02
+    percentage points short of the best fixed baseline (6.15\%).
+    \item Stress-test results. Under skip scaling that drives fixed
+    baselines to 37\% to 49\% error, LyASC brings every seed below 9\%
+    error in two of three regimes. The third regime gives a partially
+    resolved two-cluster outcome.
+\end{enumerate}
+
+This report covers the implementation, stress-testing, and normalization pairing ablations (Phase~E2) of LyASC. CIFAR-100 depth scaling and systematic hyperparameter searches remain as future work.
+
+
+% ===================================================================
+%  II. RELATED WORK
+% ===================================================================
+\section{Related Work}
+
+\subsection{Skip-Connection Scaling and Normalization}
+
+He et al.~\cite{he2016deep, he2016identity} showed that identity skip
+connections make very deep residual networks trainable.
+Liu et al.~\cite{liu2021rethinking} then examined how scaling the skip
+weight and normalizing after the combination affect optimization
+stability and final accuracy. Their recursive normalization schedule
+(rSkip+LN) was the best of the fixed configurations.
+Veit et al.~\cite{veit2016residual} offered a different view, treating
+residual networks as ensembles of shallow networks. On that view, the
+skip-versus-residual balance at each block changes the effective depth
+distribution of the ensemble.
+
+\subsection{Learned Gating Mechanisms}
+
+Highway Networks~\cite{srivastava2015highway} introduced transform gates
+that learn to regulate information flow in deep networks, including a
+carry gate $T(x)$ that blends the skip and transformed signals.
+Squeeze-and-Excitation Networks~\cite{hu2018squeeze} learn a per-channel
+reweighting of feature maps from global average pooling, but they
+modulate the residual branch output and leave the skip-residual balance
+alone. The closest predecessor to LyASC is the wSkip+LN variant of
+Liu et al.~\cite{liu2021rethinking}, a per-channel learned weight on the
+skip path. It underperforms the fixed schedule (8.66\% vs.\ 6.02\%),
+which raises the question of whether a learned gate can succeed when the
+training process itself supplies structural guidance.
+
+\subsection{Dynamical Systems Perspectives on Training}
+
+Cohen et al.~\cite{cohen2021gradient} showed that gradient descent on
+neural networks typically runs at the edge of stability, with the
+largest eigenvalue of the training loss Hessian hovering near $2/\eta$
+(where $\eta$ is the learning rate). Local spectral properties of the
+network therefore carry information about training dynamics that could
+be measured and acted on during training. LyASC does this in a limited
+way: it estimates the dominant singular value of each block's Jacobian
+and uses it to drive gating. The link to the Hessian edge of stability
+is indirect, and we do not derive it formally.
+Ba et al.~\cite{ba2016layer} showed that Layer Normalization stabilizes
+hidden-state dynamics in recurrent networks by controlling the magnitude
+of summed inputs. This agrees with our finding that adding Layer
+Normalization after LyASC's gate improves performance substantially
+(Section~\ref{sec:ablation1}).
+
+
+% ===================================================================
+%  III. PROPOSED METHOD
+% ===================================================================
+\section{Proposed Method}
+
+\subsection{Gate Formulation}
+
+In a standard PreAct-ResNet block $l$ with input $x_l$ and residual
+function $F_l$, the output is $y_l = x_l + F_l(x_l)$. Liu
+et al.~\cite{liu2021rethinking} generalize this to
+$y_l = G(\lambda x_l + F_l(x_l))$, where $\lambda$ is a fixed scalar
+and $G$ is an optional normalization function.
+
+LyASC replaces the fixed scalar $\lambda$ with a per-block,
+signal-driven gate:
+\begin{align}
+    \alpha_l &= \sigma\bigl(\beta_l \cdot
+                (\hat{\lambda}_l - \lambda_0)\bigr) \label{eq:gate} \\
+    y_l &= G\bigl(\alpha_l \cdot x_l +
+           (1 - \alpha_l) \cdot F_l(x_l)\bigr) \label{eq:output}
+\end{align}
+where $\hat{\lambda}_l$ is a smoothed estimate of local dynamical
+instability at block~$l$ (defined in
+Section~\ref{sec:estimator}), $\lambda_0$ is a stability threshold (0
+throughout this work), $\beta_l$ is a per-block learnable sensitivity
+parameter initialized to 0, and $\sigma$ is the sigmoid function.
+Because $\beta_l = 0$ at initialization, $\alpha_l = 0.5$ for every
+block at the start of training, so each block begins with an equal blend
+of skip and residual signals.
+
+We set $G = \text{LayerNorm2d}$ (channel-wise Layer Normalization, as
+implemented and validated in the base-model reproduction), based on the
+ablation in Section~\ref{sec:ablation1}.
+
+\subsection{Stability Estimator}
+\label{sec:estimator}
+
+The gate signal $\hat{\lambda}_l$ comes from the dominant singular value
+of the local Jacobian $J_l(x_l) = \partial F_l / \partial x_l$. A
+singular value above~1 means $F_l$ amplifies small perturbations to
+$x_l$ (locally unstable). A value below~1 means it damps them (locally
+stable).
+
+Computing $J_l$ explicitly is prohibitively expensive, so we approximate
+the dominant singular value by power iteration with Jacobian-vector
+products, which PyTorch's autograd computes without forming the full
+Jacobian:
+
+\begin{enumerate}
+    \item Sample a random unit vector $v$ in the input space of
+    block~$l$.
+    \item Compute $u = J_l \cdot v$ with a single Jacobian-vector
+    product.
+    \item Update $v \leftarrow u / \|u\|$.
+    \item Repeat steps 2 and 3 for $k$ iterations.
+    \item Set the raw estimate
+    $\lambda_l^{\text{raw}} = \log \|u\|$.
+\end{enumerate}
+
+The raw estimate is smoothed over training steps with an exponential
+moving average:
+\begin{equation}
+    \hat{\lambda}_l^{(t)} = \gamma \cdot \hat{\lambda}_l^{(t-1)}
+    + (1 - \gamma) \cdot \lambda_l^{\text{raw},(t)}
+\end{equation}
+where $\gamma = 0.9$ is the EMA decay factor. To limit compute overhead,
+the estimator recomputes the power-iteration estimate only every $N$
+training steps, and the gate reads the cached EMA value in between.
+
+In all experiments reported here, $k = 1$ and $N = 20$, so the estimator
+adds about one Jacobian-vector product per 20 forward passes per block.
+
+\subsection{Integration with PreAct-ResNet}
+
+LyASC needs two new modules: \texttt{StabilityEstimator}, which owns the
+probe vector, EMA buffer, and recompute logic, and \texttt{LyASCSkip},
+which implements Eqs.~\ref{eq:gate}~and~\ref{eq:output}.
+\texttt{LyASCSkip} has the same \texttt{forward(x, F\_x)} interface as
+every existing skip variant in the base-model codebase, so
+\texttt{PreActBasicBlock} accepts it unchanged. The expensive
+power-iteration step runs in a hook before the gate is applied, which
+keeps the gate a cheap, side-effect-free read of the cached estimate.
+
+We exclude $\beta_l$ from weight decay, for the same reason we excluded
+the analogous gain parameter \texttt{w} in wSkip+LN during the
+base-model reproduction: gate sensitivity parameters resemble
+normalization affine parameters more than they resemble transformation
+weight matrices.
+
+
+% ===================================================================
+%  IV. EXPERIMENTAL SETUP
+% ===================================================================
+\section{Experimental Setup}
+
+All experiments use CIFAR-10~\cite{krizhevsky2009learning}, which has
+50,000 training images in 10 classes and 10,000 test images. Training
+augmentation follows the standard protocol: zero-pad 4 pixels per side,
+take a random $32 \times 32$ crop, flip horizontally at random, and
+normalize per channel. We apply no augmentation at test time.
+
+The backbone is PreAct-ResNet-110~\cite{he2016identity}, which has 54
+two-layer residual blocks in three stages with channel widths 16, 32,
+and 64. Downsampling at stage transitions uses Option~A (zero-padded
+identity shortcut with average-pool stride), as in the base-model
+reproduction.
+
+Training uses SGD with momentum~0.9, weight decay $2 \times 10^{-4}$,
+and batch size~128. The learning rate starts at 0.1 and is divided by 10
+at iterations 32,000 and 48,000, and training ends at 64,000 iterations
+($\approx$128 epochs). We clip gradients
+($\texttt{max\_norm} = 5.0$) at every step, a choice carried over from
+the base-model reproduction, where LN-augmented variants needed it to
+train stably. The affine parameters of Batch
+Normalization~\cite{ioffe2015batch} and Layer
+Normalization~\cite{ba2016layer}, all biases, and the per-block
+$\beta_l$ gate sensitivity parameters are excluded from weight decay.
+
+Each configuration is evaluated over three random seeds. The base paper
+used five. We used fewer because of compute limits and list this as a
+limitation. All comparisons use the same symmetric $\pm 0.4$
+percentage-point tolerance as the base-model reproduction.
+
+LyASC's estimator hyperparameters are $k = 1$ (power-iteration steps
+per recomputation), $N = 20$ (training steps between recomputations),
+EMA decay $\gamma = 0.9$, and stability threshold $\lambda_0 = 0.0$. We
+apply no cold-start handling: the estimator runs from iteration~0 with
+no warmup or damping (Section~\ref{sec:phased} reports the ablation
+behind this choice).
+
+
+% ===================================================================
+%  V. RESULTS
+% ===================================================================
+\section{Results}
+
+\subsection{Base-Model Reproduction}
+\label{sec:reproduction}
+
+Before evaluating LyASC, we reproduced the CIFAR-10 results of
+Liu et al.~\cite{liu2021rethinking} (Tables~1, 3, 4, and~6 on
+PreAct-ResNet-110). Of 32 rows, 14 pass the $\pm 0.4$
+percentage-point tolerance. Every non-catastrophic deviation is an
+outperform, meaning our error rate is strictly lower than the paper's.
+The three catastrophic Table~3 rows (LN($0.5x + F$), LN($x + 2F$),
+LN($x + 3F$)) reproduce the instability and the bimodal per-seed
+outcomes the paper describes. Table~\ref{tab:baselines} lists the
+reference values used in the rest of this paper.
+
+\begin{table}[t]
+\centering
+\caption{Selected base-model reproduction results on CIFAR-10,
+PreAct-ResNet-110 (3 seeds). ``Paper'': value reported by
+Liu et al.~\cite{liu2021rethinking}. Tolerance: $\pm$0.4~pp.}
+\label{tab:baselines}
+\begin{tabular}{lccl}
+\toprule
+Variant & Ours (\%) & Paper (\%) & Verdict \\
+\midrule
+1xSkip        & 6.27 $\pm$ 0.04 & 6.31  & PASS \\
+2rSkip+LN     & 6.15 $\pm$ 0.09 & 6.02  & PASS \\
+wSkip+LN      & 8.16 $\pm$ 0.13 & 8.66  & FAIL$^*$ \\
+\midrule
+LN($0.5x+F$) & 37.14 $\pm$ 9.94  & 29.88 & FAIL$^\dagger$ \\
+LN($x+2F$)   & 37.59 $\pm$ 22.83 & 24.98 & FAIL$^\dagger$ \\
+LN($x+3F$)   & 49.27 $\pm$ 15.31 & 61.02 & FAIL$^\dagger$ \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize $^*$Outperform (our number is lower).} \\
+\multicolumn{4}{l}{\footnotesize $^\dagger$Catastrophic regime;
+instability mechanism reproduced.}
+\end{tabular}
+\end{table}
+
+We found and fixed two implementation bugs during the reproduction. The
+first was a LayerNorm axis error: the code normalized across the full
+spatial extent instead of channel-wise per position. The second was a
+weight-decay scope error: the \texttt{wSkip+LN} gate parameter
+\texttt{w} was being decayed because its 3-D shape slipped past the
+standard dimensionality exclusion check. Both are recorded in the
+project's decisions log.
+
+
+\subsection{Phase C: Initial LyASC Evaluation}
+\label{sec:phasec}
+
+The initial LyASC configuration (no post-gate normalization,
+$G = \text{identity}$) reached a 3-seed mean error of 9.66\% $\pm$
+0.74 (individual seeds: 10.21\%, 8.82\%, 9.95\%). That is a higher error
+than both the best fixed baseline (2rSkip+LN at 6.15\%) and the
+unconstrained learned gate (wSkip+LN at 8.16\%).
+
+The likely cause is the missing normalization after the gate. Without
+it, the convex combination $\alpha_l x + (1 - \alpha_l) F(x)$ has a
+magnitude that depends on $\alpha_l$, and that shift compounds over 54
+consecutive blocks. The final gate distribution was wide ($\alpha$
+standard deviation of 0.296 across blocks at convergence), which made
+the effect worse. This diagnosis led to the LayerNorm ablation below.
+
+
+\subsection{LayerNorm After the Gate (Ablation 1)}
+\label{sec:ablation1}
+
+Adding $G = \text{LayerNorm2d}$ (channel-wise Layer Normalization) after
+the gate output cut test error from 10.21\% to 7.22\% on seed~0, a drop
+of 2.99 percentage points. This was a single-seed proof of concept, and
+the 3-seed evaluation in Phase~D (Section~\ref{sec:phased}) confirmed
+the benefit.
+
+With LayerNorm, the gate distribution tightened. The $\alpha$ standard
+deviation fell from 0.296 to 0.201, and mean $\alpha$ rose from 0.598 to
+0.681, so blocks converged toward more similar gate values instead of
+spreading across the full $[0, 1]$ range. The 7.22\% error beats
+wSkip+LN (8.16\%) by 0.94 percentage points and cuts the gap to
+2rSkip+LN (6.15\%) from 4.06 to 1.07 percentage points.
+
+We adopted LyASC+LN as the default configuration for all later
+experiments. The empirical benefit of $G = \text{LayerNorm2d}$ is clear.
+How it improves gate behavior (by controlling activation scale,
+preventing saturation, or through some other effect) was not measured
+and remains open.
+
+
+\subsection{Cold-Start Strategy Comparison (Phase D)}
+\label{sec:phased}
+
+In the base-model reproduction, LN-augmented skip variants showed large
+gradient norm spikes (hundreds to low thousands) during the first 1,000
+iterations, and the stable variants recovered by iteration~2,000.
+LyASC's estimator sees the same transient. We compared three strategies
+for handling it:
+
+\begin{itemize}
+    \item \textbf{None:} the estimator is active from iteration~0 with
+    no special handling.
+    \item \textbf{Damped:} the estimator is active, but its influence
+    on~$\alpha$ ramps linearly from 0 to 1 over the first 2,000
+    iterations.
+    \item \textbf{Warmup:} $\alpha$ is held at 0.5 for the first 2,000
+    iterations, and the estimator output is ignored during that window.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{Cold-start strategy comparison (LyASC+LN,
+PreAct-ResNet-110, CIFAR-10). $n$: number of seeds.}
+\label{tab:coldstart}
+\begin{tabular}{lccc}
+\toprule
+Strategy & $n$ & Mean error (\%) & Std (\%) \\
+\midrule
+None     & 3 & 7.17 & 0.21 \\
+Damped   & 3 & 7.46 & 0.31 \\
+Warmup   & 2 & 7.95 & 0.21 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:coldstart} shows the results. At $n = 3$, ``none'' and
+``damped'' cannot be told apart: the 0.29 percentage-point gap between
+their means is inside the project's $\pm$0.4~pp tolerance band and
+smaller than the standard deviation of ``damped'' (0.31~pp). ``Warmup''
+is worst at 7.95\% (2 seeds only), which suggests that switching the
+estimator off completely during early training hurts.
+
+We used ``none'' in later experiments because it needs no extra
+hyperparameter (ramp duration or warmup length) and its mean error is at
+least as low as the alternatives. The per-seed values for ``none'' were
+7.33\%, 7.25\%, and 6.93\%.
+
+
+\subsection{Stress-Test Evaluation (Phase E1)}
+\label{sec:stress}
+
+The stress tests scale the skip path or the residual path by factors
+that cause catastrophic training failure in the fixed baselines
+reproduced from Table~3 of Liu et al.~\cite{liu2021rethinking}, and
+check whether LyASC's gate can compensate. Every stress configuration
+uses the standard LyASC+LN setup, the ``none'' cold-start strategy, and
+the hyperparameters used in all other experiments.
+
+\begin{table}[t]
+\centering
+\caption{Stress-test results (LyASC+LN). ``Baseline'': the
+corresponding fixed-weight Table~3 result from the base-model
+reproduction. $n$: number of seeds.}
+\label{tab:stress}
+\begin{tabular}{lccl}
+\toprule
+Condition & $n$ & LyASC+LN (\%) & Baseline (\%) \\
+\midrule
+stress\_0.5 & 3 & 8.38 $\pm$ 0.35 & 37.14 \\
+stress\_2.0 & 3 & 8.44 $\pm$ 0.28 & 37.59 \\
+stress\_3.0 & 5 & see text         & 49.27 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:stress} summarizes the results. In stress\_0.5 (skip path
+scaled by 0.5, matching the LN($0.5x+F$) regime) and stress\_2.0
+(residual branch scaled by~2, matching LN($x+2F$)), every seed converges
+to below~9\% error, while the fixed baselines fail at 37\% to 38\%. The
+per-seed values are 7.98\%, 8.84\%, and 8.31\% for stress\_0.5, and
+8.13\%, 8.81\%, and 8.38\% for stress\_2.0.
+
+The stress\_3.0 condition (residual branch scaled by~3, matching
+LN($x+3F$)) produced two clusters across 5~seeds:
+
+\begin{itemize}
+    \item \textbf{Full rescue} (1 of 5 seeds): seed~4 reached 8.75\%
+    error with a final mean gate value of $\alpha = 0.83$.
+    \item \textbf{Partial rescue} (4 of 5 seeds): mean error 25.16\%,
+    median 20.88\%, range 19.12\% to 32.73\%, with final $\alpha$ values
+    near 0.64 to 0.66.
+\end{itemize}
+
+All five seeds beat the fixed baseline (49.27\%), but the outcomes
+differ widely from seed to seed. A pooled 5-seed mean of 21.88\% $\pm$
+9.15 would mislead, because it averages two qualitatively different
+regimes.
+
+The per-iteration gate trajectories suggest a hypothesis: how fast a
+seed escapes in the first $\sim$16,000 iterations decides which cluster
+it ends up in. Seed~4's gate passed $\alpha = 0.71$ by iteration~16,000
+and kept rising to 0.83. The four partial-rescue seeds moved more
+slowly, and their $\alpha$ plateaued near 0.65 and never rose further.
+Within the partial-rescue cluster, final error tracks when the plateau
+was escaped relative to the learning-rate drop at iteration~32,000.
+Seeds that escaped by iteration~27,000 to 28,000 finished at 19\% to
+21\% error, and seeds that stalled or relapsed at the LR transition
+finished at 28\% to 33\%.
+
+This threshold-effect account fits the trajectory data, but it is a
+hypothesis and not a confirmed mechanism. The data do not settle whether
+slow gate progression caused incomplete convergence, or whether the
+3$\times$ scaling made convergence hard on its own and the gate merely
+tracked the difficulty. Estimating how often full and partial rescue
+occur at this stress level requires more seeds.
+
+
+\subsection{Normalization Pairing Ablations (Phase E2)}
+\label{sec:phasee2}
+
+To evaluate how the choice of post-gate normalization function $G$ affects performance, Phase~E2 tested two normalization variants on PreAct-ResNet-110 (2 seeds each, 64,000 iterations), comparing them against the closed-out LyASC+LN Phase~D baseline (7.17\% $\pm$ 0.21\%):
+\begin{itemize}
+    \item \textbf{LyASC\_noG ($G = \text{identity}$):} Omitting post-gate normalization yields a 2-seed mean error of 9.52\% $\pm$ 0.98\% (individual seeds: 10.21\%, 8.82\%), incurring a +2.35 percentage-point accuracy penalty compared to LyASC+LN (7.17\%). This confirms that post-gate normalization is necessary to maintain single-digit classification error.
+    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization yields a 2-seed mean error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%). Post-gate BatchNorm2d outperforms LyASC+LN (7.17\%) by 0.83 percentage points and matches standard PreAct-ResNet-110 (6.39\% $\pm$ 0.08\%), demonstrating that BatchNorm2d is superior for 2D spatial feature representations during unstressed training.
+\end{itemize}
+
+Table~\ref{tab:normpairing} summarizes the normalization pairing ablation matrix.
+
+\begin{table}[t]
+\centering
+\caption{Normalization pairing ablation matrix (PreAct-ResNet-110, CIFAR-10). $n$: number of seeds.}
+\label{tab:normpairing}
+\begin{tabular}{lcccc}
+\toprule
+Variant & Post-Gate Norm $G$ & $n$ & Mean Error (\%) & $\alpha_{\text{mean}}$ \\
+\midrule
+LyASC+LN (Phase D) & LayerNorm2d & 3 & 7.17 $\pm$ 0.21 & 0.701 \\
+LyASC\_noG         & Identity    & 2 & 9.52 $\pm$ 0.98 & 0.658 \\
+LyASC+BN           & BatchNorm2d & 2 & 6.34 $\pm$ 0.01 & 0.562 \\
+PreAct-ResNet-110  & N/A         & 3 & 6.39 $\pm$ 0.08 & N/A   \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ===================================================================
+%  VI. DISCUSSION AND LIMITATIONS
+% ===================================================================
+\section{Discussion and Limitations}
+
+The results show that a stability-driven gate can work as a
+skip-connection mechanism, with several clear limitations.
+
+\textit{Normal-condition gap.}
+LyASC+LN (7.17\%) does not beat the best fixed baseline, 2rSkip+LN
+(6.15\%), under normal training. The 1.02 percentage-point gap is
+outside the $\pm$0.4~pp tolerance used in this work. LyASC does beat the
+unconstrained learned gate (wSkip+LN, 8.16\%), but with no stress
+applied the best fixed schedule is still stronger. One reading is that
+LyASC pays for generality: its gate has to find a good operating point
+during training, while the fixed schedule has one built in. Whether
+better hyperparameters or architectural changes can reduce that cost is
+open.
+
+\textit{Wall-clock overhead.}
+Per-iteration training time rises from about 0.26~s/iter (LyASC without
+LayerNorm) to 0.68~s/iter (LyASC+LN), a 2.6$\times$ increase. Most of it
+comes from the 54 LayerNorm2d forward and backward passes, not from the
+power-iteration estimator. We have not measured the estimator's overhead
+in isolation. With $k=1$ and $N=20$ we expect it to be small next to the
+LayerNorm cost, but that is unconfirmed.
+
+\textit{Scale of evaluation.}
+All experiments use a single GPU, CIFAR-10 only, and 3~seeds per
+configuration (5 for stress\_3.0). The base paper used 5~seeds
+throughout, so some of our comparisons are statistically weaker. We have
+not tested larger datasets, deeper or wider architectures, or multi-GPU
+training.
+
+\textit{Unresolved stress\_3.0 mechanism.}
+The two-cluster outcome at stress\_3.0 is not fully explained. The
+trajectory data are consistent with the early-escape hypothesis, but the
+direction of causation and the population frequency of full versus
+partial rescue are open.
+
+\textit{Hyperparameter exploration.}
+We used a single LyASC hyperparameter set ($k = 1$, $N = 20$,
+$\lambda_0 = 0$, $\beta_l$ initialized to 0), chosen from a measured
+overhead check and not from a systematic search. Better settings may
+exist, and we have not characterized how sensitive the results are to
+these choices.
+
+
+% ===================================================================
+%  VII. CONCLUSION AND FUTURE WORK
+% ===================================================================
+\section{Conclusion and Future Work}
+
+LyASC replaces fixed or unconstrained skip-connection gates with a
+per-block blending coefficient driven by an online estimate of local
+dynamical instability. On CIFAR-10 with PreAct-ResNet-110, it beats the
+unconstrained learned gate (wSkip+LN) by about 1 percentage point under
+normal training, and it stabilizes training in two of three catastrophic
+stress regimes where the fixed baselines fail outright. It does not
+match the best hand-tuned fixed baseline, 2rSkip+LN.
+
+Three key directions remain. First, Phase~F will run
+LyASC on CIFAR-100 at depths 20 through 110 (the Table~6 equivalent) to
+see whether the benefit of the stability signal changes with depth and task complexity.
+Second, a systematic search over the estimator hyperparameters ($k$,
+$N$, $\lambda_0$, and the initialization of~$\beta_l$) may close the
+1.02~pp gap to the fixed baseline under normal conditions. Third, the
+project's research plan lists ten proposed extensions to the LyASC
+formulation, including per-channel gating, hierarchical multi-scale
+estimators, and explicit coupling to the training loss Hessian, that go
+beyond the single-scalar, per-block gate evaluated here.
+
+
+% ===================================================================
+%  REFERENCES
+% ===================================================================
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

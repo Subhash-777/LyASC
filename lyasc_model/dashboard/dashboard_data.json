@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-17T20:49:26.182776+00:00",
+    "generated_at": "2026-10-07T12:48:50.403399+00:00",
     "generator": "export_dashboard_data.py",
     "project": "LyASC \u2014 Lyapunov-Adaptive Skip Connections",
     "note": "Auto-generated. Re-run before presentation for latest data."
@@ -2271,7 +2271,7 @@
     "phase_e1": {
       "name": "Phase E1: Table 3 Stress Tests",
       "description": "LyASC under catastrophic residual scaling (skip_scale/residual_scale variations)",
-      "status": "in_progress",
+      "status": "complete",
       "variants": {
         "LyASC_stress_0.5": {
           "skip_scale": 0.5,
@@ -2439,16 +2439,376 @@
                   "alpha_max": 0.9973
                 }
               ]
+            },
+            {
+              "variant": "LyASC_stress_0.5",
+              "seed": 1,
+              "final_test_error": 8.840000000000003,
+              "total_iters": 64000,
+              "wall_clock_hours": 6.8,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.7771467792767065,
+                "alpha_std": 0.1803255950133292,
+                "alpha_min": 0.19293370842933655,
+                "alpha_max": 1.0,
+                "beta_mean": -1.8729141017904989,
+                "beta_std": 2.135476752184828,
+                "lambda_mean": -0.593426208119598,
+                "lambda_std": 3.8748431544211526
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.2766,
+                  "train_acc": 19.91,
+                  "grad_norm": 245212.12,
+                  "alpha_mean": 0.489,
+                  "alpha_std": 0.0725,
+                  "alpha_min": 0.1789,
+                  "alpha_max": 0.6811
+                },
+                {
+                  "iter": 6000,
+                  "loss": 2.0182,
+                  "train_acc": 24.65,
+                  "grad_norm": 0.613,
+                  "alpha_mean": 0.5486,
+                  "alpha_std": 0.1552,
+                  "alpha_min": 0.116,
+                  "alpha_max": 0.9989
+                },
+                {
+                  "iter": 11000,
+                  "loss": 2.0666,
+                  "train_acc": 22.16,
+                  "grad_norm": 0.908,
+                  "alpha_mean": 0.6037,
+                  "alpha_std": 0.1659,
+                  "alpha_min": 0.2062,
+                  "alpha_max": 0.9587
+                },
+                {
+                  "iter": 16000,
+                  "loss": 1.7492,
+                  "train_acc": 36.68,
+                  "grad_norm": 0.867,
+                  "alpha_mean": 0.6852,
+                  "alpha_std": 0.2135,
+                  "alpha_min": 0.1602,
+                  "alpha_max": 0.9871
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.5815,
+                  "train_acc": 79.97,
+                  "grad_norm": 1.071,
+                  "alpha_mean": 0.7629,
+                  "alpha_std": 0.2085,
+                  "alpha_min": 0.1395,
+                  "alpha_max": 0.9964
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.366,
+                  "train_acc": 87.41,
+                  "grad_norm": 1.116,
+                  "alpha_mean": 0.7795,
+                  "alpha_std": 0.1967,
+                  "alpha_min": 0.159,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.3,
+                  "train_acc": 89.57,
+                  "grad_norm": 1.16,
+                  "alpha_mean": 0.8008,
+                  "alpha_std": 0.1781,
+                  "alpha_min": 0.1409,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.0774,
+                  "train_acc": 97.4,
+                  "grad_norm": 0.986,
+                  "alpha_mean": 0.7982,
+                  "alpha_std": 0.1811,
+                  "alpha_min": 0.1661,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.0408,
+                  "train_acc": 98.67,
+                  "grad_norm": 1.088,
+                  "alpha_mean": 0.7973,
+                  "alpha_std": 0.1809,
+                  "alpha_min": 0.1862,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.0274,
+                  "train_acc": 99.13,
+                  "grad_norm": 1.118,
+                  "alpha_mean": 0.7875,
+                  "alpha_std": 0.1842,
+                  "alpha_min": 0.1633,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.0125,
+                  "train_acc": 99.67,
+                  "grad_norm": 0.729,
+                  "alpha_mean": 0.7876,
+                  "alpha_std": 0.1798,
+                  "alpha_min": 0.2001,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.0089,
+                  "train_acc": 99.79,
+                  "grad_norm": 0.573,
+                  "alpha_mean": 0.7842,
+                  "alpha_std": 0.1787,
+                  "alpha_min": 0.1854,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.0083,
+                  "train_acc": 99.8,
+                  "grad_norm": 0.585,
+                  "alpha_mean": 0.7845,
+                  "alpha_std": 0.1791,
+                  "alpha_min": 0.1914,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0073,
+                  "train_acc": 99.84,
+                  "grad_norm": 0.556,
+                  "alpha_mean": 0.7771,
+                  "alpha_std": 0.1803,
+                  "alpha_min": 0.1929,
+                  "alpha_max": 1.0
+                }
+              ]
+            },
+            {
+              "variant": "LyASC_stress_0.5",
+              "seed": 2,
+              "final_test_error": 8.309999999999995,
+              "total_iters": 64000,
+              "wall_clock_hours": 8.08,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.803966610322715,
+                "alpha_std": 0.19106766691453847,
+                "alpha_min": 0.0009681326919235289,
+                "alpha_max": 0.9955060482025146,
+                "beta_mean": -1.830018043242119,
+                "beta_std": 2.237419299043919,
+                "lambda_mean": 0.30396277761017837,
+                "lambda_std": 1.3762118289233427
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.2023,
+                  "train_acc": 18.8,
+                  "grad_norm": 258189.64,
+                  "alpha_mean": 0.477,
+                  "alpha_std": 0.0641,
+                  "alpha_min": 0.254,
+                  "alpha_max": 0.6083
+                },
+                {
+                  "iter": 6000,
+                  "loss": 2.1679,
+                  "train_acc": 19.06,
+                  "grad_norm": 0.653,
+                  "alpha_mean": 0.533,
+                  "alpha_std": 0.161,
+                  "alpha_min": 0.0644,
+                  "alpha_max": 0.9822
+                },
+                {
+                  "iter": 11000,
+                  "loss": 2.0133,
+                  "train_acc": 25.52,
+                  "grad_norm": 0.797,
+                  "alpha_mean": 0.6242,
+                  "alpha_std": 0.2024,
+                  "alpha_min": 0.0159,
+                  "alpha_max": 0.9997
+                },
+                {
+                  "iter": 16000,
+                  "loss": 1.6878,
+                  "train_acc": 38.91,
+                  "grad_norm": 1.076,
+                  "alpha_mean": 0.6733,
+                  "alpha_std": 0.2395,
+                  "alpha_min": 0.02,
+                  "alpha_max": 0.9988
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.6155,
+                  "train_acc": 78.65,
+                  "grad_norm": 1.095,
+                  "alpha_mean": 0.7805,
+                  "alpha_std": 0.2009,
+                  "alpha_min": 0.0002,
+                  "alpha_max": 0.9999
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.3622,
+                  "train_acc": 87.46,
+                  "grad_norm": 1.104,
+                  "alpha_mean": 0.8233,
+                  "alpha_std": 0.191,
+                  "alpha_min": 0.0003,
+                  "alpha_max": 0.9991
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.2954,
+                  "train_acc": 89.74,
+                  "grad_norm": 1.148,
+                  "alpha_mean": 0.8259,
+                  "alpha_std": 0.1901,
+                  "alpha_min": 0.0032,
+                  "alpha_max": 0.9979
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.0764,
+                  "train_acc": 97.46,
+                  "grad_norm": 0.998,
+                  "alpha_mean": 0.8142,
+                  "alpha_std": 0.1919,
+                  "alpha_min": 0.002,
+                  "alpha_max": 0.9984
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.0383,
+                  "train_acc": 98.73,
+                  "grad_norm": 1.074,
+                  "alpha_mean": 0.8129,
+                  "alpha_std": 0.1927,
+                  "alpha_min": 0.0008,
+                  "alpha_max": 0.9978
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.0261,
+                  "train_acc": 99.14,
+                  "grad_norm": 1.104,
+                  "alpha_mean": 0.8101,
+                  "alpha_std": 0.1908,
+                  "alpha_min": 0.0015,
+                  "alpha_max": 0.9962
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.0133,
+                  "train_acc": 99.63,
+                  "grad_norm": 0.77,
+                  "alpha_mean": 0.8091,
+                  "alpha_std": 0.1883,
+                  "alpha_min": 0.0007,
+                  "alpha_max": 0.9962
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.0094,
+                  "train_acc": 99.75,
+                  "grad_norm": 0.623,
+                  "alpha_mean": 0.8021,
+                  "alpha_std": 0.1917,
+                  "alpha_min": 0.0006,
+                  "alpha_max": 0.9955
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.0078,
+                  "train_acc": 99.81,
+                  "grad_norm": 0.564,
+                  "alpha_mean": 0.8106,
+                  "alpha_std": 0.1924,
+                  "alpha_min": 0.0008,
+                  "alpha_max": 0.9953
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0077,
+                  "train_acc": 99.81,
+                  "grad_norm": 0.568,
+                  "alpha_mean": 0.804,
+                  "alpha_std": 0.1911,
+                  "alpha_min": 0.001,
+                  "alpha_max": 0.9955
+                }
+              ]
             }
           ],
           "aggregate": {
-            "mean": 7.98,
-            "std": 0,
-            "n_seeds_complete": 1,
+            "mean": 8.377,
+            "median": 8.31,
+            "std": 0.434,
+            "n_seeds_complete": 3,
             "n_seeds_in_progress": 0,
             "n_seeds_total": 3
           },
-          "status": "partial"
+          "status": "complete",
+          "seed0_alpha_trajectory": [
+            {
+              "iter": 1000,
+              "alpha_mean": 0.518
+            },
+            {
+              "iter": 4000,
+              "alpha_mean": 0.57
+            },
+            {
+              "iter": 8000,
+              "alpha_mean": 0.626
+            },
+            {
+              "iter": 12000,
+              "alpha_mean": 0.69
+            },
+            {
+              "iter": 16000,
+              "alpha_mean": 0.792
+            },
+            {
+              "iter": 24000,
+              "alpha_mean": 0.816
+            },
+            {
+              "iter": 32000,
+              "alpha_mean": 0.83
+            },
+            {
+              "iter": 64000,
+              "alpha_mean": 0.807
+            }
+          ],
+          "seed0_escalation": {
+            "iter1000_grad_norm": 251173.1,
+            "iter1000_clipped_frac": 0.155,
+            "grad_norm_trigger_fired": false,
+            "loss_trigger_fired": false,
+            "near_miss": null
+          }
         },
         "LyASC_stress_2.0": {
           "skip_scale": 1.0,
@@ -2626,16 +2986,376 @@
                   "alpha_max": 1.0
                 }
               ]
+            },
+            {
+              "variant": "LyASC_stress_2.0",
+              "seed": 1,
+              "final_test_error": 8.809999999999995,
+              "total_iters": 64000,
+              "wall_clock_hours": 5.05,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.7758196845512699,
+                "alpha_std": 0.2221812808560063,
+                "alpha_min": 0.04234642907977104,
+                "alpha_max": 0.9998944997787476,
+                "beta_mean": -1.7301952591924756,
+                "beta_std": 1.6925328439678033,
+                "lambda_mean": -0.4485408066668444,
+                "lambda_std": 1.313567392091489
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.3068,
+                  "train_acc": 20.26,
+                  "grad_norm": 256143.654,
+                  "alpha_mean": 0.4955,
+                  "alpha_std": 0.0914,
+                  "alpha_min": 0.2829,
+                  "alpha_max": 0.8636
+                },
+                {
+                  "iter": 6000,
+                  "loss": 1.9709,
+                  "train_acc": 26.92,
+                  "grad_norm": 0.556,
+                  "alpha_mean": 0.5381,
+                  "alpha_std": 0.1238,
+                  "alpha_min": 0.1517,
+                  "alpha_max": 0.7634
+                },
+                {
+                  "iter": 11000,
+                  "loss": 1.9146,
+                  "train_acc": 29.56,
+                  "grad_norm": 0.728,
+                  "alpha_mean": 0.5908,
+                  "alpha_std": 0.2287,
+                  "alpha_min": 0.0196,
+                  "alpha_max": 0.9068
+                },
+                {
+                  "iter": 16000,
+                  "loss": 0.8908,
+                  "train_acc": 68.91,
+                  "grad_norm": 1.085,
+                  "alpha_mean": 0.6977,
+                  "alpha_std": 0.2319,
+                  "alpha_min": 0.0615,
+                  "alpha_max": 0.9366
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.4779,
+                  "train_acc": 83.39,
+                  "grad_norm": 1.131,
+                  "alpha_mean": 0.6759,
+                  "alpha_std": 0.2679,
+                  "alpha_min": 0.0577,
+                  "alpha_max": 0.9975
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.343,
+                  "train_acc": 88.07,
+                  "grad_norm": 1.152,
+                  "alpha_mean": 0.7486,
+                  "alpha_std": 0.234,
+                  "alpha_min": 0.0215,
+                  "alpha_max": 0.9977
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.3042,
+                  "train_acc": 89.42,
+                  "grad_norm": 1.227,
+                  "alpha_mean": 0.7745,
+                  "alpha_std": 0.2273,
+                  "alpha_min": 0.0423,
+                  "alpha_max": 0.9997
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.0649,
+                  "train_acc": 97.86,
+                  "grad_norm": 0.979,
+                  "alpha_mean": 0.7755,
+                  "alpha_std": 0.2257,
+                  "alpha_min": 0.0296,
+                  "alpha_max": 0.9999
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.0324,
+                  "train_acc": 98.95,
+                  "grad_norm": 1.041,
+                  "alpha_mean": 0.7732,
+                  "alpha_std": 0.2233,
+                  "alpha_min": 0.0431,
+                  "alpha_max": 0.9997
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.023,
+                  "train_acc": 99.25,
+                  "grad_norm": 1.086,
+                  "alpha_mean": 0.7691,
+                  "alpha_std": 0.2227,
+                  "alpha_min": 0.0452,
+                  "alpha_max": 0.9999
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.0112,
+                  "train_acc": 99.69,
+                  "grad_norm": 0.728,
+                  "alpha_mean": 0.7684,
+                  "alpha_std": 0.2227,
+                  "alpha_min": 0.0454,
+                  "alpha_max": 0.9997
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.008,
+                  "train_acc": 99.81,
+                  "grad_norm": 0.555,
+                  "alpha_mean": 0.7675,
+                  "alpha_std": 0.2242,
+                  "alpha_min": 0.0404,
+                  "alpha_max": 0.9998
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.0065,
+                  "train_acc": 99.85,
+                  "grad_norm": 0.518,
+                  "alpha_mean": 0.7684,
+                  "alpha_std": 0.2248,
+                  "alpha_min": 0.0485,
+                  "alpha_max": 0.9998
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0061,
+                  "train_acc": 99.86,
+                  "grad_norm": 0.494,
+                  "alpha_mean": 0.7758,
+                  "alpha_std": 0.2222,
+                  "alpha_min": 0.0423,
+                  "alpha_max": 0.9999
+                }
+              ]
+            },
+            {
+              "variant": "LyASC_stress_2.0",
+              "seed": 2,
+              "final_test_error": 8.379999999999999,
+              "total_iters": 64000,
+              "wall_clock_hours": 6.49,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.775317305147096,
+                "alpha_std": 0.21549749973578936,
+                "alpha_min": 7.515888178079523e-34,
+                "alpha_max": 1.0,
+                "beta_mean": -1.471269009841813,
+                "beta_std": 2.192256303219059,
+                "lambda_mean": -1.1309534181599263,
+                "lambda_std": 5.362636701257144
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.2628,
+                  "train_acc": 17.79,
+                  "grad_norm": 237480.185,
+                  "alpha_mean": 0.4893,
+                  "alpha_std": 0.0861,
+                  "alpha_min": 0.145,
+                  "alpha_max": 0.7887
+                },
+                {
+                  "iter": 6000,
+                  "loss": 2.1474,
+                  "train_acc": 19.78,
+                  "grad_norm": 0.829,
+                  "alpha_mean": 0.5576,
+                  "alpha_std": 0.1234,
+                  "alpha_min": 0.2382,
+                  "alpha_max": 0.9001
+                },
+                {
+                  "iter": 11000,
+                  "loss": 1.5411,
+                  "train_acc": 44.44,
+                  "grad_norm": 0.99,
+                  "alpha_mean": 0.6866,
+                  "alpha_std": 0.2073,
+                  "alpha_min": 0.1715,
+                  "alpha_max": 0.9972
+                },
+                {
+                  "iter": 16000,
+                  "loss": 0.5639,
+                  "train_acc": 80.49,
+                  "grad_norm": 1.112,
+                  "alpha_mean": 0.7721,
+                  "alpha_std": 0.1944,
+                  "alpha_min": 0.0426,
+                  "alpha_max": 0.9961
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.3792,
+                  "train_acc": 86.87,
+                  "grad_norm": 1.147,
+                  "alpha_mean": 0.7916,
+                  "alpha_std": 0.2182,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9998
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.3047,
+                  "train_acc": 89.42,
+                  "grad_norm": 1.18,
+                  "alpha_mean": 0.7541,
+                  "alpha_std": 0.2514,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9993
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.2709,
+                  "train_acc": 90.62,
+                  "grad_norm": 1.212,
+                  "alpha_mean": 0.7723,
+                  "alpha_std": 0.2245,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.056,
+                  "train_acc": 98.13,
+                  "grad_norm": 0.917,
+                  "alpha_mean": 0.773,
+                  "alpha_std": 0.2155,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.0272,
+                  "train_acc": 99.12,
+                  "grad_norm": 0.939,
+                  "alpha_mean": 0.7667,
+                  "alpha_std": 0.2212,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.0175,
+                  "train_acc": 99.45,
+                  "grad_norm": 0.895,
+                  "alpha_mean": 0.7808,
+                  "alpha_std": 0.2131,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.0095,
+                  "train_acc": 99.74,
+                  "grad_norm": 0.644,
+                  "alpha_mean": 0.7817,
+                  "alpha_std": 0.2152,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.0064,
+                  "train_acc": 99.85,
+                  "grad_norm": 0.485,
+                  "alpha_mean": 0.7707,
+                  "alpha_std": 0.217,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.0055,
+                  "train_acc": 99.87,
+                  "grad_norm": 0.45,
+                  "alpha_mean": 0.7796,
+                  "alpha_std": 0.2154,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.005,
+                  "train_acc": 99.9,
+                  "grad_norm": 0.421,
+                  "alpha_mean": 0.7753,
+                  "alpha_std": 0.2155,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                }
+              ]
             }
           ],
           "aggregate": {
-            "mean": 8.13,
-            "std": 0,
-            "n_seeds_complete": 1,
+            "mean": 8.44,
+            "median": 8.38,
+            "std": 0.344,
+            "n_seeds_complete": 3,
             "n_seeds_in_progress": 0,
             "n_seeds_total": 3
           },
-          "status": "partial"
+          "status": "complete",
+          "seed0_alpha_trajectory": [
+            {
+              "iter": 1000,
+              "alpha_mean": 0.525
+            },
+            {
+              "iter": 4000,
+              "alpha_mean": 0.541
+            },
+            {
+              "iter": 8000,
+              "alpha_mean": 0.623
+            },
+            {
+              "iter": 12000,
+              "alpha_mean": 0.72
+            },
+            {
+              "iter": 16000,
+              "alpha_mean": 0.757
+            },
+            {
+              "iter": 24000,
+              "alpha_mean": 0.811
+            },
+            {
+              "iter": 32000,
+              "alpha_mean": 0.812
+            },
+            {
+              "iter": 64000,
+              "alpha_mean": 0.779
+            }
+          ],
+          "seed0_escalation": {
+            "iter1000_grad_norm": 213328.1,
+            "iter1000_clipped_frac": 0.158,
+            "grad_norm_trigger_fired": false,
+            "loss_trigger_fired": false,
+            "near_miss": null
+          }
         },
         "LyASC_stress_3.0": {
           "skip_scale": 1.0,
@@ -2702,17 +3422,1259 @@
                   "alpha_min": 0.1994,
                   "alpha_max": 0.908
                 }
+              ],
+              "log_truncated": true,
+              "log_last_iter": 15000
+            },
+            {
+              "variant": "LyASC_stress_3.0",
+              "seed": 1,
+              "final_test_error": 32.730000000000004,
+              "total_iters": 64000,
+              "wall_clock_hours": 5.51,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.6627972928669166,
+                "alpha_std": 0.25397068043394716,
+                "alpha_min": 0.0235754307359457,
+                "alpha_max": 0.9960522651672363,
+                "beta_mean": -1.038908709237283,
+                "beta_std": 1.6419134182984478,
+                "lambda_mean": 0.20200008181510148,
+                "lambda_std": 1.2817155066038468
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.3383,
+                  "train_acc": 18.7,
+                  "grad_norm": 1272740.505,
+                  "alpha_mean": 0.5028,
+                  "alpha_std": 0.067,
+                  "alpha_min": 0.3331,
+                  "alpha_max": 0.8131
+                },
+                {
+                  "iter": 6000,
+                  "loss": 2.2256,
+                  "train_acc": 16.35,
+                  "grad_norm": 0.68,
+                  "alpha_mean": 0.5361,
+                  "alpha_std": 0.106,
+                  "alpha_min": 0.2093,
+                  "alpha_max": 0.9653
+                },
+                {
+                  "iter": 11000,
+                  "loss": 2.1545,
+                  "train_acc": 17.96,
+                  "grad_norm": 0.703,
+                  "alpha_mean": 0.5362,
+                  "alpha_std": 0.1655,
+                  "alpha_min": 0.1779,
+                  "alpha_max": 0.994
+                },
+                {
+                  "iter": 16000,
+                  "loss": 2.1095,
+                  "train_acc": 20.52,
+                  "grad_norm": 0.621,
+                  "alpha_mean": 0.5196,
+                  "alpha_std": 0.1656,
+                  "alpha_min": 0.0332,
+                  "alpha_max": 0.9678
+                },
+                {
+                  "iter": 21000,
+                  "loss": 1.9924,
+                  "train_acc": 25.87,
+                  "grad_norm": 0.53,
+                  "alpha_mean": 0.5825,
+                  "alpha_std": 0.217,
+                  "alpha_min": 0.0475,
+                  "alpha_max": 0.9735
+                },
+                {
+                  "iter": 24000,
+                  "loss": 2.0586,
+                  "train_acc": 22.6,
+                  "grad_norm": 0.669,
+                  "alpha_mean": 0.6179,
+                  "alpha_std": 0.2234,
+                  "alpha_min": 0.0534,
+                  "alpha_max": 0.9951
+                },
+                {
+                  "iter": 29000,
+                  "loss": 1.978,
+                  "train_acc": 26.59,
+                  "grad_norm": 0.557,
+                  "alpha_mean": 0.6513,
+                  "alpha_std": 0.235,
+                  "alpha_min": 0.0306,
+                  "alpha_max": 0.9999
+                },
+                {
+                  "iter": 34000,
+                  "loss": 2.1725,
+                  "train_acc": 18.28,
+                  "grad_norm": 0.624,
+                  "alpha_mean": 0.664,
+                  "alpha_std": 0.2416,
+                  "alpha_min": 0.0708,
+                  "alpha_max": 0.9912
+                },
+                {
+                  "iter": 39000,
+                  "loss": 2.07,
+                  "train_acc": 23.22,
+                  "grad_norm": 0.828,
+                  "alpha_mean": 0.674,
+                  "alpha_std": 0.238,
+                  "alpha_min": 0.0753,
+                  "alpha_max": 0.9913
+                },
+                {
+                  "iter": 44000,
+                  "loss": 1.8827,
+                  "train_acc": 31.11,
+                  "grad_norm": 1.453,
+                  "alpha_mean": 0.676,
+                  "alpha_std": 0.2449,
+                  "alpha_min": 0.0909,
+                  "alpha_max": 0.9934
+                },
+                {
+                  "iter": 49000,
+                  "loss": 1.1983,
+                  "train_acc": 57.73,
+                  "grad_norm": 2.542,
+                  "alpha_mean": 0.6788,
+                  "alpha_std": 0.2565,
+                  "alpha_min": 0.0296,
+                  "alpha_max": 0.9918
+                },
+                {
+                  "iter": 54000,
+                  "loss": 1.036,
+                  "train_acc": 63.71,
+                  "grad_norm": 3.818,
+                  "alpha_mean": 0.6686,
+                  "alpha_std": 0.2568,
+                  "alpha_min": 0.0253,
+                  "alpha_max": 0.9945
+                },
+                {
+                  "iter": 59000,
+                  "loss": 0.9168,
+                  "train_acc": 68.19,
+                  "grad_norm": 4.783,
+                  "alpha_mean": 0.6657,
+                  "alpha_std": 0.2554,
+                  "alpha_min": 0.0245,
+                  "alpha_max": 0.9947
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.8176,
+                  "train_acc": 71.66,
+                  "grad_norm": 5.734,
+                  "alpha_mean": 0.6628,
+                  "alpha_std": 0.254,
+                  "alpha_min": 0.0236,
+                  "alpha_max": 0.9961
+                }
+              ]
+            },
+            {
+              "variant": "LyASC_stress_3.0",
+              "seed": 2,
+              "final_test_error": 19.120000000000005,
+              "total_iters": 64000,
+              "wall_clock_hours": 6.48,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.6467167009199947,
+                "alpha_std": 0.26200235681587036,
+                "alpha_min": 4.943764508880122e-08,
+                "alpha_max": 0.9996405839920044,
+                "beta_mean": -1.4692564634261307,
+                "beta_std": 2.1070065368539046,
+                "lambda_mean": 0.12200651288515439,
+                "lambda_std": 1.1937123683218513
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.3324,
+                  "train_acc": 13.49,
+                  "grad_norm": 1156297.024,
+                  "alpha_mean": 0.4979,
+                  "alpha_std": 0.0582,
+                  "alpha_min": 0.2465,
+                  "alpha_max": 0.737
+                },
+                {
+                  "iter": 6000,
+                  "loss": 2.1827,
+                  "train_acc": 17.07,
+                  "grad_norm": 0.728,
+                  "alpha_mean": 0.5187,
+                  "alpha_std": 0.1074,
+                  "alpha_min": 0.1972,
+                  "alpha_max": 0.9989
+                },
+                {
+                  "iter": 11000,
+                  "loss": 2.0624,
+                  "train_acc": 22.41,
+                  "grad_norm": 0.429,
+                  "alpha_mean": 0.5365,
+                  "alpha_std": 0.1493,
+                  "alpha_min": 0.0617,
+                  "alpha_max": 0.9976
+                },
+                {
+                  "iter": 16000,
+                  "loss": 2.1036,
+                  "train_acc": 20.42,
+                  "grad_norm": 0.599,
+                  "alpha_mean": 0.5727,
+                  "alpha_std": 0.2014,
+                  "alpha_min": 0.0113,
+                  "alpha_max": 0.9997
+                },
+                {
+                  "iter": 21000,
+                  "loss": 1.9358,
+                  "train_acc": 28.49,
+                  "grad_norm": 0.555,
+                  "alpha_mean": 0.5799,
+                  "alpha_std": 0.236,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9998
+                },
+                {
+                  "iter": 26000,
+                  "loss": 1.8893,
+                  "train_acc": 30.01,
+                  "grad_norm": 0.561,
+                  "alpha_mean": 0.6419,
+                  "alpha_std": 0.2614,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9977
+                },
+                {
+                  "iter": 31000,
+                  "loss": 1.5693,
+                  "train_acc": 43.28,
+                  "grad_norm": 0.943,
+                  "alpha_mean": 0.6829,
+                  "alpha_std": 0.2791,
+                  "alpha_min": 0.0004,
+                  "alpha_max": 0.9954
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.8994,
+                  "train_acc": 68.33,
+                  "grad_norm": 1.678,
+                  "alpha_mean": 0.66,
+                  "alpha_std": 0.2716,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9821
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.6892,
+                  "train_acc": 75.88,
+                  "grad_norm": 2.195,
+                  "alpha_mean": 0.6726,
+                  "alpha_std": 0.2796,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9983
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.54,
+                  "train_acc": 81.13,
+                  "grad_norm": 2.508,
+                  "alpha_mean": 0.6675,
+                  "alpha_std": 0.2762,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.999
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.3455,
+                  "train_acc": 87.86,
+                  "grad_norm": 2.768,
+                  "alpha_mean": 0.6602,
+                  "alpha_std": 0.2699,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9993
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.2904,
+                  "train_acc": 89.88,
+                  "grad_norm": 3.445,
+                  "alpha_mean": 0.6495,
+                  "alpha_std": 0.2719,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9997
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.252,
+                  "train_acc": 91.16,
+                  "grad_norm": 4.065,
+                  "alpha_mean": 0.6477,
+                  "alpha_std": 0.2666,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9995
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.2254,
+                  "train_acc": 92.15,
+                  "grad_norm": 4.375,
+                  "alpha_mean": 0.6467,
+                  "alpha_std": 0.262,
+                  "alpha_min": 0.0,
+                  "alpha_max": 0.9996
+                }
+              ]
+            },
+            {
+              "variant": "LyASC_stress_3.0",
+              "seed": 3,
+              "final_test_error": 20.88,
+              "total_iters": 64000,
+              "wall_clock_hours": 8.06,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.6425680609212981,
+                "alpha_std": 0.23081518147455007,
+                "alpha_min": 0.09568114578723907,
+                "alpha_max": 0.9711913466453552,
+                "beta_mean": -0.709391317502768,
+                "beta_std": 1.1872139503666173,
+                "lambda_mean": 0.0006193211517745147,
+                "lambda_std": 1.1574608072305808
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.4471,
+                  "train_acc": 13.41,
+                  "grad_norm": 1435750.411,
+                  "alpha_mean": 0.4815,
+                  "alpha_std": 0.088,
+                  "alpha_min": 0.0033,
+                  "alpha_max": 0.6592
+                },
+                {
+                  "iter": 6000,
+                  "loss": 2.0958,
+                  "train_acc": 21.83,
+                  "grad_norm": 0.66,
+                  "alpha_mean": 0.4413,
+                  "alpha_std": 0.1277,
+                  "alpha_min": 0.0804,
+                  "alpha_max": 0.6265
+                },
+                {
+                  "iter": 11000,
+                  "loss": 2.0789,
+                  "train_acc": 20.33,
+                  "grad_norm": 0.505,
+                  "alpha_mean": 0.4862,
+                  "alpha_std": 0.1412,
+                  "alpha_min": 0.1573,
+                  "alpha_max": 0.9995
+                },
+                {
+                  "iter": 16000,
+                  "loss": 1.9754,
+                  "train_acc": 23.33,
+                  "grad_norm": 0.486,
+                  "alpha_mean": 0.53,
+                  "alpha_std": 0.1409,
+                  "alpha_min": 0.1623,
+                  "alpha_max": 0.9996
+                },
+                {
+                  "iter": 21000,
+                  "loss": 1.9705,
+                  "train_acc": 23.61,
+                  "grad_norm": 0.438,
+                  "alpha_mean": 0.5482,
+                  "alpha_std": 0.1864,
+                  "alpha_min": 0.1426,
+                  "alpha_max": 0.9429
+                },
+                {
+                  "iter": 26000,
+                  "loss": 1.9198,
+                  "train_acc": 27.86,
+                  "grad_norm": 0.664,
+                  "alpha_mean": 0.5939,
+                  "alpha_std": 0.2131,
+                  "alpha_min": 0.15,
+                  "alpha_max": 0.9833
+                },
+                {
+                  "iter": 31000,
+                  "loss": 1.401,
+                  "train_acc": 49.23,
+                  "grad_norm": 0.944,
+                  "alpha_mean": 0.6361,
+                  "alpha_std": 0.2341,
+                  "alpha_min": 0.1088,
+                  "alpha_max": 0.9878
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.9107,
+                  "train_acc": 67.71,
+                  "grad_norm": 1.326,
+                  "alpha_mean": 0.6431,
+                  "alpha_std": 0.2229,
+                  "alpha_min": 0.1137,
+                  "alpha_max": 0.9811
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.7856,
+                  "train_acc": 72.39,
+                  "grad_norm": 1.762,
+                  "alpha_mean": 0.6386,
+                  "alpha_std": 0.2232,
+                  "alpha_min": 0.1059,
+                  "alpha_max": 0.971
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.6863,
+                  "train_acc": 76.02,
+                  "grad_norm": 2.011,
+                  "alpha_mean": 0.646,
+                  "alpha_std": 0.2291,
+                  "alpha_min": 0.1111,
+                  "alpha_max": 0.9723
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.5446,
+                  "train_acc": 81.08,
+                  "grad_norm": 2.164,
+                  "alpha_mean": 0.6429,
+                  "alpha_std": 0.2295,
+                  "alpha_min": 0.0935,
+                  "alpha_max": 0.973
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.5214,
+                  "train_acc": 81.83,
+                  "grad_norm": 2.36,
+                  "alpha_mean": 0.6461,
+                  "alpha_std": 0.23,
+                  "alpha_min": 0.0912,
+                  "alpha_max": 0.9746
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.5024,
+                  "train_acc": 82.57,
+                  "grad_norm": 2.544,
+                  "alpha_mean": 0.6394,
+                  "alpha_std": 0.2258,
+                  "alpha_min": 0.0917,
+                  "alpha_max": 0.9692
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.4916,
+                  "train_acc": 82.76,
+                  "grad_norm": 2.631,
+                  "alpha_mean": 0.6426,
+                  "alpha_std": 0.2308,
+                  "alpha_min": 0.0957,
+                  "alpha_max": 0.9712
+                }
+              ]
+            },
+            {
+              "variant": "LyASC_stress_3.0",
+              "seed": 4,
+              "final_test_error": 8.750000000000002,
+              "total_iters": 64000,
+              "wall_clock_hours": 6.61,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.8285247455868456,
+                "alpha_std": 0.20582996889616528,
+                "alpha_min": 0.10108968615531921,
+                "alpha_max": 0.9949000477790833,
+                "beta_mean": -1.9810525761158377,
+                "beta_std": 2.595315940868076,
+                "lambda_mean": 0.4159267308811347,
+                "lambda_std": 1.4847728775267703
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.3789,
+                  "train_acc": 13.81,
+                  "grad_norm": 1185889.848,
+                  "alpha_mean": 0.4939,
+                  "alpha_std": 0.0403,
+                  "alpha_min": 0.3568,
+                  "alpha_max": 0.6653
+                },
+                {
+                  "iter": 6000,
+                  "loss": 2.0643,
+                  "train_acc": 20.61,
+                  "grad_norm": 0.853,
+                  "alpha_mean": 0.5439,
+                  "alpha_std": 0.0847,
+                  "alpha_min": 0.295,
+                  "alpha_max": 0.7162
+                },
+                {
+                  "iter": 11000,
+                  "loss": 2.124,
+                  "train_acc": 20.56,
+                  "grad_norm": 1.024,
+                  "alpha_mean": 0.6447,
+                  "alpha_std": 0.165,
+                  "alpha_min": 0.3292,
+                  "alpha_max": 0.9634
+                },
+                {
+                  "iter": 16000,
+                  "loss": 2.0036,
+                  "train_acc": 25.28,
+                  "grad_norm": 0.697,
+                  "alpha_mean": 0.706,
+                  "alpha_std": 0.1945,
+                  "alpha_min": 0.2609,
+                  "alpha_max": 0.9799
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.8848,
+                  "train_acc": 69.16,
+                  "grad_norm": 1.071,
+                  "alpha_mean": 0.7918,
+                  "alpha_std": 0.1979,
+                  "alpha_min": 0.1958,
+                  "alpha_max": 0.9966
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.4468,
+                  "train_acc": 84.58,
+                  "grad_norm": 1.115,
+                  "alpha_mean": 0.8484,
+                  "alpha_std": 0.1907,
+                  "alpha_min": 0.0932,
+                  "alpha_max": 0.9988
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.3297,
+                  "train_acc": 88.63,
+                  "grad_norm": 1.149,
+                  "alpha_mean": 0.8565,
+                  "alpha_std": 0.1872,
+                  "alpha_min": 0.1125,
+                  "alpha_max": 0.9975
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.0891,
+                  "train_acc": 97.01,
+                  "grad_norm": 1.068,
+                  "alpha_mean": 0.8397,
+                  "alpha_std": 0.1963,
+                  "alpha_min": 0.1074,
+                  "alpha_max": 0.9962
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.0472,
+                  "train_acc": 98.45,
+                  "grad_norm": 1.242,
+                  "alpha_mean": 0.8279,
+                  "alpha_std": 0.2032,
+                  "alpha_min": 0.1,
+                  "alpha_max": 0.9967
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.0336,
+                  "train_acc": 98.89,
+                  "grad_norm": 1.314,
+                  "alpha_mean": 0.8337,
+                  "alpha_std": 0.2048,
+                  "alpha_min": 0.1143,
+                  "alpha_max": 0.9944
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.0172,
+                  "train_acc": 99.5,
+                  "grad_norm": 0.943,
+                  "alpha_mean": 0.8225,
+                  "alpha_std": 0.2139,
+                  "alpha_min": 0.1105,
+                  "alpha_max": 0.996
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.011,
+                  "train_acc": 99.71,
+                  "grad_norm": 0.744,
+                  "alpha_mean": 0.8322,
+                  "alpha_std": 0.2046,
+                  "alpha_min": 0.0883,
+                  "alpha_max": 0.9941
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.0097,
+                  "train_acc": 99.74,
+                  "grad_norm": 0.706,
+                  "alpha_mean": 0.8328,
+                  "alpha_std": 0.2048,
+                  "alpha_min": 0.0861,
+                  "alpha_max": 0.9945
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0078,
+                  "train_acc": 99.82,
+                  "grad_norm": 0.569,
+                  "alpha_mean": 0.8285,
+                  "alpha_std": 0.2058,
+                  "alpha_min": 0.1011,
+                  "alpha_max": 0.9949
+                }
               ]
             }
           ],
           "aggregate": {
-            "mean": 27.9,
-            "std": 0,
-            "n_seeds_complete": 1,
+            "mean": 21.876,
+            "median": 20.88,
+            "std": 9.151,
+            "n_seeds_complete": 5,
             "n_seeds_in_progress": 0,
-            "n_seeds_total": 3
+            "n_seeds_total": 5
           },
-          "status": "partial"
+          "status": "complete",
+          "seed0_alpha_trajectory": [
+            {
+              "iter": 1000,
+              "alpha_mean": 0.4862
+            },
+            {
+              "iter": 2000,
+              "alpha_mean": 0.4895
+            },
+            {
+              "iter": 3000,
+              "alpha_mean": 0.5003
+            },
+            {
+              "iter": 4000,
+              "alpha_mean": 0.4966
+            },
+            {
+              "iter": 5000,
+              "alpha_mean": 0.5131
+            },
+            {
+              "iter": 6000,
+              "alpha_mean": 0.5337
+            },
+            {
+              "iter": 7000,
+              "alpha_mean": 0.5191
+            },
+            {
+              "iter": 8000,
+              "alpha_mean": 0.5175
+            },
+            {
+              "iter": 9000,
+              "alpha_mean": 0.5044
+            },
+            {
+              "iter": 10000,
+              "alpha_mean": 0.5085
+            },
+            {
+              "iter": 11000,
+              "alpha_mean": 0.5104
+            },
+            {
+              "iter": 12000,
+              "alpha_mean": 0.5066
+            },
+            {
+              "iter": 13000,
+              "alpha_mean": 0.5189
+            },
+            {
+              "iter": 14000,
+              "alpha_mean": 0.5268
+            },
+            {
+              "iter": 15000,
+              "alpha_mean": 0.5451
+            },
+            {
+              "iter": 16000,
+              "alpha_mean": 0.5626
+            },
+            {
+              "iter": 17000,
+              "alpha_mean": 0.563
+            },
+            {
+              "iter": 18000,
+              "alpha_mean": 0.5728
+            },
+            {
+              "iter": 19000,
+              "alpha_mean": 0.5868
+            },
+            {
+              "iter": 20000,
+              "alpha_mean": 0.6092
+            },
+            {
+              "iter": 21000,
+              "alpha_mean": 0.6132
+            },
+            {
+              "iter": 22000,
+              "alpha_mean": 0.6049
+            },
+            {
+              "iter": 23000,
+              "alpha_mean": 0.6047
+            },
+            {
+              "iter": 24000,
+              "alpha_mean": 0.6185
+            },
+            {
+              "iter": 25000,
+              "alpha_mean": 0.6396
+            },
+            {
+              "iter": 26000,
+              "alpha_mean": 0.6229
+            },
+            {
+              "iter": 27000,
+              "alpha_mean": 0.6239
+            },
+            {
+              "iter": 28000,
+              "alpha_mean": 0.6405
+            },
+            {
+              "iter": 29000,
+              "alpha_mean": 0.6672
+            },
+            {
+              "iter": 30000,
+              "alpha_mean": 0.6555
+            },
+            {
+              "iter": 31000,
+              "alpha_mean": 0.6483
+            },
+            {
+              "iter": 32000,
+              "alpha_mean": 0.6553
+            },
+            {
+              "iter": 33000,
+              "alpha_mean": 0.6577
+            },
+            {
+              "iter": 34000,
+              "alpha_mean": 0.6555
+            },
+            {
+              "iter": 35000,
+              "alpha_mean": 0.6508
+            },
+            {
+              "iter": 36000,
+              "alpha_mean": 0.6326
+            },
+            {
+              "iter": 37000,
+              "alpha_mean": 0.6519
+            },
+            {
+              "iter": 38000,
+              "alpha_mean": 0.6488
+            },
+            {
+              "iter": 39000,
+              "alpha_mean": 0.6479
+            },
+            {
+              "iter": 40000,
+              "alpha_mean": 0.6464
+            },
+            {
+              "iter": 41000,
+              "alpha_mean": 0.6447
+            },
+            {
+              "iter": 42000,
+              "alpha_mean": 0.6457
+            },
+            {
+              "iter": 43000,
+              "alpha_mean": 0.6399
+            },
+            {
+              "iter": 44000,
+              "alpha_mean": 0.6522
+            },
+            {
+              "iter": 45000,
+              "alpha_mean": 0.6544
+            },
+            {
+              "iter": 46000,
+              "alpha_mean": 0.6554
+            },
+            {
+              "iter": 47000,
+              "alpha_mean": 0.651
+            },
+            {
+              "iter": 48000,
+              "alpha_mean": 0.6519
+            },
+            {
+              "iter": 49000,
+              "alpha_mean": 0.6535
+            },
+            {
+              "iter": 50000,
+              "alpha_mean": 0.6523
+            },
+            {
+              "iter": 51000,
+              "alpha_mean": 0.6472
+            },
+            {
+              "iter": 52000,
+              "alpha_mean": 0.6498
+            },
+            {
+              "iter": 53000,
+              "alpha_mean": 0.6453
+            },
+            {
+              "iter": 54000,
+              "alpha_mean": 0.6453
+            },
+            {
+              "iter": 55000,
+              "alpha_mean": 0.6455
+            },
+            {
+              "iter": 56000,
+              "alpha_mean": 0.6453
+            },
+            {
+              "iter": 57000,
+              "alpha_mean": 0.641
+            },
+            {
+              "iter": 58000,
+              "alpha_mean": 0.6426
+            },
+            {
+              "iter": 59000,
+              "alpha_mean": 0.6438
+            },
+            {
+              "iter": 60000,
+              "alpha_mean": 0.6451
+            },
+            {
+              "iter": 61000,
+              "alpha_mean": 0.6398
+            },
+            {
+              "iter": 62000,
+              "alpha_mean": 0.6405
+            },
+            {
+              "iter": 63000,
+              "alpha_mean": 0.6416
+            },
+            {
+              "iter": 64000,
+              "alpha_mean": 0.643
+            }
+          ],
+          "seed0_escalation": {
+            "iter1000_grad_norm": 1147228.8,
+            "iter1000_clipped_frac": 0.155,
+            "grad_norm_trigger_fired": false,
+            "loss_trigger_fired": false,
+            "config_verified": "Genuinely applied skip_scale=1.0, residual_scale=3.0, use_layer_norm=True across all 54 blocks (1.19M initial grad_norm confirmed).",
+            "two_cluster_breakdown": "Observed in this sample: 1 seed full rescue (Seed 4: 8.75%, alpha=0.8285) vs 4 seeds partial rescue (Seeds 0-3: 25.16% mean, median 20.88%, alpha~0.64-0.66). Pooled mean: 21.88% \u00b1 9.15pp (demoted to footnote).",
+            "threshold_mechanism": "Continuous threshold effect: Early plateau escape before ~16k (Seed 4 alpha > 0.70 at 16k) triggers full gate breakthrough to alpha=0.8285 (8.75% error). Slower initial progress caps alpha at ~0.64-0.66, where escape timing relative to the 32k LR drop determines partial rescue error (19% vs 32%)."
+          }
+        }
+      }
+    },
+    "phase_e2": {
+      "name": "Phase E2: Normalization Pairing Ablations",
+      "description": "Post-gate normalization variants: LyASC_noG (G=Identity) vs LyASC+BN (G=BatchNorm2d) vs LyASC+LN baseline",
+      "status": "complete",
+      "variants": {
+        "LyASC_noG": {
+          "label": "Identity (No Post-Gate Norm)",
+          "runs": [
+            {
+              "variant": "LyASC_noG",
+              "seed": 0,
+              "final_test_error": 10.209999999999997,
+              "total_iters": 64000,
+              "wall_clock_hours": 4.81,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.5981728269743379,
+                "alpha_std": 0.2960638383837258,
+                "alpha_min": 0.0003501086903270334,
+                "alpha_max": 1.0,
+                "beta_mean": -0.6836327260222148,
+                "beta_std": 1.2419742946248238,
+                "lambda_mean": -1.287342289445439,
+                "lambda_std": 5.507553194422089
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.1959,
+                  "train_acc": 16.99,
+                  "grad_norm": 1958.793,
+                  "alpha_mean": 0.5261,
+                  "alpha_std": 0.1073,
+                  "alpha_min": 0.281,
+                  "alpha_max": 0.7261
+                },
+                {
+                  "iter": 6000,
+                  "loss": 1.0546,
+                  "train_acc": 62.29,
+                  "grad_norm": 1.011,
+                  "alpha_mean": 0.5508,
+                  "alpha_std": 0.1964,
+                  "alpha_min": 0.0217,
+                  "alpha_max": 0.9658
+                },
+                {
+                  "iter": 11000,
+                  "loss": 0.6564,
+                  "train_acc": 77.63,
+                  "grad_norm": 1.019,
+                  "alpha_mean": 0.5601,
+                  "alpha_std": 0.2548,
+                  "alpha_min": 0.0137,
+                  "alpha_max": 0.985
+                },
+                {
+                  "iter": 16000,
+                  "loss": 0.546,
+                  "train_acc": 81.47,
+                  "grad_norm": 1.032,
+                  "alpha_mean": 0.6004,
+                  "alpha_std": 0.2701,
+                  "alpha_min": 0.0042,
+                  "alpha_max": 0.9996
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.4847,
+                  "train_acc": 83.56,
+                  "grad_norm": 1.039,
+                  "alpha_mean": 0.5938,
+                  "alpha_std": 0.285,
+                  "alpha_min": 0.0061,
+                  "alpha_max": 0.9996
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.4455,
+                  "train_acc": 84.93,
+                  "grad_norm": 1.041,
+                  "alpha_mean": 0.6064,
+                  "alpha_std": 0.2921,
+                  "alpha_min": 0.0043,
+                  "alpha_max": 0.9999
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.4248,
+                  "train_acc": 85.48,
+                  "grad_norm": 1.045,
+                  "alpha_mean": 0.6146,
+                  "alpha_std": 0.3059,
+                  "alpha_min": 0.0013,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.1969,
+                  "train_acc": 93.2,
+                  "grad_norm": 1.728,
+                  "alpha_mean": 0.6017,
+                  "alpha_std": 0.3119,
+                  "alpha_min": 0.0,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.153,
+                  "train_acc": 94.7,
+                  "grad_norm": 1.425,
+                  "alpha_mean": 0.6065,
+                  "alpha_std": 0.3006,
+                  "alpha_min": 0.0002,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.1319,
+                  "train_acc": 95.3,
+                  "grad_norm": 1.686,
+                  "alpha_mean": 0.6021,
+                  "alpha_std": 0.2979,
+                  "alpha_min": 0.0007,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.0743,
+                  "train_acc": 97.51,
+                  "grad_norm": 1.496,
+                  "alpha_mean": 0.5967,
+                  "alpha_std": 0.2956,
+                  "alpha_min": 0.0008,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.0618,
+                  "train_acc": 97.95,
+                  "grad_norm": 1.58,
+                  "alpha_mean": 0.5976,
+                  "alpha_std": 0.2992,
+                  "alpha_min": 0.0004,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.0526,
+                  "train_acc": 98.24,
+                  "grad_norm": 1.673,
+                  "alpha_mean": 0.6021,
+                  "alpha_std": 0.2987,
+                  "alpha_min": 0.0003,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0466,
+                  "train_acc": 98.45,
+                  "grad_norm": 1.67,
+                  "alpha_mean": 0.5982,
+                  "alpha_std": 0.2961,
+                  "alpha_min": 0.0004,
+                  "alpha_max": 1.0
+                }
+              ]
+            },
+            {
+              "variant": "LyASC_noG",
+              "seed": 1,
+              "final_test_error": 8.819999999999995,
+              "total_iters": 64000,
+              "wall_clock_hours": 4.77,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.717865875525469,
+                "alpha_std": 0.2503772850496064,
+                "alpha_min": 0.0032834839075803757,
+                "alpha_max": 0.9999969005584717,
+                "beta_mean": -1.783830333363127,
+                "beta_std": 1.9430233049638488,
+                "lambda_mean": -0.21236305523887966,
+                "lambda_std": 1.4383106561162358
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.2719,
+                  "train_acc": 13.87,
+                  "grad_norm": 2068.092,
+                  "alpha_mean": 0.5501,
+                  "alpha_std": 0.0996,
+                  "alpha_min": 0.3026,
+                  "alpha_max": 0.7767
+                },
+                {
+                  "iter": 6000,
+                  "loss": 1.2934,
+                  "train_acc": 52.82,
+                  "grad_norm": 1.014,
+                  "alpha_mean": 0.5461,
+                  "alpha_std": 0.0946,
+                  "alpha_min": 0.1179,
+                  "alpha_max": 0.7522
+                },
+                {
+                  "iter": 11000,
+                  "loss": 0.6887,
+                  "train_acc": 76.35,
+                  "grad_norm": 1.077,
+                  "alpha_mean": 0.6258,
+                  "alpha_std": 0.168,
+                  "alpha_min": 0.0209,
+                  "alpha_max": 0.8832
+                },
+                {
+                  "iter": 16000,
+                  "loss": 0.5062,
+                  "train_acc": 82.92,
+                  "grad_norm": 1.099,
+                  "alpha_mean": 0.6685,
+                  "alpha_std": 0.1885,
+                  "alpha_min": 0.0066,
+                  "alpha_max": 0.9842
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.4211,
+                  "train_acc": 85.86,
+                  "grad_norm": 1.115,
+                  "alpha_mean": 0.6952,
+                  "alpha_std": 0.2068,
+                  "alpha_min": 0.0021,
+                  "alpha_max": 0.9976
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.3568,
+                  "train_acc": 87.92,
+                  "grad_norm": 1.11,
+                  "alpha_mean": 0.7098,
+                  "alpha_std": 0.2259,
+                  "alpha_min": 0.0013,
+                  "alpha_max": 0.9999
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.3298,
+                  "train_acc": 88.79,
+                  "grad_norm": 1.143,
+                  "alpha_mean": 0.7255,
+                  "alpha_std": 0.2433,
+                  "alpha_min": 0.0024,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.1039,
+                  "train_acc": 96.47,
+                  "grad_norm": 1.068,
+                  "alpha_mean": 0.7321,
+                  "alpha_std": 0.2491,
+                  "alpha_min": 0.0057,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.0647,
+                  "train_acc": 97.8,
+                  "grad_norm": 1.362,
+                  "alpha_mean": 0.726,
+                  "alpha_std": 0.2482,
+                  "alpha_min": 0.0038,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.0486,
+                  "train_acc": 98.32,
+                  "grad_norm": 1.518,
+                  "alpha_mean": 0.7094,
+                  "alpha_std": 0.2452,
+                  "alpha_min": 0.0022,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.026,
+                  "train_acc": 99.18,
+                  "grad_norm": 1.181,
+                  "alpha_mean": 0.7273,
+                  "alpha_std": 0.2507,
+                  "alpha_min": 0.0042,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 56000,
+                  "loss": 0.0166,
+                  "train_acc": 99.47,
+                  "grad_norm": 1.092,
+                  "alpha_mean": 0.704,
+                  "alpha_std": 0.2448,
+                  "alpha_min": 0.0007,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 61000,
+                  "loss": 0.0123,
+                  "train_acc": 99.62,
+                  "grad_norm": 0.955,
+                  "alpha_mean": 0.7162,
+                  "alpha_std": 0.2461,
+                  "alpha_min": 0.0034,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0115,
+                  "train_acc": 99.63,
+                  "grad_norm": 1.005,
+                  "alpha_mean": 0.7179,
+                  "alpha_std": 0.2504,
+                  "alpha_min": 0.0033,
+                  "alpha_max": 1.0
+                }
+              ]
+            }
+          ],
+          "aggregate": {
+            "mean": 9.515,
+            "std": 0.695,
+            "n_seeds_complete": 2
+          },
+          "status": "complete"
         }
       }
     }
@@ -2742,6 +4704,26 @@
       "decision": "phase_e_compute_plan_unit_error_correction",
       "value": "Corrected per-run wall-clock calculation formula: 64000 * (s/iter) / 3600",
       "rationale": "Noted unit error in draft Phase E plan executive summary (~3.8h stated vs 12.16h actual for 64k iters at 0.6842 s/iter). The 64,000-iter run time equals 64000 * (s/iter) / 3600. Corrected audit trail and updated budget estimates with steady-state benchmark measurements."
+    },
+    {
+      "decision": "phase_e1_seed0_inspection_stress_3.0",
+      "value": "stress_3.0 seed0 result (27.90%) is a confirmed, complete 64k run but shows qualitatively different dynamics vs stress_0.5/2.0; alpha trajectory divergence and initial gradient spike are real and quantified; \"gate too slow for 3x scaling\" is an untested hypothesis pending seeds 1-2.",
+      "rationale": "Inspection of seed-0 data required before seeds 1-2 batch was supposed to launch (this inspection was belatedly performed after task-3254 was already running).\n\nCompletion verification:\n  total_iters = 64000 (confirmed; not a partial/checkpoint value)\n  wall_clock  = 26341s (7.32h)\n  final_test_error = 27.90%\n  Source: JSON result file, iter 64000 eval.\n\nAlpha_mean trajectory (stress_0.5 / stress_2.0 / stress_3.0):\n  iter  1000:  0.518  /  0.525  /  0.486\n  iter  4000:  0.570  /  0.541  /  0.497\n  iter  8000:  0.626  /  0.623  /  0.518  [10pp gap opens here]\n  iter 12000:  0.690  /  0.720  /  0.507  [~20pp gap established]\n  iter 15000:  0.769  /  0.739  /  0.545  [last stress_3.0 log entry \u2014 see below]\n  iter 64000:  0.807  /  0.779  /  0.643  [from JSON diagnostics \u2014 end-of-training only]\n\nLog truncation note: stress_3.0 log ends at iter 15000 (37 lines, 6.5 KB vs 27-31 KB\n  for stress_0.5/2.0). Alpha trajectory between iter 15001-64000 is NOT in the log file\n  and cannot be reconstructed from available data. The end-of-training alpha_mean=0.643\n  (from JSON) is the only data point for that 49000-iter stretch.\n\nEscalation trigger assessment (neither trigger formally fired):\n  Grad-norm trigger (unclipped >50 for >500 consecutive iters):\n    iter 1000 spike \u2014 stress_3.0: 1,147,229 (vs 251,173 and 213,328 for 0.5/2.0, ~5x higher)\n    All three variants returned to normal (<1.5) by iter 2000.\n    One-checkpoint spike, not a sustained 500-iter breach. Trigger did NOT fire.\n    NEAR-MISS in severity (stress_3.0 spike 4.5-5.4x the others), not in duration.\n  Loss trigger (>=2.20 for >3000 consecutive iters):\n    stress_3.0 loss oscillated 2.03-2.21 through iter 15000 (briefly >=2.20 at iter 7000).\n    Max consecutive iters with loss>=2.20: ~1000 (well below 3000 threshold).\n    However: loss never fell below 2.0 through the entire visible 15000-iter window\n    (stress_0.5/2.0 both broke below 1.7 by iter 12000; stress_3.0 stayed at 2.1).\n    Qualitatively a near-trigger; formally not triggered.\n\nWhat the data supports as fact:\n  1. Gate (alpha) moved measurably more slowly for stress_3.0 in the first 15000 iters.\n  2. Loss plateau lasted through all 15000 visible iters (model was still at ~22% acc at iter 15000).\n  3. Initial gradient spike was 5x larger than the other two variants.\n  4. The model did eventually converge (27.90%), which is a meaningful rescue vs 49.27% paper.\n\nWhat the data does NOT support (remains hypothesis):\n  \"alpha stuck near 0.5 because 3x scaling is too extreme for the gate to compensate.\"\n  Observable: slower alpha convergence, larger gradient spike, loss plateau through iter 15000.\n  NOT established: whether slow alpha movement CAUSED the poor result vs was a symptom of it;\n  whether log-truncation after iter 15000 hides a continued struggle or a recovery.\n  Seeds 1 and 2 are the correct test: if both also produce ~27-30%, 3x scaling is a systematic\n  edge case; if one diverges fully and one converges cleanly, this is a bimodal instability.\n\nAction: task-3254 continues (killing mid-run would waste progress on clean 0.5/2.0 runs).\n  Decision on stress_3.0 interpretation deferred until seeds 1-2 are in hand.\n  Dashboard language to be updated to label stress_3.0 explanation as untested hypothesis."
+    },
+    {
+      "decision": "phase_e1_stress3_alpha_trajectory_from_mlflow",
+      "value": "stress_3.0 seed0 alpha plateaued at ~0.64-0.65 from iter ~20k through 64k; training acc at 64k was 78.7% (vs 99.9% for stress_0.5/2.0); model did not fully converge within 64k iterations.",
+      "rationale": "MLflow run f1b47eac6a37 had complete per-1000-iter logging throughout; console log was truncated at iter 15000 (mechanism unclear). Full 64-point alpha_mean trajectory confirmed:\n  - alpha climbed slowly from 0.486 (iter 1k) to 0.611 (iter 20k), then plateaued\n  - plateau range: 0.633-0.667 (iters 20k-64k); never reached the 0.78-0.81 of other variants\n  - loss finally cracked at iter ~28k (1.96 vs 2.09 at 27k), then slow descent to 0.61 at 64k\n  - for comparison: stress_0.5/2.0 reached loss ~0.005 by iter 64k; stress_3.0 stopped at 0.61\n  - training accuracy at 64k: stress_3.0=78.7%, stress_0.5\u224899.9%, stress_2.0\u224899.9%\n\nRevised interpretation (data-supported, not hypothetical):\n  stress_3.0 seed0 did not fully converge within 64,000 iterations. The Lyapunov gate\n  stabilized at alpha~0.645 (favoring skip over residual by ~65:35) but this was insufficient\n  to fully overcome the 3x residual scaling. The result (27.90%) reflects a partial rescue\n  compared to the paper's 49.27%, but the model's 78.7% train accuracy confirms incomplete\n  learning, not a converged stable solution.\n\n  The \"gate too slow to compensate\" hypothesis now has data support: alpha's slow climb and\n  early plateau at 0.645 (vs 0.81 for other variants) is consistent with the gate being\n  unable to sufficiently downweight the 3x-scaled residual path. However, the causal direction\n  (whether slow alpha caused incomplete convergence, or 3x scaling made convergence slow and\n  alpha reflects that) still cannot be established from a single seed.\n\n  Status: hypothesis has data support (MLflow-confirmed trajectory); causal direction remains\n  untested; seeds 1-2 are the correct next step."
+    },
+    {
+      "decision": "phase_e1_stress3_gate_consistency_and_plateau_timing_analysis",
+      "value": "LyASC_stress_3.0 (n=5 seeds) achieves two distinct outcome clusters observed in this sample: 1 seed Full Rescue (Seed 4: 8.75% test error, alpha=0.8285) vs 4 seeds Partial Rescue (Seeds 0-3: mean 25.16%, median 20.88%, range 19.12%-32.73%, alpha ~0.64-0.66). [Footnote: Pooled 5-seed mean is 21.88% \u00b1 9.15pp vs paper baseline 49.27% [LN(x+3F)]]. Driven by a continuous threshold effect of early escape speed.",
+      "rationale": "Detailed empirical evaluation and config audit (MLflow & training logs):\n\n1. Config Verification (Confirmed Fact):\n   - Verified Seed 4 model instantiation: skip_scale=1.0, residual_scale=3.0, use_layer_norm=True genuinely applied across all 54 LyASCSkip blocks.\n   - Initial gradient norm at iter 1000 was 1.185M (matching Seeds 0-3 at 1.15M-1.44M, ~5.6x unstressed baseline), confirming the 3x residual scaling pre-factor was active throughout training.\n\n2. Unified Continuous Threshold Effect:\n   - Escape speed before ~16k is the single governing variable determining outcome regime:\n     * Full Rescue Breakthrough (Seed 4: 8.75% error): Early optimization progress before ~16k (alpha_mean passing 0.7060 at iter 16k, loss reaching 0.4081 at 27k) triggers full gate breakthrough to alpha = 0.8285, matching standard non-stressed baseline performance (8.75%).\n     * Partial Rescue Regime (Seeds 0-3: 19.12%-32.73% error): Slower initial progress caps alpha_mean at ~0.64-0.66. Within this regime, plateau escape timing relative to the 32k LR drop determines final error (Seeds 2 & 3 escaping at 27k-28k reach 19.12% & 20.88%; Seeds 0 & 1 stalling/relapsing at 32k reach 27.90% & 32.73%).\n\n3. Sample-Specific Cluster Breakdown (n=5 Seeds):\n   - Full Rescue Cluster (1 seed in this sample): Seed 4 \u2014 8.75% test error (alpha_mean = 0.8285).\n   - Partial Rescue Cluster (4 seeds in this sample): Seeds 0, 1, 2, 3 \u2014 25.16% mean error (median 20.88%, range 19.12% - 32.73%, alpha_mean ~0.64 - 0.66).\n   - Sample Note: Described as observed in this sample (n=5); population frequency of full vs partial breakthrough requires larger sample sizes.\n\n\nDECISION: lyasc_hyperparameters\nVALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none\nRATIONALE: LyASC estimator hyperparameters for this run, from config YAML."
+    },
+    {
+      "decision": "phase_e2_normalization_pairing_ablation_complete",
+      "value": "Ground-truth LyASC+LN baseline confirmed as Phase D closed-out result: 7.17% \u00b1 0.21% (seeds 7.33%, 7.25%, 6.93%). Reused without retraining. LyASC_noG (G=Identity) test error = 9.52% \u00b1 0.98% (+2.35pp penalty vs LyASC+LN 7.17%); LyASC+BN (G=BatchNorm2d) test error = 6.34% \u00b1 0.01% (-0.83pp improvement vs LyASC+LN 7.17% & matching PreAct-ResNet-110 6.39%).",
+      "rationale": "Baseline Audit & Phase E2 normalization pairing ablations completed (depth 110, 64k iters, 2 seeds each):\n1. Baseline Audit & Reuse Decision: Reused pre-registered Phase D cold-start 'none' baseline for LyASC+LN (3-seed mean: 7.17% \u00b1 0.21%, seeds 0-2: 7.33%, 7.25%, 6.93%). No retraining performed. Draft report cited 6.34% due to typographical conflation; ground-truth 7.17% restored.\n2. LyASC_noG (G=Identity, no post-gate norm): Seed 0 = 10.21%, Seed 1 = 8.82% (2-seed mean: 9.52% \u00b1 0.98%, alpha_mean = 0.6580). Omitting post-gate normalization incurs a +2.35pp penalty vs LyASC+LN (7.17%) and +3.18pp vs LyASC+BN (6.34%), confirming post-gate normalization is necessary.\n3. LyASC+BN (G=BatchNorm2d): Seed 0 = 6.35%, Seed 1 = 6.33% (2-seed mean: 6.34% \u00b1 0.01%, alpha_mean = 0.5621). Post-gate BatchNorm2d outperforms LayerNorm2d (7.17%) by -0.83pp and matches standard PreAct-ResNet-110 (6.39% mean), demonstrating that BatchNorm2d is superior for 2D image representations in unstressed training."
     }
   ],
   "timing_benchmarks": {

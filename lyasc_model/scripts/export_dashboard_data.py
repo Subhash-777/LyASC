@@ -240,28 +240,108 @@ def collect_lyasc_results():
         'status': 'in_progress',
         'variants': {},
     }
+    # Seed-0 inspection notes: alpha trajectory at key checkpoints (from log parse)
+    # stress_3.0 log is truncated at iter 15000 — end-of-training alpha from JSON diagnostics only.
+    SEED0_ALPHA_TRAJECTORIES = {
+        'LyASC_stress_0.5': [
+            {'iter': 1000,  'alpha_mean': 0.518},  {'iter': 4000,  'alpha_mean': 0.570},
+            {'iter': 8000,  'alpha_mean': 0.626},  {'iter': 12000, 'alpha_mean': 0.690},
+            {'iter': 16000, 'alpha_mean': 0.792},  {'iter': 24000, 'alpha_mean': 0.816},
+            {'iter': 32000, 'alpha_mean': 0.830},  {'iter': 64000, 'alpha_mean': 0.807},
+        ],
+        'LyASC_stress_2.0': [
+            {'iter': 1000,  'alpha_mean': 0.525},  {'iter': 4000,  'alpha_mean': 0.541},
+            {'iter': 8000,  'alpha_mean': 0.623},  {'iter': 12000, 'alpha_mean': 0.720},
+            {'iter': 16000, 'alpha_mean': 0.757},  {'iter': 24000, 'alpha_mean': 0.811},
+            {'iter': 32000, 'alpha_mean': 0.812},  {'iter': 64000, 'alpha_mean': 0.779},
+        ],
+        'LyASC_stress_3.0': [
+            # Full trajectory from MLflow (64 points, 1k–64k). Log was truncated at iter 15k;
+            # MLflow had complete per-1000-iter logging throughout. Source: run f1b47eac6a37.
+            # KEY FINDING: alpha plateaued at ~0.64-0.65 from iter 20k onward (never recovered
+            # to the 0.78-0.81 level of stress_0.5/2.0). Training acc at 64k was 78.7%.
+            {'iter': 1000, 'alpha_mean': 0.4862}, {'iter': 2000, 'alpha_mean': 0.4895},
+            {'iter': 3000, 'alpha_mean': 0.5003}, {'iter': 4000, 'alpha_mean': 0.4966},
+            {'iter': 5000, 'alpha_mean': 0.5131}, {'iter': 6000, 'alpha_mean': 0.5337},
+            {'iter': 7000, 'alpha_mean': 0.5191}, {'iter': 8000, 'alpha_mean': 0.5175},
+            {'iter': 9000, 'alpha_mean': 0.5044}, {'iter': 10000, 'alpha_mean': 0.5085},
+            {'iter': 11000, 'alpha_mean': 0.5104}, {'iter': 12000, 'alpha_mean': 0.5066},
+            {'iter': 13000, 'alpha_mean': 0.5189}, {'iter': 14000, 'alpha_mean': 0.5268},
+            {'iter': 15000, 'alpha_mean': 0.5451}, {'iter': 16000, 'alpha_mean': 0.5626},
+            {'iter': 17000, 'alpha_mean': 0.5630}, {'iter': 18000, 'alpha_mean': 0.5728},
+            {'iter': 19000, 'alpha_mean': 0.5868}, {'iter': 20000, 'alpha_mean': 0.6092},
+            {'iter': 21000, 'alpha_mean': 0.6132}, {'iter': 22000, 'alpha_mean': 0.6049},
+            {'iter': 23000, 'alpha_mean': 0.6047}, {'iter': 24000, 'alpha_mean': 0.6185},
+            {'iter': 25000, 'alpha_mean': 0.6396}, {'iter': 26000, 'alpha_mean': 0.6229},
+            {'iter': 27000, 'alpha_mean': 0.6239}, {'iter': 28000, 'alpha_mean': 0.6405},
+            {'iter': 29000, 'alpha_mean': 0.6672}, {'iter': 30000, 'alpha_mean': 0.6555},
+            {'iter': 31000, 'alpha_mean': 0.6483}, {'iter': 32000, 'alpha_mean': 0.6553},
+            {'iter': 33000, 'alpha_mean': 0.6577}, {'iter': 34000, 'alpha_mean': 0.6555},
+            {'iter': 35000, 'alpha_mean': 0.6508}, {'iter': 36000, 'alpha_mean': 0.6326},
+            {'iter': 37000, 'alpha_mean': 0.6519}, {'iter': 38000, 'alpha_mean': 0.6488},
+            {'iter': 39000, 'alpha_mean': 0.6479}, {'iter': 40000, 'alpha_mean': 0.6464},
+            {'iter': 41000, 'alpha_mean': 0.6447}, {'iter': 42000, 'alpha_mean': 0.6457},
+            {'iter': 43000, 'alpha_mean': 0.6399}, {'iter': 44000, 'alpha_mean': 0.6522},
+            {'iter': 45000, 'alpha_mean': 0.6544}, {'iter': 46000, 'alpha_mean': 0.6554},
+            {'iter': 47000, 'alpha_mean': 0.6510}, {'iter': 48000, 'alpha_mean': 0.6519},
+            {'iter': 49000, 'alpha_mean': 0.6535}, {'iter': 50000, 'alpha_mean': 0.6523},
+            {'iter': 51000, 'alpha_mean': 0.6472}, {'iter': 52000, 'alpha_mean': 0.6498},
+            {'iter': 53000, 'alpha_mean': 0.6453}, {'iter': 54000, 'alpha_mean': 0.6453},
+            {'iter': 55000, 'alpha_mean': 0.6455}, {'iter': 56000, 'alpha_mean': 0.6453},
+            {'iter': 57000, 'alpha_mean': 0.6410}, {'iter': 58000, 'alpha_mean': 0.6426},
+            {'iter': 59000, 'alpha_mean': 0.6438}, {'iter': 60000, 'alpha_mean': 0.6451},
+            {'iter': 61000, 'alpha_mean': 0.6398}, {'iter': 62000, 'alpha_mean': 0.6405},
+            {'iter': 63000, 'alpha_mean': 0.6416}, {'iter': 64000, 'alpha_mean': 0.6430},
+        ],
+    }
+    SEED0_ESCALATION_NOTES = {
+        'LyASC_stress_0.5': {
+            'iter1000_grad_norm': 251173.1, 'iter1000_clipped_frac': 0.155,
+            'grad_norm_trigger_fired': False, 'loss_trigger_fired': False,
+            'near_miss': None,
+        },
+        'LyASC_stress_2.0': {
+            'iter1000_grad_norm': 213328.1, 'iter1000_clipped_frac': 0.158,
+            'grad_norm_trigger_fired': False, 'loss_trigger_fired': False,
+            'near_miss': None,
+        },
+        'LyASC_stress_3.0': {
+            'iter1000_grad_norm': 1147228.8, 'iter1000_clipped_frac': 0.155,
+            'grad_norm_trigger_fired': False, 'loss_trigger_fired': False,
+            'config_verified': 'Genuinely applied skip_scale=1.0, residual_scale=3.0, use_layer_norm=True across all 54 blocks (1.19M initial grad_norm confirmed).',
+            'two_cluster_breakdown': 'Observed in this sample: 1 seed full rescue (Seed 4: 8.75%, alpha=0.8285) vs 4 seeds partial rescue (Seeds 0-3: 25.16% mean, median 20.88%, alpha~0.64-0.66). Pooled mean: 21.88% ± 9.15pp (demoted to footnote).',
+            'threshold_mechanism': 'Continuous threshold effect: Early plateau escape before ~16k (Seed 4 alpha > 0.70 at 16k) triggers full gate breakthrough to alpha=0.8285 (8.75% error). Slower initial progress caps alpha at ~0.64-0.66, where escape timing relative to the 32k LR drop determines partial rescue error (19% vs 32%).',
+        },
+    }
+
     stress_configs = [
-        ('LyASC_stress_0.5', 0.5, 1.0, 37.14, 'LN(0.5x+F)'),
-        ('LyASC_stress_2.0', 1.0, 2.0, 37.59, 'LN(x+2F)'),
-        ('LyASC_stress_3.0', 1.0, 3.0, 49.27, 'LN(x+3F)'),
+        ('LyASC_stress_0.5', 0.5, 1.0, 37.14, 'LN(0.5x+F)', [0, 1, 2]),
+        ('LyASC_stress_2.0', 1.0, 2.0, 37.59, 'LN(x+2F)', [0, 1, 2]),
+        ('LyASC_stress_3.0', 1.0, 3.0, 49.27, 'LN(x+3F)', [0, 1, 2, 3, 4]),
     ]
     all_e1_complete = True
-    for variant_name, skip_s, res_s, paper_target, paper_label in stress_configs:
+    for variant_name, skip_s, res_s, paper_target, paper_label, target_seeds in stress_configs:
         variant_runs = []
-        for seed in [0, 1, 2]:
+        for seed in target_seeds:
             json_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{variant_name}__depth110__seed{seed}.json"
             log_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{variant_name}__seed{seed}.log"
             r = read_json(json_path)
             if r:
-                variant_runs.append({
+                curve = parse_training_log(str(log_path))
+                run_entry = {
                     'variant': r.get('variant_name', variant_name),
                     'seed': seed,
                     'final_test_error': r['final_test_error'],
                     'total_iters': r['total_iters'],
                     'wall_clock_hours': round(r.get('wall_clock_seconds', 0) / 3600, 2),
                     'lyasc_diagnostics': r.get('lyasc_diagnostics', {}),
-                    'training_curve': parse_training_log(str(log_path)),
-                })
+                    'training_curve': curve,
+                }
+                # Flag log truncation for stress_3.0 seed 0
+                if seed == 0 and variant_name == 'LyASC_stress_3.0':
+                    run_entry['log_truncated'] = True
+                    run_entry['log_last_iter'] = curve[-1]['iter'] if curve else None
+                variant_runs.append(run_entry)
             else:
                 # Check if in-progress (log file exists but no JSON)
                 if log_path.exists():
@@ -288,44 +368,85 @@ def collect_lyasc_results():
             if errors:
                 agg = {
                     'mean': round(statistics.mean(errors), 3),
-                    'std': round(statistics.pstdev(errors) if len(errors) > 1 else 0, 3),
+                    'median': round(statistics.median(errors), 3),
+                    'std': round(statistics.stdev(errors) if len(errors) > 1 else 0, 3),
                     'n_seeds_complete': len(errors),
                     'n_seeds_in_progress': len(in_progress),
-                    'n_seeds_total': 3,
+                    'n_seeds_total': len(target_seeds),
                 }
 
             phase_e1['variants'][variant_name] = {
                 'skip_scale': skip_s,
                 'residual_scale': res_s,
-                'paper_comparison': {
-                    'label': paper_label,
-                    'error': paper_target,
-                },
+                'paper_comparison': {'label': paper_label, 'error': paper_target},
                 'runs': variant_runs,
                 'aggregate': agg,
-                'status': 'complete' if len(completed) == 3 else ('partial' if completed else 'in_progress'),
+                'status': 'complete' if len(completed) == len(target_seeds) else ('partial' if completed else 'in_progress'),
+                'seed0_alpha_trajectory': SEED0_ALPHA_TRAJECTORIES.get(variant_name, []),
+                'seed0_escalation': SEED0_ESCALATION_NOTES.get(variant_name, {}),
             }
+
 
     if all_e1_complete:
         phase_e1['status'] = 'complete'
     phases['phase_e1'] = phase_e1
 
+    # ── Phase E2: Normalization Pairing Ablations ──
+    phase_e2 = {
+        'name': 'Phase E2: Normalization Pairing Ablations',
+        'description': 'Post-gate normalization variants: LyASC_noG (G=Identity) vs LyASC+BN (G=BatchNorm2d) vs LyASC+LN baseline',
+        'status': 'complete',
+        'variants': {},
+    }
+    norm_configs = [
+        ('LyASC_noG', 'Identity (No Post-Gate Norm)', [0, 1]),
+        ('LyASC+BN', 'BatchNorm2d', [0, 1]),
+    ]
+    for variant_name, label, target_seeds in norm_configs:
+        variant_runs = []
+        for seed in target_seeds:
+            json_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{variant_name}__depth110__seed{seed}.json"
+            log_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{variant_name}__seed{seed}.log"
+            r = read_json(json_path)
+            if r:
+                curve = parse_training_log(str(log_path))
+                variant_runs.append({
+                    'variant': r.get('variant_name', variant_name),
+                    'seed': seed,
+                    'final_test_error': r['final_test_error'],
+                    'total_iters': r['total_iters'],
+                    'wall_clock_hours': round(r.get('wall_clock_seconds', 0) / 3600, 2),
+                    'lyasc_diagnostics': r.get('lyasc_diagnostics', {}),
+                    'training_curve': curve,
+                })
+        if variant_runs:
+            errors = [r['final_test_error'] for r in variant_runs]
+            agg = {
+                'mean': round(statistics.mean(errors), 3),
+                'std': round(statistics.pstdev(errors) if len(errors) > 1 else 0, 3),
+                'n_seeds_complete': len(errors),
+            }
+            phase_e2['variants'][variant_name] = {
+                'label': label,
+                'runs': variant_runs,
+                'aggregate': agg,
+                'status': 'complete'
+            }
+    phases['phase_e2'] = phase_e2
+
     return phases
 
 
-# ── Collect decisions log ──────────────────────────────────────────────
+# ── Collect decisions logs ─────────────────────────────────────────────
 
-def collect_decisions():
-    """Parse key decisions from the main decisions.log."""
+def _parse_decisions_file(path):
+    """Parse a decisions.log file into a list of dicts."""
     decisions = []
-    main_log = LOG_DIR / "phase_d_coldstart" / "decisions.log"
-    if not main_log.exists():
+    try:
+        with open(path) as f:
+            content = f.read()
+    except FileNotFoundError:
         return decisions
-
-    with open(main_log) as f:
-        content = f.read()
-
-    # Split on separator lines
     blocks = re.split(r'-{20,}', content)
     for block in blocks:
         block = block.strip()
@@ -340,10 +461,21 @@ def collect_decisions():
                 'value': val_m.group(1).strip() if val_m else '',
                 'rationale': rat_m.group(1).strip() if rat_m else '',
             })
+    return decisions
 
-    # Deduplicate: keep only unique decision names (last occurrence wins)
+
+def collect_decisions():
+    """Parse key decisions from Phase D and Phase E1 decisions.log files."""
+    all_decisions = []
+    for log_path in [
+        LOG_DIR / "phase_d_coldstart" / "decisions.log",
+        LOG_DIR / "phase_e_stresstest" / "decisions.log",
+    ]:
+        all_decisions.extend(_parse_decisions_file(log_path))
+
+    # Deduplicate: keep last occurrence of each decision name
     seen = {}
-    for d in decisions:
+    for d in all_decisions:
         seen[d['decision']] = d
     return list(seen.values())
 
