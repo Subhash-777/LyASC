@@ -499,7 +499,7 @@ occur at this stress level requires more seeds.
 To evaluate how the choice of post-gate normalization function $G$ affects performance, Phase~E2 tested two normalization variants on PreAct-ResNet-110 (2 seeds each, 64,000 iterations), comparing them against the closed-out LyASC+LN Phase~D baseline (7.17\% $\pm$ 0.21\%):
 \begin{itemize}
     \item \textbf{LyASC\_noG ($G = \text{identity}$):} Omitting post-gate normalization yields a 2-seed mean error of 9.52\% $\pm$ 0.98\% (individual seeds: 10.21\%, 8.82\%), incurring a +2.35 percentage-point accuracy penalty compared to LyASC+LN (7.17\%). This confirms that post-gate normalization is necessary to maintain single-digit classification error.
-    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization yields a 2-seed mean error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%). Post-gate BatchNorm2d outperforms LyASC+LN (7.17\%) by 0.83 percentage points and matches standard PreAct-ResNet-110 (6.39\% $\pm$ 0.08\%), demonstrating that BatchNorm2d is superior for 2D spatial feature representations during unstressed training.
+    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization yields a 2-seed mean error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%). In unstressed training, this represents an observed difference of -0.83 percentage points compared to LyASC+LN (7.17\%, $n=3$). This 6.34\% error rate is statistically indistinguishable from plain 1xSkip (6.27\%--6.36\%) and remains above the best fixed baseline, 2rSkip+LN (6.15\%). Furthermore, the behavior of LyASC+BN under stress conditions remains untested.
 \end{itemize}
 
 Table~\ref{tab:normpairing} summarizes the normalization pairing ablation matrix.
@@ -515,7 +515,7 @@ Variant & Post-Gate Norm $G$ & $n$ & Mean Error (\%) & $\alpha_{\text{mean}}$ \\
 LyASC+LN (Phase D) & LayerNorm2d & 3 & 7.17 $\pm$ 0.21 & 0.701 \\
 LyASC\_noG         & Identity    & 2 & 9.52 $\pm$ 0.98 & 0.658 \\
 LyASC+BN           & BatchNorm2d & 2 & 6.34 $\pm$ 0.01 & 0.562 \\
-PreAct-ResNet-110  & N/A         & 3 & 6.39 $\pm$ 0.08 & N/A   \\
+PreAct-ResNet-110  & N/A         & 3 & 6.27 $\pm$ 0.04 & N/A   \\
 \bottomrule
 \end{tabular}
 \end{table}

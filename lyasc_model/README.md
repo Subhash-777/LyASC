@@ -34,10 +34,10 @@ LyASC dynamically regulates residual branch amplification via an online Lyapunov
 | **`LyASC+LN`** (Phase D Baseline) | LayerNorm2d | 3 | 7.33%, 7.25%, 6.93% | **7.17% ± 0.21%** | 0.7014 | — |
 | **`LyASC_noG`** | Identity (None) | 2 | 10.21%, 8.82% | **9.52% ± 0.98%** | 0.6580 | **+2.35pp** |
 | **`LyASC+BN`** | BatchNorm2d | 2 | 6.35%, 6.33% | **6.34% ± 0.01%** | 0.5621 | **-0.83pp** |
-| **PreAct-ResNet-110** (Base) | N/A | 3 | 6.39%, 6.47%, 6.31% | **6.39% ± 0.08%** | N/A | -0.78pp |
+| **PreAct-ResNet-110** (Base) | N/A | 3 | 6.31%, 6.28%, 6.23% | **6.27% ± 0.04%** | N/A | -0.90pp |
 
-- **Post-Gate Normalization Requirement**: Omitting post-gate normalization (`LyASC_noG`) incurs a **+2.35pp** penalty vs `LyASC+LN` (9.52% vs 7.17%) and **+3.18pp** vs `LyASC+BN` (6.34%), proving that post-gate normalization is necessary.
-- **BatchNorm Superiority**: `LyASC+BN` achieves **6.34% mean error**, outperforming `LyASC+LN` by **-0.83pp** and matching standard PreAct-ResNet-110 (6.39%) on unstressed training.
+- **Post-Gate Normalization Requirement**: Omitting post-gate normalization (`LyASC_noG`) incurs a **+2.35pp** penalty vs `LyASC+LN` (9.52% vs 7.17%), confirming post-gate normalization is necessary.
+- **Observed Unstressed Performance**: In unstressed training, `LyASC+BN` achieves **6.34% mean error** ($n=2$), an observed difference of **-0.83pp** vs `LyASC+LN` (7.17%, $n=3$). This result is statistically indistinguishable from plain 1xSkip (6.27%–6.36%) and remains above 2rSkip+LN (6.15%). The performance of `LyASC+BN` under stress conditions is untested.
 
 ---
 
