@@ -1,0 +1,10 @@
+checkpoint,label,recorded,re_evaluated,difference
+lyasc_model/results/checkpoints/lyasc_table1_equiv__LyASC__depth110__seed0.pt,Phase C LyASC seed 0,10.21,10.2,-0.01
+lyasc_model/results/checkpoints/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_none__depth110__seed0.pt,LyASC+LN (none) seed 0,7.33,7.33,0.0
+lyasc_model/results/checkpoints/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_0.5__depth110__seed0.pt,stress_0.5 seed 0,7.98,7.98,0.0
+lyasc_model/results/checkpoints/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed0.pt,stress_2.0 seed 0,8.13,8.12,-0.01
+lyasc_model/results/checkpoints/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed1.pt,stress_3.0 seed 1,32.73,32.71,-0.02
+lyasc_model/results/checkpoints/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed4.pt,stress_3.0 seed 4,8.75,8.75,0.0
+lyasc_model/results/checkpoints/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.pt,LyASC+BN seed 0,6.35,6.35,0.0
+base_model/results/checkpoints/cifar10_table1__1xSkip__depth110__seed0.pt,base_model 1xSkip seed 0,6.31,6.31,0.0
+base_model/results/checkpoints/cifar10_table1__2rSkipplusLN__depth110__seed0.pt,base_model 2rSkip+LN seed 0,6.09,6.1,0.01

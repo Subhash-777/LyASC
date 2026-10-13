@@ -1,0 +1,8 @@
+variant_seed,mean_alpha,frac_blocks_alpha_gt_0.5,num_blocks_gt_0.5,total_blocks,mean_beta,mean_lambda
+stress_3.0 Seed 0,0.643,0.7222,39,54,-0.857,-0.133
+stress_3.0 Seed 1,0.6628,0.7778,42,54,-1.0389,0.202
+stress_3.0 Seed 2,0.6467,0.7037,38,54,-1.4693,0.122
+stress_3.0 Seed 3,0.6426,0.7778,42,54,-0.7094,0.0006
+stress_3.0 Seed 4 (Breakthrough),0.8285,0.8889,48,54,-1.9811,0.4159
+stress_0.5 Seed 0,0.8074,0.963,52,54,-1.8118,-0.1822
+stress_2.0 Seed 0,0.7794,0.8889,48,54,-1.7607,-1.0258
