@@ -75,9 +75,19 @@ def main():
     total = len(REFERENCES)
 
     for idx, (key, url, title) in enumerate(REFERENCES, 1):
+        if idx <= 5:
+            cat_dir = os.path.join(OUTPUT_DIR, "01 - Residual Foundations & Skip Scaling")
+        elif idx <= 11:
+            cat_dir = os.path.join(OUTPUT_DIR, "02 - Gating, Dynamic Routing & Skip Controls")
+        elif idx <= 18:
+            cat_dir = os.path.join(OUTPUT_DIR, "03 - Stability, Edge of Stability & Lyapunov Analysis")
+        else:
+            cat_dir = os.path.join(OUTPUT_DIR, "04 - Foundations & Backbones")
+        os.makedirs(cat_dir, exist_ok=True)
+
         clean_title = title.replace(":", " -").replace("?", "").replace("/", "-")
         target_name = f"{idx:02d} - {clean_title}.pdf"
-        target_file = os.path.join(OUTPUT_DIR, target_name)
+        target_file = os.path.join(cat_dir, target_name)
         if is_valid_pdf(target_file):
             size_mb = os.path.getsize(target_file) / (1024 * 1024)
             print(f"[{idx:02d}/{total:02d}] ALREADY EXISTS: {target_name} ({size_mb:.2f} MB)")
