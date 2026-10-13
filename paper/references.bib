@@ -1,16 +1,11 @@
 % references.bib — LyASC paper bibliography
-% Sources: base_model/plan.md citation, literature review slides,
-% and standard references for methods used.
-% NOTE: DOIs included where known; entries without DOI are flagged.
+% Complete 18-reference survey map matching LyASC Project Report Chapter 2 & Bibliography
+% Grouped by research family:
+%   [1-5]:  Residual Learning, Identity Mappings, Scaling, Normalization, Optimization
+%   [6-11]: Gating, Dynamic Routing, Stochastic Depth, Skip Controls
+%   [12-18]: Stability Analysis, Edge of Stability, Lyapunov Dynamics
 
-@inproceedings{liu2021rethinking,
-  author    = {Liu, Fangxin and Ren, Xiaojun and Zhang, Zhirui and Sun, Xu and Zou, Yuexian},
-  title     = {Rethinking Skip Connections with Layer Normalization in Transformers and {ResNets}},
-  booktitle = {Proceedings of the 28th International Conference on Computational Linguistics (COLING)},
-  year      = {2020},
-  pages     = {3996--4007},
-  note      = {arXiv:2105.07205}
-}
+% --- [1-5] Residual Learning, Normalization, and Optimization ---
 
 @inproceedings{he2016deep,
   author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
@@ -30,6 +25,36 @@
   doi       = {10.1007/978-3-319-46493-0_38}
 }
 
+@inproceedings{liu2021rethinking,
+  author    = {Liu, Fangxin and Ren, Xiaojun and Zhang, Zhirui and Sun, Xu and Zou, Yuexian},
+  title     = {Rethinking Skip Connections with Layer Normalization in Transformers and {ResNets}},
+  booktitle = {Proceedings of the 28th International Conference on Computational Linguistics (COLING)},
+  year      = {2020},
+  pages     = {3996--4007},
+  note      = {arXiv:2105.07205}
+}
+
+@article{zaeemzadeh2020norm,
+  author    = {Zaeemzadeh, Alireza and Rahnavard, Nazanin and Shah, Mubarak},
+  title     = {Norm-Preservation: Why Residual Networks Can Become Extremely Deep?},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year      = {2021},
+  volume    = {43},
+  number    = {11},
+  pages     = {3980--3990},
+  doi       = {10.1109/TPAMI.2020.2993593}
+}
+
+@inproceedings{macdonald2023skip,
+  author    = {MacDonald, Lachlan E. and Valmadre, Jack and Saratchandran, Hemanth and Lucey, Simon},
+  title     = {On Skip Connections and Normalisation Layers in Deep Optimisation},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+  year      = {2023},
+  note      = {arXiv:2308.10515}
+}
+
+% --- [6-11] Gating, Dynamic Routing, Stochastic Depth, Skip Controls ---
+
 @inproceedings{srivastava2015highway,
   author    = {Srivastava, Rupesh Kumar and Greff, Klaus and Schmidhuber, J\"{u}rgen},
   title     = {Highway Networks},
@@ -38,6 +63,102 @@
   note      = {arXiv:1505.00387}
 }
 
+@inproceedings{wang2018skipnet,
+  author    = {Wang, Xin and Yu, Fisher and Dou, Zi-Yi and Darrell, Trevor and Gonzalez, Joseph E.},
+  title     = {{SkipNet}: Learning Dynamic Routing in Convolutional Networks},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  year      = {2018},
+  pages     = {409--424},
+  doi       = {10.1007/978-3-030-01261-8_25}
+}
+
+@article{veit2020adaptive,
+  author    = {Veit, Andreas and Belongie, Serge},
+  title     = {Convolutional Networks with Adaptive Inference Graphs},
+  journal   = {International Journal of Computer Vision (IJCV)},
+  year      = {2020},
+  volume    = {128},
+  pages     = {730--741},
+  doi       = {10.1007/s11263-019-01275-5}
+}
+
+@inproceedings{huang2016deep,
+  author    = {Huang, Gao and Sun, Yu and Liu, Zhuang and Sedra, Daniel and Weinberger, Kilian Q.},
+  title     = {Deep Networks with Stochastic Depth},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  year      = {2016},
+  pages     = {646--661},
+  doi       = {10.1007/978-3-319-46493-0_39}
+}
+
+@article{joseph2024lambda,
+  author    = {Joseph, F. A. and Sieber, J. and Zeilinger, M. N. and Alonso, C. Amo},
+  title     = {Lambda-Skip Connections: The Architectural Component That Prevents Rank Collapse},
+  journal   = {arXiv preprint arXiv:2410.10609},
+  year      = {2024}
+}
+
+@article{thota2025cosinegate,
+  author    = {Thota, Y. R.},
+  title     = {{CosineGate}: Semantic Dynamic Routing via Cosine Incompatibility in Residual Networks},
+  journal   = {arXiv preprint arXiv:2512.22206},
+  year      = {2025}
+}
+
+% --- [12-18] Stability Analysis, Edge of Stability, Lyapunov Dynamics ---
+
+@article{nar2018residual,
+  author    = {Nar, Kameshwar and Sastry, Shankar},
+  title     = {Residual Networks: Lyapunov Stability and Convex Decomposition},
+  journal   = {arXiv preprint arXiv:1803.08203},
+  year      = {2018}
+}
+
+@inproceedings{cohen2021gradient,
+  author    = {Cohen, Jeremy M. and Kaur, Simran and Li, Yuanzhi and Kolter, J. Zico and Talwalkar, Ameet},
+  title     = {Gradient Descent on Neural Networks Typically Occurs at the Edge of Stability},
+  booktitle = {Proceedings of the International Conference on Learning Representations (ICLR)},
+  year      = {2021},
+  note      = {arXiv:2103.00065}
+}
+
+@article{arora2022understanding,
+  author    = {Arora, Sanjeev and Li, Zhiyuan and Panigrahi, Abhishek},
+  title     = {Understanding Gradient Descent on the Edge of Stability in Deep Learning},
+  journal   = {arXiv preprint arXiv:2205.09745},
+  year      = {2022}
+}
+
+@article{damian2022self,
+  author    = {Damian, Alex and Nichani, Eshaan and Lee, Jason D.},
+  title     = {Self-Stabilization: The Implicit Bias of Gradient Descent at the Edge of Stability},
+  journal   = {arXiv preprint arXiv:2209.15594},
+  year      = {2022}
+}
+
+@article{andreyev2024edge,
+  author    = {Andreyev, A. and Beneventano, P.},
+  title     = {Edge of Stochastic Stability: Revisiting the Edge of Stability for {SGD}},
+  journal   = {arXiv preprint arXiv:2412.20553},
+  year      = {2024}
+}
+
+@article{mittra2024utilizing,
+  author    = {Mittra, T.},
+  title     = {Utilizing Lyapunov Exponents in Designing Deep Neural Networks},
+  journal   = {arXiv preprint arXiv:2410.05988},
+  year      = {2024}
+}
+
+@article{sharafi2024weight,
+  author    = {Sharafi, N. and Martin, C. and Hallerberg, S.},
+  title     = {On the Weight Dynamics of Learning Networks},
+  journal   = {arXiv preprint arXiv:2405.00743},
+  year      = {2024}
+}
+
+% --- Foundational Backbone & Architecture Citations ---
+
 @inproceedings{hu2018squeeze,
   author    = {Hu, Jie and Shen, Li and Sun, Gang},
   title     = {Squeeze-and-Excitation Networks},
@@ -45,13 +166,6 @@
   year      = {2018},
   pages     = {7132--7141},
   doi       = {10.1109/CVPR.2018.00745}
-}
-
-@inproceedings{cohen2021gradient,
-  author    = {Cohen, Jeremy and Kaur, Simran and Li, Yuanzhi and Kolter, J. Zico and Talwalkar, Ameet},
-  title     = {Gradient Descent on Neural Networks Typically Occurs at the Edge of Stability},
-  booktitle = {Proceedings of the International Conference on Learning Representations (ICLR)},
-  year      = {2021}
 }
 
 @inproceedings{veit2016residual,
@@ -63,10 +177,10 @@
 }
 
 @article{ba2016layer,
-  author  = {Ba, Jimmy Lei and Kiros, Jamie Ryan and Hinton, Geoffrey E.},
-  title   = {Layer Normalization},
-  journal = {arXiv preprint arXiv:1607.06450},
-  year    = {2016}
+  author    = {Ba, Jimmy Lei and Kiros, Jamie Ryan and Hinton, Geoffrey E.},
+  title     = {Layer Normalization},
+  journal   = {arXiv preprint arXiv:1607.06450},
+  year      = {2016}
 }
 
 @techreport{krizhevsky2009learning,
