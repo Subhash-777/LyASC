@@ -1,0 +1,55 @@
+id,value,unit,description,n_seeds,source_file,how_extracted,status
+NUM_001,6.27,%,Base Model Table 1 1xSkip depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_002,8.36,%,Base Model Table 1 2xSkip depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_003,8.89,%,Base Model Table 1 3xSkip depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_004,7.92,%,Base Model Table 1 1xSkip+LN depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_005,6.36,%,Base Model Table 1 2xSkip+LN depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_006,6.11,%,Base Model Table 1 3xSkip+LN depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_007,7.92,%,Base Model Table 1 1rSkip+LN depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_008,6.15,%,Base Model Table 1 2rSkip+LN depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_009,6.18,%,Base Model Table 1 3rSkip+LN depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_010,8.16,%,Base Model Table 1 wSkip+LN depth 110 mean test error,3,base_model/results/tables/reproduced_table1_FINAL.csv,CSV mean_error field,verified
+NUM_011,6.36,%,Base Model Table 3 baseline depth 110 mean test error,3,base_model/results/tables/reproduced_table3_FINAL.csv,CSV mean_error field,verified
+NUM_012,11.85,%,Base Model Table 3 0.5xSkip depth 110 mean test error,3,base_model/results/tables/reproduced_table3_FINAL.csv,CSV mean_error field,verified
+NUM_013,37.14,%,Base Model Table 3 LN(0.5x+F) depth 110 mean test error,3,base_model/results/tables/reproduced_table3_FINAL.csv,CSV mean_error field,verified
+NUM_014,37.59,%,Base Model Table 3 LN(x+2F) depth 110 mean test error,3,base_model/results/tables/reproduced_table3_FINAL.csv,CSV mean_error field,verified
+NUM_015,49.27,%,Base Model Table 3 LN(x+3F) depth 110 mean test error,3,base_model/results/tables/reproduced_table3_FINAL.csv,CSV mean_error field,verified
+NUM_016,9.66,%,Phase C LyASC_noG mean test error (reused in Phase E2),3,lyasc_model/results/tables/phase_c_results_FINAL.csv,3-seed average,verified
+NUM_017,10.209999999999997,%,Phase C LyASC_noG seed 0 test error,1,lyasc_model/results/logs/lyasc_table1_equiv__LyASC__depth110__seed0.json,final_test_error field,verified
+NUM_018,8.819999999999995,%,Phase C LyASC_noG seed 1 test error,1,lyasc_model/results/logs/lyasc_table1_equiv__LyASC__depth110__seed1.json,final_test_error field,verified
+NUM_019,9.950000000000003,%,Phase C LyASC_noG seed 2 test error,1,lyasc_model/results/logs/lyasc_table1_equiv__LyASC__depth110__seed2.json,final_test_error field,verified
+NUM_020,7.17,%,Phase D LyASC+LN none mean test error,3,lyasc_model/results/logs/phase_d_coldstart/decisions.log,3-seed average,verified
+NUM_021,7.330000000000004,%,Phase D LyASC+LN none seed 0 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_none__depth110__seed0.json,final_test_error field,verified
+NUM_022,7.250000000000001,%,Phase D LyASC+LN none seed 1 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_none__depth110__seed1.json,final_test_error field,verified
+NUM_023,6.930000000000003,%,Phase D LyASC+LN none seed 2 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_none__depth110__seed2.json,final_test_error field,verified
+NUM_024,7.46,%,Phase D LyASC+LN damped mean test error,3,lyasc_model/results/logs/phase_d_coldstart/decisions.log,3-seed average,verified
+NUM_025,7.799999999999995,%,Phase D LyASC+LN damped seed 0 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_damped__depth110__seed0.json,final_test_error field,verified
+NUM_026,7.210000000000005,%,Phase D LyASC+LN damped seed 1 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_damped__depth110__seed1.json,final_test_error field,verified
+NUM_027,7.369999999999999,%,Phase D LyASC+LN damped seed 2 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_damped__depth110__seed2.json,final_test_error field,verified
+NUM_028,7.95,%,Phase D LyASC+LN warmup mean test error,2,lyasc_model/results/logs/phase_d_coldstart/decisions.log,2-seed average,verified
+NUM_029,8.099999999999996,%,Phase D LyASC+LN warmup seed 0 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_warmup__depth110__seed0.json,final_test_error field,verified
+NUM_030,7.799999999999995,%,Phase D LyASC+LN warmup seed 1 test error,1,lyasc_model/results/logs/phase_d_coldstart/lyasc_phase_d_coldstart__LyASCplusLN_warmup__depth110__seed1.json,final_test_error field,verified
+NUM_031,8.38,%,Phase E1 LyASC stress 0.5x mean test error,3,lyasc_model/results/logs/phase_e_stresstest/decisions.log,3-seed average,verified
+NUM_032,7.979999999999999,%,Phase E1 LyASC stress 0.5x seed 0 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_0.5__depth110__seed0.json,final_test_error field,verified
+NUM_033,8.840000000000003,%,Phase E1 LyASC stress 0.5x seed 1 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_0.5__depth110__seed1.json,final_test_error field,verified
+NUM_034,8.309999999999995,%,Phase E1 LyASC stress 0.5x seed 2 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_0.5__depth110__seed2.json,final_test_error field,verified
+NUM_035,8.44,%,Phase E1 LyASC stress 2.0x mean test error,3,lyasc_model/results/logs/phase_e_stresstest/decisions.log,3-seed average,verified
+NUM_036,8.130000000000004,%,Phase E1 LyASC stress 2.0x seed 0 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed0.json,final_test_error field,verified
+NUM_037,8.809999999999995,%,Phase E1 LyASC stress 2.0x seed 1 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed1.json,final_test_error field,verified
+NUM_038,8.379999999999999,%,Phase E1 LyASC stress 2.0x seed 2 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed2.json,final_test_error field,verified
+NUM_039,21.88,%,Phase E1 LyASC stress 3.0x pooled mean test error,5,lyasc_model/results/logs/phase_e_stresstest/decisions.log,5-seed average,verified
+NUM_040,25.16,%,Phase E1 LyASC stress 3.0x Partial Rescue cluster mean,4,lyasc_model/results/logs/phase_e_stresstest/decisions.log,seeds 0-3 average,verified
+NUM_041,8.750000000000002,%,Phase E1 LyASC stress 3.0x Full Rescue seed 4 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed4.json,final_test_error field,verified
+NUM_042,27.900000000000002,%,Phase E1 LyASC stress 3.0x seed 0 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed0.json,final_test_error field,verified
+NUM_043,32.730000000000004,%,Phase E1 LyASC stress 3.0x seed 1 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed1.json,final_test_error field,verified
+NUM_044,19.120000000000005,%,Phase E1 LyASC stress 3.0x seed 2 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed2.json,final_test_error field,verified
+NUM_045,20.88,%,Phase E1 LyASC stress 3.0x seed 3 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.json,final_test_error field,verified
+NUM_046,6.34,%,Phase E2 LyASC+BN mean test error (n=2),2,lyasc_model/results/logs/phase_e_stresstest/decisions.log,2-seed average,verified
+NUM_047,6.35,%,Phase E2 LyASC+BN seed 0 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.json,final_test_error field,verified
+NUM_048,6.330000000000002,%,Phase E2 LyASC+BN seed 1 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed1.json,final_test_error field,verified
+NUM_049,0.1922,s/iter,Frozen bench timing k=2 N=10,1,lyasc_model/results/logs/step3_frozen/frozen__LyASC__depth110__seed101.json,wall_clock / total_iters,verified
+NUM_050,0.2888,s/iter,Standard timing k=1 N=20,1,lyasc_model/results/logs/step3_k1n20/k1n20_bench__LyASC__depth110__seed101.json,wall_clock / total_iters,verified
+NUM_051,0.2614,s/iter,LyASC noG benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_noG__depth110__seed99.json,wall_clock / total_iters,verified
+NUM_052,0.3475,s/iter,LyASC+BN benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed99.json,wall_clock / total_iters,verified
+NUM_053,0.4979,s/iter,LyASC+LN benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed99.json,wall_clock / total_iters,verified
+NUM_054,78,tests,Total passed unit tests,1,lyasc_model/tests/ and base_model/tests/,pytest execution summary,verified

@@ -165,3 +165,4 @@
 2026-10-06 09:33:10,701 INFO Resume checkpoint deleted (run complete): /home/subhash/projects/LyASC/lyasc_model/results/checkpoints/phase_e_stresstest/resume__lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.pt
 2026-10-06 12:47:04,268 INFO Result already exists at /home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.json, skipping.
 2026-10-06 22:44:52,258 INFO Result already exists at /home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.json, skipping.
+2026-10-13 21:39:05,522 INFO Result already exists at /home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.json, skipping.

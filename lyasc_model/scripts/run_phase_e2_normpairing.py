@@ -56,10 +56,11 @@ def main():
         ("LyASC_noG", 1),
         ("LyASC+BN", 0),
         ("LyASC+BN", 1),
+        ("LyASC+BN", 2),
     ]
 
     print("=" * 80)
-    print("PHASE E2 NORMALIZATION PAIRING ABLATION MATRIX (4 Runs, 64k Iters Each)")
+    print("PHASE E2 NORMALIZATION PAIRING ABLATION MATRIX (Seeds 0, 1, 2)")
     print("Variants: LyASC_noG (G=Identity), LyASC+BN (G=BatchNorm2d)")
     print("Comparison baseline: LyASC+LN (G=LayerNorm2d) = 6.34% 3-seed mean")
     print("=" * 80)

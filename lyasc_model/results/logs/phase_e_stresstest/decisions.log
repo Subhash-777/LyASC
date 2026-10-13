@@ -225,3 +225,21 @@ RATIONALE: Baseline Audit & Phase E2 normalization pairing ablations completed (
 2. LyASC_noG (G=Identity, no post-gate norm): Seed 0 = 10.21%, Seed 1 = 8.82% (2-seed mean: 9.52% ± 0.98%, alpha_mean = 0.6580). Omitting post-gate normalization incurs a +2.35pp penalty vs LyASC+LN (7.17%), confirming post-gate normalization is necessary.
 3. LyASC+BN (G=BatchNorm2d): Seed 0 = 6.35%, Seed 1 = 6.33% (2-seed mean: 6.34% ± 0.01%, alpha_mean = 0.5621). In unstressed training, this represents an observed difference of -0.83pp vs LyASC+LN (7.17%, n=3). This result is statistically indistinguishable from plain 1xSkip (6.27%-6.36%) and remains above 2rSkip+LN (6.15%). The behavior of LyASC+BN under stress conditions remains untested.
 ------------------------------------------------------------------------
+DECISION: lyasc_hyperparameters
+VALUE:     k=1, N=20, ema_decay=0.9, lambda0=0.0, cold_start=none
+RATIONALE: LyASC estimator hyperparameters for this run, from config YAML.
+--------------------------------------------------------------------------
+------------------------------------------------------------------------
+DECISION: audit_corrections_and_final_review_freeze
+VALUE:     Number audit, provenance tracing, sample SD standardization, checkpoint re-evaluation, and final freeze completed.
+RATIONALE: Pre-review audit conducted across workspace (12-hour review window):
+1. Number Audit & Provenance Tracing:
+   - Phase D Cold-Start Strategy Ablation: Corrected README table from mis-cited draft values (6.34% ± 0.15%, 6.37% ± 0.03%, 6.40% ± 0.08%) to ground-truth result JSON values: none (7.17% ± 0.21%, n=3), damped (7.46% ± 0.31%, n=3), warmup (7.95% ± 0.21%, n=2).
+   - Phase E2 LyASC_noG Provenance: Traced and confirmed seeds 0 and 1 (10.21%, 8.82%) share identical config to Phase C (G=Identity, no cold-start, k=1, N=20). Restored Phase C seed 2 (9.95%) to establish n=3 with 3-seed mean = 9.66% ± 0.74% (sample SD), delta +2.49pp vs LyASC+LN (7.17%).
+   - Phase E2 LyASC+BN: Seed 0 (6.35%), Seed 1 (6.33%), mean = 6.34% ± 0.01% (n=2). Seed 2 launched in background on GPU (iter ~8000+, healthy). Indistinguishable from plain 1xSkip (6.27% to 6.36%). Behavior under stress conditions untested.
+   - Warmup/Damped Duration: Clarified recorded duration is 1,000 iterations (corrected references saying 2,000 or 2k).
+2. Standard Deviation Convention: Standardized on sample standard deviation (ddof=1) across dashboard_data.json, figures, tables, and documentation.
+3. Checkpoint Re-evaluation: All 9 saved checkpoints re-evaluated on CPU across 10,000 CIFAR-10 test set images. Recorded test errors verified with differences <= 0.02 percentage points (acceptance criterion <= 0.05pp).
+4. Gate Parameter Maps: Extracted alpha, beta, and lambda trajectories across all 54 blocks for 7 model variants (stress_0.5, stress_2.0, stress_3.0 seeds 0-4).
+5. Unit Tests: 78 automated unit tests passed across lyasc_model and base_model.
+------------------------------------------------------------------------
