@@ -1,0 +1,11 @@
+# conda environments:
+#
+# * -> active
+# + -> frozen
+base                     /home/subhash/miniconda3
+evfleet-rl               /home/subhash/miniconda3/envs/evfleet-rl
+fedpatterns-med          /home/subhash/miniconda3/envs/fedpatterns-med
+lyasc-base               /home/subhash/miniconda3/envs/lyasc-base
+lyasc-experiments    *   /home/subhash/miniconda3/envs/lyasc-experiments
+
+/home/subhash/miniconda3/envs/lyasc-experiments/bin/python

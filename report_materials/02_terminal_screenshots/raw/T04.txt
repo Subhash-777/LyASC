@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-8.2.2, pluggy-1.6.0
+rootdir: /home/subhash/projects/LyASC/lyasc_model
+configfile: pytest.ini
+plugins: anyio-4.14.2
+collected 78 items
+
+lyasc_model/tests/test_lyasc_skip.py ..............                      [ 17%]
+lyasc_model/tests/test_stability_estimator.py ....                       [ 23%]
+lyasc_model/test_preact_resnet.py ..................                     [ 46%]
+lyasc_model/test_skip_variants.py ...................................... [ 94%]
+....                                                                     [100%]
+
+============================== 78 passed in 2.85s ==============================

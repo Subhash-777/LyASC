@@ -1,0 +1,4 @@
+Variant,Base_Paper_Fail (%),LyASC_Rescue_Mean (%),n_seeds,LyASC_Per_Seed_Errors (%),Delta_Rescue (pp)
+0.5x Skip Scale,37.14,8.38,3,"[7.98, 8.84, 8.31]",-28.76
+2.0x Residual Scale,37.59,8.44,3,"[8.13, 8.81, 8.38]",-29.15
+3.0x Residual Scale,49.27,21.88,5,"[27.90, 32.73, 19.12, 20.88, 8.75]",-27.39

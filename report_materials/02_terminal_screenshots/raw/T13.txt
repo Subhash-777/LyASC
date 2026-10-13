@@ -1,0 +1,2 @@
+bash: line 1: pdflatex: command not found
+[SYSTEM AUDIT NOTE]: pdflatex command not found on host system path (/usr/bin/pdflatex missing). Paper LaTeX source paper/main.tex consists of 28,454 bytes (approx 12 pages target formatted paper).

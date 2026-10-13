@@ -108,7 +108,7 @@ def aggregate_seeds(results):
     if not errors:
         return None, None, 0
     mean = statistics.mean(errors)
-    std = statistics.pstdev(errors) if len(errors) > 1 else 0.0
+    std = statistics.stdev(errors) if len(errors) > 1 else 0.0
     return round(mean, 3), round(std, 3), len(errors)
 
 
@@ -170,7 +170,7 @@ def collect_lyasc_results():
     if errors:
         phase_c['aggregate'] = {
             'mean': round(statistics.mean(errors), 3),
-            'std': round(statistics.pstdev(errors), 3),
+            'std': round(statistics.stdev(errors) if len(errors) > 1 else 0.0, 3),
             'n_seeds': len(errors),
             'paper_baseline': 6.31,
             'paper_baseline_label': '1xSkip (Table 1)',
@@ -227,7 +227,7 @@ def collect_lyasc_results():
                 'runs': strat_runs,
                 'aggregate': {
                     'mean': round(statistics.mean(errors), 3),
-                    'std': round(statistics.pstdev(errors), 3),
+                    'std': round(statistics.stdev(errors) if len(errors) > 1 else 0.0, 3),
                     'n_seeds': len(errors),
                 }
             }
@@ -399,8 +399,8 @@ def collect_lyasc_results():
         'variants': {},
     }
     norm_configs = [
-        ('LyASC_noG', 'Identity (No Post-Gate Norm)', [0, 1]),
-        ('LyASC+BN', 'BatchNorm2d', [0, 1]),
+        ('LyASC_noG', 'Identity (Reused from Phase C)', [0, 1, 2]),
+        ('LyASC+BN', 'BatchNorm2d', [0, 1, 2] if (LOG_DIR / "phase_e_stresstest" / "lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed2.json").exists() else [0, 1]),
     ]
     for variant_name, label, target_seeds in norm_configs:
         variant_runs = []
@@ -423,7 +423,7 @@ def collect_lyasc_results():
             errors = [r['final_test_error'] for r in variant_runs]
             agg = {
                 'mean': round(statistics.mean(errors), 3),
-                'std': round(statistics.pstdev(errors) if len(errors) > 1 else 0, 3),
+                'std': round(statistics.stdev(errors) if len(errors) > 1 else 0.0, 3),
                 'n_seeds_complete': len(errors),
             }
             phase_e2['variants'][variant_name] = {

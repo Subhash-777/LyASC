@@ -1,0 +1,39 @@
+=== Other ===
+cifar10_table3 | 0.5xSkip | depth 110 : 11.85 ± 0.16 (n=3)
+cifar10_table3 | LN(0.5x+F) | depth 110 : 37.14 ± 9.94 (n=3)
+cifar10_table3 | LN(x+2F) | depth 110 : 37.59 ± 22.83 (n=3)
+cifar10_table3 | LN(x+3F) | depth 110 : 49.27 ± 15.31 (n=3)
+cifar10_table3 | baseline | depth 110 : 6.36 ± 0.06 (n=3)
+
+=== Table 1 ===
+cifar10_table1 | 1rSkip+LN | depth 110 : 7.92 ± 0.42 (n=3)
+cifar10_table1 | 1xSkip | depth 110 : 6.27 ± 0.04 (n=3)
+cifar10_table1 | 1xSkip+LN | depth 110 : 7.92 ± 0.42 (n=3)
+cifar10_table1 | 2rSkip+LN | depth 110 : 6.15 ± 0.09 (n=3)
+cifar10_table1 | 2xSkip | depth 110 : 8.36 ± 0.35 (n=3)
+cifar10_table1 | 2xSkip+LN | depth 110 : 6.36 ± 0.31 (n=3)
+cifar10_table1 | 3rSkip+LN | depth 110 : 6.18 ± 0.20 (n=3)
+cifar10_table1 | 3xSkip | depth 110 : 8.89 ± 0.23 (n=3)
+cifar10_table1 | 3xSkip+LN | depth 110 : 6.11 ± 0.22 (n=3)
+cifar10_table1 | wSkip+LN | depth 110 : 8.16 ± 0.13 (n=3)
+
+=== Table 4 ===
+cifar10_table4 | 1rSkip+BN | depth 110 : 6.39 ± 0.05 (n=3)
+cifar10_table4 | 1xSkip | depth 110 : 6.36 ± 0.06 (n=3)
+cifar10_table4 | 1xSkip+BN | depth 110 : 6.39 ± 0.05 (n=3)
+cifar10_table4 | 2rSkip+BN | depth 110 : 6.15 ± 0.21 (n=3)
+cifar10_table4 | 2xSkip+BN | depth 110 : 5.98 ± 0.31 (n=3)
+cifar10_table4 | 3rSkip+BN | depth 110 : 6.12 ± 0.31 (n=3)
+cifar10_table4 | 3xSkip+BN | depth 110 : 5.99 ± 0.07 (n=3)
+
+=== Table 6 ===
+cifar100_table6 | 2rSkip+LN | depth 20 : 32.23 ± 0.05 (n=3)
+cifar100_table6 | 2rSkip+LN | depth 32 : 30.42 ± 0.07 (n=3)
+cifar100_table6 | 2rSkip+LN | depth 44 : 29.29 ± 0.28 (n=3)
+cifar100_table6 | 2rSkip+LN | depth 56 : 28.85 ± 0.23 (n=3)
+cifar100_table6 | 2rSkip+LN | depth 110 : 26.92 ± 0.74 (n=3)
+cifar100_table6 | baseline | depth 20 : 32.53 ± 0.63 (n=3)
+cifar100_table6 | baseline | depth 32 : 31.30 ± 0.20 (n=3)
+cifar100_table6 | baseline | depth 44 : 30.13 ± 0.40 (n=3)
+cifar100_table6 | baseline | depth 56 : 29.48 ± 0.32 (n=3)
+cifar100_table6 | baseline | depth 110 : 27.38 ± 0.51 (n=3)

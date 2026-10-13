@@ -1,0 +1,14 @@
+Phase,Variant,n,Mean_Error (%),Spread,Comparison_Target
+Phase A/B,1xSkip (Plain),3,6.27,±0.04%,6.31% (Paper)
+Phase A/B,2rSkip+LN,3,6.15,±0.09%,6.02% (Paper Best)
+Phase A/B,wSkip+LN,3,8.16,±0.13%,8.66% (Paper)
+Phase C,LyASC noG,3,9.66,±0.73%,6.27% (1xSkip)
+Ablation 1,LyASC+LN,1,7.22,N/A,7.17% (Phase D)
+Phase D,LyASC+LN (None),3,7.17,±0.21%,Selected Baseline
+Phase D,LyASC+LN (Damped),3,7.46,±0.31%,7.17% (None)
+Phase D,LyASC+LN (Warmup),2,7.95,±0.21%,7.17% (None)
+Phase E1,LyASC Stress 0.5x,3,8.38,±0.43%,37.14% (Base Fail)
+Phase E1,LyASC Stress 2.0x,3,8.44,±0.34%,37.59% (Base Fail)
+Phase E1,LyASC Stress 3.0x,5,21.88,±9.15%,49.27% (Base Fail)
+Phase E2,LyASC noG,2,9.52,±0.98%,7.17% (Reused Ph C)
+Phase E2,LyASC+BN,2,6.34,±0.01%,7.17% (LyASC+LN)

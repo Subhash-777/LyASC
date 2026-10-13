@@ -389,9 +389,9 @@ for handling it:
     \item \textbf{None:} the estimator is active from iteration~0 with
     no special handling.
     \item \textbf{Damped:} the estimator is active, but its influence
-    on~$\alpha$ ramps linearly from 0 to 1 over the first 2,000
+    on~$\alpha$ ramps linearly from 0 to 1 over the first 1,000
     iterations.
-    \item \textbf{Warmup:} $\alpha$ is held at 0.5 for the first 2,000
+    \item \textbf{Warmup:} $\alpha$ is held at 0.5 for the first 1,000
     iterations, and the estimator output is ignored during that window.
 \end{itemize}
 
@@ -436,7 +436,7 @@ the hyperparameters used in all other experiments.
 
 \begin{table}[t]
 \centering
-\caption{Stress-test results (LyASC+LN). ``Baseline'': the
+\caption{Stress-test results (LyASC+LN, sample SD). ``Baseline'': the
 corresponding fixed-weight Table~3 result from the base-model
 reproduction. $n$: number of seeds.}
 \label{tab:stress}
@@ -444,8 +444,8 @@ reproduction. $n$: number of seeds.}
 \toprule
 Condition & $n$ & LyASC+LN (\%) & Baseline (\%) \\
 \midrule
-stress\_0.5 & 3 & 8.38 $\pm$ 0.35 & 37.14 \\
-stress\_2.0 & 3 & 8.44 $\pm$ 0.28 & 37.59 \\
+stress\_0.5 & 3 & 8.38 $\pm$ 0.43 & 37.14 \\
+stress\_2.0 & 3 & 8.44 $\pm$ 0.34 & 37.59 \\
 stress\_3.0 & 5 & see text         & 49.27 \\
 \bottomrule
 \end{tabular}
@@ -498,25 +498,26 @@ occur at this stress level requires more seeds.
 
 To evaluate how the choice of post-gate normalization function $G$ affects performance, Phase~E2 tested two normalization variants on PreAct-ResNet-110 (2 seeds each, 64,000 iterations), comparing them against the closed-out LyASC+LN Phase~D baseline (7.17\% $\pm$ 0.21\%):
 \begin{itemize}
-    \item \textbf{LyASC\_noG ($G = \text{identity}$):} Omitting post-gate normalization yields a 2-seed mean error of 9.52\% $\pm$ 0.98\% (individual seeds: 10.21\%, 8.82\%), incurring a +2.35 percentage-point accuracy penalty compared to LyASC+LN (7.17\%). This confirms that post-gate normalization is necessary to maintain single-digit classification error.
-    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization yields a 2-seed mean error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%). In unstressed training, this represents an observed difference of -0.83 percentage points compared to LyASC+LN (7.17\%, $n=3$). This 6.34\% error rate is statistically indistinguishable from plain 1xSkip (6.27\%--6.36\%) and remains above the best fixed baseline, 2rSkip+LN (6.15\%). Furthermore, the behavior of LyASC+BN under stress conditions remains untested.
+    \item \textbf{LyASC\_noG ($G = \text{identity}$, reused from Phase~C):} Omitting post-gate normalization yields a 3-seed mean error of 9.66\% $\pm$ 0.74\% (individual seeds: 10.21\%, 8.82\%, 9.95\%), incurring a +2.49 percentage-point accuracy penalty compared to LyASC+LN (7.17\%). This confirms that post-gate normalization is necessary to maintain single-digit classification error.
+    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization yields an error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%, $n=2$, with seed~2 in training). In unstressed training, this represents an observed difference of -0.83 percentage points compared to LyASC+LN (7.17\%, $n=3$). This 6.34\% error rate is statistically indistinguishable from plain 1xSkip (6.27\%--6.36\%) and remains above the best fixed baseline, 2rSkip+LN (6.15\%). Furthermore, the behavior of LyASC+BN under stress conditions remains untested.
 \end{itemize}
 
 Table~\ref{tab:normpairing} summarizes the normalization pairing ablation matrix.
 
 \begin{table}[t]
 \centering
-\caption{Normalization pairing ablation matrix (PreAct-ResNet-110, CIFAR-10). $n$: number of seeds.}
+\caption{Normalization pairing ablation matrix (PreAct-ResNet-110, CIFAR-10, sample SD). $n$: number of seeds.}
 \label{tab:normpairing}
 \begin{tabular}{lcccc}
 \toprule
 Variant & Post-Gate Norm $G$ & $n$ & Mean Error (\%) & $\alpha_{\text{mean}}$ \\
 \midrule
-LyASC+LN (Phase D) & LayerNorm2d & 3 & 7.17 $\pm$ 0.21 & 0.701 \\
-LyASC\_noG         & Identity    & 2 & 9.52 $\pm$ 0.98 & 0.658 \\
-LyASC+BN           & BatchNorm2d & 2 & 6.34 $\pm$ 0.01 & 0.562 \\
-PreAct-ResNet-110  & N/A         & 3 & 6.27 $\pm$ 0.04 & N/A   \\
+LyASC+LN (Phase D)   & LayerNorm2d & 3 & 7.17 $\pm$ 0.21 & 0.701 \\
+LyASC\_noG (Phase C) & Identity    & 3 & 9.66 $\pm$ 0.74 & 0.667 \\
+LyASC+BN             & BatchNorm2d & 2$^*$ & 6.34 $\pm$ 0.01 & 0.562 \\
+PreAct-ResNet-110    & N/A         & 3 & 6.27 $\pm$ 0.04 & N/A   \\
 \bottomrule
+\multicolumn{5}{l}{\footnotesize $^*$Seed 2 in training at time of reporting.}
 \end{tabular}
 \end{table}
 
@@ -582,9 +583,10 @@ normal training, and it stabilizes training in two of three catastrophic
 stress regimes where the fixed baselines fail outright. It does not
 match the best hand-tuned fixed baseline, 2rSkip+LN.
 
-Three key directions remain. First, Phase~F will run
-LyASC on CIFAR-100 at depths 20 through 110 (the Table~6 equivalent) to
-see whether the benefit of the stability signal changes with depth and task complexity.
+Three key directions remain. First, Phase~F will investigate
+novel architectural extensions, including dynamic $\lambda$ learning rate
+schedulers and adaptive EMA decay rates. Evaluating depth scaling on
+CIFAR-100 at depths 20 through 110 remains as separate future work.
 Second, a systematic search over the estimator hyperparameters ($k$,
 $N$, $\lambda_0$, and the initialization of~$\beta_l$) may close the
 1.02~pp gap to the fixed baseline under normal conditions. Third, the

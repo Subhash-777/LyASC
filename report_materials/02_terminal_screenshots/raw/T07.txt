@@ -1,0 +1,7 @@
+2026-09-09 08:36:28,682 INFO === Starting training: config=lyasc_table1_equiv  variant=LyASC  depth=110  seed=2 ===
+2026-09-09 08:36:28,727 INFO Device: cuda
+2026-09-09 08:36:29,853 INFO Model: PreAct-ResNet-110  variant=LyASC  params=1,728,016  blocks=54
+2026-09-09 08:36:29,973 INFO Resumed from checkpoint at iter 32000 (of 64000): results/checkpoints/resume__lyasc_table1_equiv__LyASC__depth110__seed2.pt
+2026-09-09 08:36:30,011 INFO Fast-forwarding data iterator by 32000 batches...
+2026-09-09 08:36:32,411 INFO Data iterator fast-forward complete.
+2026-09-09 08:36:32,412 INFO Training schedule: 64000 total iterations (~163.8 epochs), LR milestones at iters [32000, 48000]

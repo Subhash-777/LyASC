@@ -1,0 +1,87 @@
+run_uuid  experiment_id                                           name   status              start_time                end_time
+4254f39e5d154f54a5a689c4f94d24c4              1                      1xSkip__depth110__seed999 FINISHED 2026-08-31 18:12:34.085 2026-08-31 18:17:42.062
+b8b68bdc90b74ebe902eff92c8368976              1                       LyASC__depth110__seed999   FAILED 2026-08-31 18:17:43.160 2026-08-31 18:17:45.251
+7347f2fc43fa469b93ff0c0aa6da890a              1                       LyASC__depth110__seed999  RUNNING 2026-08-31 18:18:13.630                     NaT
+138944c3e50341efb90d3cf18b6c7636              2                     1xSkip__depth110__seed1234 FINISHED 2026-08-31 18:25:07.118 2026-08-31 18:27:52.887
+3188739be91f4b0eb1badb70e7209db9              2                      LyASC__depth110__seed1234 FINISHED 2026-08-31 18:27:54.212 2026-08-31 18:31:54.507
+0bc332e088a1426590b07f6c54123205              3                       LyASC__depth110__seed101   FAILED 2026-09-01 12:28:38.990 2026-09-01 12:28:39.063
+ecd3004eb38a4002ae4d051197f47df9              3                       LyASC__depth110__seed101 FINISHED 2026-09-01 12:29:19.167 2026-09-01 12:35:43.255
+a51f2342919f49248571db07f1ed520e              4                       LyASC__depth110__seed101  RUNNING 2026-09-01 12:35:44.055                     NaT
+66eefda63bb04a0aa770bae3b1e92c6c              5                       LyASC__depth110__seed101 FINISHED 2026-09-01 12:40:55.962 2026-09-01 12:50:33.220
+ddb4433ef745452d872ee1c493d41014              6                       LyASC__depth110__seed101  RUNNING 2026-09-01 12:49:36.328                     NaT
+7e806675268a4b67876d84ed0f30770f              7                         LyASC__depth110__seed0  RUNNING 2026-09-08 09:12:45.017                     NaT
+820b2d0f92df4e2c973562607bf17aa1              7                         LyASC__depth110__seed1  RUNNING 2026-09-08 09:13:04.987                     NaT
+d7c8d7bb96964a1e97c9f00160e56a9c              7                         LyASC__depth110__seed2   FAILED 2026-09-08 09:13:20.199 2026-09-08 09:13:20.926
+9a75c89215b2492ba6eac27f398b606c              7       1xSkip__depth110__REUSED_FROM_BASE_MODEL FINISHED 2026-09-08 14:02:05.742 2026-09-08 14:02:05.814
+601859208aa54c6683756ad8c55b5732              7 2rSkipplusLN__depth110__REUSED_FROM_BASE_MODEL FINISHED 2026-09-08 14:02:05.841 2026-09-08 14:02:05.897
+60f7d9b91f454e00ba9ed879bd511c8a              7  wSkipplusLN__depth110__REUSED_FROM_BASE_MODEL FINISHED 2026-09-08 14:02:05.919 2026-09-08 14:02:05.973
+97ccb3af5ca94ca898b13c65b240e163              7                         LyASC__depth110__seed0 FINISHED 2026-09-08 14:03:23.827 2026-09-08 18:40:28.043
+23059b324c12480380604099552076c4              7                         LyASC__depth110__seed0  RUNNING 2026-09-08 15:48:09.816                     NaT
+98cc247346df44cd94f5c5455fc701be              7                         LyASC__depth110__seed0  RUNNING 2026-09-08 15:50:59.121                     NaT
+fb8781f1a8d147838ed35ecf5595ed3a              7                         LyASC__depth110__seed1 FINISHED 2026-09-08 18:40:33.195 2026-09-08 23:11:41.528
+a08f954ae97646938cb734828c7b786a              7                         LyASC__depth110__seed2  RUNNING 2026-09-08 23:11:46.396                     NaT
+21e682b3f5504065bfcce66f69c38b8a              7                         LyASC__depth110__seed2 FINISHED 2026-09-09 03:06:33.054 2026-09-09 05:17:42.623
+2d0a618fb7d8448ab5a378e38fee1532              8                   LyASCplusLN__depth110__seed0  RUNNING 2026-09-09 07:56:03.966                     NaT
+ff80d228ff6540e2907542ec6aa6be9c              8                   LyASCplusLN__depth110__seed0 FINISHED 2026-09-09 12:38:01.360 2026-09-09 23:16:36.375
+3eadccfd6518444d9b43f65a064dda04              9                          LyASC+LN_warmup_seed1 FINISHED 2026-09-11 16:50:15.898 2026-09-11 16:50:16.051
+24fdbad43f9847f9b0d1cbbe2321f4c8              9                            LyASC+LN_none_seed1 FINISHED 2026-09-11 16:50:16.088 2026-09-11 16:50:16.225
+5c91af06c6d84856915d88c6e9db3c78              9                          LyASC+LN_damped_seed0 FINISHED 2026-09-11 16:50:16.257 2026-09-11 16:50:16.387
+09f6568582784db886de90f431688b7f              9                          LyASC+LN_warmup_seed0 FINISHED 2026-09-11 16:50:16.428 2026-09-11 16:50:16.559
+f4ca1250c21a4baaa7b4983e9b78cb9d              9                          LyASC+LN_damped_seed1 FINISHED 2026-09-11 16:50:16.590 2026-09-11 16:50:16.724
+4abeabb33bbc451da4a11d370983f0a9              9                            LyASC+LN_none_seed0 FINISHED 2026-09-11 16:50:24.322 2026-09-11 16:50:24.496
+59de5d2ef09a4923997c584496ada842              9              LyASCplusLN_none__depth110__seed0 FINISHED 2026-09-12 09:31:12.025 2026-09-12 16:50:11.350
+abc382847a284bf9947a63a349a7078d              9              LyASCplusLN_none__depth110__seed1 FINISHED 2026-09-12 16:50:12.985 2026-09-12 23:21:38.385
+1813f17905c4496185b144cbb7eedf04              9            LyASCplusLN_warmup__depth110__seed0 FINISHED 2026-09-12 23:21:39.923 2026-09-13 05:47:01.481
+989f6daa5abf4ddcbc446c80453e311e              9            LyASCplusLN_warmup__depth110__seed1  RUNNING 2026-09-13 05:47:02.647                     NaT
+ab1b083b43d44f7e80b447f80b49a2d1              9            LyASCplusLN_warmup__depth110__seed1 FINISHED 2026-09-13 09:19:45.976 2026-09-13 13:28:26.467
+6f15c7bd992646a4955004c9a4c13c19              9            LyASCplusLN_damped__depth110__seed0 FINISHED 2026-09-13 13:28:28.197 2026-09-14 11:45:47.813
+76d23cf45d2a484e882baf25a0c160ab              9            LyASCplusLN_damped__depth110__seed1 FINISHED 2026-09-14 11:45:49.574 2026-09-14 21:11:31.856
+f03bdafa9a1144259c669caa42302252              9            LyASCplusLN_damped__depth110__seed1 FINISHED 2026-09-14 17:37:32.467 2026-09-14 21:32:52.436
+0a1802d09d8447c68a6412862e23b88b              9                          LyASC+LN_damped_seed0 FINISHED 2026-09-14 21:33:06.762 2026-09-14 21:33:06.969
+653fb67acb8641bdaa205a574b52532a              9                          LyASC+LN_damped_seed1 FINISHED 2026-09-14 21:33:06.988 2026-09-14 21:33:07.191
+e5f5e9cd26a94ec0aca2e6f1904b3bb6              9                            LyASC+LN_none_seed0 FINISHED 2026-09-14 21:33:07.208 2026-09-14 21:33:07.413
+d6c55506db0749c2906445c99bd15a6b              9                            LyASC+LN_none_seed1 FINISHED 2026-09-14 21:33:07.431 2026-09-14 21:33:07.632
+65ec5688d3fd42d88cd7dce5c42ef1d8              9                          LyASC+LN_warmup_seed0 FINISHED 2026-09-14 21:33:07.648 2026-09-14 21:33:07.847
+5d5146b67f314930bca58051bf5626c4              9                          LyASC+LN_warmup_seed1 FINISHED 2026-09-14 21:33:07.865 2026-09-14 21:33:08.054
+7f57ec0f77e84ce38be51d8b6d9c6337              9              LyASCplusLN_none__depth110__seed2  RUNNING 2026-09-15 03:46:39.470                     NaT
+a02c8fdaf90f4e1cae0957dd706a70a7              9              LyASCplusLN_none__depth110__seed2  RUNNING 2026-09-15 05:38:08.253                     NaT
+4d9dac66aefc4d4caa0635b9e3eb68e9              9              LyASCplusLN_none__depth110__seed2  RUNNING 2026-09-15 09:16:45.352                     NaT
+860cf52840c94bd2a4b974f752687334              9              LyASCplusLN_none__depth110__seed2 FINISHED 2026-09-15 15:41:25.089 2026-09-15 18:45:00.797
+4b2dd28304d94be780ac36715167a2b7              9            LyASCplusLN_damped__depth110__seed2 FINISHED 2026-09-15 18:45:01.823 2026-09-16 01:09:58.620
+2fcc503debf24b3194a13cfdec39e7c5             10                    LyASC_noG__depth110__seed99 FINISHED 2026-09-16 08:03:42.699 2026-09-16 12:50:28.690
+b1b10611ad2d47f999596b1f0824be2c             10                    LyASC_noG__depth110__seed99 FINISHED 2026-09-16 08:07:30.077 2026-09-16 08:11:11.517
+f64496102b2b4e42a708b4001624b0e2             10             LyASC_stress_2.0__depth110__seed99 FINISHED 2026-09-16 08:11:13.479 2026-09-16 08:19:02.943
+5cad7600eda24bed85e7dcabca35d67f             10                  LyASCplusBN__depth110__seed99 FINISHED 2026-09-16 08:19:05.246 2026-09-16 08:24:20.874
+727e175fccda49339a6ea04ef2afe0f0             10                    LyASC_noG__depth110__seed99 FINISHED 2026-09-16 16:06:08.302 2026-09-16 16:14:50.490
+84242c8d05dc479da0731a344b077b46             10             LyASC_stress_2.0__depth110__seed99 FINISHED 2026-09-16 16:14:55.220 2026-09-16 16:31:31.115
+b608ebf2ca4d47a789513e9ad630fe5c             10                  LyASCplusBN__depth110__seed99 FINISHED 2026-09-16 16:31:32.749 2026-09-16 16:43:07.832
+8591a51f6b4c496ca07e2e88012b6dff             10              LyASC_stress_0.5__depth110__seed0 FINISHED 2026-09-16 17:45:33.192 2026-09-17 00:25:00.393
+d596357ad3354347a94f709124104faa             10              LyASC_stress_2.0__depth110__seed0  RUNNING 2026-09-17 00:25:03.164                     NaT
+1e9f3c54d2ba461393d97ac5b25fc73f             10              LyASC_stress_2.0__depth110__seed0  RUNNING 2026-09-17 03:32:31.771                     NaT
+363214caee314ab08e01f5867a33cfbc             10              LyASC_stress_2.0__depth110__seed0  RUNNING 2026-09-17 06:12:48.656                     NaT
+f4b38e044b2e48ec84c255f5ffe039f6             10              LyASC_stress_2.0__depth110__seed0 FINISHED 2026-09-17 13:04:50.788 2026-09-17 13:30:16.211
+f1b47eac6a37457cb32d795e2c248453             10              LyASC_stress_3.0__depth110__seed0 FINISHED 2026-09-17 13:30:16.951 2026-09-17 20:49:18.094
+d17ebf36c5aa4bcfb8434fb627e4f1e3             10              LyASC_stress_0.5__depth110__seed1 FINISHED 2026-09-18 06:50:08.213 2026-09-18 13:38:00.412
+80d0b6bc5c0c41d186438aa91612040f             10              LyASC_stress_2.0__depth110__seed1  RUNNING 2026-09-18 13:38:05.309                     NaT
+40f3920ba8a14fe7b10851f2ed669444             10              LyASC_stress_2.0__depth110__seed1 FINISHED 2026-09-18 16:40:03.055 2026-09-18 21:43:05.644
+a03cde3d17ec4a5fa1ca2dae2597a219             10              LyASC_stress_3.0__depth110__seed1  RUNNING 2026-09-18 21:43:06.340                     NaT
+bc119dda75634b089ed7a2265939104e             10              LyASC_stress_3.0__depth110__seed1 FINISHED 2026-09-19 04:46:05.030 2026-09-19 10:16:46.441
+6043c8a5bec547a1b3f88ba0f39d4a56             10              LyASC_stress_0.5__depth110__seed2   FAILED 2026-09-19 10:16:48.187 2026-09-19 10:16:48.983
+807bddb1d6354b5fadf4034181180434             10              LyASC_stress_0.5__depth110__seed2   FAILED 2026-09-19 10:19:19.559 2026-09-19 10:19:20.952
+9c03fcb9420e4a1588f27725b8c4059f             10              LyASC_stress_0.5__depth110__seed2   FAILED 2026-09-19 10:21:26.206 2026-09-19 10:21:27.361
+4112f71d5cb8429d9e8f3407535e762a             10              LyASC_stress_0.5__depth110__seed2 FINISHED 2026-09-19 10:22:24.417 2026-09-19 18:26:54.137
+e765c32da69e4ceca7c921857caf8686             10              LyASC_stress_2.0__depth110__seed2 FINISHED 2026-09-19 18:26:57.802 2026-09-20 00:56:18.731
+50544a24d2dd4dceb05300eed2735a40             10              LyASC_stress_3.0__depth110__seed2 FINISHED 2026-09-20 00:56:23.027 2026-09-20 07:25:15.028
+cd8058c0482b409a81eb739ee0b7b896             10              LyASC_stress_3.0__depth110__seed3 FINISHED 2026-09-20 10:07:03.892 2026-09-20 18:10:36.871
+816619f91bca4ea690fded618d4375a9             10              LyASC_stress_3.0__depth110__seed4 FINISHED 2026-09-20 18:10:39.410 2026-09-21 00:47:20.721
+9fe1991d0b0a4973b366eaff3c2952bc             10                    LyASC_noG__depth110__seed99 FINISHED 2026-10-05 11:58:10.991 2026-10-05 12:01:14.176
+5f3d97c522254bec823ece0cf9f42770             10                  LyASCplusBN__depth110__seed99  RUNNING 2026-10-05 12:01:15.163                     NaT
+165c769e27924308b7f92923c60e6d4f             10                   LyASC_noG__depth110__seed999 FINISHED 2026-10-05 12:04:27.307 2026-10-05 12:07:45.156
+932345d73c604ba4acc74a873fb2dcd4             10                 LyASCplusBN__depth110__seed999 FINISHED 2026-10-05 12:07:46.328 2026-10-05 12:11:30.727
+0b7e3077e19a47378bb4619fd3e478b4             10                     LyASC_noG__depth110__seed0 FINISHED 2026-10-05 12:12:05.096 2026-10-05 17:00:23.258
+ee5687fd188747fd892e1744bf88aed5             10                     LyASC_noG__depth110__seed1 FINISHED 2026-10-05 17:00:25.751 2026-10-05 21:46:19.859
+ab2bb9f32372489a82b73744311762fb             10                   LyASCplusBN__depth110__seed0  RUNNING 2026-10-05 21:46:22.660                     NaT
+d54f1130d8f24c2f96edbb75e2e96acf             10                   LyASCplusBN__depth110__seed0 FINISHED 2026-10-06 03:12:06.254 2026-10-06 04:03:10.774
+c0fee8ced92f491290b5a8e3fee6797d             10                   LyASCplusBN__depth110__seed1  RUNNING 2026-10-06 04:03:11.774                     NaT
+2e2643dbac74498d9360745aff4b65a0             10                   LyASCplusBN__depth110__seed1  RUNNING 2026-10-06 07:17:21.894                     NaT
+32e864dabb4049a083b769c9163161d0             10                   LyASCplusBN__depth110__seed1 FINISHED 2026-10-06 17:15:09.299 2026-10-06 17:32:46.190
