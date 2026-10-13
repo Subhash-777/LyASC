@@ -11,9 +11,27 @@
 
 \title{LyASC: Stability-Driven Skip-Connection Gating\\for Deep Residual Networks}
 
-\author{\IEEEauthorblockN{Anonymous Authors}
-\IEEEauthorblockA{Department of Computer Science\\
-Email: authors@example.com}}
+\author{
+\IEEEauthorblockN{Subhash R}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Amrita School of Computing\\
+Amrita Vishwa Vidyapeetham\\
+Chennai 600103, India\\
+subhashravichandran7432@gmail.com}
+\and
+\IEEEauthorblockN{Veena Sundari A}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Amrita School of Computing\\
+Amrita Vishwa Vidyapeetham\\
+Chennai 600103, India\\
+veenasundari665@gmail.com}
+\and
+\IEEEauthorblockN{Rithani M}
+\IEEEauthorblockA{Department of Computer Science and Engineering\\
+Amrita School of Computing\\
+Amrita Vishwa Vidyapeetham\\
+Chennai 600103, India\\
+m\_rithani@ch.amrita.edu}}
 
 \maketitle
 
@@ -24,7 +42,7 @@ Email: authors@example.com}}
 Deep residual networks usually fix the weights of their skip
 connections at design time. Scaling those weights away from unity hurts
 accuracy unless a normalization layer follows the combination, and even
-the best fixed scaling schedules have to be tuned by hand for each
+the best fixed scaling schedules must be tuned by hand for each
 dataset. A freely learned gate would remove the tuning, but it
 underperforms the fixed schedules because its parameters receive no
 structural signal during training. We propose LyASC (Lyapunov-Aware
@@ -71,20 +89,19 @@ individual blocks. The unconstrained learned gate fails because it gets
 no signal about when a given block would benefit from favoring the skip
 path over the residual branch.
 
-LyASC (Lyapunov-Aware Skip Connections) replaces both with a gate
-driven by a measured quantity: the local dynamical instability of each
-residual block. At every block, a power-iteration estimate of the
-dominant singular value of the residual branch's Jacobian serves as a
-proxy for the finite-time Lyapunov exponent. A sigmoid gate turns this
-estimate into a blending coefficient $\alpha_l \in (0, 1)$ that sets the
-balance between the skip and residual paths. When the residual branch is
-locally unstable (large singular value), the gate moves toward the skip
-path. When the branch is stable, the gate lets more of the residual
-signal through.
+LyASC replaces both with a gate driven by a measured quantity, the local
+dynamical instability of each residual block. At every block, a
+power-iteration estimate of the dominant singular value of the residual
+branch's Jacobian serves as a proxy for the finite-time Lyapunov
+exponent. A sigmoid gate turns this estimate into a blending coefficient
+$\alpha_l \in (0, 1)$ that sets the balance between the skip and
+residual paths. When the residual branch is locally unstable (large
+singular value), the gate moves toward the skip path. When the branch is
+stable, the gate lets more of the residual signal through.
 
-The contributions of this paper are:
+This paper makes four contributions:
 \begin{enumerate}
-    \item The LyASC architecture: stability-driven skip gating that
+    \item The LyASC architecture, a stability-driven skip gate that
     fits into standard PreAct-ResNet blocks without changing the
     backbone interface.
     \item A verified reproduction of the base paper's image
@@ -92,8 +109,8 @@ The contributions of this paper are:
     $\pm$0.4 percentage-point tolerance, and every non-catastrophic
     deviation is an outperform.
     \item Normal-condition results. LyASC with post-gate Layer
-    Normalization reaches 7.17\% error. It beats the unconstrained
-    learned gate (8.16\%) by 0.99 percentage points and falls 1.02
+    Normalization reaches 7.17\% error. That is 0.99 percentage points
+    better than the unconstrained learned gate (8.16\%) and 1.02
     percentage points short of the best fixed baseline (6.15\%).
     \item Stress-test results. Under skip scaling that drives fixed
     baselines to 37\% to 49\% error, LyASC brings every seed below 9\%
@@ -111,59 +128,62 @@ This report covers the implementation, stress-testing, and normalization pairing
 
 \subsection{Residual Learning, Skip Scaling, and Normalization}
 
-He et al.~\cite{he2016deep, he2016identity} established identity skip
-connections as the standard mechanism enabling stable optimization of deep
-residual networks exceeding 100 layers. Zaeemzadeh et al.~\cite{zaeemzadeh2020norm}
-analyzed norm-preservation properties of residual connections, showing that
-preserving signal and gradient norms across depth prevents gradient vanishing.
-Liu et al.~\cite{liu2021rethinking} systematically evaluated fixed skip-scaling
-parameters alongside post-combination Layer Normalization in ResNets and
-Transformers, discovering that fixed recursive scaling (2rSkip+LN) achieves
-competitive performance (6.02\% on CIFAR-10), whereas unconstrained learned
-scaling (wSkip+LN) degrades to 8.66\%. MacDonald et al.~\cite{macdonald2023skip}
-further clarified the interaction between skip paths and normalization layers in
-deep optimization landscapes, showing that normalization rescales activations
-by a static geometric rule without tracking dynamical branch behavior during
-training. Veit et al.~\cite{veit2016residual} conceptualized residual networks as
-ensembles of relatively shallow paths, implying that modulating skip and
-residual contributions alters the effective depth distribution of the ensemble.
+He et al.~\cite{he2016deep, he2016identity} made identity skip
+connections the standard way to optimize residual networks beyond 100
+layers. Zaeemzadeh et al.~\cite{zaeemzadeh2020norm} analyzed
+norm-preservation in residual connections and showed that preserving
+signal and gradient norms across depth prevents vanishing gradients.
+Liu et al.~\cite{liu2021rethinking} evaluated fixed skip-scaling
+parameters together with post-combination Layer Normalization in ResNets
+and Transformers. Fixed recursive scaling (2rSkip+LN) performed
+competitively at 6.02\% on CIFAR-10, while unconstrained learned scaling
+(wSkip+LN) degraded to 8.66\%. MacDonald et al.~\cite{macdonald2023skip}
+examined how skip paths interact with normalization layers in deep
+optimization landscapes. Normalization rescales activations by a static
+geometric rule and does not track how a branch behaves during training.
+Veit et al.~\cite{veit2016residual} described residual networks as
+ensembles of relatively shallow paths, so modulating the skip and
+residual contributions changes the effective depth distribution of that
+ensemble.
 
 \subsection{Learned Gating and Dynamic Routing}
 
-Highway Networks~\cite{srivastava2015highway} introduced learned transform and
-carry gates ($T(x)$ and $C(x) = 1 - T(x)$) to dynamically modulate feature flow
-across layers. Subsequent work explored dynamic execution paths: SkipNet~\cite{wang2018skipnet}
-and adaptive inference graph architectures~\cite{veit2020adaptive} formulate
-sample-dependent routing policies primarily to reduce inference compute.
-Huang et al.~\cite{huang2016deep} introduced stochastic depth, randomly bypassing
-residual blocks during training according to a predefined linear decay schedule.
-More recently, Joseph et al.~\cite{joseph2024lambda} proposed Lambda-Skip connections
-to prevent rank collapse in deep representations, while Thota~\cite{thota2025cosinegate}
-introduced CosineGate for semantic dynamic routing based on directional cosine
-incompatibility. Unlike content-based gates that condition on feature activations
-or stochastic schedules, LyASC is driven by an online dynamical stability signal
-computed from local Jacobian amplification.
+Highway Networks~\cite{srivastava2015highway} introduced learned
+transform and carry gates ($T(x)$ and $C(x) = 1 - T(x)$) that modulate
+feature flow across layers. Later work explored dynamic execution paths.
+SkipNet~\cite{wang2018skipnet} and adaptive inference graphs~\cite{veit2020adaptive}
+learn sample-dependent routing policies, mainly to reduce inference
+compute. Huang et al.~\cite{huang2016deep} introduced stochastic depth,
+which randomly bypasses residual blocks during training on a predefined
+linear decay schedule. More recently, Joseph et al.~\cite{joseph2024lambda}
+proposed Lambda-Skip connections to prevent rank collapse in deep
+representations, and Thota~\cite{thota2025cosinegate} introduced
+CosineGate, which routes semantically based on directional cosine
+incompatibility. These gates condition on feature activations or follow a
+stochastic schedule. LyASC is driven instead by an online dynamical
+stability signal computed from local Jacobian amplification.
 
 \subsection{Dynamical Systems Perspectives and Edge of Stability}
 
-A growing body of work examines deep network training through dynamical systems
-and stability theory. Nar and Sastry~\cite{nar2018residual} established Lyapunov
-stability conditions and convex decomposition for residual networks, treating
-layer-to-layer activations as discrete-time dynamical trajectories.
-Cohen et al.~\cite{cohen2021gradient} demonstrated that gradient descent on
-neural networks typically operates at the ``edge of stability'' (EoS), where
-the top eigenvalue of the training loss Hessian hovers around $2/\eta$.
-Subsequent theoretical analyses by Arora et al.~\cite{arora2022understanding},
-Damian et al.~\cite{damian2022self}, and Andreyev and Beneventano~\cite{andreyev2024edge}
-further characterized implicit self-stabilization and stochastic stability under SGD.
-Mittra~\cite{mittra2024utilizing} and Sharafi et al.~\cite{sharafi2024weight}
-explored Lyapunov exponents and weight trajectory metrics for architecture design
-and learning dynamics diagnostics.
-Ba et al.~\cite{ba2016layer} demonstrated that Layer Normalization stabilizes
-hidden-state dynamics by standardizing activation variance.
-LyASC bridges these domains by employing an online, finite-difference Jacobian-vector
-product (JVP) amplification proxy as a local controller signal to dynamically
-modulate the skip-residual blending parameter $\alpha_l$.
+Several lines of work examine deep network training through dynamical
+systems and stability theory. Nar and Sastry~\cite{nar2018residual}
+derived Lyapunov stability conditions and a convex decomposition for
+residual networks, treating layer-to-layer activations as discrete-time
+dynamical trajectories. Cohen et al.~\cite{cohen2021gradient} showed that
+gradient descent on neural networks typically operates at the ``edge of
+stability'' (EoS), where the top eigenvalue of the training loss Hessian
+hovers around $2/\eta$. Arora et al.~\cite{arora2022understanding},
+Damian et al.~\cite{damian2022self}, and Andreyev and
+Beneventano~\cite{andreyev2024edge} went on to analyze implicit
+self-stabilization and stochastic stability under SGD. Mittra~\cite{mittra2024utilizing}
+and Sharafi et al.~\cite{sharafi2024weight} used Lyapunov exponents and
+weight trajectory metrics for architecture design and diagnosing
+learning dynamics. Ba et al.~\cite{ba2016layer} showed that Layer
+Normalization stabilizes hidden-state dynamics by standardizing
+activation variance. LyASC draws on these ideas through an online,
+finite-difference Jacobian-vector product (JVP) amplification proxy. The
+proxy acts as a local controller signal that sets the skip-residual
+blending parameter $\alpha_l$.
 
 \subsection{Literature Comparative Analysis}
 
@@ -212,85 +232,86 @@ et al.~\cite{liu2021rethinking} generalize this to
 $y_l = G(\lambda x_l + F_l(x_l))$, where $\lambda$ is a fixed scalar
 and $G$ is an optional normalization function.
 
-LyASC formalizes a generalized stability-modulated residual block:
+LyASC uses a stability-modulated residual block:
 \begin{align}
     \alpha_l &= \sigma\bigl(\beta_l \cdot (\hat{\lambda}_l - \lambda_0)\bigr), \label{eq:gate} \\
     y_l &= G\bigl(\alpha_l \cdot s_x x_l + (1 - \alpha_l) \cdot s_F F_l(x_l; \theta_l)\bigr) \label{eq:output}
 \end{align}
-where $s_x$ and $s_F$ denote configured branch scale factors, $G$ is the
-post-gate normalization operator, and $\alpha_l \in (0, 1)$ acts as a dynamic
-convex blending parameter when $s_x = s_F = 1$. Under standard unstressed
-training, $s_x = s_F = 1$. In stress testing, $s_x$ and $s_F$ are varied to
-reproduce structural scaling collapse modes (e.g., $s_x=0.5$ or $s_F \in \{2, 3\}$).
+where $s_x$ and $s_F$ are configured branch scale factors, $G$ is the
+post-gate normalization operator, and $\alpha_l \in (0, 1)$ is a dynamic
+convex blending parameter when $s_x = s_F = 1$. Standard unstressed
+training uses $s_x = s_F = 1$. In stress testing, we vary $s_x$ and $s_F$
+to reproduce structural scaling collapse (for example $s_x=0.5$ or
+$s_F \in \{2, 3\}$).
 
 Here $\hat{\lambda}_l$ is an online exponentially smoothed local stability
 proxy at block~$l$ (Section~\ref{sec:estimator}), $\lambda_0 = 0$ is the
 nominal stability threshold, $\beta_l$ is a per-block learnable sensitivity
 parameter initialized to 0, and $\sigma(z) = 1 / (1 + e^{-z})$ is the standard
 logistic sigmoid. Because $\beta_l = 0$ at initialization, $\alpha_l = 0.5$ for
-every block at step zero, ensuring that every block starts with an equal nominal
-blend of identity and residual pathways before sensitivity parameters diverge.
-The parameter $\beta_l$ is not constrained to be strictly positive; the network
-learns the directional sensitivity per block via backpropagation.
+every block at step zero, so every block starts with an equal blend of
+identity and residual pathways before the sensitivity parameters diverge.
+The parameter $\beta_l$ is not constrained to be positive, and the network
+learns the direction of sensitivity for each block through backpropagation.
 
 We investigate three post-gate operations: $G \in \{\text{Identity}, \text{LayerNorm2d}, \text{BatchNorm2d}\}$.
-Under primary evaluation, $G = \text{LayerNorm2d}$ is adopted following the
+The primary evaluation uses $G = \text{LayerNorm2d}$, chosen after the
 ablation in Section~\ref{sec:ablation1}.
 
 \subsection{Stability Estimator as Local Amplification Proxy}
 \label{sec:estimator}
 
-The controller signal $\hat{\lambda}_l$ approximates the local amplification of
-perturbations across the residual branch $F_l$. Let $J_l(x_l) = \partial F_l / \partial x_l$
+The controller signal $\hat{\lambda}_l$ approximates how much the residual
+branch $F_l$ amplifies perturbations locally. Let $J_l(x_l) = \partial F_l / \partial x_l$
 denote the local Jacobian of block $l$. A singular value $\sigma_{\max}(J_l) > 1$
-indicates local perturbation expansion, whereas $\sigma_{\max}(J_l) < 1$ indicates
+indicates local perturbation expansion, and $\sigma_{\max}(J_l) < 1$ indicates
 contraction.
 
 A full finite-time Lyapunov exponent (FTLE) calculation requires tracking perturbation
-growth across an extended temporal trajectory of operators with continuous orthogonalization.
-In our implementation, we compute an online, finite-difference Jacobian-vector product
-(JVP) amplification proxy using $k$-step power iteration without computing the full Jacobian:
+growth across an extended trajectory of operators with continuous orthogonalization.
+Our implementation computes an online, finite-difference Jacobian-vector product
+(JVP) amplification proxy using $k$-step power iteration, without forming the full Jacobian:
 \begin{enumerate}
-    \item Sample a random unit Gaussian probe vector $v \in \mathbb{R}^d$, normalized such that $\|v\|_2 = 1$.
-    \item Compute the directional directional amplification $u = J_l \cdot v$ via a single JVP in PyTorch autograd.
-    \item Update the probe vector direction $v \leftarrow u / (\|u\|_2 + \epsilon)$.
-    \item Repeat steps 2 and 3 for $k$ power-iteration steps (configured to $k=1$ in our primary pipeline).
+    \item Sample a random Gaussian probe vector $v \in \mathbb{R}^d$ and normalize it so that $\|v\|_2 = 1$.
+    \item Compute the directional amplification $u = J_l \cdot v$ with a single JVP in PyTorch autograd.
+    \item Update the probe direction $v \leftarrow u / (\|u\|_2 + \epsilon)$.
+    \item Repeat steps 2 and 3 for $k$ power-iteration steps ($k=1$ in our primary pipeline).
     \item Define the raw logarithmic amplification proxy:
     \begin{equation}
         \lambda_l^{\text{raw}} = \log\bigl(\|u\|_2 + \epsilon\bigr).
     \end{equation}
 \end{enumerate}
 
-To dampen batch-level gradient noise and high-frequency stochasticity, the raw proxy is
-smoothed via an exponential moving average (EMA):
+An exponential moving average (EMA) smooths the raw proxy to damp batch-level
+gradient noise and high-frequency stochasticity:
 \begin{equation}
     \hat{\lambda}_l^{(t)} = \rho \cdot \hat{\lambda}_l^{(t-1)} + (1 - \rho) \cdot \lambda_l^{\text{raw},(t)}
 \end{equation}
-where $\rho = 0.9$ is the EMA decay factor. To bound computational overhead, the power-iteration
-probe is updated once every $N$ training iterations ($N = 20$), and the cached smoothed
-statistic $\hat{\lambda}_l$ is read during intermediate forward passes.
+where $\rho = 0.9$ is the EMA decay factor. To limit computational overhead, we update the
+power-iteration probe once every $N = 20$ training iterations and read the cached smoothed
+statistic $\hat{\lambda}_l$ during the forward passes in between.
 
 \subsection{Controller Interpretation and System Scope}
 
-From a dynamical systems and control perspective, LyASC operates as a feedback-inspired
-local controller: it samples local amplification, converts it to a convex mixing gate,
-and adjusts branch throughput dynamically as optimization progresses. We emphasize that
-LyASC provides an empirical heuristic rather than a formal Lyapunov stability guarantee:
-it does not compute global state-space Lyapunov spectra, nor does it guarantee bounded
-asymptotic dynamics under arbitrary nonlinear perturbations. Instead, it offers a
-computationally tractable proxy ($k=1, N=20$) that alerts the architecture when a
-residual branch is severely amplifying feature magnitudes.
+From a control perspective, LyASC works as a feedback-inspired local
+controller. It samples local amplification, converts it to a convex mixing
+gate, and adjusts branch throughput as optimization progresses. It is an
+empirical heuristic, not a formal Lyapunov stability guarantee. It does not
+compute global state-space Lyapunov spectra, and it does not guarantee
+bounded asymptotic dynamics under arbitrary nonlinear perturbations. What it
+offers is a cheap proxy ($k=1, N=20$) that signals when a residual branch is
+strongly amplifying feature magnitudes.
 
 \subsection{Integration with PreAct-ResNet-110}
 
-LyASC is implemented via two self-contained modules in \texttt{lyasc\_model}:
+LyASC is implemented in two self-contained modules in \texttt{lyasc\_model}:
 \begin{itemize}
-    \item \texttt{StabilityEstimator}: Manages the persistent probe buffer, EMA smoothing, and $N$-step cadence.
-    \item \texttt{LyASCSkip}: Implements Eqs.~\ref{eq:gate} and \ref{eq:output}, exposing the standard \texttt{forward(x, F\_x)} interface expected by \texttt{PreActBasicBlock}.
+    \item \texttt{StabilityEstimator} manages the persistent probe buffer, EMA smoothing, and $N$-step cadence.
+    \item \texttt{LyASCSkip} implements Eqs.~\ref{eq:gate} and \ref{eq:output} and exposes the standard \texttt{forward(x, F\_x)} interface that \texttt{PreActBasicBlock} expects.
 \end{itemize}
-The baseline codebase (\texttt{base\_model}) is maintained as a strictly read-only reference.
-The sensitivity parameter $\beta_l$ is excluded from weight decay, matching the treatment
-accorded to normalization affine scales and the $w$ parameter of wSkip+LN.
+The baseline codebase (\texttt{base\_model}) is kept strictly read-only.
+The sensitivity parameter $\beta_l$ is excluded from weight decay, as are the
+normalization affine scales and the $w$ parameter of wSkip+LN.
 
 
 % ===================================================================
@@ -322,44 +343,43 @@ Normalization~\cite{ba2016layer}, all biases, and the per-block
 $\beta_l$ gate sensitivity parameters are excluded from weight decay.
 
 Each configuration is evaluated over three random seeds. The base paper
-used five. We used fewer because of compute limits and list this as a
+used five. Compute limits forced the smaller number, which we list as a
 limitation. All comparisons use the same symmetric $\pm 0.4$
 percentage-point tolerance as the base-model reproduction.
 
 LyASC's estimator hyperparameters are $k = 1$ (power-iteration steps
 per recomputation), $N = 20$ (training steps between recomputations),
 EMA decay $\rho = 0.9$, and stability threshold $\lambda_0 = 0.0$. We
-apply no cold-start handling: the estimator runs from iteration~0 with
+apply no cold-start handling, so the estimator runs from iteration~0 with
 no warmup or damping (Section~\ref{sec:phased} reports the ablation
 behind this choice).
 
 \subsection{Hardware Environment and Compute Constraints}
 
 All training runs execute on a dedicated single-GPU workstation with a
-4GB VRAM limit. A full 64,000-iteration training run using LayerNorm2d
-allocates up to 3.8~GB of VRAM, which prevents overlapping execution and
-requires all training runs to be strictly serialized. Training uses
-standard single-precision floating-point arithmetic (FP32) without
-mixed precision.
+4GB VRAM limit. A full 64,000-iteration run with LayerNorm2d
+allocates up to 3.8~GB of VRAM, which rules out overlapping execution, so
+all runs are serialized. Training uses standard single-precision
+floating point (FP32) without mixed precision.
 
 \subsection{Software Environment and Automated Verification}
 
-The experimental pipeline is isolated in an environment running Python~3.10
+The experimental pipeline runs in an isolated environment with Python~3.10
 and PyTorch with CUDA acceleration. The base-model codebase
-(\texttt{base\_model/}) is maintained as a strictly read-only reference.
-To verify implementation correctness, an automated test suite comprising
+(\texttt{base\_model/}) is kept strictly read-only.
+To check the implementation, an automated suite of
 78 unit tests across \texttt{lyasc\_model/tests/} and \texttt{base\_model/tests/}
-checks Jacobian-vector product calculations, exponential moving average updates,
+covers Jacobian-vector product calculations, exponential moving average updates,
 buffer persistence across training iterations, checkpoint restoration, and
-gradient propagation without modifying the baseline modules.
+gradient propagation, all without modifying the baseline modules.
 
 \subsection{Experiment Tracking and Data Provenance}
 
-All experimental runs, hyperparameters, training trajectories (cross-entropy
-loss, classification accuracy, gradient norms, and per-block gate statistics),
-and checkpoint locations are logged to an MLflow tracking service backed by
-a local SQLite database. All numerical results reported in this work trace
-directly to saved result JSON artifacts and serialized checkpoints.
+Every experimental run is logged to an MLflow tracking service backed by
+a local SQLite database. The log holds hyperparameters, training trajectories
+(cross-entropy loss, classification accuracy, gradient norms, and per-block
+gate statistics), and checkpoint locations. All numerical results reported
+here trace to saved result JSON artifacts and serialized checkpoints.
 
 
 
@@ -419,13 +439,13 @@ project's decisions log.
 
 The initial LyASC configuration (no post-gate normalization,
 $G = \text{identity}$) reached a 3-seed mean error of 9.66\% $\pm$
-0.74 (individual seeds: 10.21\%, 8.82\%, 9.95\%). That is a higher error
-than both the best fixed baseline (2rSkip+LN at 6.15\%) and the
+0.74 (individual seeds: 10.21\%, 8.82\%, 9.95\%). That is higher than
+both the best fixed baseline (2rSkip+LN at 6.15\%) and the
 unconstrained learned gate (wSkip+LN at 8.16\%).
 
 The likely cause is the missing normalization after the gate. Without
-it, the convex combination $\alpha_l x + (1 - \alpha_l) F(x)$ has a
-magnitude that depends on $\alpha_l$, and that shift compounds over 54
+it, the magnitude of the convex combination $\alpha_l x + (1 - \alpha_l) F(x)$
+depends on $\alpha_l$, and that shift compounds over 54
 consecutive blocks. The final gate distribution was wide ($\alpha$
 standard deviation of 0.296 across blocks at convergence), which made
 the effect worse. This diagnosis led to the LayerNorm ablation below.
@@ -448,10 +468,9 @@ wSkip+LN (8.16\%) by 0.94 percentage points and cuts the gap to
 2rSkip+LN (6.15\%) from 4.06 to 1.07 percentage points.
 
 We adopted LyASC+LN as the default configuration for all later
-experiments. The empirical benefit of $G = \text{LayerNorm2d}$ is clear.
-How it improves gate behavior (by controlling activation scale,
-preventing saturation, or through some other effect) was not measured
-and remains open.
+experiments. Its benefit is clear. Why it improves gate behavior, whether
+by controlling activation scale, preventing saturation, or some other
+effect, was not measured and remains open.
 
 
 \subsection{Cold-Start Strategy Comparison (Phase D)}
@@ -574,10 +593,10 @@ occur at this stress level requires more seeds.
 \subsection{Normalization Pairing Ablations (Phase E2)}
 \label{sec:phasee2}
 
-To evaluate how the choice of post-gate normalization function $G$ affects performance, Phase~E2 tested two normalization variants on PreAct-ResNet-110 (2 seeds each, 64,000 iterations), comparing them against the closed-out LyASC+LN Phase~D baseline (7.17\% $\pm$ 0.21\%):
+To see how the post-gate normalization function $G$ affects performance, Phase~E2 tested two normalization variants on PreAct-ResNet-110 (2 seeds each, 64,000 iterations) and compared them against the closed-out LyASC+LN Phase~D baseline (7.17\% $\pm$ 0.21\%):
 \begin{itemize}
-    \item \textbf{LyASC\_noG ($G = \text{identity}$, reused from Phase~C):} Omitting post-gate normalization yields a 3-seed mean error of 9.66\% $\pm$ 0.74\% (individual seeds: 10.21\%, 8.82\%, 9.95\%), incurring a +2.49 percentage-point accuracy penalty compared to LyASC+LN (7.17\%). This confirms that post-gate normalization is necessary to maintain single-digit classification error.
-    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization yields an error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%, $n=2$, with seed~2 in training). In unstressed training, this represents an observed difference of -0.83 percentage points compared to LyASC+LN (7.17\%, $n=3$). This 6.34\% error rate is statistically indistinguishable from plain 1xSkip (6.27\%--6.36\%) and remains above the best fixed baseline, 2rSkip+LN (6.15\%). Furthermore, the behavior of LyASC+BN under stress conditions remains untested.
+    \item \textbf{LyASC\_noG ($G = \text{identity}$, reused from Phase~C):} Omitting post-gate normalization gives a 3-seed mean error of 9.66\% $\pm$ 0.74\% (individual seeds: 10.21\%, 8.82\%, 9.95\%), which is 2.49 percentage points worse than LyASC+LN (7.17\%). Post-gate normalization is therefore necessary to keep classification error in the single digits.
+    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization gives an error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%, $n=2$, with seed~2 still in training). In unstressed training this is 0.83 percentage points lower than LyASC+LN (7.17\%, $n=3$). The 6.34\% error rate is statistically indistinguishable from plain 1xSkip (6.27\% to 6.36\%) and remains above the best fixed baseline, 2rSkip+LN (6.15\%). We have not tested LyASC+BN under stress conditions.
 \end{itemize}
 
 Table~\ref{tab:normpairing} summarizes the normalization pairing ablation matrix.
@@ -606,7 +625,7 @@ PreAct-ResNet-110    & N/A         & 3 & 6.27 $\pm$ 0.04 & N/A   \\
 \section{Discussion and Limitations}
 
 The results show that a stability-driven gate can work as a
-skip-connection mechanism, with several clear limitations.
+skip-connection mechanism, with several limitations.
 
 \textit{Normal-condition gap.}
 LyASC+LN (7.17\%) does not beat the best fixed baseline, 2rSkip+LN
@@ -620,19 +639,46 @@ better hyperparameters or architectural changes can reduce that cost is
 open.
 
 \textit{Wall-clock overhead and normalization cost.}
-Measured training runtimes demonstrate that computational overhead is dominated by the normalization operator rather than the stability estimator. A complete 64,000-iteration training run requires approximately 4.7 hours (0.26 s/iter) for un-normalized LyASC (Phase C), approximately 6.2 hours (0.35 s/iter) for LyASC+BN, and approximately 8.9 hours (0.50 to 0.68 s/iter) for LyASC+LN. The power-iteration estimator with $k=1$ and $N=20$ executes one single directional Jacobian-vector product every 20 iterations, contributing an estimated 3\% to 5\% overhead. The primary computational bottleneck stems from the spatial and channel reductions within the 54 LayerNorm2d operations across the deep residual trunk.
+Measured training runtimes show that the normalization operator, not the
+stability estimator, dominates the overhead. A complete 64,000-iteration run takes
+about 4.7 hours (0.26 s/iter) for un-normalized LyASC (Phase C),
+about 6.2 hours (0.35 s/iter) for LyASC+BN, and about 8.9 hours
+(0.50 to 0.68 s/iter) for LyASC+LN. With $k=1$ and $N=20$, the estimator
+runs one directional Jacobian-vector product every 20 iterations, which we
+estimate adds 3\% to 5\% overhead. The main bottleneck is the spatial and
+channel reductions in the 54 LayerNorm2d operations across the residual
+trunk.
 
-\textit{Internal validity and reproducibility safeguards.}
-Several procedural safeguards protect experimental validity. The reference baseline implementation (\texttt{base\_model/}) remains completely frozen and read-only. Random number generator seeds are fixed across PyTorch, NumPy, and Python standard libraries. Quantitative results are logged automatically to an MLflow database and exported to structured JSON records, preventing clerical transcription errors.
+\textit{Internal validity and reproducibility.}
+The reference baseline implementation (\texttt{base\_model/}) stays frozen and
+read-only. Random number generator seeds are fixed across PyTorch, NumPy, and
+the Python standard library. Quantitative results are logged automatically to
+an MLflow database and exported to structured JSON records, which avoids
+transcription errors.
 
 \textit{External validity and scale of evaluation.}
-All empirical evaluations in this work are conducted on a single GPU using CIFAR-10 on PreAct-ResNet-110 with three seeds per standard configuration (five seeds for stress\_3.0). The published baseline paper evaluated five seeds per configuration. We have not evaluated whether these findings generalize to larger datasets (such as ImageNet-1k), different domain modalities (such as language or audio), alternative architectural families (such as Transformers or ConvNeXt), or deeper residual networks.
+All experiments run on a single GPU using CIFAR-10 on PreAct-ResNet-110 with
+three seeds per standard configuration (five seeds for stress\_3.0). The
+published baseline paper used five seeds per configuration. We have not
+tested whether these findings generalize to larger datasets (such as
+ImageNet-1k), other modalities (such as language or audio), other
+architecture families (such as Transformers or ConvNeXt), or deeper
+residual networks.
 
 \textit{Unresolved stress\_3.0 bifurcation mechanism.}
-The two-cluster outcome observed under the severe stress\_3.0 condition remains incompletely resolved. While iteration trajectories show that early gate progression above $\alpha = 0.70$ before iteration 16,000 correlates with full recovery, the causal direction remains open: it is unclear whether early gate adaptation actively drives recovery or merely reflects optimization progress driven by favorable initial gradients.
+The two-cluster outcome under stress\_3.0 is only partly explained.
+Iteration trajectories show that early gate progression above $\alpha = 0.70$
+before iteration 16,000 correlates with full recovery. The causal direction
+is still open: early gate adaptation may drive recovery, or it may simply
+reflect optimization progress from favorable initial gradients.
 
 \textit{Hyperparameter exploration.}
-All experiments evaluated a single fixed hyperparameter configuration ($k = 1$, $N = 20$, $\lambda_0 = 0$, $\rho = 0.9$, $\beta_l$ initialized to 0). This configuration was chosen based on initial profiling rather than systematic grid search. Whether alternative thresholds $\lambda_0$, faster update intervals $N$, or multi-step power iterations $k > 1$ can close the remaining gap to the 2rSkip+LN baseline remains an open question.
+All experiments used a single fixed hyperparameter configuration ($k = 1$,
+$N = 20$, $\lambda_0 = 0$, $\rho = 0.9$, $\beta_l$ initialized to 0), chosen
+from initial profiling and not from a systematic grid search. Whether other
+thresholds $\lambda_0$, faster update intervals $N$, or multi-step power
+iterations $k > 1$ can close the remaining gap to the 2rSkip+LN baseline is
+an open question.
 
 
 
@@ -649,10 +695,10 @@ normal training, and it stabilizes training in two of three catastrophic
 stress regimes where the fixed baselines fail outright. It does not
 match the best hand-tuned fixed baseline, 2rSkip+LN.
 
-Three key directions remain. First, Phase~F will investigate
-novel architectural extensions, including dynamic $\lambda$ learning rate
+Three directions remain. First, Phase~F will investigate
+architectural extensions, including dynamic $\lambda$ learning rate
 schedulers and adaptive EMA decay rates. Evaluating depth scaling on
-CIFAR-100 at depths 20 through 110 remains as separate future work.
+CIFAR-100 at depths 20 through 110 is separate future work.
 Second, a systematic search over the estimator hyperparameters ($k$,
 $N$, $\lambda_0$, and the initialization of~$\beta_l$) may close the
 1.02~pp gap to the fixed baseline under normal conditions. Third, the

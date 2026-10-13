@@ -37,3 +37,6 @@ base_model/data/
 # OS / Editor junk
 .DS_Store
 *.swp
+
+# Reference PDFs (local download)
+paper/Reference_pdfs/
