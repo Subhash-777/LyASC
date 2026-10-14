@@ -44,12 +44,13 @@ NUM_042,27.900000000000002,%,Phase E1 LyASC stress 3.0x seed 0 test error,1,lyas
 NUM_043,32.730000000000004,%,Phase E1 LyASC stress 3.0x seed 1 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed1.json,final_test_error field,verified
 NUM_044,19.120000000000005,%,Phase E1 LyASC stress 3.0x seed 2 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed2.json,final_test_error field,verified
 NUM_045,20.88,%,Phase E1 LyASC stress 3.0x seed 3 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASC_stress_3.0__depth110__seed3.json,final_test_error field,verified
-NUM_046,6.34,%,Phase E2 LyASC+BN mean test error (n=2),2,lyasc_model/results/logs/phase_e_stresstest/decisions.log,2-seed average,verified
+NUM_046,6.32,%,Phase E2 LyASC+BN mean test error (n=3),3,lyasc_model/results/logs/phase_e_stresstest/decisions.log,3-seed average,verified
 NUM_047,6.35,%,Phase E2 LyASC+BN seed 0 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.json,final_test_error field,verified
 NUM_048,6.330000000000002,%,Phase E2 LyASC+BN seed 1 test error,1,lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed1.json,final_test_error field,verified
-NUM_049,0.1922,s/iter,Frozen bench timing k=2 N=10,1,lyasc_model/results/logs/step3_frozen/frozen__LyASC__depth110__seed101.json,wall_clock / total_iters,verified
-NUM_050,0.2888,s/iter,Standard timing k=1 N=20,1,lyasc_model/results/logs/step3_k1n20/k1n20_bench__LyASC__depth110__seed101.json,wall_clock / total_iters,verified
-NUM_051,0.2614,s/iter,LyASC noG benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_noG__depth110__seed99.json,wall_clock / total_iters,verified
-NUM_052,0.3475,s/iter,LyASC+BN benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed99.json,wall_clock / total_iters,verified
-NUM_053,0.4979,s/iter,LyASC+LN benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed99.json,wall_clock / total_iters,verified
-NUM_054,78,tests,Total passed unit tests,1,lyasc_model/tests/ and base_model/tests/,pytest execution summary,verified
+NUM_049,6.269999999999998,%,Phase E2 LyASC+BN seed 2 test error,1,/home/subhash/projects/LyASC/lyasc_model/results/logs/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed2.json,final_test_error field,verified
+NUM_050,0.1922,s/iter,Frozen bench timing k=2 N=10,1,lyasc_model/results/logs/step3_frozen/frozen__LyASC__depth110__seed101.json,wall_clock / total_iters,verified
+NUM_051,0.2888,s/iter,Standard timing k=1 N=20,1,lyasc_model/results/logs/step3_k1n20/k1n20_bench__LyASC__depth110__seed101.json,wall_clock / total_iters,verified
+NUM_052,0.2614,s/iter,LyASC noG benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_noG__depth110__seed99.json,wall_clock / total_iters,verified
+NUM_053,0.3475,s/iter,LyASC+BN benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed99.json,wall_clock / total_iters,verified
+NUM_054,0.4979,s/iter,LyASC+LN benchmark timing,1,lyasc_model/results/logs/phase_e_benchmark/lyasc_phase_e_stresstest__LyASC_stress_2.0__depth110__seed99.json,wall_clock / total_iters,verified
+NUM_055,78,tests,Total passed unit tests,1,lyasc_model/tests/ and base_model/tests/,pytest execution summary,verified

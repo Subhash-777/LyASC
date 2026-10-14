@@ -593,10 +593,10 @@ occur at this stress level requires more seeds.
 \subsection{Normalization Pairing Ablations (Phase E2)}
 \label{sec:phasee2}
 
-To see how the post-gate normalization function $G$ affects performance, Phase~E2 tested two normalization variants on PreAct-ResNet-110 (2 seeds each, 64,000 iterations) and compared them against the closed-out LyASC+LN Phase~D baseline (7.17\% $\pm$ 0.21\%):
+To see how the post-gate normalization function $G$ affects performance, Phase~E2 tested two normalization variants on PreAct-ResNet-110 (3 seeds each, 64,000 iterations) and compared them against the closed-out LyASC+LN Phase~D baseline (7.17\% $\pm$ 0.21\%):
 \begin{itemize}
     \item \textbf{LyASC\_noG ($G = \text{identity}$, reused from Phase~C):} Omitting post-gate normalization gives a 3-seed mean error of 9.66\% $\pm$ 0.74\% (individual seeds: 10.21\%, 8.82\%, 9.95\%), which is 2.49 percentage points worse than LyASC+LN (7.17\%). Post-gate normalization is therefore necessary to keep classification error in the single digits.
-    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization gives an error of 6.34\% $\pm$ 0.01\% (individual seeds: 6.35\%, 6.33\%, $n=2$, with seed~2 still in training). In unstressed training this is 0.83 percentage points lower than LyASC+LN (7.17\%, $n=3$). The 6.34\% error rate is statistically indistinguishable from plain 1xSkip (6.27\% to 6.36\%) and remains above the best fixed baseline, 2rSkip+LN (6.15\%). We have not tested LyASC+BN under stress conditions.
+    \item \textbf{LyASC+BN ($G = \text{BatchNorm2d}$):} Replacing LayerNorm with post-gate 2-D Batch Normalization gives an error of 6.32\% $\pm$ 0.04\% (individual seeds: 6.35\%, 6.33\%, 6.27\%, $n=3$). In unstressed training this is 0.85 percentage points lower than LyASC+LN (7.17\%, $n=3$). The 6.32\% error rate is statistically indistinguishable from plain 1xSkip (6.27\% $\pm$ 0.04\%) and remains above the best fixed baseline, 2rSkip+LN (6.15\% $\pm$ 0.09\%). We have not tested LyASC+BN under stress conditions.
 \end{itemize}
 
 Table~\ref{tab:normpairing} summarizes the normalization pairing ablation matrix.
@@ -611,10 +611,9 @@ Variant & Post-Gate Norm $G$ & $n$ & Mean Error (\%) & $\alpha_{\text{mean}}$ \\
 \midrule
 LyASC+LN (Phase D)   & LayerNorm2d & 3 & 7.17 $\pm$ 0.21 & 0.701 \\
 LyASC\_noG (Phase C) & Identity    & 3 & 9.66 $\pm$ 0.74 & 0.667 \\
-LyASC+BN             & BatchNorm2d & 2$^*$ & 6.34 $\pm$ 0.01 & 0.562 \\
+LyASC+BN             & BatchNorm2d & 3 & 6.32 $\pm$ 0.04 & 0.568 \\
 PreAct-ResNet-110    & N/A         & 3 & 6.27 $\pm$ 0.04 & N/A   \\
 \bottomrule
-\multicolumn{5}{l}{\footnotesize $^*$Seed 2 in training at time of reporting.}
 \end{tabular}
 \end{table}
 

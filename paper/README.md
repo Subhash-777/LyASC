@@ -39,11 +39,11 @@ Evaluates post-gate normalization functions ($G = \text{Identity}$ vs $G = \text
 |---|---|---|---|---|---|---|
 | **`LyASC+LN`** (Phase D Baseline) | LayerNorm2d | 3 | 7.33%, 7.25%, 6.93% | **7.17% ± 0.21%** | 0.7014 | reference |
 | **`LyASC_noG`** (reused from Phase C) | Identity (None) | 3 | 10.21%, 8.82%, 9.95% | **9.66% ± 0.74%** | 0.6580 | **+2.49pp** |
-| **`LyASC+BN`** | BatchNorm2d | 2 | 6.35%, 6.33% | **6.34% ± 0.01%** | 0.5621 | **-0.83pp** |
+| **`LyASC+BN`** | BatchNorm2d | 3 | 6.35%, 6.33%, 6.27% | **6.32% ± 0.04%** | 0.5680 | **-0.85pp** |
 | **PreAct-ResNet-110** (Base) | N/A | 3 | 6.31%, 6.28%, 6.23% | **6.27% ± 0.04%** | N/A | -0.90pp |
 
 - **Post-Gate Normalization Requirement**: Omitting post-gate normalization (`LyASC_noG`) incurs a **+2.49pp** penalty vs `LyASC+LN` (9.66% vs 7.17%), confirming post-gate normalization is necessary.
-- **Observed Unstressed Performance**: In unstressed training, `LyASC+BN` achieves **6.34% mean error** ($n=2$; seed 2 running in background), an observed difference of **-0.83pp** vs `LyASC+LN` (7.17%, $n=3$). This result is statistically indistinguishable from plain 1xSkip (6.27% to 6.36%) and remains above 2rSkip+LN (6.15%). The performance of `LyASC+BN` under stress conditions is untested.
+- **Observed Unstressed Performance**: In unstressed training, `LyASC+BN` achieves **6.32% ± 0.04% mean error** ($n=3$), an observed difference of **-0.85pp** vs `LyASC+LN` (7.17%, $n=3$). This result is statistically indistinguishable from plain 1xSkip (6.27% ± 0.04%, +0.05pp difference) and remains above 2rSkip+LN (6.15% ± 0.09%). The performance of `LyASC+BN` under stress conditions is untested.
 
 ---
 

@@ -404,9 +404,10 @@ def collect_lyasc_results():
     ]
     for variant_name, label, target_seeds in norm_configs:
         variant_runs = []
+        file_prefix = variant_name.replace('+', 'plus')
         for seed in target_seeds:
-            json_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{variant_name}__depth110__seed{seed}.json"
-            log_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{variant_name}__seed{seed}.log"
+            json_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{file_prefix}__depth110__seed{seed}.json"
+            log_path = LOG_DIR / "phase_e_stresstest" / f"lyasc_phase_e_stresstest__{file_prefix}__seed{seed}.log"
             r = read_json(json_path)
             if r:
                 curve = parse_training_log(str(log_path))

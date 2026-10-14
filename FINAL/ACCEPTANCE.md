@@ -15,7 +15,7 @@ All comparison baselines are from the verified base-model reproduction on CIFAR-
 | Variant | n | Seeds (%) | Mean ± Sample SD | Diff vs 2rSkip+LN | Status | Verdict Note |
 |---|---|---|---|---|---|---|
 | **LyASC+LN** (Phase D `none`) | 3 | 7.33, 7.25, 6.93 | **7.17% ± 0.21%** | +1.02pp | **NOT MET** | Does not match hand-tuned fixed schedule; falls +1.02pp short in unstressed training. |
-| **LyASC+BN** (Phase E2) | 2 | 6.35, 6.33 | **6.34% ± 0.01%** | +0.19pp | **MET (n=2, Seed 2 Training)** | Statistically matches 2rSkip+LN within tolerance (+0.19pp). Indistinguishable from plain 1xSkip (6.27%); this is "matches", not "beats". Stress behavior untested. |
+| **LyASC+BN** (Phase E2) | 3 | 6.35, 6.33, 6.27 | **6.32% ± 0.04%** | +0.17pp | **MET** | Statistically matches 2rSkip+LN within tolerance (+0.17pp). Indistinguishable from plain 1xSkip (6.27% ± 0.04%, +0.05pp difference); this is "matches", not "beats". Stress behavior untested. |
 
 ---
 
@@ -25,7 +25,7 @@ All comparison baselines are from the verified base-model reproduction on CIFAR-
 | Variant | n | Seeds (%) | Mean ± Sample SD | Diff vs wSkip+LN | Status | Verdict Note |
 |---|---|---|---|---|---|---|
 | **LyASC+LN** (Phase D `none`) | 3 | 7.33, 7.25, 6.93 | **7.17% ± 0.21%** | -0.99pp | **MET** | Beats naive learned gate by 0.99pp with stable convergence and no LR mitigations. |
-| **LyASC+BN** (Phase E2) | 2 | 6.35, 6.33 | **6.34% ± 0.01%** | -1.82pp | **MET** | Beats naive learned gate by 1.82pp with stable convergence. |
+| **LyASC+BN** (Phase E2) | 3 | 6.35, 6.33, 6.27 | **6.32% ± 0.04%** | -1.84pp | **MET** | Beats naive learned gate by 1.84pp with stable convergence. |
 | **LyASC_noG** (Phase C reused) | 3 | 10.21, 8.82, 9.95 | **9.66% ± 0.74%** | +1.50pp | **NOT MET** | Without post-gate norm, un-normalized gating drifts and underperforms wSkip+LN. |
 
 ---
@@ -48,8 +48,8 @@ All comparison baselines are from the verified base-model reproduction on CIFAR-
 | Objective / Claim | Pre-Registered Standard | Empirical Outcome | Status |
 |---|---|---|---|
 | LyASC matches rSkip+LN (LN post-gate) | Mean within ±0.40pp of 6.15% | 7.17% ± 0.21% (+1.02pp gap) | **NOT MET** |
-| LyASC matches rSkip+LN (BN post-gate) | Mean within ±0.40pp of 6.15% | 6.34% ± 0.01% (+0.19pp gap; matches 1xSkip 6.27%) | **MET (n=2, Seed 2 Training)** |
-| LyASC beats naive learned gate wSkip+LN | Mean strictly below 8.16% | 7.17% ± 0.21% (LN), 6.34% ± 0.01% (BN) | **MET** |
+| LyASC matches rSkip+LN (BN post-gate) | Mean within ±0.40pp of 6.15% | 6.32% ± 0.04% (+0.17pp gap; matches 1xSkip 6.27%) | **MET (n=3)** |
+| LyASC beats naive learned gate wSkip+LN | Mean strictly below 8.16% | 7.17% ± 0.21% (LN), 6.32% ± 0.04% (BN) | **MET** |
 | LyASC rescues 0.5x skip scaling collapse | Stable convergence below 10% | 8.38% ± 0.43% (rescued from 37.14%) | **MET** |
 | LyASC rescues 2.0x residual scaling collapse | Stable convergence below 10% | 8.44% ± 0.34% (rescued from 37.59%) | **MET** |
 | LyASC rescues 3.0x residual scaling collapse | Stable convergence below 10% | 1 seed Full Rescue (8.75%), 4 seeds Partial Rescue (25.16% mean) | **MET / PARTIALLY RESOLVED** |

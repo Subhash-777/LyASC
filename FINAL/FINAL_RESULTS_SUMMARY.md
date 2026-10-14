@@ -19,7 +19,7 @@ All values trace to verified result JSONs and MLflow runs. Standard deviations a
 | **Phase E1** | `LyASC_stress_3.0 (Partial)` | LayerNorm2d | 4 | 27.90, 32.73, 19.12, 20.88 | **25.16** | ± 6.31 | Base LN(x+3F) | 49.27 | -24.11 | Partial Rescue (↓ 24.11pp) |
 | **Phase E1** | `LyASC_stress_3.0 (Pooled)` | LayerNorm2d | 5 | 27.90, 32.73, 19.12, 20.88, 8.75 | **21.88** | ± 9.15 | Base LN(x+3F) | 49.27 | -27.39 | Bimodal pooled aggregate |
 | **Phase E2** | `LyASC_noG` (reused Phase C) | Identity (None) | 3 | 10.21, 8.82, 9.95 | **9.66** | ± 0.74 | `LyASC+LN` | 7.17 | +2.49 | Confirms G is required |
-| **Phase E2** | `LyASC+BN` | BatchNorm2d | 2 | 6.35, 6.33 | **6.34** | ± 0.01 | `2rSkip+LN` | 6.15 | +0.19 | Matches 2rSkip+LN / 1xSkip (seed 2 running in background) |
+| **Phase E2** | `LyASC+BN` | BatchNorm2d | 3 | 6.35, 6.33, 6.27 | **6.32** | ± 0.04 | `2rSkip+LN` | 6.15 | +0.17 | Matches 2rSkip+LN / 1xSkip (complete) |
 
 ---
 
@@ -27,10 +27,10 @@ All values trace to verified result JSONs and MLflow runs. Standard deviations a
 
 1. **Matches Best Fixed Baseline (`2rSkip+LN` at 6.15% ± 0.40pp)**:
    - `LyASC+LN`: 7.17% ± 0.21% (+1.02pp gap) -> **NOT MET**.
-   - `LyASC+BN`: 6.34% ± 0.01% (+0.19pp gap) -> **MET** (indistinguishable from plain 1xSkip at 6.27%; this is "matches", not "beats"; stress behavior untested).
+   - `LyASC+BN`: 6.32% ± 0.04% (+0.17pp gap) -> **MET** (indistinguishable from plain 1xSkip at 6.27%; this is "matches", not "beats"; stress behavior untested).
 
 2. **Beats Unconstrained Learned Gate (`wSkip+LN` at 8.16%)**:
-   - `LyASC+LN` (7.17%) and `LyASC+BN` (6.34%) strictly beat 8.16% without requiring LR multiplier mitigations -> **MET**.
+   - `LyASC+LN` (7.17%) and `LyASC+BN` (6.32%) strictly beat 8.16% without requiring LR multiplier mitigations -> **MET**.
    - `LyASC_noG` (9.66%) underperforms -> **NOT MET** (confirms normalization requirement).
 
 3. **Catastrophic Stress Recovery**:

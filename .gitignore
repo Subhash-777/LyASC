@@ -37,6 +37,11 @@ base_model/data/
 # OS / Editor junk
 .DS_Store
 *.swp
+.~lock.*#
+.~lock.*
 
 # Reference PDFs (local download)
 paper/Reference_pdfs/
+
+# Local IDE configuration
+.gemini/

@@ -45,11 +45,11 @@ Evaluates post-gate normalization functions ($G = \text{Identity}$ vs $G = \text
 |---|---|---|---|---|---|---|
 | **`LyASC+LN`** (Phase D Baseline) | LayerNorm2d | 3 | 7.33%, 7.25%, 6.93% | **7.17% ± 0.21%** | 0.7014 | reference |
 | **`LyASC_noG`** (reused from Phase C) | Identity (None) | 3 | 10.21%, 8.82%, 9.95% | **9.66% ± 0.74%** | 0.6580 | **+2.49pp** |
-| **`LyASC+BN`** | BatchNorm2d | 2 | 6.35%, 6.33% | **6.34% ± 0.01%** | 0.5621 | **-0.83pp** |
+| **`LyASC+BN`** | BatchNorm2d | 3 | 6.35%, 6.33%, 6.27% | **6.32% ± 0.04%** | 0.5680 | **-0.85pp** |
 | **PreAct-ResNet-110** (Base) | N/A | 3 | 6.31%, 6.28%, 6.23% | **6.27% ± 0.04%** | N/A | -0.90pp |
 
 - **Post-Gate Normalization Requirement**: Omitting post-gate normalization (`LyASC_noG`) incurs a **+2.49pp** penalty vs `LyASC+LN` (9.66% vs 7.17%), confirming post-gate normalization is necessary.
-- **Observed Unstressed Performance**: In unstressed training, `LyASC+BN` achieves **6.34% mean error** ($n=2$; seed 2 running in background), an observed difference of **-0.83pp** vs `LyASC+LN` (7.17%, $n=3$). This result is statistically indistinguishable from plain 1xSkip (6.27% to 6.36%) and remains above 2rSkip+LN (6.15%). The performance of `LyASC+BN` under stress conditions is untested.
+- **Observed Unstressed Performance**: In unstressed training, `LyASC+BN` achieves **6.32% ± 0.04% mean error** ($n=3$), an observed difference of **-0.85pp** vs `LyASC+LN` (7.17%, $n=3$). This result is statistically indistinguishable from plain 1xSkip (6.27% ± 0.04%, +0.05pp difference) and remains above 2rSkip+LN (6.15% ± 0.09%). The performance of `LyASC+BN` under stress conditions is untested.
 
 ---
 
@@ -117,10 +117,46 @@ cd paper/
 pdflatex main && bibtex main && pdflatex main && pdflatex main
 ```
 
-### 5. Run CPU Inference Demo
+### 5. Run Interactive CPU Inference Demo
+The demo evaluates CIFAR-10 test set images entirely on CPU without GPU requirements, printing sample-level predictions, ground truth labels, confidence scores, and per-stage architectural statistics (LyASC gate $\alpha$ distributions or baseline scaling schedules).
+
 ```bash
 conda activate lyasc-experiments
-bash demo/run_demo.sh
+
+# List all available pre-configured presets (9 models across LyASC and baselines)
+bash demo/run_demo.sh --list
+
+# 1. Primary LyASC+LN model (Phase D baseline, 7.33% seed 0)
+bash demo/run_demo.sh --preset ln
+
+# 2. LyASC+BN model (Phase E2 BatchNorm pairing, 6.35% seed 0)
+bash demo/run_demo.sh --preset bn
+
+# 3. LyASC_noG ablation model (Phase C un-normalized gating, 10.21% seed 0)
+bash demo/run_demo.sh --preset nog
+
+# 4. LyASC Stress 0.5x rescue model (recovers from 37.14% baseline failure to 7.98%)
+bash demo/run_demo.sh --preset stress_0.5
+
+# 5. LyASC Stress 2.0x rescue model (recovers from 37.59% baseline failure to 8.13%)
+bash demo/run_demo.sh --preset stress_2.0
+
+# 6. LyASC Stress 3.0x Full Rescue breakthrough model (Seed 4, 8.75% error)
+bash demo/run_demo.sh --preset stress_3.0_rescue
+
+# 7. LyASC Stress 3.0x Partial Rescue cluster model (Seed 1, 32.73% error)
+bash demo/run_demo.sh --preset stress_3.0_partial
+
+# 8. Base Model 1xSkip baseline (standard identity shortcut, 6.31% error)
+bash demo/run_demo.sh --preset 1xskip
+
+# 9. Base Model 2rSkip+LN baseline (Liu et al. best hand-tuned fixed schedule, 6.09% error)
+bash demo/run_demo.sh --preset 2rskip
+
+# Additional options: customize sample count or random seed
+bash demo/run_demo.sh --preset bn --samples 12 --seed 42
+
+# Direct custom checkpoint path
+bash demo/run_demo.sh lyasc_model/results/checkpoints/phase_e_stresstest/lyasc_phase_e_stresstest__LyASCplusBN__depth110__seed0.pt
 ```
-*(Evaluates 8 CIFAR-10 test samples on CPU without GPU requirements, printing predictions, true labels, and per-stage gate statistics)*
 

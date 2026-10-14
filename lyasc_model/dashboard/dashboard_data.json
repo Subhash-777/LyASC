@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-13T16:54:40.817593+00:00",
+    "generated_at": "2026-10-14T04:26:45.291889+00:00",
     "generator": "export_dashboard_data.py",
     "project": "LyASC \u2014 Lyapunov-Adaptive Skip Connections",
     "note": "Auto-generated. Re-run before presentation for latest data."
@@ -4834,6 +4834,504 @@
             "n_seeds_complete": 3
           },
           "status": "complete"
+        },
+        "LyASC+BN": {
+          "label": "BatchNorm2d",
+          "runs": [
+            {
+              "variant": "LyASC+BN",
+              "seed": 0,
+              "final_test_error": 6.35,
+              "total_iters": 64000,
+              "wall_clock_hours": 0.85,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.5358752497920284,
+                "alpha_std": 0.15607963883512604,
+                "alpha_min": 0.29634591937065125,
+                "alpha_max": 1.0,
+                "beta_mean": 0.08105831733404624,
+                "beta_std": 0.7715355617742271,
+                "lambda_mean": -1.5527022476652983,
+                "lambda_std": 3.8167397566175167
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 1.9946,
+                  "train_acc": 24.23,
+                  "grad_norm": 27.281,
+                  "alpha_mean": 0.6147,
+                  "alpha_std": 0.0805,
+                  "alpha_min": 0.4257,
+                  "alpha_max": 0.8503
+                },
+                {
+                  "iter": 6000,
+                  "loss": 0.4771,
+                  "train_acc": 83.59,
+                  "grad_norm": 1.087,
+                  "alpha_mean": 0.62,
+                  "alpha_std": 0.1828,
+                  "alpha_min": 0.1394,
+                  "alpha_max": 0.9884
+                },
+                {
+                  "iter": 11000,
+                  "loss": 0.3062,
+                  "train_acc": 89.46,
+                  "grad_norm": 1.129,
+                  "alpha_mean": 0.5769,
+                  "alpha_std": 0.1776,
+                  "alpha_min": 0.2604,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 16000,
+                  "loss": 0.2388,
+                  "train_acc": 91.73,
+                  "grad_norm": 1.138,
+                  "alpha_mean": 0.6149,
+                  "alpha_std": 0.1323,
+                  "alpha_min": 0.4528,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.2015,
+                  "train_acc": 92.99,
+                  "grad_norm": 1.131,
+                  "alpha_mean": 0.6054,
+                  "alpha_std": 0.1334,
+                  "alpha_min": 0.4066,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.1874,
+                  "train_acc": 93.53,
+                  "grad_norm": 1.156,
+                  "alpha_mean": 0.6122,
+                  "alpha_std": 0.1269,
+                  "alpha_min": 0.4177,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.1728,
+                  "train_acc": 94.01,
+                  "grad_norm": 1.146,
+                  "alpha_mean": 0.6133,
+                  "alpha_std": 0.1299,
+                  "alpha_min": 0.4005,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 36000,
+                  "loss": 0.0182,
+                  "train_acc": 99.47,
+                  "grad_norm": 0.54,
+                  "alpha_mean": 0.5798,
+                  "alpha_std": 0.1437,
+                  "alpha_min": 0.3674,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 41000,
+                  "loss": 0.0076,
+                  "train_acc": 99.79,
+                  "grad_norm": 0.458,
+                  "alpha_mean": 0.5642,
+                  "alpha_std": 0.1468,
+                  "alpha_min": 0.3358,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 46000,
+                  "loss": 0.0058,
+                  "train_acc": 99.84,
+                  "grad_norm": 0.426,
+                  "alpha_mean": 0.5448,
+                  "alpha_std": 0.1509,
+                  "alpha_min": 0.3081,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 51000,
+                  "loss": 0.0031,
+                  "train_acc": 99.94,
+                  "grad_norm": 0.276,
+                  "alpha_mean": 0.5394,
+                  "alpha_std": 0.1512,
+                  "alpha_min": 0.306,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 54000,
+                  "loss": 0.0025,
+                  "train_acc": 99.95,
+                  "grad_norm": 0.235,
+                  "alpha_mean": 0.5385,
+                  "alpha_std": 0.1511,
+                  "alpha_min": 0.3086,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 59000,
+                  "loss": 0.0022,
+                  "train_acc": 99.96,
+                  "grad_norm": 0.22,
+                  "alpha_mean": 0.5376,
+                  "alpha_std": 0.1538,
+                  "alpha_min": 0.2999,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0016,
+                  "train_acc": 99.98,
+                  "grad_norm": 0.174,
+                  "alpha_mean": 0.5359,
+                  "alpha_std": 0.1561,
+                  "alpha_min": 0.2963,
+                  "alpha_max": 1.0
+                }
+              ]
+            },
+            {
+              "variant": "LyASC+BN",
+              "seed": 1,
+              "final_test_error": 6.330000000000002,
+              "total_iters": 64000,
+              "wall_clock_hours": 0.29,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.5882544826578211,
+                "alpha_std": 0.1535015561239023,
+                "alpha_min": 0.34594932198524475,
+                "alpha_max": 1.0,
+                "beta_mean": -0.4617333471844042,
+                "beta_std": 1.1338926023118765,
+                "lambda_mean": -1.5543068473537762,
+                "lambda_std": 3.7418548344071643
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.3171,
+                  "train_acc": 11.21,
+                  "grad_norm": 30.287,
+                  "alpha_mean": 0.5267,
+                  "alpha_std": 0.0678,
+                  "alpha_min": 0.3261,
+                  "alpha_max": 0.8228
+                },
+                {
+                  "iter": 6000,
+                  "loss": 0.6195,
+                  "train_acc": 78.56,
+                  "grad_norm": 1.054,
+                  "alpha_mean": 0.7357,
+                  "alpha_std": 0.1489,
+                  "alpha_min": 0.0041,
+                  "alpha_max": 0.893
+                },
+                {
+                  "iter": 11000,
+                  "loss": 0.3197,
+                  "train_acc": 88.93,
+                  "grad_norm": 1.068,
+                  "alpha_mean": 0.6975,
+                  "alpha_std": 0.1597,
+                  "alpha_min": 0.182,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 16000,
+                  "loss": 0.2389,
+                  "train_acc": 91.73,
+                  "grad_norm": 1.097,
+                  "alpha_mean": 0.6965,
+                  "alpha_std": 0.1195,
+                  "alpha_min": 0.4376,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 21000,
+                  "loss": 0.2059,
+                  "train_acc": 92.79,
+                  "grad_norm": 1.136,
+                  "alpha_mean": 0.6723,
+                  "alpha_std": 0.1203,
+                  "alpha_min": 0.3934,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 26000,
+                  "loss": 0.1854,
+                  "train_acc": 93.59,
+                  "grad_norm": 1.142,
+                  "alpha_mean": 0.6609,
+                  "alpha_std": 0.1233,
+                  "alpha_min": 0.3871,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 31000,
+                  "loss": 0.1781,
+                  "train_acc": 93.75,
+                  "grad_norm": 1.174,
+                  "alpha_mean": 0.6481,
+                  "alpha_std": 0.1292,
+                  "alpha_min": 0.3292,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 33000,
+                  "loss": 0.0704,
+                  "train_acc": 97.7,
+                  "grad_norm": 0.723,
+                  "alpha_mean": 0.6408,
+                  "alpha_std": 0.1346,
+                  "alpha_min": 0.362,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 38000,
+                  "loss": 0.0134,
+                  "train_acc": 99.64,
+                  "grad_norm": 0.494,
+                  "alpha_mean": 0.6187,
+                  "alpha_std": 0.141,
+                  "alpha_min": 0.3894,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 43000,
+                  "loss": 0.0063,
+                  "train_acc": 99.85,
+                  "grad_norm": 0.367,
+                  "alpha_mean": 0.6085,
+                  "alpha_std": 0.1468,
+                  "alpha_min": 0.3496,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 48000,
+                  "loss": 0.0053,
+                  "train_acc": 99.87,
+                  "grad_norm": 0.395,
+                  "alpha_mean": 0.5957,
+                  "alpha_std": 0.1581,
+                  "alpha_min": 0.3537,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 53000,
+                  "loss": 0.0028,
+                  "train_acc": 99.95,
+                  "grad_norm": 0.233,
+                  "alpha_mean": 0.5979,
+                  "alpha_std": 0.1608,
+                  "alpha_min": 0.3499,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 58000,
+                  "loss": 0.0027,
+                  "train_acc": 99.96,
+                  "grad_norm": 0.23,
+                  "alpha_mean": 0.5919,
+                  "alpha_std": 0.1591,
+                  "alpha_min": 0.3512,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 62000,
+                  "loss": 0.002,
+                  "train_acc": 99.97,
+                  "grad_norm": 0.181,
+                  "alpha_mean": 0.591,
+                  "alpha_std": 0.1539,
+                  "alpha_min": 0.3445,
+                  "alpha_max": 1.0
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0012,
+                  "train_acc": 99.99,
+                  "grad_norm": 0.101,
+                  "alpha_mean": 0.5883,
+                  "alpha_std": 0.1535,
+                  "alpha_min": 0.3459,
+                  "alpha_max": 1.0
+                }
+              ]
+            },
+            {
+              "variant": "LyASC+BN",
+              "seed": 2,
+              "final_test_error": 6.269999999999998,
+              "total_iters": 64000,
+              "wall_clock_hours": 0.67,
+              "lyasc_diagnostics": {
+                "alpha_mean": 0.5799004523842423,
+                "alpha_std": 0.13330283132449924,
+                "alpha_min": 0.3351591229438782,
+                "alpha_max": 0.9146303534507751,
+                "beta_mean": -0.32297790036709223,
+                "beta_std": 0.911738473715188,
+                "lambda_mean": -1.0431928013761838,
+                "lambda_std": 1.0852117869015019
+              },
+              "training_curve": [
+                {
+                  "iter": 1000,
+                  "loss": 2.2025,
+                  "train_acc": 15.76,
+                  "grad_norm": 33.971,
+                  "alpha_mean": 0.5112,
+                  "alpha_std": 0.1055,
+                  "alpha_min": 0.099,
+                  "alpha_max": 0.748
+                },
+                {
+                  "iter": 6000,
+                  "loss": 0.7494,
+                  "train_acc": 73.94,
+                  "grad_norm": 1.035,
+                  "alpha_mean": 0.6977,
+                  "alpha_std": 0.1105,
+                  "alpha_min": 0.4659,
+                  "alpha_max": 0.9101
+                },
+                {
+                  "iter": 11000,
+                  "loss": 0.3765,
+                  "train_acc": 87.03,
+                  "grad_norm": 1.054,
+                  "alpha_mean": 0.6996,
+                  "alpha_std": 0.1454,
+                  "alpha_min": 0.2818,
+                  "alpha_max": 0.9098
+                },
+                {
+                  "iter": 16000,
+                  "loss": 0.2687,
+                  "train_acc": 90.63,
+                  "grad_norm": 1.041,
+                  "alpha_mean": 0.7014,
+                  "alpha_std": 0.1192,
+                  "alpha_min": 0.4172,
+                  "alpha_max": 0.913
+                },
+                {
+                  "iter": 20000,
+                  "loss": 0.2329,
+                  "train_acc": 91.92,
+                  "grad_norm": 1.054,
+                  "alpha_mean": 0.6898,
+                  "alpha_std": 0.1105,
+                  "alpha_min": 0.4988,
+                  "alpha_max": 0.9119
+                },
+                {
+                  "iter": 25000,
+                  "loss": 0.205,
+                  "train_acc": 92.93,
+                  "grad_norm": 1.088,
+                  "alpha_mean": 0.6794,
+                  "alpha_std": 0.1067,
+                  "alpha_min": 0.4865,
+                  "alpha_max": 0.9164
+                },
+                {
+                  "iter": 30000,
+                  "loss": 0.1868,
+                  "train_acc": 93.47,
+                  "grad_norm": 1.109,
+                  "alpha_mean": 0.66,
+                  "alpha_std": 0.1004,
+                  "alpha_min": 0.483,
+                  "alpha_max": 0.9173
+                },
+                {
+                  "iter": 35000,
+                  "loss": 0.032,
+                  "train_acc": 99.02,
+                  "grad_norm": 0.612,
+                  "alpha_mean": 0.6305,
+                  "alpha_std": 0.1104,
+                  "alpha_min": 0.4302,
+                  "alpha_max": 0.8965
+                },
+                {
+                  "iter": 40000,
+                  "loss": 0.0108,
+                  "train_acc": 99.7,
+                  "grad_norm": 0.495,
+                  "alpha_mean": 0.6097,
+                  "alpha_std": 0.1195,
+                  "alpha_min": 0.3871,
+                  "alpha_max": 0.889
+                },
+                {
+                  "iter": 45000,
+                  "loss": 0.0079,
+                  "train_acc": 99.78,
+                  "grad_norm": 0.496,
+                  "alpha_mean": 0.596,
+                  "alpha_std": 0.1265,
+                  "alpha_min": 0.36,
+                  "alpha_max": 0.909
+                },
+                {
+                  "iter": 50000,
+                  "loss": 0.0038,
+                  "train_acc": 99.91,
+                  "grad_norm": 0.307,
+                  "alpha_mean": 0.5878,
+                  "alpha_std": 0.1307,
+                  "alpha_min": 0.3561,
+                  "alpha_max": 0.8734
+                },
+                {
+                  "iter": 55000,
+                  "loss": 0.0029,
+                  "train_acc": 99.95,
+                  "grad_norm": 0.253,
+                  "alpha_mean": 0.5827,
+                  "alpha_std": 0.1318,
+                  "alpha_min": 0.3457,
+                  "alpha_max": 0.8982
+                },
+                {
+                  "iter": 60000,
+                  "loss": 0.0024,
+                  "train_acc": 99.96,
+                  "grad_norm": 0.208,
+                  "alpha_mean": 0.5802,
+                  "alpha_std": 0.1314,
+                  "alpha_min": 0.3417,
+                  "alpha_max": 0.8829
+                },
+                {
+                  "iter": 64000,
+                  "loss": 0.0022,
+                  "train_acc": 99.96,
+                  "grad_norm": 0.213,
+                  "alpha_mean": 0.5799,
+                  "alpha_std": 0.1333,
+                  "alpha_min": 0.3352,
+                  "alpha_max": 0.9146
+                }
+              ]
+            }
+          ],
+          "aggregate": {
+            "mean": 6.317,
+            "std": 0.042,
+            "n_seeds_complete": 3
+          },
+          "status": "complete"
         }
       }
     }
@@ -4883,6 +5381,16 @@
       "decision": "phase_e2_normalization_pairing_ablation_complete",
       "value": "Ground-truth LyASC+LN baseline confirmed as Phase D closed-out result: 7.17% \u00b1 0.21% (seeds 7.33%, 7.25%, 6.93%). Reused without retraining. LyASC_noG (G=Identity) test error = 9.52% \u00b1 0.98% (+2.35pp penalty vs LyASC+LN 7.17%); LyASC+BN (G=BatchNorm2d) test error = 6.34% \u00b1 0.01% (observed difference of -0.83pp vs LyASC+LN 7.17%).",
       "rationale": "Baseline Audit & Phase E2 normalization pairing ablations completed (depth 110, 64k iters, 2 seeds each):\n1. Baseline Audit & Provenance Verification: Reused pre-registered Phase D cold-start 'none' baseline for LyASC+LN (3-seed mean: 7.17% \u00b1 0.21%, seeds 0-2: 7.33%, 7.25%, 6.93%). No retraining performed. Provenance check confirmed draft table figures (6.31%, 6.32%, 6.39%) were pulled from base paper reference values; ground-truth 7.17% baseline restored.\n2. LyASC_noG (G=Identity, no post-gate norm): Seed 0 = 10.21%, Seed 1 = 8.82% (2-seed mean: 9.52% \u00b1 0.98%, alpha_mean = 0.6580). Omitting post-gate normalization incurs a +2.35pp penalty vs LyASC+LN (7.17%), confirming post-gate normalization is necessary.\n3. LyASC+BN (G=BatchNorm2d): Seed 0 = 6.35%, Seed 1 = 6.33% (2-seed mean: 6.34% \u00b1 0.01%, alpha_mean = 0.5621). In unstressed training, this represents an observed difference of -0.83pp vs LyASC+LN (7.17%, n=3). This result is statistically indistinguishable from plain 1xSkip (6.27%-6.36%) and remains above 2rSkip+LN (6.15%). The behavior of LyASC+BN under stress conditions remains untested."
+    },
+    {
+      "decision": "audit_corrections_and_final_review_freeze",
+      "value": "Number audit, provenance tracing, sample SD standardization, checkpoint re-evaluation, and final freeze completed.",
+      "rationale": "Pre-review audit conducted across workspace (12-hour review window):\n1. Number Audit & Provenance Tracing:\n   - Phase D Cold-Start Strategy Ablation: Corrected README table from mis-cited draft values (6.34% \u00b1 0.15%, 6.37% \u00b1 0.03%, 6.40% \u00b1 0.08%) to ground-truth result JSON values: none (7.17% \u00b1 0.21%, n=3), damped (7.46% \u00b1 0.31%, n=3), warmup (7.95% \u00b1 0.21%, n=2).\n   - Phase E2 LyASC_noG Provenance: Traced and confirmed seeds 0 and 1 (10.21%, 8.82%) share identical config to Phase C (G=Identity, no cold-start, k=1, N=20). Restored Phase C seed 2 (9.95%) to establish n=3 with 3-seed mean = 9.66% \u00b1 0.74% (sample SD), delta +2.49pp vs LyASC+LN (7.17%).\n   - Phase E2 LyASC+BN: Seed 0 (6.35%), Seed 1 (6.33%), mean = 6.34% \u00b1 0.01% (n=2). Seed 2 launched in background on GPU (iter ~8000+, healthy). Indistinguishable from plain 1xSkip (6.27% to 6.36%). Behavior under stress conditions untested.\n   - Warmup/Damped Duration: Clarified recorded duration is 1,000 iterations (corrected references saying 2,000 or 2k).\n2. Standard Deviation Convention: Standardized on sample standard deviation (ddof=1) across dashboard_data.json, figures, tables, and documentation.\n3. Checkpoint Re-evaluation: All 9 saved checkpoints re-evaluated on CPU across 10,000 CIFAR-10 test set images. Recorded test errors verified with differences <= 0.02 percentage points (acceptance criterion <= 0.05pp).\n4. Gate Parameter Maps: Extracted alpha, beta, and lambda trajectories across all 54 blocks for 7 model variants (stress_0.5, stress_2.0, stress_3.0 seeds 0-4).\n5. Unit Tests: 78 automated unit tests passed across lyasc_model and base_model."
+    },
+    {
+      "decision": "phase_e2_lyasc_plus_bn_seed2_completed_final_results",
+      "value": "LyASC+BN Seed 2 completed with test error 6.27%. Final 3-seed statistics (n=3): mean test error = 6.32% \u00b1 0.04% (sample SD, ddof=1; individual seeds: 6.35%, 6.33%, 6.27%). Mean gate alpha = 0.5680.",
+      "rationale": "Background training of LyASC+BN Seed 2 completed all 64,000 iterations on PreAct-ResNet-110 (CIFAR-10) with checkpoint evaluation on the 10,000 test set images:\n1. Result: Seed 2 final test error = 6.27%, alpha_mean = 0.5799 (alpha_min = 0.3352, alpha_max = 0.9146).\n2. Combined n=3 statistics: Mean test error = 6.32% \u00b1 0.04% (sample SD, ddof=1).\n3. Acceptance evaluation: Matches best reproduced fixed schedule 2rSkip+LN (6.15% \u00b1 0.09%) within +0.17pp (pre-registered tolerance band \u00b10.40pp). Indistinguishable from plain 1xSkip (6.27% \u00b1 0.04%, delta +0.05pp). Outperforms unconstrained learned gate wSkip+LN (8.16% \u00b1 0.13%) by -1.84pp.\n4. Scope caveat: Behavior under stress conditions (contracted skip / expanded residual scaling) remains untested for BatchNorm2d."
     }
   ],
   "timing_benchmarks": {
